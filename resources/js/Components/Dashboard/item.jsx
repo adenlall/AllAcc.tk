@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Inertia } from '@inertiajs/inertia'
+import { usePage } from '@inertiajs/inertia-react';
 
 export default function Item(props) {
-    // className=
+
+    const { errors } = usePage().props;
     const name = props.name;
     const [values, setValues] = useState({
         username: props.user,
@@ -41,6 +43,11 @@ export default function Item(props) {
                         <span>@</span>
                         <input id="data" value={values.data} onChange={handleChange} type="text" placeholder="aden_lall_02" className="input input-accent input-bordered" />
                     </label>
+                    {errors.data ?(
+                    <div className='label-text-alt text-red-700'>
+                        {errors.data}
+                    </div>
+                    ) : ''}
                     <button className='btn btn-sm mt-2' type='submit'>
                         save
                     </button>

@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\User;
 use Exception;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
-use Spatie\Activitylog\Models\Activity;
 
 class AsSeemController extends Controller
 {

@@ -9,7 +9,7 @@ import Spotify from '../Components/Dashboard/Spotify';
 
 export default function Dashboard() {
 
-    const { auth, services_config, services } = usePage().props;
+    const { auth, services_config, services, errors } = usePage().props;
     // console.log(auth, services);
     var int = 0;
 
@@ -146,6 +146,13 @@ export default function Dashboard() {
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
                                 <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-white p-1 rounded-lg'>@{services[serv]}</h3>
                                 <div id={serv + inc + serv} className='text-black' style={{ "color": "black" }}></div>
+                                {errors.data ? (
+                                    <div className="label-text-alt text-red-700">
+                                        {errors.data}
+                                    </div>
+
+                                    ) : ''}
+
                             </div>
                         </div>
                     </div>

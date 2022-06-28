@@ -45,7 +45,7 @@ function Header() {
             <form className="flex flex-col items-center justify-center w-full mb-4 md:flex-row md:px-16">
 
                 <Link
-                    href='/regster'
+                    href='/register'
                     className="btn btn-primary"
                 >
                     Let's start

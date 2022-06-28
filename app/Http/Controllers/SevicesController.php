@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Service;
-use App\Models\User;
+use App\Rules\Nospace;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
-use Spatie\Activitylog\Models\Activity;
 
 class SevicesController extends Controller
 {
@@ -19,12 +17,12 @@ class SevicesController extends Controller
         $validated = $request->validate([
             'name' => ['required'],
             'username' => ['required'],
-            'data' => ['required'],
+            'data' => ['required', new Nospace],
         ]);
 
         if ($validated) {
 
-            Service::where('username', Auth::user()->username)->update([
+            Service::where('username', Auth::user()->username)->first()->update([
                 $request['name'] => $request['data'],
             ]);
 

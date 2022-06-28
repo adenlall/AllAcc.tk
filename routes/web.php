@@ -16,6 +16,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileUpdateController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SoungController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,12 @@ Route::middleware('auth', 'toAdminDash')->group(function () {
 
     Route::get('profile', ProfileController::class, 'show')->name('profile');
     Route::get('dashboard', DashboardController::class)->name('dashboard');
+    Route::get('setting', SettingController::class)->name('setting');
+
+
+    Route::post('setting/skin', SettingController::class,'skin');
+    Route::post('setting/html', SettingController::class,'html');
+    Route::post('setting/set',  SettingController::class,'set');
 
     Route::post('soung', SoungController::class);
     Route::post('profile', ProfileUpdateController::class);

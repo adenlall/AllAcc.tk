@@ -64,7 +64,7 @@ class LoginController extends Controller
         Auth::logout();
 
         return redirect('/login')->with([
-            'type' => 'success', 'message' => 'You are now logout.',
+            'type' => 'success', 'message' => 'Sorry to see you out',
         ]);
     }
 

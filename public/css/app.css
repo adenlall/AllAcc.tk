@@ -2453,11 +2453,11 @@ body[dir="rtl"] .checkbox:checked,
 .h-5 {
   height: 1.25rem;
 }
-.h-\[94vh\] {
-  height: 94vh;
-}
 .h-\[5em\] {
   height: 5em;
+}
+.h-\[94vh\] {
+  height: 94vh;
 }
 .h-\[10em\] {
   height: 10em;
@@ -2534,11 +2534,11 @@ body[dir="rtl"] .checkbox:checked,
 .w-52 {
   width: 13rem;
 }
-.w-\[20\%\] {
-  width: 20%;
-}
 .w-\[5em\] {
   width: 5em;
+}
+.w-\[20\%\] {
+  width: 20%;
 }
 .w-\[10em\] {
   width: 10em;
@@ -3209,6 +3209,10 @@ body[dir="rtl"] .checkbox:checked,
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+.text-red-700 {
+  --tw-text-opacity: 1;
+  color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 .text-\[\#042b28\] {
   --tw-text-opacity: 1;
@@ -3986,10 +3990,6 @@ body[dir="rtl"] .checkbox:checked,
     height: 7rem;
   }
 
-  .xl\:h-20 {
-    height: 5rem;
-  }
-
   .xl\:h-16 {
     height: 4rem;
   }
@@ -4008,10 +4008,6 @@ body[dir="rtl"] .checkbox:checked,
 
   .xl\:w-28 {
     width: 7rem;
-  }
-
-  .xl\:w-20 {
-    width: 5rem;
   }
 
   .xl\:w-16 {
