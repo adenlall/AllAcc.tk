@@ -11,7 +11,7 @@ export default function Base({ children, title }) {
     flash.type && toast[flash.type](flash.message)
 
     return (
-        <div className="g-sidenav-show bg-[#042b28]">
+        <div className="g-sidenav-show bg-[#042b28] text-[#d3d3d3]">
             <div className="min-height-300 bg-primary position-absolute w-100"></div>
             <Head title={title} />
             <Navbar pageName={title} />

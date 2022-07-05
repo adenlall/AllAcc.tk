@@ -20,7 +20,7 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $query = ['username', 'name', 'age', 'gender', 'birthday', 'country', 'email', 'quote', 'track', 'artist'];
+            $query = ['username', 'name', 'age', 'gender', 'birthday', 'json_config', 'country', 'email', 'quote', 'track', 'artist'];
 
             User::where('username', $path)->get()->first()->increment('visit');
             $user = User::where('username', $path)->select($query)->get()->first();
@@ -30,7 +30,16 @@ class AsSeemController extends Controller
             $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
             // $resop = Http::retry(2)->get($deezURL)->json();
             // dd($resop);
-            if (User::where('username', $path)->select($query)->whereNotNull('artist')->exists()) {
+
+            $skin  = json_decode($user->json_config)->theme->skin;
+            $icons = json_decode($user->json_config)->theme->icons;
+            $skin_given =  DB::table('skin')->where('name', $skin)->select(['name', 'img0','img1','img2','clr0','clr1','__img','json_config','json_headers'])->get()->first();
+            $icons_given = DB::table('skin')->where('icons', $icons)->select(['icons', 'json_icons'])->get()->first();
+
+            // dd($icons, $skin, $skin_given, $icons_given);
+
+
+            if(User::where('username', $path)->select($query)->whereNotNull('artist')->exists()) {
 
                 try {
                     $resop = Http::retry(2)->get($deezURL)->json();
@@ -41,6 +50,9 @@ class AsSeemController extends Controller
                             "soung" => $resop["data"][0],
                             "user" => $user,
                             "services" => $services,
+                            "icons"=>$icons_given,
+                            "skin"=>$skin_given,
+
                             "services_config" => $services_config,
                         ]);
                     } else {
@@ -49,6 +61,9 @@ class AsSeemController extends Controller
                             "soung" => null,
                             "user" => $user,
                             "services" => $services,
+                            "icons"=>$icons_given,
+                            "skin"=>$skin_given,
+
                             "services_config" => $services_config,
                         ]);
                     }
@@ -57,6 +72,8 @@ class AsSeemController extends Controller
                         "soung" => null,
                         "user" => $user,
                         "services" => $services,
+                        "icons"=>$icons_given,
+                        "skin"=>$skin_given,
                         "services_config" => $services_config,
                     ]);
                 }
@@ -67,6 +84,9 @@ class AsSeemController extends Controller
                     "soung" => null,
                     "user" => $user,
                     "services" => $services,
+
+                    "icons"=>$icons_given,
+                    "skin"=>$skin_given,
                     "services_config" => $services_config,
                 ]);
             }

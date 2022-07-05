@@ -2,6 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
+.eletoanimate > *{
+    opacity: 0;
+    transition: .8s all ease-in-out;
+}
+.eletoanimate:hover > *{
+    opacity: 1;
+    transition: .8s all ease-in-out;
+}
+.eletoanimate:hover{
+    width: 100%;
+    -webkit-animation: right .7s forwards;
+    -moz-animation: right .7s forwards;
+    animation: right .7s forwards;
+}
+.eletoanimate{
+    transition: all 1s;
+}
+
+@keyframes right {
+    0% {
+      width: 10%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+
+.elemy{
+    width: 10em;
+    min-width: 10em;
+}
 
 .xelex:hover div svg {
     display: block;
@@ -21,7 +53,7 @@
   height: 0.5em;
   background-color: #3cefff;
   border-radius: 50%;
-  animation: fade 1.5s alternate ease-in-out infinite;
+  animation: fade 1.5s alternate ease-in-out;
 }
 
 .dots > div:nth-of-type(2),
@@ -49,3 +81,20 @@
     opacity: 0.2;
   }
 }
+.ittem:hover{
+    background: hsl(var(--b1)/0.5);
+}
+
+
+/* //////////////////////////////////////////////////// */
+
+[data-theme="BnW"] *{
+    border-radius: 0;
+}
+[data-theme="cyberpunk"] *{
+    border-radius: 0;
+}
+[data-theme="RRG"] *{
+   border-radius: 5vmin;
+}
+

@@ -6,7 +6,6 @@ import Item from '../Components/Dashboard/item';
 import Base from '../Layouts/Base'
 import Spotify from '../Components/Dashboard/Spotify';
 
-
 export default function Dashboard() {
 
     const { auth, services_config, services, errors } = usePage().props;
@@ -84,7 +83,7 @@ export default function Dashboard() {
         var where = document.querySelector(`#${ele + dt}`);
         var elem = document.querySelector(`#${ele}`);
         elem.remove();
-        what.setAttribute("class", 'input input-accent text-black input-bordered');
+        what.setAttribute("class", 'input input-accent text-black input-bordered bg-white');
         what.setAttribute('value', services[dt]);
         what.setAttribute('id', ele);
         what.setAttribute('type', 'text');

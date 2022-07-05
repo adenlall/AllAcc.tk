@@ -33,7 +33,7 @@ function Footer() {
                         </>
                         :
                         <>
-                            <h1 className="max-w-md mx-auto mt-2 text-gray-400">That's good, look like your already loged in.</h1>
+                            <h1 className="max-w-md mx-auto mt-2 text-gray-400">That's good, look like you are already loged in.</h1>
                             <div className="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center space-y-2 sm:space-y-0 space-x-0 sm:space-x-3 ">
                                 <Link  href={"/"+auth.user.username} class="btn gap-2">
                                     <svg

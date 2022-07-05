@@ -35,6 +35,10 @@ return new class extends Migration
 
             $table->integer('visit')->default(0);
 
+            $table->boolean('disable')->default(false);
+
+            $table->json('json_config')->default('{"theme":{"skin":"RRG", "icons":"light", "besthex":null},"visible":1, "pure":true}');
+
             $table->string('anilist_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

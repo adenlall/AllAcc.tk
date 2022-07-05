@@ -29,6 +29,18 @@ return new class extends Migration
             $table->string('whatsapp')->nullable();
             $table->string('vk')->nullable();
             $table->string('website')->nullable();
+
+            // to add in seeders and refresh
+            $table->string('lastfm')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('behance')->nullable();
+            $table->string('dribbble')->nullable();
+            $table->string('flickr')->nullable();
+
+            // json for costumation
+            $table->string('costum')->nullable();
+
+
             $table->timestamps();
         });
     }

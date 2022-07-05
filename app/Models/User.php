@@ -37,6 +37,9 @@ class User extends Authenticatable
         'anime_2',
         'anime_c',
 
+        'disable',
+        'json_config',
+
         'visit',
 
         'password',
