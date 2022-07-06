@@ -171,17 +171,21 @@ export default function Profile() {
         // didn't work! => className={"h-full col-span-3 " + (power < 1) ? " bg-gray-200 " : " bg-green-500 " + " rounded"}
     }
 
+    const click = () => {
+        window.alert("This feature will come soon!");
+    }
+
 
 
     return (
         <>
             <div id='profile' className="shadow-lg rounded-2xl my-4 w-[95%] sm:w-[72%] bg-primary">
-                <img alt="profil" src="https://tlgur.com/d/gj0AOr78" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
+                <img alt="profil" src="https://tlgur.online/d/fpT0KB0y" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
                 <div className="flex flex-col items-center justify-center p-4 -mt-24">
-                    <a href="#" className="block relative">
-                        <div className='rounded-full h-[8em] w-[8em] bg-[url("https://tlgur.com/d/g2XEm7O8")] bg-cover bg-center ' >
+                    {/* <a href="#" className="block relative"> */}
+                        <div onClick={()=>{click()}} className='rounded-full h-[8em] w-[8em] bg-[url("https://tlgur.online/d/uHwVUBEL")] bg-cover bg-center ' >
                             <div className="flex justify-center items-center rounded-full h-[8em] w-[8em]">
-                                {/*    <label htmlFor="dropzone-file" className="xelex flex flex-col justify-center items-center rounded-full h-[8em] w-[8em] border-2 cursor-pointer ">
+                              <label htmlFor="dropzone-file" className="xelex flex flex-col justify-center items-center rounded-full h-[8em] w-[8em] border-2 cursor-pointer ">
                                     <div className="xelex mx-auto object-cover rounded-full h-[8em] w-[8em] flex flex-col items-center justify-center content-center border-2 border-gray-800 hover:bg-[#000000a8] " >
                                         <svg
                                             className="h-20 w-20 hidden"
@@ -201,21 +205,19 @@ export default function Profile() {
                                             <path d="M14 14l1-1a3 5 0 013 0l2 2" />
                                         </svg>
                                     </div>
-                                    <input id="dropzone-file" name="picture" type="file"  accept=".png, .jpg, .jpeg" className="hidden" />
+                                    {/* <input id="dropzone-file" name="picture" type="file"  accept=".png, .jpg, .jpeg" className="hidden" /> */}
                                 </label>
-                            */}
                             </div>
                         </div>
 
-                    </a>
+                    {/* </a> */}
                     <p className="text-light text-xl font-bold mt-2"> {auth.user.name}
                     </p>
                     <p className="text-gray-300 text-sm font-medium mt-2"> @{auth.user.username}
                     </p>
                     <section className="w-full mt-16">
-                        {/* <hr />
+                {/* <hr />
                         <div className='w-full'>
-
 
                             <div className="items-center w-full p-8 space-y-4 md:inline-flex md:space-y-0">
                                 <h2 className="max-w-sm mx-auto md:w-4/12 text-light"> Profile image
@@ -250,7 +252,7 @@ export default function Profile() {
                                     </h2>
                                     <div className="max-w-sm flex flex-col space-y-2 mx-auto md:w-2/3">
                                         <div className="form-control w-full">
-                                            <textarea onChange={onChange} value={data.quote} className="textarea textarea-accent text-black w-full" id="quote" placeholder="Let's Others know what do you think!"></textarea>
+                                            <textarea onChange={onChange} value={data.quote} className="textarea textarea-accent bg-white text-black w-full" id="quote" placeholder="Let's Others know what do you think!"></textarea>
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.quote}</span>
                                             </label>
@@ -263,13 +265,13 @@ export default function Profile() {
                                     </h2>
                                     <div className="max-w-sm flex flex-col space-y-2 mx-auto md:w-2/3">
                                         <div className="form-control w-full">
-                                            <input onChange={onChange} type="email" id="email" className="input input-accent text-black w-full" value={data.email} placeholder="Email" />
+                                            <input onChange={onChange} type="email" id="email" className="input input-accent bg-white text-black w-full" value={data.email} placeholder="Email" />
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.email}</span>
                                             </label>
                                         </div>
                                         <div className="form-control w-full">
-                                            <input onChange={onChange} type="text" id="username" className="input input-accent text-black w-full" value={data.username} placeholder="Username" />
+                                            <input onChange={onChange} type="text" id="username" className="input input-accent bg-white text-black w-full" value={data.username} placeholder="Username" />
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.username}</span>
                                             </label>
@@ -283,14 +285,14 @@ export default function Profile() {
                                     <div className="max-w-sm mx-auto space-y-2 md:w-2/3">
                                         <div>
                                             <div className="form-control w-full">
-                                                <input onChange={onChange} value={data.name} type="text" id="name" className="input input-accent text-black w-full" placeholder="Name" />
+                                                <input onChange={onChange} value={data.name} type="text" id="name" className="input input-accent bg-white text-black w-full" placeholder="Name" />
                                                 <label className="label">
                                                     <span className="label-text-alt text-light">{errors.name}</span>
                                                 </label>
                                             </div>
                                         </div>
                                         <div className="form-control w-full">
-                                            <select value={data.country} onChange={onChange} id="country" className="select select-accent text-black w-full elsex">
+                                            <select value={data.country} onChange={onChange} id="country" className="select select-accent bg-white text-black w-full elsex">
                                                 <option disabled selected>Select your country</option>
                                             </select>
                                             <label className="label">
@@ -298,7 +300,7 @@ export default function Profile() {
                                             </label>
                                         </div>
                                         <div className="form-control w-full">
-                                            <select onChange={onChange} id='gender' className="select select-accent text-black select-bordered w-full">
+                                            <select onChange={onChange} id='gender' className="select select-accent bg-white text-black select-bordered w-full">
                                                 <option disabled selected>Select Your gender</option>
                                                 <option>Male</option>
                                                 <option>Female</option>
@@ -313,7 +315,7 @@ export default function Profile() {
                                             <label className="label">
                                                 <span className="label-text ">Your birthday?</span>
                                             </label>
-                                            <input onChange={onChange} value={data.birthday} id='birthday' max={`${new Date().getFullYear() - 5}-01-01`} type="date" className="input input-accent text-black w-full" />
+                                            <input onChange={onChange} value={data.birthday} id='birthday' max={`${new Date().getFullYear() - 5}-01-01`} type="date" className="input input-accent bg-white text-black w-full" />
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.birthday}</span>
                                             </label>
@@ -321,7 +323,7 @@ export default function Profile() {
                                         <div className="form-control w-full">
                                             <label className="label cursor-pointer w-full ">
                                                 <span className="label-text ">Display your age to public?</span>
-                                                <input onChange={onChange} id='age' type="checkbox" className="checkbox checkbox-accent text-black" />
+                                                <input onChange={onChange} id='age' type="checkbox" className="checkbox checkbox-accent bg-white text-black" />
                                             </label>
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.age}</span>
@@ -346,7 +348,7 @@ export default function Profile() {
                                         <label className="label">
                                             <span className="label-text text-light">Current password</span>
                                         </label>
-                                        <input onChange={passChange} type="password" id="password" name="password" className="input input-accent text-black w-full" placeholder="Current Password" />
+                                        <input onChange={passChange} type="password" id="password" name="password" className="input input-accent bg-white text-black w-full" placeholder="Current Password" />
                                         <label className="label">
                                             <span className="label-text-alt text-light">{errors.current_password}</span>
                                         </label>
@@ -356,9 +358,9 @@ export default function Profile() {
                                             <label className="label">
                                                 <span className="label-text text-light">New password</span>
                                             </label>
-                                            <input onChange={newPassChange} type="text" id="new_password" className="input input-accent text-black w-full" name="new_password" placeholder="New Password" />
+                                            <input onChange={newPassChange} type="text" id="new_password" className="input input-accent bg-white text-black w-full" name="new_password" placeholder="New Password" />
                                             <label className="label">
-                                                <span className="newPass label-text-alt text-light">{errors.new_password}</span>
+                                                <span className="newPass label-text-alt  text-light">{errors.new_password}</span>
                                             </label>
                                         </div>
                                         <div className="pass_strong hidden w-full h-1 grid-cols-12 gap-4 mt-3">

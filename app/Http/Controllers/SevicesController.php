@@ -25,13 +25,12 @@ class SevicesController extends Controller
             Service::where('username', Auth::user()->username)->first()->update([
                 $request['name'] => $request['data'],
             ]);
-
-
-            return redirect('/dashboard')->with([
-                'type' => 'success',
-                'message' => "{$request['name']} record has been modified!"
-            ]);
         }
+
+        return back()->with([
+            'type' => 'success',
+            'message' => "{$request['name']} record has been modified!"
+        ]);
 
     }
 }

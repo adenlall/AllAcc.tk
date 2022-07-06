@@ -37,11 +37,11 @@ export default function Item(props) {
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text text-ap1">Your username</span>
+                        <span className="label-text text-white">Your username</span>
                     </label>
                     <label className="input-group">
                         <span>@</span>
-                        <input id="data" value={values.data} onChange={handleChange} type="text" placeholder="aden_lall_02" className="input input-accent input-bordered" />
+                        <input id="data" value={values.data} onChange={handleChange} type="text" placeholder="aden_lall_02" className="input input-accent bg-white input-bordered" />
                     </label>
                     {errors.data ?(
                     <div className='label-text-alt text-red-700'>

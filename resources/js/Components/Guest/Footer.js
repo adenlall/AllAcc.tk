@@ -10,7 +10,7 @@ function Footer() {
         <footer className="bg-[#042b28]">
             <div className="container px-6 py-8 mx-auto">
                 <div className="text-center">
-                    <Link href="/" className="text-2xl font-bold text-white hover:text-gray-300">AllAcc</Link>
+                    <Link className="btn btn-ghost" href="/"><img className="w-full h-[3em]" alt="allacc logo gray" src="/AllAcc-logo-gray-c.svg" /></Link>
                     {auth.user === null
                         ?
                         <>
@@ -35,7 +35,7 @@ function Footer() {
                         <>
                             <h1 className="max-w-md mx-auto mt-2 text-gray-400">That's good, look like you are already loged in.</h1>
                             <div className="flex flex-col mt-4 sm:flex-row sm:items-center sm:justify-center space-y-2 sm:space-y-0 space-x-0 sm:space-x-3 ">
-                                <Link  href={"/"+auth.user.username} class="btn gap-2">
+                                <Link  href={"/"+auth.user.username} class="btn gap-2 bg-white">
                                     <svg
                                         width="24px"
                                         height="24px"
@@ -47,7 +47,7 @@ function Footer() {
                                     </svg>
                                     Your Public Page
                                 </Link>
-                                <Link href="/dashboard" className="btn">Dashboard</Link>
+                                <Link href="/dashboard" className="btn bg-white">Dashboard</Link>
                             </div>
                         </>
                     }

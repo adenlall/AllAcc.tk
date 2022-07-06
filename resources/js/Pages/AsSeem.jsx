@@ -1,4 +1,4 @@
-import { usePage, Link } from '@inertiajs/inertia-react';
+import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
 
 
@@ -9,8 +9,8 @@ function AsSeem() {
     // console.log(icons, skin);
     const [pl, setPl] = useState(false);
     const accs = [];
+    var e = 0;
     const icons_n = JSON.parse(icons.json_icons);
-    const e = Math.floor(Math.random()*2);
     // console.log('');
     if (services.length !== 0) {
         let i =0;
@@ -40,13 +40,13 @@ function AsSeem() {
     console.log(JSON.parse(user.json_config).theme.skin);
     const play = () => {
         if (pl === true) {
-            // console.log(pl, 'is now on pause')
+            console.log(pl, 'is now on pause')
             document.querySelector('#audio').pause();
             document.querySelector('#pause').style.display = "none";
             document.querySelector('#play').style.display = "block";
             setPl(false);
         } else {
-            // console.log(pl, 'is now on play')
+            console.log(pl, 'is now on play')
             document.querySelector('#audio').play();
             document.querySelector('#play').style.display = "none";
             document.querySelector('#pause').style.display = "block";
@@ -54,6 +54,9 @@ function AsSeem() {
         }
     }
 
+    useEffect(() => {
+        e = Math.floor(Math.random()*2);
+    },[]);
     useEffect(() => {
 
         let timerID = setInterval(() => {
@@ -80,7 +83,8 @@ function AsSeem() {
 
     return (
         <>
-            <div data-theme={JSON.parse(user.json_config).theme.skin} style={{'background': `url(${skin[`img${e}`]})`,'backgroundSize':'contain','backgroundRepeat':'no-repeat','backgroundColor':' hsl(var(--b1))','borderRadius':'0'}} className=''>
+        <Head title={user.name + " - AllAcc"} />
+            <div data-theme={JSON.parse(user.json_config).theme.skin} style={{'backgroundImage': `url(${skin[`img${e}`]})`,'backgroundSize':'contain','backgroundRepeat':'no-repeat','backgroundColor':' hsl(var(--b1))','borderRadius':'0'}} className=''>
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
@@ -207,7 +211,7 @@ function AsSeem() {
 
                                             <section className='sm:space-y-3 space-y-5 w-full mt-[3em]'>
                                                 <h3 className='italic text-xl font-extrabold'>FEEL <span className="italic text-success">{user.name}</span> BY HIS FAVORITE SOUNG :</h3>
-                                                <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{'background':`url(${JSON.parse(skin.json_config).imgs[e]})`,'backgroundSize':'cover'}}>
+                                                <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{'backgroundImage':`url(${JSON.parse(skin.json_config).imgs[e]})`,'backgroundSize':'cover'}}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
                                                         <div className="sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]" >
                                                             <img onError={event => { event.target.src = "https://tlgur.online/d/4GD3ba0U"; event.onerror = null }} className='object-cover w-full h-full rounded-tl-lg rounded-bl-lg rounded-br-lg rounded-tr-lg sm:rounded-br-none sm:rounded-tr-none' src={soung.album.cover_big} alt="" />
@@ -219,7 +223,7 @@ function AsSeem() {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className='flex flex-col justify-end sm:items-center items-start p-2; space-y-2 mt-[-1em] h-[6em] sm:w-[5em] w-auto sm:h-auto sm:m-0 bg-accent sm:bg-transparent rounded-bl-lg rounded-br-lg' style={{'border-top-left-radius': '0', 'border-top-right-radius': '0'}}>
+                                                    <div className='flex flex-col justify-end sm:items-center items-start p-2; space-y-2 mt-[-1em] h-[6em] sm:w-[5em] w-auto sm:h-auto sm:m-0 bg-accent sm:bg-transparent rounded-bl-lg rounded-br-lg' style={{'border-top-left-radius': '0', 'borderTopRightRadius': '0'}}>
                                                         <div onClick={() => { play() }} id="pause" className='hidden w-[3.5em] h-[3.5em] rounded-lg sm:bg-white bg-black sm:hover:bg-[#f5cac3] hover:bg-primary m-4'></div>
                                                         <svg
                                                             id="play"

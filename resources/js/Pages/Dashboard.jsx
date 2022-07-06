@@ -20,7 +20,7 @@ export default function Dashboard() {
     const addItem = (para, namm) => {
         if (document.querySelector(`#item_${namm.replace(/\./g, "")}`) === null) {
             const newElement = (
-                <div key={'key_' + inc + new Date().getMilliseconds()} id={'item_' + namm.replace(/\./g, "")} className='flex flex-row-reverse mt-4 '>
+                <div key={'key_' + inc + new Date().getMilliseconds()} id={'item_' + namm.replace(/\./g, "")} className='flex flex-row-reverse mt-4 w-full'>
                     <svg
                         onClick={() => { removeItem(namm.replace(/\./g, "")) }}
                         className="h-10 w-10 absolute cursor-pointer"
@@ -143,7 +143,7 @@ export default function Dashboard() {
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
-                                <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-white p-1 rounded-lg'>@{services[serv]}</h3>
+                                <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-drk p-1 rounded-lg'>@{services[serv]}</h3>
                                 <div id={serv + inc + serv} className='text-black' style={{ "color": "black" }}></div>
                                 {errors.data ? (
                                     <div className="label-text-alt text-red-700">
@@ -160,7 +160,7 @@ export default function Dashboard() {
         })
     }
     const copy = () => {
-        navigator.clipboard.writeText("https://allacc.tk/" + auth.user.username);
+        navigator.clipboard.writeText("https://allacc.herokuapp.com/" + auth.user.username);
         toast['success']("URL has been copied!");
     }
 
@@ -269,4 +269,4 @@ export default function Dashboard() {
     )
 }
 
-Dashboard.layout = (page) => <Base children={page} title={"Dashboard"} />
+Dashboard.layout = (page) => <Base children={page} title={"Dashboard - AllAcc"} />

@@ -27,9 +27,9 @@ module.exports = {
                     "error": "#831843",
                 },
                 Ind: {
-                    "--rounded-box": "10em", // border radius rounded-box utility class, used in card and other large boxes
-                    "--rounded-btn": "10em", // border radius rounded-btn utility class, used in buttons and similar element
-                    "--tab-radius": "10em", // border radius of tabs
+                    "--rounded-box": "1em", // border radius rounded-box utility class, used in card and other large boxes
+                    "--rounded-btn": "1em", // border radius rounded-btn utility class, used in buttons and similar element
+                    "--tab-radius": "1em", // border radius of tabs
 
                     "primary": "#f28482",    // pink 2
                     "secondary": "#f5cac3", // pink 1

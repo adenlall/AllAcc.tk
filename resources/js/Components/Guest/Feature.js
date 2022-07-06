@@ -10,8 +10,8 @@ function Feature() {
                 </p>
             </div>
             <div className="grid gap-8 row-gap-8 lg:grid-cols-3">
-                <div className="sm:text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
+                <div className="text-center">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 mx-auto sm:w-24 sm:h-24">
                         <svg
                             className="fill-agr w-12"
                             xmlns="http://www.w3.org/2000/svg"
@@ -28,8 +28,8 @@ function Feature() {
                         Keep an eye on all traffic on your page, get the more account visited and more powerful analitycs.
                     </p>
                 </div>
-                <div className="sm:text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
+                <div className="text-center">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 mx-auto sm:w-24 sm:h-24">
                         <svg
                             className="fill-agr w-12"
                             xmlns="http://www.w3.org/2000/svg"
@@ -46,8 +46,8 @@ function Feature() {
                         Clean & Awesome UI to make the traffic between your accounts smoother, and modern.
                     </p>
                 </div>
-                <div className="sm:text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 sm:mx-auto sm:w-24 sm:h-24">
+                <div className="text-center">
+                    <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-indigo-50 mx-auto sm:w-24 sm:h-24">
                         <svg
                             className="fill-agr w-12"
                             xmlns="http://www.w3.org/2000/svg"

@@ -20,12 +20,12 @@ function Statistic() {
                             </svg>
                         </div>
                         <h3 className="text-4xl font-extrabold sm:text-5xl xl:text-6xl text-ap3">
-                            9 312 435
+                            2 435
                         </h3>
                     </div>
                     <div className="lg:w-1/2">
                         <p className="text-[#042b28]">
-                            That number above present the number of actions in whole website, white actions we mean the number of aaccounts & number of services add by users & how many our pages fetch. We collect data without any information can specify the user identity, you can read <Link href="/privacy" className="text-white">Privacy Policy</Link> for more informations.
+                            That number above present the number of actions in the whole website, white actions we mean the number of the accounts & the number of services add by users & how many our pages had fetched... We collect data without any information can specify the user identity, you can read <Link href="/privacy" className="text-white">Privacy Policy</Link> for more informations.
                         </p>
                     </div>
                 </div>

@@ -78,10 +78,12 @@ function Spotify() {
     const hundelSubmit = () => {
         if (values.track === null) {
             toast['error']("Please slect a track before submit!");
+        }else{
+            setData([]);
+            Inertia.post('/soung', values)
         }
 
         // console.log(values);
-        Inertia.post('/soung', values)
     }
 
     useEffect(() => { // http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=YOUR_API_KEY&artist=cher&track=believe&format=json
@@ -130,7 +132,7 @@ function Spotify() {
                                         <h4 className='text-xl font-bold text-white w-[78%] h-[3em] overflow-hidden max-h-[10em] ' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{track.name}</h4>
                                         <h3 className='text-lg font-bold text-drk p-1 rounded-lg'>{track.artist}</h3>
                                     </div>
-                                    <div className='flex flex-col h-full '>
+                                    <div className='hidden sm:flex flex-col h-full '>
                                         <div className='flex flex-col h-full w-full space-y-2 p-[.8em] items-center content-center justify-center rounded-lg bg-[url(https://tlgur.com/d/8BO1BzNG)]'>
                                             <div className='flex flex-row space-x-1 w-[91%]'>
                                                 <svg

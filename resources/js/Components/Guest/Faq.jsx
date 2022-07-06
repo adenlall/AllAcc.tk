@@ -4,7 +4,7 @@ const Item = ({ title, children }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b">
+        <div className="border-b btn btn-ghost h-full w-full">
             <button
                 type="button"
                 aria-label="Open item"
@@ -12,7 +12,7 @@ const Item = ({ title, children }) => {
                 className="flex items-center justify-between w-full p-4 focus:outline-none"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <p className="text-lg font-medium text-black">{title}</p>
+                <p className="text-lg font-medium text-start text-black">{title}</p>
                 <svg
                     viewBox="0 0 24 24"
                     className={`w-3 text-gray-800 transform transition-transform duration-200 ${isOpen ? 'rotate-180' : ''
@@ -42,7 +42,7 @@ function Faq() {
 
     return (
         <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20 ">
-            <div class="max-w-xl sm:mx-auto lg:max-w-2xl">
+            <div class="sm:mx-auto lg:max-w-2xl">
                 <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                     <div>
                         <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-ap1 uppercase rounded-full bg-teal-accent-400">
@@ -77,15 +77,20 @@ function Faq() {
                         , Just enjoy it all
                     </h1>
                     <h2 className="text-base text-gray-700 md:text-lg">
-                        here a frequency quetion but still you can ask more in developer accounts below or in the github repository.
+                        here the more frequency quetion but still you can ask more in developer accounts below or in the github repository.
                     </h2>
                 </div>
                 <div class="space-y-4">
                     <Item title="AllAcc is free?">
-                        Absolutely yes, forever.
+                        Absolutely yes, and forever.
                     </Item>
-                    <Item title="Can I add multipe accounts from ine service?">
-                        No you can't do it until now, for many technical raisons.
+                    <hr/>
+                    <Item title="Can I add multipe accounts by the same type?">
+                        No you can't do it until now, but we promise you that it will come in the future.
+                    </Item>
+                    <hr/>
+                    <Item title="I want more social apps support.">
+                        let us know the app that you want it in our developers accounts or open an github issue, and we do it for you.
                     </Item>
                 </div>
             </div>

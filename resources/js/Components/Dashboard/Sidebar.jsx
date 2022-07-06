@@ -20,12 +20,13 @@ export default function Sidebar() {
                             :
                             <div>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={'/dashboard'} >Dashboard</Link></h4>
-                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/dashboard#head'>Head page</Link></li>
                                     <li className='pl-2'><Link className='text-sm text-drk-l' href='/dashboard#current'>Your accounts</Link></li>
                                     <li className='pl-2'><Link className='text-sm text-drk-l' href='/dashboard#soung'>Your soung</Link></li>
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={'/profile'} >Profile</Link></h4>
-                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/profile#change_password'>Change your password</Link></li>
+                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/profile#change_password'>Change password</Link></li>
+                                </ul>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/setting`} >Skin Settings</Link></h4>
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
                                 </ul>
@@ -39,7 +40,7 @@ export default function Sidebar() {
                                 :
                                 <div className="avatar w-[5em] h-[5em]">
                                     <div className="w-24 mask mask-squircle">
-                                        <img src="https://tlgur.com/d/g2XEm7O8" />
+                                        <img src="https://tlgur.online/d/uHwVUBEL" />
                                     </div>
                                 </div>
                         }

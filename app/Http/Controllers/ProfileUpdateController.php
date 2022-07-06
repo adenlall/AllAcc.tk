@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\User;
+use App\Rules\Nospace;
+use App\Rules\Username;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,8 +26,8 @@ class ProfileUpdateController extends Controller
         $validated = $request->validate([
             'id' => ['required','int'],
             'name' => ['required','string'],
-            'username' => ['unique:users'],
-            'email' => ['email','unique:users'],
+            'username' => ['unique:users',  new Username, new Nospace],
+            'email' => ['email','unique:users', new Nospace],
             'birthday' => ['nullable','date','before:'.$date],
             'country' => ['nullable','string'],
             'age' => ['nullable','boolean'],

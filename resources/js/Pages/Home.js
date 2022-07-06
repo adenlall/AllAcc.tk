@@ -23,4 +23,4 @@ export default function Home() {
     )
 }
 
-Home.layout = (page) => <Guest children={page} title={"Home"} />
+Home.layout = (page) => <Guest children={page} title={"Home - AllAcc"} />

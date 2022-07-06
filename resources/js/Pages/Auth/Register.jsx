@@ -20,7 +20,7 @@ export default function Register({ errors }) {
 
             <div className='w-full flex flex-col items-center justify-center content-center'>
                 <div className='w-[90%] h-[62vh] mb-[-7em]  '>
-                    <img src='https://tlgur.com/d/G7BE6968' alt='fuji japan' className='w-full h-full object-cover rounded-xl' />
+                    <img src='https://tlgur.online/d/KR0uHO2p' alt='fuji japan' className='w-full h-full object-cover rounded-xl' />
                 </div>
 
                 <form role="form" onSubmit={submitHandler} noValidate className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
