@@ -88,7 +88,7 @@ function AsSeem() {
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
-                    <nav className="navbar bg-secondary rounded-lg hellow">
+                    <nav className="navbar bg-secondary rounded-lg">
                         <div className="flex-1 flex">
                             <a href="#" className="btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100">{user.username}</a>
                         </div>
