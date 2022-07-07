@@ -95,10 +95,10 @@ module.exports = {
     ],
     theme: {
         extend: {
-            screens:{
-                "xs":"300px",
-                "ss":"350px",
-                "ls":"450px",
+            screens: {
+                "xs": "300px",
+                "ss": "350px",
+                "ls": "450px",
             },
             colors: {
                 "ap1": "#F28482",
@@ -114,6 +114,11 @@ module.exports = {
             },
         },
     },
-    plugins: [require("daisyui")],
+    plugins: [
+        require("daisyui"),
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
+
 
 }
