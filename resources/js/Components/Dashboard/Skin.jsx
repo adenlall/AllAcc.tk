@@ -12,7 +12,7 @@ export default function Skin(props) {
     const [icc, setIcc] = useState(theskin.icons);
 
     const skins = ['NnP', 'RRG', 'BnW', 'Ind'];
-    const icons = ['drawing', 'lines', 'light', 'blackwhite'];
+    const icons = ['light', 'drawing', 'lines', 'blackwhite'];
     const _icons = JSON.parse(props.icons);
     const _skins = JSON.parse(props.skins);
     console.log(_icons, _skins)

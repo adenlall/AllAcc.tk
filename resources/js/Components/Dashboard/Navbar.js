@@ -34,7 +34,7 @@ export default function Navbar({ props, pageName }) {
                                                     :
                                                     <div className="avatar w-[5em] h-[5em]">
                                                         <div className="w-24 mask mask-squircle">
-                                                            <img src="https://tlgur.online/d/uHwVUBEL" />
+                                                            <img src="https://nice-direct-links.herokuapp.com/12def/file.jpg" />
                                                         </div>
                                                     </div>
                                             }
@@ -66,10 +66,10 @@ export default function Navbar({ props, pageName }) {
                         </ul>
                     </div>
                 </div>
-                <div className="navbar-center btn btn-ghost">
-                    <Link href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-red-c.svg" alt="allacc logo" /></Link>
+                <div className="navbar-center hidden xs:block">
+                    <Link className="btn btn-ghost" href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-gray-c.svg" alt="allacc logo" /></Link>
                 </div>
-                <div className="navbar-end pr-4">
+                <div className="navbar-end pr-4 ">
                     {auth.user != null ? <Link href={'/' + auth.user.username} className='text-lg font-bold'>@{auth.user.username}</Link> : <Link href="/register" className="text-lg font-bold">Get your own</Link>}
                 </div>
             </div>

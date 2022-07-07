@@ -22,7 +22,7 @@ module.exports = {
                     "neutral": "#701a75",
                     "base-100": "#312e81",
                     "info": "#e11d48",
-                    "success": "#581c87",
+                    "success": "#f3c46d",
                     "warning": "#f59e0b",
                     "error": "#831843",
                 },
@@ -95,6 +95,11 @@ module.exports = {
     ],
     theme: {
         extend: {
+            screens:{
+                "xs":"300px",
+                "ss":"350px",
+                "ls":"450px",
+            },
             colors: {
                 "ap1": "#F28482",
                 "agr": "#84A59D",

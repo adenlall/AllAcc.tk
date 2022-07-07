@@ -28,7 +28,7 @@ export default function Sidebar() {
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/setting`} >Skin Settings</Link></h4>
                                 </ul>
-                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
                                 </ul>
                             </div>
                     }
@@ -40,7 +40,7 @@ export default function Sidebar() {
                                 :
                                 <div className="avatar w-[5em] h-[5em]">
                                     <div className="w-24 mask mask-squircle">
-                                        <img src="https://tlgur.online/d/uHwVUBEL" />
+                                        <img src="https://nice-direct-links.herokuapp.com/12def/file.jpg" />
                                     </div>
                                 </div>
                         }

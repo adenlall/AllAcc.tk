@@ -4441,7 +4441,7 @@ function Navbar(_ref) {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                       className: "w-24 mask mask-squircle",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                        src: "https://tlgur.online/d/uHwVUBEL"
+                        src: "https://nice-direct-links.herokuapp.com/12def/file.jpg"
                       })
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -4490,17 +4490,18 @@ function Navbar(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "navbar-center btn btn-ghost",
+        className: "navbar-center hidden xs:block",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "btn btn-ghost",
           href: "/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
             className: "w-full h-[2.5em]",
-            src: "/AllAcc-logo-red-c.svg",
+            src: "/AllAcc-logo-gray-c.svg",
             alt: "allacc logo"
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "navbar-end pr-4",
+        className: "navbar-end pr-4 ",
         children: auth.user != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: '/' + auth.user.username,
           className: "text-lg font-bold",
@@ -4613,7 +4614,7 @@ function Sidebar() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              className: "p-2 bg-agr text-white rounded-lg",
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 href: "/".concat(auth.user.username),
                 children: "Public page"
@@ -4627,7 +4628,7 @@ function Sidebar() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "w-24 mask mask-squircle",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                src: "https://tlgur.online/d/uHwVUBEL"
+                src: "https://nice-direct-links.herokuapp.com/12def/file.jpg"
               })
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -4710,7 +4711,7 @@ function Skin(props) {
       setIcc = _useState4[1];
 
   var skins = ['NnP', 'RRG', 'BnW', 'Ind'];
-  var icons = ['drawing', 'lines', 'light', 'blackwhite'];
+  var icons = ['light', 'drawing', 'lines', 'blackwhite'];
 
   var _icons = JSON.parse(props.icons);
 
@@ -5371,14 +5372,14 @@ function Item(props) {
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: 'w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl',
+    className: 'flex flex-row items-stretch w-full xs:w-[17em] ss:w-[20em] ls:w-[25em] p-4 rounded-xl',
     style: {
       background: "linear-gradient(22deg, #".concat(props.mColor, ", #").concat(props.sColor, ")")
     },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "w-[6.5em] h-full rounded-xl",
+      className: "w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
+        className: "rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2",
         src: props.img,
         alt: props.name
       })
@@ -5409,7 +5410,7 @@ function Item(props) {
             onChange: handleChange,
             type: "text",
             placeholder: "aden_lall_02",
-            className: "input input-accent bg-white input-bordered"
+            className: "input input-accent w-[inherit] bg-white input-bordered"
           })]
         }), errors.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "label-text-alt text-red-700",
@@ -5423,6 +5424,10 @@ function Item(props) {
     })]
   });
 }
+/*
+<div id="item_instagram" class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(131, 58, 180), rgb(253, 29, 29));  "><div class="w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl"><img class="rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2" src="https://nice-direct-links.herokuapp.com/12560/file.jpg"                alt="instagram"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">instagram</header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
+<div id="item_facebook"  class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(24, 119, 242), rgb(255, 255, 255));"><div class="w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl"><img class="rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2" src="https://nice-direct-links.herokuapp.com/12557/facebook-svgrepo-com.svg" alt="facebook"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">facebook </header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
+*/
 
 /***/ }),
 
@@ -6958,11 +6963,11 @@ function AsSeem() {
             className: "flex-1 flex",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
-              className: "btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
+              className: "btn btn-secondary btn-ghost text-sm sm:text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
               children: user.username
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "flex-none",
+            className: "flex-none hidden xs:block",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
               className: "menu menu-horizontal p-0 space-x-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
@@ -7105,7 +7110,7 @@ function AsSeem() {
                       className: "sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                         onError: function onError(event) {
-                          event.target.src = "https://tlgur.online/d/4GD3ba0U";
+                          event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg";
                           event.onerror = null;
                         },
                         className: "object-cover w-full h-full rounded-tl-lg rounded-bl-lg rounded-br-lg rounded-tr-lg sm:rounded-br-none sm:rounded-tr-none",
@@ -7717,7 +7722,7 @@ function Dashboard() {
     if (document.querySelector("#item_".concat(namm.replace(/\./g, ""))) === null) {
       var newElement = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         id: 'item_' + namm.replace(/\./g, ""),
-        className: "flex flex-row-reverse mt-4 w-full",
+        className: "flex flex-row-reverse mt-4",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
           onClick: function onClick() {
             removeItem(namm.replace(/\./g, ""));
@@ -7790,7 +7795,7 @@ function Dashboard() {
     var where = document.querySelector("#".concat(ele + dt));
     var elem = document.querySelector("#".concat(ele));
     elem.remove();
-    what.setAttribute("class", 'input input-accent text-black input-bordered bg-white');
+    what.setAttribute("class", 'input input-accent text-black input-bordered w-[6.5em] bg-white');
     what.setAttribute('value', services[dt]);
     what.setAttribute('id', ele);
     what.setAttribute('type', 'text');
@@ -7840,7 +7845,7 @@ function Dashboard() {
 
       if (services[serv] === null) {} else {
         serr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "flex flex-row-reverse space-x-3 p-2 rounded-lg mt-2 bg-accent",
+          className: "flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-accent",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
@@ -7903,11 +7908,11 @@ function Dashboard() {
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "flex flex-row space-x-3 p-2 mt-2 w-full ",
+            className: "flex flex-row space-x-2 p-0 m-0 w-full ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "w-[6.5em] h-full rounded-xl",
+              className: "w-auto max-w-[6.5em] h-full rounded-xl",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
+                className: "rounded-xl object-contain w-auto h-full bg-white p-2",
                 src: item.img,
                 alt: item.name
               })
@@ -7922,7 +7927,7 @@ function Dashboard() {
                 children: ["@", services[serv]]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 id: serv + inc + serv,
-                className: "text-black",
+                className: "text-black w-auto ",
                 style: {
                   "color": "black"
                 }
