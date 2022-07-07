@@ -6963,11 +6963,11 @@ function AsSeem() {
             className: "flex-1 flex",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
               href: "#",
-              className: "btn btn-secondary btn-ghost text-sm sm:text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
+              className: "btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
               children: user.username
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "flex-none hidden xs:block",
+            className: "flex-none hidden xs:flex",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
               className: "menu menu-horizontal p-0 space-x-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
@@ -6993,7 +6993,7 @@ function AsSeem() {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "mt-16 h-20",
+        className: "mt-16 h-[2em]",
         style: {
           'borderRadius': '0',
           "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)"
@@ -7012,7 +7012,7 @@ function AsSeem() {
               children: ["Welcome to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                 className: "text-success",
                 children: user.name
-              }), " Accounts center"]
+              }), " accounts space"]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: " flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]",
@@ -7023,7 +7023,7 @@ function AsSeem() {
                   className: "italic text-xl font-extrabold",
                   children: "THE QUOTE :"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "w-full h-full p-4 rounded-lg bg-success text-drk ",
+                  className: "w-full h-full p-4 rounded-lg bg-secondary ",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
                     className: "text-lg text-base-100 font-semibold",
                     children: user.quote
@@ -7113,7 +7113,7 @@ function AsSeem() {
                           event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg";
                           event.onerror = null;
                         },
-                        className: "object-cover w-full h-full rounded-tl-lg rounded-bl-lg rounded-br-lg rounded-tr-lg sm:rounded-br-none sm:rounded-tr-none",
+                        className: "object-cover w-full h-full rounded-lg",
                         src: soung.album.cover_big,
                         alt: ""
                       })

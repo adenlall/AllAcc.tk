@@ -92,7 +92,7 @@ function AsSeem() {
                         <div className="flex-1 flex">
                             <a href="#" className="btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100">{user.username}</a>
                         </div>
-                        <div className="flex-none hidden xs:block">
+                        <div className="flex-none hidden xs:flex">
                             <ul className="menu menu-horizontal p-0 space-x-2">
                                 <li><Link href="/" className="btn btn-primary btn-ghost text-base-100 hidden sm:grid ">AllAcc</Link></li>
                                 {
@@ -131,7 +131,7 @@ function AsSeem() {
 
                                         <section className="space-y-3 md:w-1/2 w-full ">
                                             <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
-                                            <div className="w-full h-full p-4 rounded-lg bg-success text-drk ">
+                                            <div className="w-full h-full p-4 rounded-lg bg-secondary ">
                                                 <h3 className="text-lg text-base-100 font-semibold">{user.quote}</h3>
                                             </div>
 
@@ -215,7 +215,7 @@ function AsSeem() {
                                                 <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{'backgroundImage':`url(${JSON.parse(skin.json_config).imgs[e]})`,'backgroundSize':'cover'}}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
                                                         <div className="sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]" >
-                                                            <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-tl-lg rounded-bl-lg rounded-br-lg rounded-tr-lg sm:rounded-br-none sm:rounded-tr-none' src={soung.album.cover_big} alt="" />
+                                                            <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-lg' src={soung.album.cover_big} alt="" />
                                                         </div>
                                                         <div className='p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg '>
                                                             <div className='p-2 flex flex-col space-y-2'>
