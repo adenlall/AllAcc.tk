@@ -70,7 +70,7 @@ export default function Navbar({ props, pageName }) {
                     <Link href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-red-c.svg" alt="allacc logo" /></Link>
                 </div>
                 <div className="navbar-end pr-4 hidden sm:block w-auto">
-                    {auth.user != null ? <Link href={'/' + auth.user.username} className='text-lg font-bold'>@{auth.user.username}</Link> : <Link href="/register" className="text-lg font-bold">Get your own</Link>}
+                    {auth.user != null ? <Link href={'/' + auth.user.username} className='sm:text-lg text-sm font-bold'>@{auth.user.username}</Link> : <Link href="/register" className="sm:text-lg text-sm hidden sm:block font-bold">Get your own</Link>}
                 </div>
             </div>
 
