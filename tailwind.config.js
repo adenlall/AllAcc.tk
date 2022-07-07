@@ -94,6 +94,9 @@ module.exports = {
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {
+        screens: {
+            'xs': '290px',
+        },
         extend: {
             colors: {
                 "ap1": "#F28482",

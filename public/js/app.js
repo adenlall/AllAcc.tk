@@ -4490,8 +4490,9 @@ function Navbar(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "navbar-center btn btn-ghost",
+        className: "navbar-center hidden xs:block",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "btn btn-ghost",
           href: "/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
             className: "w-full h-[2.5em]",
@@ -4503,11 +4504,11 @@ function Navbar(_ref) {
         className: "navbar-end pr-4",
         children: auth.user != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: '/' + auth.user.username,
-          className: "text-lg font-bold",
+          className: "sm:text-lg text-sm font-bold",
           children: ["@", auth.user.username]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: "/register",
-          className: "text-lg font-bold",
+          className: "sm:text-lg text-sm hidden sm:block font-bold",
           children: "Get your own"
         })
       })]
@@ -6951,7 +6952,7 @@ function AsSeem() {
       },
       className: "",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-        className: "container m-auto p-4 ",
+        className: "container m-auto p-4",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("nav", {
           className: "navbar bg-secondary rounded-lg",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7790,7 +7791,7 @@ function Dashboard() {
     var where = document.querySelector("#".concat(ele + dt));
     var elem = document.querySelector("#".concat(ele));
     elem.remove();
-    what.setAttribute("class", 'input input-accent text-black input-bordered bg-white');
+    what.setAttribute("class", 'input input-accent text-black input-bordered bg-white w-full');
     what.setAttribute('value', services[dt]);
     what.setAttribute('id', ele);
     what.setAttribute('type', 'text');
@@ -7840,7 +7841,7 @@ function Dashboard() {
 
       if (services[serv] === null) {} else {
         serr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "flex flex-row-reverse space-x-3 p-2 rounded-lg mt-2 bg-accent",
+          className: "flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-accent",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
@@ -7903,9 +7904,9 @@ function Dashboard() {
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-            className: "flex flex-row space-x-3 p-2 mt-2 w-full ",
+            className: "flex flex-row space-x-3 p-0 m-[4px] w-full ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "w-[6.5em] h-full rounded-xl",
+              className: "w-auto h-full rounded-xl",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
                 src: item.img,
@@ -7922,7 +7923,7 @@ function Dashboard() {
                 children: ["@", services[serv]]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 id: serv + inc + serv,
-                className: "text-black",
+                className: "text-black sm:w-auto w-[8em]",
                 style: {
                   "color": "black"
                 }

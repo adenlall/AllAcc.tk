@@ -83,7 +83,7 @@ export default function Dashboard() {
         var where = document.querySelector(`#${ele + dt}`);
         var elem = document.querySelector(`#${ele}`);
         elem.remove();
-        what.setAttribute("class", 'input input-accent text-black input-bordered bg-white');
+        what.setAttribute("class", 'input input-accent text-black input-bordered bg-white w-full');
         what.setAttribute('value', services[dt]);
         what.setAttribute('id', ele);
         what.setAttribute('type', 'text');
@@ -129,7 +129,7 @@ export default function Dashboard() {
             if (services[serv] === null) { } else {
 
                 serr.push(
-                    <div key={services[serv] + serv + inc} className='flex flex-row-reverse space-x-3 p-2 rounded-lg mt-2 bg-accent'>
+                    <div key={services[serv] + serv + inc} className='flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-accent'>
                         <div className='flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary'>
                             <svg onClick={() => { handelDelete(serv) }} className="h-8 w-8 cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <polyline points="3 6 5 6 21 6" />  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" /></svg>
                             <svg onClick={() => { editItem(serv + inc, serv) }} className="h-8 w-8 text-black cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,14 +137,14 @@ export default function Dashboard() {
                             </svg>
                             <svg onClick={() => { saveEdits(serv + inc, serv) }} className="h-8 w-8-500 cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />  <polyline points="17 21 17 13 7 13 7 21" />  <polyline points="7 3 7 8 15 8" /></svg>
                         </div>
-                        <div className='flex flex-row space-x-3 p-2 mt-2 w-full '>
-                            <div className='w-[6.5em] h-full rounded-xl'>
+                        <div className='flex flex-row space-x-3 p-0 m-[4px] w-full '>
+                            <div className='w-auto h-full rounded-xl'>
                                 <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={item.img} alt={item.name} />
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
                                 <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-drk p-1 rounded-lg'>@{services[serv]}</h3>
-                                <div id={serv + inc + serv} className='text-black' style={{ "color": "black" }}></div>
+                                <div id={serv + inc + serv} className='text-black sm:w-auto w-[8em]' style={{ "color": "black" }}></div>
                                 {errors.data ? (
                                     <div className="label-text-alt text-red-700">
                                         {errors.data}
