@@ -103,10 +103,10 @@ class SkinsSeeder extends Seeder
         ];
 
         for ($i = 0; $i < count($skins); $i++) {
+
             DB::table('skin')->insert([
                 'name' => $skins[$i][0],
                 'icons' => $skins[$i][1],
-
                 'img0' => $skins[$i][2],
                 'img1' => $skins[$i][3],
                 'img2' => $skins[$i][4],
