@@ -3601,11 +3601,11 @@ body[dir="rtl"] .checkbox:checked,
 .m-0 {
   margin: 0px;
 }
-.m-5 {
-  margin: 1.25rem;
-}
 .m-\[4px\] {
   margin: 4px;
+}
+.m-5 {
+  margin: 1.25rem;
 }
 .mx-auto {
   margin-left: auto;
@@ -4306,6 +4306,10 @@ body[dir="rtl"] .checkbox:checked,
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
+}
+.bg-ap2 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 202 195 / var(--tw-bg-opacity));
 }
 .bg-\[url\(\'\/AllAcc-cover-plack-pink\.svg\'\)\] {
   background-image: url('/AllAcc-cover-plack-pink.svg');
