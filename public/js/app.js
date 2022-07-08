@@ -4490,9 +4490,9 @@ function Navbar(_ref) {
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "navbar-center hidden xs:block",
+        className: "navbar-center hidden xs:block ",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-          className: "btn btn-ghost",
+          className: " btn-ghost btn w-[6em] sm:w-auto ",
           href: "/",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
             className: "w-full h-[2.5em]",
@@ -4501,15 +4501,15 @@ function Navbar(_ref) {
           })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "navbar-end pr-4 ",
+        className: "navbar-end p-0 sm:pr-4",
         children: auth.user != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: '/' + auth.user.username,
-          className: "sm:text-lg text-sm font-bold",
+          className: "w-[max-content] text-lg font-bold",
           children: ["@", auth.user.username]
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: "/register",
-          className: "sm:text-lg text-sm hidden sm:block font-bold",
-          children: "Get your own"
+          className: "w-[max-content] text-lg font-bold",
+          children: "Get yours"
         })
       })]
     })
@@ -7795,11 +7795,7 @@ function Dashboard() {
     var where = document.querySelector("#".concat(ele + dt));
     var elem = document.querySelector("#".concat(ele));
     elem.remove();
-<<<<<<< HEAD
-    what.setAttribute("class", 'input input-accent text-black input-bordered bg-white w-full');
-=======
     what.setAttribute("class", 'input input-accent text-black input-bordered w-[6.5em] bg-white');
->>>>>>> old-rev
     what.setAttribute('value', services[dt]);
     what.setAttribute('id', ele);
     what.setAttribute('type', 'text');
@@ -7912,15 +7908,9 @@ function Dashboard() {
               })]
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-<<<<<<< HEAD
-            className: "flex flex-row space-x-3 p-0 m-[4px] w-full ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "w-auto h-full rounded-xl",
-=======
             className: "flex flex-row space-x-2 p-0 m-0 w-full ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
               className: "w-auto max-w-[6.5em] h-full rounded-xl",
->>>>>>> old-rev
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                 className: "rounded-xl object-contain w-auto h-full bg-white p-2",
                 src: item.img,
@@ -7937,11 +7927,7 @@ function Dashboard() {
                 children: ["@", services[serv]]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 id: serv + inc + serv,
-<<<<<<< HEAD
-                className: "text-black sm:w-auto w-[8em]",
-=======
                 className: "text-black w-auto ",
->>>>>>> old-rev
                 style: {
                   "color": "black"
                 }

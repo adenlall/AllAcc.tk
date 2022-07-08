@@ -94,9 +94,6 @@ module.exports = {
         "./node_modules/flowbite/**/*.js",
     ],
     theme: {
-        screens: {
-            'xs': '290px',
-        },
         extend: {
             screens: {
                 "xs": "300px",

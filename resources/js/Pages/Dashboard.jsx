@@ -83,11 +83,7 @@ export default function Dashboard() {
         var where = document.querySelector(`#${ele + dt}`);
         var elem = document.querySelector(`#${ele}`);
         elem.remove();
-<<<<<<< HEAD
-        what.setAttribute("class", 'input input-accent text-black input-bordered bg-white w-full');
-=======
         what.setAttribute("class", 'input input-accent text-black input-bordered w-[6.5em] bg-white');
->>>>>>> old-rev
         what.setAttribute('value', services[dt]);
         what.setAttribute('id', ele);
         what.setAttribute('type', 'text');
@@ -141,24 +137,14 @@ export default function Dashboard() {
                             </svg>
                             <svg onClick={() => { saveEdits(serv + inc, serv) }} className="h-8 w-8-500 cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />  <polyline points="17 21 17 13 7 13 7 21" />  <polyline points="7 3 7 8 15 8" /></svg>
                         </div>
-<<<<<<< HEAD
-                        <div className='flex flex-row space-x-3 p-0 m-[4px] w-full '>
-                            <div className='w-auto h-full rounded-xl'>
-                                <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={item.img} alt={item.name} />
-=======
                         <div className='flex flex-row space-x-2 p-0 m-0 w-full '>
                             <div className='w-auto max-w-[6.5em] h-full rounded-xl'>
                                 <img className='rounded-xl object-contain w-auto h-full bg-white p-2' src={item.img} alt={item.name} />
->>>>>>> old-rev
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
                                 <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-drk p-1 rounded-lg'>@{services[serv]}</h3>
-<<<<<<< HEAD
-                                <div id={serv + inc + serv} className='text-black sm:w-auto w-[8em]' style={{ "color": "black" }}></div>
-=======
                                 <div id={serv + inc + serv} className='text-black w-auto ' style={{ "color": "black" }}></div>
->>>>>>> old-rev
                                 {errors.data ? (
                                     <div className="label-text-alt text-red-700">
                                         {errors.data}
