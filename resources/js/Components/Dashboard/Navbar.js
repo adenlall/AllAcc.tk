@@ -67,7 +67,7 @@ export default function Navbar({ props, pageName }) {
                     </div>
                 </div>
                 <div className="navbar-center hidden xs:block ">
-                    <Link className="btn btn-ghost w-[6em] sm:w-auto" href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-gray-c.svg" alt="allacc logo" /></Link>
+                    <Link className=" btn-ghost btn w-[6em] sm:w-auto " href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-gray-c.svg" alt="allacc logo" /></Link>
                 </div>
                 <div className="navbar-end p-0 sm:pr-4">
                     {auth.user != null ? <Link href={'/' + auth.user.username} className='w-[max-content] text-lg font-bold'>@{auth.user.username}</Link> : <Link href="/register" className="w-[max-content] text-lg font-bold">Get yours</Link>}
