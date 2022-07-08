@@ -36,7 +36,7 @@ export default function Register({ errors }) {
                             <label className="label">
                                 <span className="label-text text-drk">What is your full name?</span>
                             </label>
-                            <input value={data.name} onChange={changeHandler} name='name' id='name' type="text" placeholder="aden lall" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                            <input value={data.name} onChange={changeHandler} name='name' id='name' type="text" placeholder="full name" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                             <label className="label">
                                 <span className="label-text-alt  text-error">{errors && errors.name}</span>
                             </label>
@@ -46,7 +46,7 @@ export default function Register({ errors }) {
                             <label className="label">
                                 <span className="label-text text-drk">Chose some userName</span>
                             </label>
-                            <input value={data.username} onChange={changeHandler} name='username' id='username' type="text" placeholder="aden_lall" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                            <input value={data.username} onChange={changeHandler} name='username' id='username' type="text" placeholder="username" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                             <label className="label">
                                 <span className="label-text-alt text-error">{errors && errors.username}</span>
                             </label>
@@ -58,7 +58,7 @@ export default function Register({ errors }) {
                         <label className="label">
                             <span className="label-text text-drk">Tipe your email</span>
                         </label>
-                        <input value={data.email} onChange={changeHandler} type="email" name='email' id='email' placeholder="adenlall@example.com" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input value={data.email} onChange={changeHandler} type="email" name='email' id='email' placeholder="adenlall@example.com" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                         <label className="label">
                             <span className="label-text-alt text-error">{errors && errors.email}</span>
                         </label>
@@ -68,7 +68,7 @@ export default function Register({ errors }) {
                         <label className="label">
                             <span className="label-text text-drk">Create a strong password</span>
                         </label>
-                        <input value={data.password} onChange={changeHandler} type="password" name='password' id='password' placeholder="*******" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input value={data.password} onChange={changeHandler} type="password" name='password' id='password' placeholder="*******" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                         <label className="label">
                             <span className="label-text-alt text-error">{errors && errors.password}</span>
                         </label>

@@ -7352,7 +7352,7 @@ function Login(_ref) {
             className: "label",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "label-text text-drk",
-              children: "What is your email?"
+              children: "What is your email or username?"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
             value: data.email,
@@ -7360,8 +7360,8 @@ function Login(_ref) {
             name: "email",
             id: "email",
             type: "email",
-            placeholder: "user@example.com",
-            className: "input input-primary text-drk input-bordered w-full max-w-xs"
+            placeholder: "email username",
+            className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             className: "label",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -7384,7 +7384,7 @@ function Login(_ref) {
             id: "password",
             type: "password",
             placeholder: "*******",
-            className: "input input-primary text-drk input-bordered w-full max-w-xs"
+            className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             className: "label",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -7534,8 +7534,8 @@ function Register(_ref) {
               name: "name",
               id: "name",
               type: "text",
-              placeholder: "aden lall",
-              className: "input input-primary text-drk input-bordered w-full max-w-xs"
+              placeholder: "full name",
+              className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
               className: "label",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -7557,8 +7557,8 @@ function Register(_ref) {
               name: "username",
               id: "username",
               type: "text",
-              placeholder: "aden_lall",
-              className: "input input-primary text-drk input-bordered w-full max-w-xs"
+              placeholder: "username",
+              className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
               className: "label",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -7582,7 +7582,7 @@ function Register(_ref) {
             name: "email",
             id: "email",
             placeholder: "adenlall@example.com",
-            className: "input input-primary text-drk input-bordered w-full max-w-xs"
+            className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             className: "label",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
@@ -7605,7 +7605,7 @@ function Register(_ref) {
             name: "password",
             id: "password",
             placeholder: "*******",
-            className: "input input-primary text-drk input-bordered w-full max-w-xs"
+            className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
             className: "label",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {

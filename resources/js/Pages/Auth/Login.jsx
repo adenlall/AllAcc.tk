@@ -28,9 +28,9 @@ export default function Login({ errors }) {
                     </div>
                     <div className="form-control w-full max-w-xs" >
                         <label className="label">
-                            <span className="label-text text-drk">What is your email?</span>
+                            <span className="label-text text-drk">What is your email or username?</span>
                         </label>
-                        <input value={data.email} onChange={changeHandler} name='email' id='email' type="email" placeholder="user@example.com" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input value={data.email} onChange={changeHandler} name='email' id='email' type="email" placeholder="email username" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                         <label className="label">
                             <span className="label-text-alt  text-error">{errors && errors.email}</span>
                         </label>
@@ -40,7 +40,7 @@ export default function Login({ errors }) {
                         <label className="label">
                             <span className="label-text text-drk">Your password?</span>
                         </label>
-                        <input value={data.password} onChange={changeHandler} name='password' id='password' type="password" placeholder="*******" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input value={data.password} onChange={changeHandler} name='password' id='password' type="password" placeholder="*******" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                         <label className="label">
                             <span className="label-text-alt text-error">{errors && errors.password}</span>
                         </label>
