@@ -22,7 +22,7 @@ module.exports = {
                     "neutral": "#701a75",
                     "base-100": "#312e81",
                     "info": "#e11d48",
-                    "success": "#581c87",
+                    "success": "#f3c46d",
                     "warning": "#f59e0b",
                     "error": "#831843",
                 },
@@ -61,7 +61,7 @@ module.exports = {
                     "neutral": "#d1d5db",
                     "base-100": "#0000",
                     "info": "#0000",
-                    "success": "#374151",
+                    "success": "#ffff",
                     "warning": "#1c1917",
                     "error": "#d1d5db",
 
@@ -98,6 +98,11 @@ module.exports = {
             'xs': '290px',
         },
         extend: {
+            screens: {
+                "xs": "300px",
+                "ss": "350px",
+                "ls": "450px",
+            },
             colors: {
                 "ap1": "#F28482",
                 "agr": "#84A59D",
@@ -112,6 +117,11 @@ module.exports = {
             },
         },
     },
-    plugins: [require("daisyui")],
+    plugins: [
+        require("daisyui"),
+        require('tailwindcss'),
+        require('autoprefixer'),
+    ],
+
 
 }
