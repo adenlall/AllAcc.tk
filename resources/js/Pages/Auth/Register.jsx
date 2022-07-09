@@ -1,18 +1,18 @@
 import { Link, useForm } from '@inertiajs/inertia-react'
+import { Inertia } from '@inertiajs/inertia'
 import React from 'react'
 import Auth from '../../Layouts/Auth'
 
 export default function Register({ errors }) {
-    const { data, setData, post } = useForm({
+    const { data, setData } = useForm({
         name: '', username: '', email: '', password: '',
     })
 
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
-    const submitHandler = (e) => {
+    function submitHandler(e){
         // console.log(data);
-        e.preventDefault()
-        post('/register', data);
+        Inertia.post('/register', data);
     }
     return (
         <>
@@ -23,7 +23,7 @@ export default function Register({ errors }) {
                     <img src='https://tlgur.online/d/KR0uHO2p' alt='fuji japan' className='w-full h-full object-cover rounded-xl' />
                 </div>
 
-                <form role="form" onSubmit={submitHandler} noValidate className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
+                <div className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
 
                     <div className="form-control w-full mb-2 max-w-xs flex flex-col " >
                         <h2 className='text-main text-2xl font-extrabold'>Let's start your special experience!</h2>
@@ -75,14 +75,14 @@ export default function Register({ errors }) {
                     </div>
 
                     <div className="form-control mt-6 w-full max-w-xs">
-                        <button type="submit" className="btn btn-primary w-fit">Sign up</button>
+                        <button  onClick={()=>{submitHandler()}} className="btn btn-primary w-fit">Sign up</button>
                     </div>
 
                     <div className="form-control w-full max-w-xs mt-2">
                         <div className='text-main text-sm italic'>Already have an account, <Link className='text-white hover:text-main' href="login" >Login</Link> now!</div>
                     </div>
 
-                </form>
+                </div>
 
             </div>
 

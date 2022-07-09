@@ -3884,6 +3884,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-\[62vh\] {
   height: 62vh;
 }
+.h-\[8\.5em\] {
+  height: 8.5em;
+}
 .max-h-\[10em\] {
   max-height: 10em;
 }
@@ -5101,6 +5104,10 @@ body[dir="rtl"] .checkbox:checked,
 
   .sm\:w-\[30em\] {
     width: 30em;
+  }
+
+  .sm\:w-\[6em\] {
+    width: 6em;
   }
 
   .sm\:max-w-xl {

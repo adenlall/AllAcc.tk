@@ -1,17 +1,17 @@
 import { Link, useForm } from '@inertiajs/inertia-react'
+import { Inertia } from '@inertiajs/inertia'
 import React from 'react'
 import Auth from '../../Layouts/Auth'
 
 export default function Login({ errors }) {
-    const { data, setData, post } = useForm({
+    const { data, setData } = useForm({
         email: '', password: '', remember: '',
     })
 
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
-    const submitHandler = (e) => {
-        e.preventDefault()
-        post('/login', data);
+    function submitHandler(e){
+        Inertia.post('/login', data);
     }
     return (
         <>
@@ -20,7 +20,7 @@ export default function Login({ errors }) {
                     <img src='https://tlgur.online/d/kXV1nhef' alt='fuji japan' className='w-full h-full object-cover rounded-xl' />
                 </div>
 
-                <form role="form" onSubmit={submitHandler} noValidate className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
+                <div className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
 
                     <div className="form-control w-full mb-2 max-w-xs flex flex-col " >
                         <h2 className='text-main text-2xl font-extrabold'>Welcome Back !</h2>
@@ -53,13 +53,13 @@ export default function Login({ errors }) {
                         </label>
                     </div>
                     <div className="form-control mt-6 w-full max-w-xs">
-                        <button type="submit" className="btn btn-primary w-fit">Submit</button>
+                        <div onClick={()=>{submitHandler()}} className="btn btn-primary w-fit">Submit</div>
                     </div>
                     <div className="form-control w-full max-w-xs mt-2">
-                        <div className='text-main text-sm italic'>Don't have account yet, <Link className='text-white hover:text-main' href="register" >Register</Link> now!</div>
+                        <div className='text-main text-sm italic'>Don't have account yet, <Link className='text-white hover:text-main' href="/register" >Register</Link> now!</div>
                     </div>
 
-                </form>
+                </div>
 
             </div>
         </>

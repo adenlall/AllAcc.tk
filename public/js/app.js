@@ -5352,7 +5352,8 @@ function Item(props) {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)({
     username: props.user,
     name: name.replace(/\./g, ""),
-    data: ""
+    data: "",
+    preserveScroll: true
   }),
       _useState2 = _slicedToArray(_useState, 2),
       values = _useState2[0],
@@ -5377,9 +5378,9 @@ function Item(props) {
       background: "linear-gradient(22deg, #".concat(props.mColor, ", #").concat(props.sColor, ")")
     },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      className: "w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl",
+      className: " w-[inherit] xs:max-w-[7em] h-[10em] rounded-xl",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-        className: "rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2",
+        className: "rounded-xl object-contain w-[inherit] xs:max-w-[7em] h-[10em] bg-white p-2",
         src: props.img,
         alt: props.name
       })
@@ -5410,7 +5411,7 @@ function Item(props) {
             onChange: handleChange,
             type: "text",
             placeholder: "aden_lall_02",
-            className: "input input-accent w-[inherit] bg-white input-bordered"
+            className: "input input-accent w-[inherit] bg-white text-black input-bordered"
           })]
         }), errors.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "label-text-alt text-red-700",
@@ -5425,8 +5426,8 @@ function Item(props) {
   });
 }
 /*
-<div id="item_instagram" class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(131, 58, 180), rgb(253, 29, 29));  "><div class="w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl"><img class="rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2" src="https://nice-direct-links.herokuapp.com/12560/file.jpg"                alt="instagram"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">instagram</header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
-<div id="item_facebook"  class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(24, 119, 242), rgb(255, 255, 255));"><div class="w-auto max-w-[3em] xs:max-w-[7em] h-full rounded-xl"><img class="rounded-xl object-contain w-auto max-w-[3em] xs:max-w-[7em] h-full bg-white p-2" src="https://nice-direct-links.herokuapp.com/12557/facebook-svgrepo-com.svg" alt="facebook"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">facebook </header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
+<div id="item_instagram" class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(131, 58, 180), rgb(253, 29, 29));  "><div class=" w-[10em] xs:max-w-[7em] h-[10em] rounded-xl"><img class="rounded-xl object-contain w-[10em] xs:max-w-[7em] h-[10em] bg-white p-2" src="https://nice-direct-links.herokuapp.com/12560/file.jpg"                alt="instagram"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">instagram</header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
+<div id="item_facebook"  class="flex flex-row-reverse mt-4"><svg class="h-10 w-10 absolute cursor-pointer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M9 9L15 15"></path><path d="M15 9L9 15"></path></svg><div class="w-full flex flex-row items-stretch max-w-[30em] p-4 rounded-xl" style="background: linear-gradient(22deg, rgb(24, 119, 242), rgb(255, 255, 255));"><div class=" w-[10em] xs:max-w-[7em] h-[10em] rounded-xl"><img class="rounded-xl object-contain w-[10em] xs:max-w-[7em] h-[10em] bg-white p-2" src="https://nice-direct-links.herokuapp.com/12557/facebook-svgrepo-com.svg" alt="facebook"></div><form class="flex flex-col space-y-0 pl-2"><div class="flex flex-col"><header class="text-xl font-bold text-white ">facebook </header></div><div class="form-control"><label class="label"><span class="label-text text-white">Your username</span></label><label class="input-group"><span>@</span><input id="data" type="text" placeholder="aden_lall_02" class="input input-accent w-[inherit] bg-white input-bordered" value=""></label><button class="btn btn-sm mt-2" type="submit">save</button></div></form></div></div>
 */
 
 /***/ }),
@@ -6381,7 +6382,9 @@ function Base(_ref) {
   var children = _ref.children,
       title = _ref.title;
   var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
-  flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_6__["default"][flash.type](flash.message);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_6__["default"][flash.type](flash.message);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "g-sidenav-show bg-[#042b28] text-[#d3d3d3]",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -7286,14 +7289,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Login)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Layouts_Auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Auth */ "./resources/js/Layouts/Auth.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Auth */ "./resources/js/Layouts/Auth.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -7310,51 +7315,46 @@ function Login(_ref) {
     remember: ''
   }),
       data = _useForm.data,
-      setData = _useForm.setData,
-      post = _useForm.post;
+      setData = _useForm.setData;
 
   var changeHandler = function changeHandler(e) {
     return setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, e.target.id, e.target.value)));
   };
 
-  var submitHandler = function submitHandler(e) {
-    e.preventDefault();
-    post('/login', data);
-  };
+  function submitHandler(e) {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/login', data);
+  }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "w-full flex flex-col items-center justify-center content-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "w-[90%] h-[62vh] mb-[-7em]  ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           src: "https://tlgur.online/d/kXV1nhef",
           alt: "fuji japan",
           className: "w-full h-full object-cover rounded-xl"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-        role: "form",
-        onSubmit: submitHandler,
-        noValidate: true,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full mb-2 max-w-xs flex flex-col ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
             className: "text-main text-2xl font-extrabold",
             children: "Welcome Back !"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "text-main text-sm",
             children: "Fill all blanks and submit."
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text text-drk",
               children: "What is your email or username?"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             value: data.email,
             onChange: changeHandler,
             name: "email",
@@ -7362,22 +7362,22 @@ function Login(_ref) {
             type: "email",
             placeholder: "email username",
             className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text-alt  text-error",
               children: errors && errors.email
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text text-drk",
               children: "Your password?"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             value: data.password,
             onChange: changeHandler,
             name: "password",
@@ -7385,21 +7385,21 @@ function Login(_ref) {
             type: "password",
             placeholder: "*******",
             className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text-alt text-error",
               children: errors && errors.password
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control w-full max-w-xs",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("label", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("label", {
             className: "label cursor-pointer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text text-drk",
               children: "Remember me"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               value: data.remember,
               onChange: function onChange(e) {
                 return setData(_objectSpread(_objectSpread({}, data), {}, {
@@ -7412,20 +7412,22 @@ function Login(_ref) {
               className: "checkbox checkbox-primary"
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control mt-6 w-full max-w-xs",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            type: "submit",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            onClick: function onClick() {
+              submitHandler();
+            },
             className: "btn btn-primary w-fit",
             children: "Submit"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control w-full max-w-xs mt-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "text-main text-sm italic",
-            children: ["Don't have account yet, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            children: ["Don't have account yet, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               className: "text-white hover:text-main",
-              href: "register",
+              href: "/register",
               children: "Register"
             }), " now!"]
           })
@@ -7436,7 +7438,7 @@ function Login(_ref) {
 }
 
 Login.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Auth__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
     children: page,
     title: "Login"
   });
@@ -7456,14 +7458,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Register)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Layouts_Auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Layouts/Auth */ "./resources/js/Layouts/Auth.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Auth */ "./resources/js/Layouts/Auth.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -7481,54 +7485,49 @@ function Register(_ref) {
     password: ''
   }),
       data = _useForm.data,
-      setData = _useForm.setData,
-      post = _useForm.post;
+      setData = _useForm.setData;
 
   var changeHandler = function changeHandler(e) {
     return setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, e.target.id, e.target.value)));
   };
 
-  var submitHandler = function submitHandler(e) {
+  function submitHandler(e) {
     // console.log(data);
-    e.preventDefault();
-    post('/register', data);
-  };
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/register', data);
+  }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "w-full flex flex-col items-center justify-center content-center",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "w-[90%] h-[62vh] mb-[-7em]  ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           src: "https://tlgur.online/d/KR0uHO2p",
           alt: "fuji japan",
           className: "w-full h-full object-cover rounded-xl"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-        role: "form",
-        onSubmit: submitHandler,
-        noValidate: true,
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full mb-2 max-w-xs flex flex-col ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
             className: "text-main text-2xl font-extrabold",
             children: "Let's start your special experience!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "text-main text-sm",
             children: "Fill all blanks and submit."
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full max-w-xs lg:space-x-4 space-x-0 flex lg:flex-row flex-col",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-control w-full lg:w-1/2 max-w-xs",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               className: "label",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "label-text text-drk",
                 children: "What is your full name?"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               value: data.name,
               onChange: changeHandler,
               name: "name",
@@ -7536,22 +7535,22 @@ function Register(_ref) {
               type: "text",
               placeholder: "full name",
               className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               className: "label",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "label-text-alt  text-error",
                 children: errors && errors.name
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "form-control w-full lg:w-1/2 max-w-xs",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               className: "label",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "label-text text-drk",
                 children: "Chose some userName"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               value: data.username,
               onChange: changeHandler,
               name: "username",
@@ -7559,23 +7558,23 @@ function Register(_ref) {
               type: "text",
               placeholder: "username",
               className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               className: "label",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "label-text-alt text-error",
                 children: errors && errors.username
               })
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text text-drk",
               children: "Tipe your email"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             value: data.email,
             onChange: changeHandler,
             type: "email",
@@ -7583,22 +7582,22 @@ function Register(_ref) {
             id: "email",
             placeholder: "adenlall@example.com",
             className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text-alt text-error",
               children: errors && errors.email
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full max-w-xs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text text-drk",
               children: "Create a strong password"
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             value: data.password,
             onChange: changeHandler,
             type: "password",
@@ -7606,25 +7605,27 @@ function Register(_ref) {
             id: "password",
             placeholder: "*******",
             className: "input input-primary bg-white text-drk input-bordered w-full max-w-xs"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
             className: "label",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "label-text-alt text-error",
               children: errors && errors.password
             })
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control mt-6 w-full max-w-xs",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-            type: "submit",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            onClick: function onClick() {
+              submitHandler();
+            },
             className: "btn btn-primary w-fit",
             children: "Sign up"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control w-full max-w-xs mt-2",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "text-main text-sm italic",
-            children: ["Already have an account, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            children: ["Already have an account, ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               className: "text-white hover:text-main",
               href: "login",
               children: "Login"
@@ -7637,7 +7638,7 @@ function Register(_ref) {
 }
 
 Register.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Auth__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Auth__WEBPACK_IMPORTED_MODULE_3__["default"], {
     children: page,
     title: "Register"
   });
@@ -7910,9 +7911,9 @@ function Dashboard() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "flex flex-row space-x-2 p-0 m-0 w-full ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
-              className: "w-auto max-w-[6.5em] h-full rounded-xl",
+              className: "w-auto sm:w-[6em] max-w-[6.5em] h-[8.5em] rounded-xl",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
-                className: "rounded-xl object-contain w-auto h-full bg-white p-2",
+                className: "rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2",
                 src: item.img,
                 alt: item.name
               })

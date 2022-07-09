@@ -138,8 +138,8 @@ export default function Dashboard() {
                             <svg onClick={() => { saveEdits(serv + inc, serv) }} className="h-8 w-8-500 cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z" />  <polyline points="17 21 17 13 7 13 7 21" />  <polyline points="7 3 7 8 15 8" /></svg>
                         </div>
                         <div className='flex flex-row space-x-2 p-0 m-0 w-full '>
-                            <div className='w-auto max-w-[6.5em] h-full rounded-xl'>
-                                <img className='rounded-xl object-contain w-auto h-full bg-white p-2' src={item.img} alt={item.name} />
+                            <div className='w-auto sm:w-[6em] max-w-[6.5em] h-[8.5em] rounded-xl'>
+                                <img className='rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2' src={item.img} alt={item.name} />
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
