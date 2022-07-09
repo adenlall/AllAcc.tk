@@ -25,7 +25,7 @@ class SevicesController extends Controller
             Service::where('username', Auth::user()->username)->first()->update([
                 $request['name'] => $request['data'],
             ]);
-        }
+         }
 
         return back()->with([
             'type' => 'success',

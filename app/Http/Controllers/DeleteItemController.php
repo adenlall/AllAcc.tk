@@ -13,14 +13,18 @@ class DeleteItemController extends Controller
 
     public function __invoke(Request $request)
     {
-        Service::where('username', Auth::user()->username)->update([
-            $request['name'] => null,
+        $validated = $request->validate([
+            'name' => ['required'],
         ]);
 
-        return redirect('/dashboard')->with([
+        if ($validated) {
+            Service::where('username', Auth::user()->username)->first()->update([
+                $request['name'] => null,
+            ]);
+        }
+        return back()->with([
             'type' => 'success',
             'message' => "{$request['name']} record has been deleted!"
         ]);
-
     }
 }

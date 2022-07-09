@@ -47,12 +47,12 @@ class LoginController extends Controller
                 return redirect('admin');
             }
 
-            return Redirect::route('dashboard')->with([
-                'type' => 'success',
-                'message' => 'You are logged in.'
-            ]);
 
         }
+        return redirect('/profile')->with([
+            'type' => 'success',
+            'message' => 'You are logged in.'
+        ]);
 
         throw ValidationException::withMessages([
             'email' => 'The provide credentials does not match our record.',
