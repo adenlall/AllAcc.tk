@@ -7319,11 +7319,10 @@ function Login(_ref) {
 
   var changeHandler = function changeHandler(e) {
     return setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, e.target.id, e.target.value)));
-  };
+  }; // function submitHandler(e){
+  // Inertia.post('/login', data);
+  // }
 
-  function submitHandler(e) {
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/login', data);
-  }
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -7414,10 +7413,11 @@ function Login(_ref) {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "form-control mt-6 w-full max-w-xs",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            onClick: function onClick() {
-              submitHandler();
-            },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            as: "button",
+            method: "post",
+            data: data,
+            href: "/login",
             className: "btn btn-primary w-fit",
             children: "Submit"
           })

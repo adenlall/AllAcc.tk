@@ -11,8 +11,6 @@ export default function Guest({children, title}) {//resources/js/Components/Gues
         <Head title={ title } />
         <Navbar/>
         {children}
-
-
         <Statistic/>
         <Footer/>
     </div>
