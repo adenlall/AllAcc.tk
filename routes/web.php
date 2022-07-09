@@ -22,6 +22,7 @@ use App\Http\Controllers\SoungController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Inertia\Inertia;
 
 Route::get('/', HomeController::class)->name('home');
 Route::get('about', AboutController::class)->name('about');
@@ -81,5 +82,5 @@ Route::get('{username}', AsSeemController::class)->name('AsSeem');;
 Route::post('logout', function(){
     Session::flush();
     Auth::logout();
-    return redirect('/');
+    return Inertia('Home');
 });
