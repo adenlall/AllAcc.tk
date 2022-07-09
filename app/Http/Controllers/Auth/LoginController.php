@@ -21,42 +21,27 @@ class LoginController extends Controller
     {
 
         // security...
-        Session::flush();
-        Auth::logout();
+        // Session::flush();
+        // Auth::logout();
         // ..............
 
 
-        $valid = $request->validate([
+        $request->validate([
             'email' => ['required'],
             'password' => ['required'],
         ]);
 
-        if($valid){
-
-            $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-            if (Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)) {
+        $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        if(!Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
+            return back()->with('status','Invalid informations');
+        }
 
                 // if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
                 //     session()->regenerate();
                 //     return redirect('admin');
                 // }
 
-                session()->regenerate();
-                return redirect('/?from=login')->with([
-                    'type' => 'success',
-                    'message' => "Welcome {Auth()->user()->name}!"
-                ]);
-            }
-
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])->onlyInput('email');
-
-        }
-
-
-
-
+        return redirect()->route('home');
 
     }
 
