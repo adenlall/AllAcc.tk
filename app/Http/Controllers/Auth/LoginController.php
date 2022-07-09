@@ -26,43 +26,36 @@ class LoginController extends Controller
         // ..............
 
 
-        $request->validate([
+        $valid = $request->validate([
             'email' => ['required'],
             'password' => ['required'],
         ]);
 
+        if($valid){
 
-        $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        $credentials = $request->only($isType, 'password');
+            $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+            if (Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)) {
 
-        if(Auth::attempt($credentials, $request->remember)) {
+                // if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
+                //     session()->regenerate();
+                //     return redirect('admin');
+                // }
 
-            session()->regenerate();
-
-            if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
-                return redirect('/admin');
+                $request->session()->regenerate();
+                return redirect()->intended('dashboard');
             }
 
-            return redirect()->intended('dashboard')->with([
-                'type' => 'success',
-                'message' => 'You are logged in.'
-            ]);
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->onlyInput('email');
 
         }
 
-        throw ValidationException::withMessages([
-            'email' => 'The provide credentials does not match our record.',
-        ]);
+
+
+
 
     }
 
-    public function destroy()
-    {
-        Auth::logout();
-
-        return redirect('login')->with([
-            'type' => 'success', 'message' => 'Sorry to see you out',
-        ]);
-    }
 
 }
