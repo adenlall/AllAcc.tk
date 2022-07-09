@@ -33,26 +33,22 @@ class LoginController extends Controller
 
 
         $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        $credentials = $request->only($isType, 'password');
 
-
-        if(Auth::attempt([
-            $isType    => $request->email,
-            "password" => $request->password,
-        ], $request->remember))
-        {
+        if(Auth::attempt($credentials, $request->remember)) {
 
             session()->regenerate();
 
             if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
-                return redirect('admin');
+                return redirect('/admin');
             }
 
+            return redirect()->intended('dashboard')->with([
+                'type' => 'success',
+                'message' => 'You are logged in.'
+            ]);
 
         }
-        return redirect('/profile')->with([
-            'type' => 'success',
-            'message' => 'You are logged in.'
-        ]);
 
         throw ValidationException::withMessages([
             'email' => 'The provide credentials does not match our record.',
