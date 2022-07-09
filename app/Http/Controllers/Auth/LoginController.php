@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
@@ -42,11 +43,11 @@ class LoginController extends Controller
 
             session()->regenerate();
 
-            if($request->email === env('ADMIN__USERNAME', '__AdenDev') || $request->password === env("ADMIN__PASS")){
+            if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
                 return redirect('admin');
             }
 
-            return redirect('/dashboard')->with([
+            return Redirect::route('dashboard')->with([
                 'type' => 'success',
                 'message' => 'You are logged in.'
             ]);
