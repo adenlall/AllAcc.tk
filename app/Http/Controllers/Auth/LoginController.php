@@ -41,8 +41,11 @@ class LoginController extends Controller
                 //     return redirect('admin');
                 // }
 
-                $request->session()->regenerate();
-                return redirect()->intended('dashboard');
+                session()->regenerate();
+                return redirect('/?from=login')->with([
+                    'type' => 'success',
+                    'message' => "Welcome {Auth()->user()->name}!"
+                ]);
             }
 
             return back()->withErrors([

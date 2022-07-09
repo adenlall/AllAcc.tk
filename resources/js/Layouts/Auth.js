@@ -1,14 +1,14 @@
 import { Head, usePage } from '@inertiajs/inertia-react'
 import Navbar from '../Components/Dashboard/Navbar'
 import toast, { Toaster } from 'react-hot-toast'
-import React from 'react'
+import React, { useEffect } from 'react'
 
 export default function Auth({ children, title }) {
     const { flash } = usePage().props;
 
-    if (flash) {
+    useEffect(()=>{
         flash.type && toast[flash.type](flash.message)
-    }
+    })
 
     return (
 

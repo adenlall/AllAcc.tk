@@ -6327,11 +6327,9 @@ function Auth(_ref) {
   var children = _ref.children,
       title = _ref.title;
   var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
-
-  if (flash) {
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_4__["default"][flash.type](flash.message);
-  }
-
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: "g-sidenav-show bg-[#042b28]",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -6424,7 +6422,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Guest_Statistic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Guest/Statistic */ "./resources/js/Components/Guest/Statistic.js");
 /* harmony import */ var _Components_Guest_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Guest/Footer */ "./resources/js/Components/Guest/Footer.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -6436,6 +6436,10 @@ function Guest(_ref) {
   var children = _ref.children,
       title = _ref.title;
   //resources/js/Components/Guest/Statistic.jsx
+  var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
+  (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
+    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_6__["default"][flash.type](flash.message);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "bg-ap3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
