@@ -31,15 +31,13 @@ class RegisterController extends Controller
 
         if ($validated) {
             $newUser = User::create($validated);
-
-            Service::create([
-                'username' => $request->username,
-            ]);
-
             Auth::login($newUser);
 
+            Service::create([
+                'username' => $request->username
+            ]);
 
-            return redirect('/dashboard')->with([
+            return redirect('dashboard')->with([
                 'type' => 'success',
                 'message' => 'You are logged in.'
             ]);

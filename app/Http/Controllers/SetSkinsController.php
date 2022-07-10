@@ -27,9 +27,11 @@ class SetSkinsController extends Controller
             $tomerge = ["visible"=>1, "pure"=>false];
             $new_arr    = array_merge($arr, $tomerge);
 
-            User::where('username', Auth::user()->username)->get()->first()->update([
+            $user = User::find(Auth()->user()->id);
+            $user->update([
                 'json_config' => json_encode($new_arr),
             ]);
+            $user->save();
 
             return redirect('setting')->with([
                 'type' => 'success',

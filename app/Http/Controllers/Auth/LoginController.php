@@ -5,10 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
-use Inertia\Inertia;
 
 class LoginController extends Controller
 {
@@ -31,17 +28,22 @@ class LoginController extends Controller
             'password' => ['required'],
         ]);
 
-        $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(!Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
-            return back()->with('status','Invalid informations');
-        }
-
         if($request->email === "__AdenDev" && $request->password === "|ll|--OX-_-XO--|ll|"){
             session()->regenerate();
             return redirect('admin');
-        }
+        };
 
-        return redirect('/');
+        $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        if(Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
+            session()->regenerate();
+            return redirect('dashboard')->with([
+            'type' => 'success',
+            'message' => "wlcome back!"
+           ]);
+        };
+        throw ValidationException::withMessages([
+            'email'=>"your records doesn't mutch"
+        ]);
 
     }
 
