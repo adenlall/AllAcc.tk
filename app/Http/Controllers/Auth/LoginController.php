@@ -35,7 +35,8 @@ class LoginController extends Controller
 
         $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
         if(Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
-            session()->regenerate();
+            $request->session()->regenerate();
+            dd($request->session()->regenerate(),Auth::user());
             return redirect('dashboard')->with([
             'type' => 'success',
             'message' => "wlcome back!"
