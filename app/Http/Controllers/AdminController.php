@@ -72,7 +72,7 @@ class AdminController extends Controller
                 $request->session()->put('try', Crypt::encrypt('=> end'));
 
             }
-
+            Admin::where('username', $request->username)->increment('visit');
             return redirect('/admin')->with([
                 'type' => 'error',
                 'message' => $que,
@@ -82,7 +82,7 @@ class AdminController extends Controller
             // dd('fuck-off', $record);
             $request->session()->put('admin_token', Crypt::encrypt($request->token));
             $data = Admin::where('token', $request->token)->get()->first();
-            // dd($data,"admin/{$data->username}/dashboard", Admin::where('token', $request->token)->get()->first());
+            // dd($data,$data->username, Admin::where('token', $request->token)->get()->first());
             return redirect("admin/{$data->username}/dashboard");
         }
 

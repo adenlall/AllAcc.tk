@@ -17,6 +17,10 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+
+        $rec = DB::table('statistic')->where('page','dashboard');
+        $rec->increment('visits');
+        $rec->increment('auth_v');
         $services_config = DB::table('config')->get();
         $services = Service::where('username', Auth::user()->username)->get()->first();
         return inertia('Dashboard', [

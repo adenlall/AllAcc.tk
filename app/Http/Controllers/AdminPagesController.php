@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class AdminPagesController extends Controller
@@ -13,10 +15,10 @@ class AdminPagesController extends Controller
     function statistic($admin){
         if(Admin::where('username',$admin)->exists()){
         // data to send
-
-
-
-            return Inertia('AdminStatistic');
+            $pages_s = DB::table('statistic')->orderBy('visits','desc')->select('page', 'visits','auth_v', 'guest_v')->get();
+            return Inertia('AdminStatistic')->with([
+                'pages'=>$pages_s,
+            ]);
         }else{
 
             if(session()->has('admin_token')){
@@ -43,10 +45,21 @@ class AdminPagesController extends Controller
     function activities($admin){
         if(Admin::where('username',$admin)->exists()){
         // data to send
+        $select = ['id','name','username','birthday','visit','created_at'];
+            $first_u = User::oldest()->select($select)->take(5)->get();
+            $last_u  = User::latest()->select($select)->take(5)->get();
+            $most_v  = User::orderBy('visit', 'desc')->select($select)->take(3)->get();
+            $last_v  = User::orderBy('updated_at', 'desc')->select($select)->take(3)->get();
+            $oldest_u  = User::orderBy('birthday', 'desc')->select($select)->take(3)->get();
+            // dd($last_v);
 
-
-
-            return Inertia('AdminActivities');
+            return Inertia('AdminActivities')->with([
+                'usersF' =>$first_u,
+                'usersL' =>$last_u,
+                'mostV'  =>$most_v,
+                'lastU'  =>$last_v,
+                'oldestU'=>$oldest_u,
+            ]);
         }else{
 
             if(session()->has('admin_token')){

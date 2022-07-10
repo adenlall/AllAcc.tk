@@ -20,6 +20,7 @@ use App\Http\Controllers\SetSkinsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SoungController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
@@ -27,6 +28,14 @@ use Inertia\Inertia;
 Route::get('/', HomeController::class)->name('home');
 Route::get('about', AboutController::class)->name('about');
 Route::get('privacy', function(){
+
+    $rec = DB::table('statistic')->where('page','about')->get()->first();
+    $rec->increment('visits');
+    if(Auth::check()){
+        $rec->increment('auth_v');
+    }else{
+        $rec->increment('guest_v');
+    }
     return Inertia('Privacy');
 });
 
@@ -80,7 +89,6 @@ Route::get('{username}', AsSeemController::class)->name('AsSeem');;
 
 
 Route::post('logout', function(){
-    Session::flush();
     Auth::logout();
-    return Inertia('Home');
+    return redirect('login');
 });

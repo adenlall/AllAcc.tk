@@ -21,6 +21,10 @@ class SettingController extends Controller
             $tempo = json_decode($data[$i]->json_icons);
             array_push($icon_arr, array_merge(["combo" => [$tempo[0],$tempo[1],$tempo[2],$tempo[3]]], ["icons"=>$data[$i]->icons]));
         }
+
+        $rec = DB::table('statistic')->where('page','skinSetting');
+        $rec->increment('visits');
+        $rec->increment('auth_v');
         // dd($skin_arr, $icon_arr);
         return inertia('Setting')->with([
             "skins" => $skin_arr,

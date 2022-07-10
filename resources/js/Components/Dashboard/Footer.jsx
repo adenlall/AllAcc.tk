@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/inertia-react';
 export default function Footer() {
     return (
         <>
-            <footer className="text-white bg-gradient-to-r bg-ago">
+            <footer className="text-white bg-gradient-to-r bg-[#0a1e1c]">
                 <div className="max-w-screen-xl p-12 mx-auto sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <p className="text-4xl font-extrabold sm:text-6xl">
@@ -16,7 +16,7 @@ export default function Footer() {
                         <nav className="flex justify-center space-x-4 text-sm font-medium sm:justify-start">
                             <Link href="/" className="hover:opacity-75"> Home </Link>
                             <Link href="/about" className="hover:opacity-75"> FAQs </Link>
-                            <Link href="/policy" className="hover:opacity-75"> Policy </Link>
+                            <Link href="/privacy" className="hover:opacity-75"> Privacy </Link>
                         </nav>
 
                         <div className="flex justify-center mt-6 space-x-6 sm:justify-end sm:mt-0">

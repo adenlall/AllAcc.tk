@@ -3887,6 +3887,15 @@ body[dir="rtl"] .checkbox:checked,
 .h-\[62vh\] {
   height: 62vh;
 }
+.h-\[\$\{i\=\=\=0\?\'22em\'\:\'5em\'\}\] {
+  height: ${i===0?'22em':'5em'};
+}
+.h-\[\$\{i\=\=\=0\?\'22em\'\:\'13em\'\}\] {
+  height: ${i===0?'22em':'13em'};
+}
+.h-\[13em\] {
+  height: 13em;
+}
 .max-h-\[10em\] {
   max-height: 10em;
 }
@@ -4047,6 +4056,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .max-w-2xl {
   max-width: 42rem;
+}
+.max-w-\[10em\] {
+  max-width: 10em;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -4288,13 +4300,13 @@ body[dir="rtl"] .checkbox:checked,
   --tw-bg-opacity: 1;
   background-color: rgb(246 189 96 / var(--tw-bg-opacity));
 }
-.bg-secondary {
-  --tw-bg-opacity: 1;
-  background-color: hsl(var(--s) / var(--tw-bg-opacity));
-}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+.bg-secondary {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--s) / var(--tw-bg-opacity));
 }
 .bg-info {
   --tw-bg-opacity: 1;
@@ -4364,6 +4376,29 @@ body[dir="rtl"] .checkbox:checked,
 .bg-indigo-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(238 242 255 / var(--tw-bg-opacity));
+}
+.bg-slate-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+}
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+.bg-yellow-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
+}
+.bg-yellow-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 249 195 / var(--tw-bg-opacity));
+}
+.bg-\[\#0000002e\] {
+  background-color: #0000002e;
+}
+.bg-\[\#0a1e1c\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(10 30 28 / var(--tw-bg-opacity));
 }
 .bg-\[url\(\'\/AllAcc-cover-plack-pink\.svg\'\)\] {
   background-image: url('/AllAcc-cover-plack-pink.svg');
@@ -4439,6 +4474,19 @@ body[dir="rtl"] .checkbox:checked,
 .p-\[1\.3em\] {
   padding: 1.3em;
 }
+.p-\[3em\] {
+  padding: 3em;
+}
+.p-\[2em\] {
+  padding: 2em;
+}
+.p-\[1em\] {
+  padding: 1em;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -4473,9 +4521,6 @@ body[dir="rtl"] .checkbox:checked,
 }
 .pt-2 {
   padding-top: 0.5rem;
-}
-.pt-4 {
-  padding-top: 1rem;
 }
 .pb-\[2em\] {
   padding-bottom: 2em;
@@ -4518,6 +4563,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .pb-56 {
   padding-bottom: 14rem;
+}
+.pb-\[1\.3em\] {
+  padding-bottom: 1.3em;
 }
 .text-left {
   text-align: left;
@@ -5232,6 +5280,16 @@ body[dir="rtl"] .checkbox:checked,
 
   .sm\:text-\[1\.5em\] {
     font-size: 1.5em;
+  }
+
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .sm\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
   }
 
   .sm\:leading-none {

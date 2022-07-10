@@ -40,25 +40,25 @@ export default function AdminAuth() {
                         <label className="label">
                             <span className="label-text text-drk">username</span>
                         </label>
-                        <input onChange={changeHandler} name='username' id='username' type="text" placeholder="your username" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input onChange={changeHandler} name='username' id='username' type="text" placeholder="your username" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                     </div>
                     <div className="form-control w-full lg:w-1/2 max-w-xs" >
                         <label className="label">
                             <span className="label-text text-drk">Private token</span>
                         </label>
-                        <input onChange={changeHandler} name='token' id='token' type="password" placeholder="your private token" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input onChange={changeHandler} name='token' id='token' type="password" placeholder="your private token" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                     </div>
                     <div className="form-control w-full lg:w-1/2 max-w-xs" >
                         <label className="label">
                             <span className="label-text text-drk">Private nickname</span>
                         </label>
-                        <input onChange={changeHandler} name='nickname' id='nickname' type="password" placeholder="your private nickname" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input onChange={changeHandler} name='nickname' id='nickname' type="password" placeholder="your private nickname" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                     </div>
                     <div className="form-control w-full lg:w-1/2 max-w-xs" >
                         <label className="label">
                             <span className="label-text text-drk">Secret number</span>
                         </label>
-                        <input onChange={changeHandler} name='secret' id='secret' type="number" placeholder="your secret number" className="input input-primary text-drk input-bordered w-full max-w-xs" />
+                        <input onChange={changeHandler} name='secret' id='secret' type="number" placeholder="your secret number" className="input input-primary bg-white text-drk input-bordered w-full max-w-xs" />
                     </div>
 
                     <span className="label-text-alt text-error">{errors && errors.username}</span>

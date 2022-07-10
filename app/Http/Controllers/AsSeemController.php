@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\User;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
@@ -24,6 +25,14 @@ class AsSeemController extends Controller
 
             User::where('username', $path)->get()->first()->increment('visit');
             $user = User::where('username', $path)->select($query)->get()->first();
+
+            $rec = DB::table('statistic')->where('page','AsSeem');
+            $rec->increment('visits');
+            if(Auth::check()){
+                $rec->increment('auth_v');
+            }else{
+                $rec->increment('guest_v');
+            }
 
             $services = Service::where('username', $path)->get()->first();
             $services_config = DB::table('config')->get();

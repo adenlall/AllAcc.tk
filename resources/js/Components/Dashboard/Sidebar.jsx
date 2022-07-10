@@ -13,8 +13,12 @@ export default function Sidebar() {
                     {
                         is_admin.is
                             ?
-                            <div>
+                            <div className='space-y-2'>
                                 <ul className=''> <h4 className='p-2 bg-ap3 text-drk rounded-lg'><Link href={'/admin/' + is_admin.name + '/dashboard'} >Dashboard</Link></h4>
+                                </ul>
+                                <ul className=''> <h4 className='p-2 bg-ap3 text-drk rounded-lg'><Link href={'/admin/' + is_admin.name + '/statistic'} >Statistic</Link></h4>
+                                </ul>
+                                <ul className=''> <h4 className='p-2 bg-ap3 text-drk rounded-lg'><Link href={'/admin/' + is_admin.name + '/activities'} >Activities</Link></h4>
                                 </ul>
                             </div>
                             :

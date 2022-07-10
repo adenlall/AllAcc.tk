@@ -40,6 +40,9 @@ class User extends Authenticatable
         'disable',
         'json_config',
 
+        'updated_at',
+        'created_at',
+
         'visit',
 
         'password',

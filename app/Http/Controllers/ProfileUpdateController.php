@@ -50,17 +50,11 @@ class ProfileUpdateController extends Controller
                 Service::where('username', Auth::user()->username)->update($servicesValidate);
             }
 
-
-
-
-                return redirect('/profile')->with([
-                    'type' => 'success',
-                    'message' => 'Your changes has been modified!'
-                ]);
-
-
-
         }
+        return redirect('/profile')->with([
+            'type' => 'success',
+            'message' => 'Your changes has been modified!'
+        ]);
 
     }
 }

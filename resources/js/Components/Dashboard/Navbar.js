@@ -16,14 +16,30 @@ export default function Navbar({ props, pageName }) {
                         <ul tabIndex="0" className="menu menu-compact space-y-2 dropdown-content mt-3 p-2 shadow bg-light rounded-box w-52">
                             <li><Link className={component === 'Home' ? 'font-bold text-lg text-black bg-accent rounded-xl' : 'text-drk'} href="/" >Home</Link></li>
                             <li><Link className={component === 'About' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/about" >About</Link></li>
-                            <hr/>
+                            <hr />
                             {auth.user !== null
                                 ?
                                 <>
-                                    <li><Link className={component === 'Dashboard' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/dashboard" >Dashboard</Link></li>
-                                    <li><Link className={component === 'Profile' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/profile" >Profile</Link></li>
-                                    <li><Link className={component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/setting" >Skin Settings</Link></li>
-                                    <li><Link className={component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={"/" + auth.user.username} >Public Page</Link></li>
+                                    {
+                                        is_admin.is
+                                            ?
+                                            (
+                                                <>
+                                                    <li><Link className={component === 'Admin' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={'/admin/' + is_admin.name + '/dashboard'} >Dashboard</Link></li>
+                                                    <li><Link className={component === 'AdminStatistic' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={'/admin/' + is_admin.name + '/statistic'} >Statistic</Link></li>
+                                                    <li><Link className={component === 'AdminActivities' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={'/admin/' + is_admin.name + '/activities'} >Activities</Link></li>
+                                                </>
+                                            )
+                                            :
+                                            (
+                                                <>
+                                                    <li><Link className={component === 'Dashboard' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/dashboard" >Dashboard</Link></li>
+                                                    <li><Link className={component === 'Profile' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/profile" >Profile</Link></li>
+                                                    <li><Link className={component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/setting" >Skin Settings</Link></li>
+                                                    <li><Link className={component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={"/" + auth.user.username} >Public Page</Link></li>
+                                                </>
+                                            )
+                                    }
 
                                     <li>
                                         <div className='flex flex-col items-center p-2'>

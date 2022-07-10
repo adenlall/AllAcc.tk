@@ -16,12 +16,9 @@ class Admin extends Model
         'id',
         'email',
         'username',
-
         'name',
         'visit',
         'admin_type',
-
-
     ];
 
 
