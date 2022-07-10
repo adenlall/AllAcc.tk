@@ -22,22 +22,24 @@ class LoginController extends Controller
         // Auth::logout();
         // ..............
 
-
-        $request->validate([
-            'email' => ['required'],
-            'password' => ['required'],
-        ]);
-
         if($request->email === "__AdenDev" && $request->password === "|ll|--OX-_-XO--|ll|"){
             session()->regenerate();
             return redirect('admin');
         };
 
-        $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        if(Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
+        $credentials = $request->validate([
+            'email' => ['required','email'],
+            'password' => ['required'],
+        ]);
+
+
+        // $isType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+        if(Auth::attempt($credentials)){
+        // if(Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
             $request->session()->regenerate();
-            dd($request->session()->regenerate(),Auth::user());
-            return redirect('dashboard')->with([
+            // dd($request->session()->regenerate(),Auth::user());
+            // Auth::login();
+            return redirect()->intended('dashboard')->with([
             'type' => 'success',
             'message' => "wlcome back!"
            ]);
