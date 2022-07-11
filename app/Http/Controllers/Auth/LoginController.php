@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
+use Inertia\Inertia;
 
 class LoginController extends Controller
 {
@@ -37,14 +38,14 @@ class LoginController extends Controller
             {
                 session()->regenerate();
                 // dd($request->password, $request->email);
-                return Inertia::location('https://allacc.herokuappapp.com/admin');
+                return Inertia::location('https://allacc.herokuapp.com/admin');
 
             }else{
 
                 session()->regenerate();
 
                 // dd($request->password, 'dash');
-                return Inertia::location('https://allacc.herokuappapp.com/dashboard');
+                return Inertia::location('https://allacc.herokuapp.com/dashboard');
 
             }
 

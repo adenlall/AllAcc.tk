@@ -36,7 +36,7 @@ class RegisterController extends Controller
             Service::create([
                 'username' => $request->username
             ]);
-            return Inertia::location('https://allacc.herokuappapp.com/dashboard');
+            return Inertia::location('https://allacc.herokuapp.com/dashboard');
 
         }
 
