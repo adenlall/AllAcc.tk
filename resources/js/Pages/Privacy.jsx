@@ -3,7 +3,7 @@ import Guest from "../Layouts/Guest";
 export default function Privacy() {
     return (
         <div className="m-auto w-[95%] my-8 container text-drk space-y-2">
-            <h1 className="font-bold text-2xl space-y-4">Privacy Policy for AdenDev</h1>
+            <h1 className="font-bold text-2xl space-y-6">Privacy Policy for AdenDev</h1>
 
             <p>At AllAcc, accessible from <a href="https://allacc.herokuapp.com">https://allacc.herokuapp.com</a>, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AllAcc and how we use it.</p>
 

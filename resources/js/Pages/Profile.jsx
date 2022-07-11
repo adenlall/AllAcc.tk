@@ -394,4 +394,4 @@ export default function Profile() {
     )
 }
 
-Profile.layout = (page) => <Base children={page} title={"Profile"} />
+Profile.layout = (page) => <Base children={page} title={"Profile - AllAcc"} />

@@ -4450,6 +4450,12 @@ function Navbar(_ref) {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                    className: component === 'Statistics' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk',
+                    href: "/statistics",
+                    children: "Statistics"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                     className: component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk',
                     href: "/" + auth.user.username,
                     children: "Public Page"
@@ -4524,10 +4530,10 @@ function Navbar(_ref) {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "navbar-end p-0 sm:pr-4",
-        children: auth.user != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        children: auth.user != null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: '/' + auth.user.username,
           className: "w-[max-content] text-lg font-bold",
-          children: ["@", auth.user.username]
+          children: auth.user.username === '__AdenDev' ? '_BOSS_' : "@".concat(auth.user.username)
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
           href: "/register",
           className: "w-[max-content] text-lg font-bold",
@@ -4650,6 +4656,15 @@ function Sidebar() {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 href: "/setting",
                 children: "Skin Settings"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+            className: "",
+            children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                href: "/statistics",
+                children: "Statistics"
               })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
@@ -5143,9 +5158,9 @@ function Spotify() {
   };
 
   var search = function search(e) {
+    e.preventDefault();
     setOnsearch(true);
     setLoad(true);
-    e.preventDefault();
     axios__WEBPACK_IMPORTED_MODULE_2___default().get("".concat(baseUrl, "/?method=track.search&track=").concat(encodeURI(q), "&api_key=").concat(api_key, "&format=json"), {
       "Accept": "application/json"
     }).then(function (response) {
@@ -6596,10 +6611,10 @@ function Admin() {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("tbody", {
-              children: users.data.map(function (user) {
+              children: users.data.map(function (user, i) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("tr", {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
-                    children: user.id
+                    children: i
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("th", {
                     className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                     children: user.name
@@ -6685,11 +6700,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function AdminActivities() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props,
-      is_admin = _usePage$props.is_admin,
       usersF = _usePage$props.usersF,
       usersL = _usePage$props.usersL,
       mostV = _usePage$props.mostV,
-      lastU = _usePage$props.lastU,
+      lastUP = _usePage$props.lastUP,
       oldestU = _usePage$props.oldestU;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -6700,7 +6714,7 @@ function AdminActivities() {
         children: "AllAcc Activities :"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "text-xl font-bold pt-3",
-        children: "Oldest users"
+        children: "Older accounts created"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         "class": "overflow-x-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
@@ -6720,10 +6734,10 @@ function AdminActivities() {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
-            children: usersF.map(function (user) {
+            children: usersF.map(function (user, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                  children: user.id
+                  children: i
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                   children: user.name
@@ -6735,7 +6749,7 @@ function AdminActivities() {
                   children: user.visit
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
-                  children: user.created_at
+                  children: user.created_at !== null ? user.created_at.split('T')[0] + ' ' + user.created_at.split('T')[1].split(':')[0] + ':' + user.created_at.split('T')[1].split(':')[1] : 'null'
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
@@ -6763,7 +6777,7 @@ function AdminActivities() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "text-xl font-bold pt-3",
-        children: "Latest users"
+        children: "Latest accounts created"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         "class": "overflow-x-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("table", {
@@ -6783,10 +6797,10 @@ function AdminActivities() {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
-            children: usersL.map(function (user) {
+            children: usersL.map(function (user, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                  children: user.id
+                  children: i
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                   children: user.name
@@ -6798,7 +6812,7 @@ function AdminActivities() {
                   children: user.visit
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
-                  children: user.created_at
+                  children: user.created_at !== null ? user.created_at.split('T')[0] + ' ' + user.created_at.split('T')[1].split(':')[0] + ':' + user.created_at.split('T')[1].split(':')[1] : 'null'
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
@@ -6846,10 +6860,10 @@ function AdminActivities() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "text-xl font-bold pt-3",
-        children: "Younger users"
+        children: "Recent accounts updated"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "flex flex-col space-x-2 sm:flex-row items-stretch p-4 rounded-lg bg-[#0000002e] justify-center content-center",
-        children: lastU.map(function (user, i) {
+        children: lastUP.map(function (user, i) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             className: "bg-yellow-200 rounded-lg text-black p-[3em] h-[13em]  w-full space-y-3 flex flex-col justify-center items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
@@ -6860,13 +6874,13 @@ function AdminActivities() {
               children: ["@", user.username]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "rounded-lg sm:text-xl text-lg text-center font-bold bg-yellow-500 text-black p-[1em] w-full",
-              children: ["birth on ", user.birthday]
+              children: ["last update on ", user.updated_at.split('T')[0] + ' ' + user.updated_at.split('T')[1].split(':')[0] + ':' + user.updated_at.split('T')[1].split(':')[1]]
             })]
           });
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
         className: "text-xl font-bold pt-3",
-        children: "Oldest users"
+        children: "Oldert users"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "flex flex-col space-x-2 sm:flex-row items-stretch p-4 rounded-lg bg-[#0000002e] justify-center content-center",
         children: oldestU.map(function (user, i) {
@@ -7112,10 +7126,10 @@ function AdminStatistic() {
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("tbody", {
-            children: pages.map(function (page) {
+            children: pages.map(function (page, i) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("tr", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
-                  children: page.id
+                  children: i
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("th", {
                   className: "md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis",
                   children: page.page
@@ -7210,39 +7224,43 @@ function AsSeem() {
   var e = 0;
   var icons_n = JSON.parse(icons.json_icons); // console.log('');
 
-  if (services.length !== 0) {
-    var i = 0;
-    services_config.forEach(function (serv) {
-      var cle = serv.name.replace(/\./g, "");
+  if (services !== null) {
+    if (services.length !== 0) {
+      var i = 0;
+      services_config.forEach(function (serv) {
+        var cle = serv.name.replace(/\./g, "");
 
-      if (services[cle] === null) {} else {
-        accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-          href: serv.website + '/' + services[cle],
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "w-[6.5em] h-[6.5em] rounded-xl",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
-                src: icons_n[i],
-                alt: cle
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "flex flex-col space-y-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
-                className: "text-xl font-bold text-info",
-                children: [cle, " :"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                className: "text-2xl font-bold bg-info text-white p-1 px-3 rounded-lg",
-                children: ["@", services[cle]]
+        if (services[cle] === null) {} else {
+          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: serv.website + '/' + services[cle],
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "w-[6.5em] h-[6.5em] rounded-xl",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                  className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
+                  src: icons_n[i],
+                  alt: cle
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "flex flex-col space-y-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h4", {
+                  className: "text-xl font-bold text-info",
+                  children: [cle, " :"]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
+                  className: "text-2xl font-bold bg-info text-white p-1 px-3 rounded-lg",
+                  children: ["@", services[cle]]
+                })]
               })]
-            })]
-          })
-        }, cle));
-      }
+            })
+          }, cle));
+        }
 
-      i++;
-    });
+        i++;
+      });
+    }
+  } else {
+    accs.push('null');
   }
 
   console.log(JSON.parse(user.json_config).theme.skin);
@@ -7594,13 +7612,19 @@ function AsSeem() {
               }), " :"]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
               className: "my-4  m-auto space-y-3",
-              children: accs.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              children: accs[0] !== 'null' ? accs.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-                  className: "text-xl font-extrabold text-white",
+                  className: "text-xl font-extrabold text-primary",
                   children: "Nothing here yet!"
                 })
-              }) : accs
+              }) : accs : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                  className: "text-xl font-extrabold text-primary",
+                  children: "You had a fatal error please contact the developer!"
+                })
+              })
             })]
           })
         })
@@ -8523,7 +8547,7 @@ function Privacy() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "m-auto w-[95%] my-8 container text-drk space-y-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      className: "font-bold text-2xl space-y-4",
+      className: "font-bold text-2xl space-y-6",
       children: "Privacy Policy for AdenDev"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       children: ["At AllAcc, accessible from ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
@@ -9220,7 +9244,7 @@ function Profile() {
 Profile.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_4__["default"], {
     children: page,
-    title: "Profile"
+    title: "Profile - AllAcc"
   });
 };
 
@@ -9272,7 +9296,46 @@ function Setting() {
 Setting.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page,
-    title: "Setting"
+    title: "Setting - AllAcc"
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Statistics.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/Pages/Statistics.jsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Statistics)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Statistics() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    id: "#head",
+    className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-2xl font-extrabold py-4",
+      children: "Welcome to your new Statistics :"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "h-[70vh] w-full p-4 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
+      children: "This feature will come very soon!"
+    })]
+  });
+}
+
+Statistics.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: page,
+    title: "Statistics - AllAcc"
   });
 };
 
@@ -46062,7 +46125,9 @@ var map = {
 	"./Profile": "./resources/js/Pages/Profile.jsx",
 	"./Profile.jsx": "./resources/js/Pages/Profile.jsx",
 	"./Setting": "./resources/js/Pages/Setting.jsx",
-	"./Setting.jsx": "./resources/js/Pages/Setting.jsx"
+	"./Setting.jsx": "./resources/js/Pages/Setting.jsx",
+	"./Statistics": "./resources/js/Pages/Statistics.jsx",
+	"./Statistics.jsx": "./resources/js/Pages/Statistics.jsx"
 };
 
 

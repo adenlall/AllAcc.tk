@@ -26,9 +26,9 @@ export default function Admin() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.data.map(user => (
+                                {users.data.map((user,i) => (
                                     <tr>
-                                        <th>{user.id}</th>
+                                        <th>{i}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{user.name}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{user.username}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{user.email}</th>

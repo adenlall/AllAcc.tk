@@ -26,10 +26,10 @@ function Spotify() {
     }
 
     const search = (e) => {
+        e.preventDefault();
+
         setOnsearch(true);
         setLoad(true);
-
-        e.preventDefault();
         axios.get(`${baseUrl}/?method=track.search&track=${encodeURI(q)}&api_key=${api_key}&format=json`, {
             "Accept": "application/json",
         }).then((response) => {
@@ -90,6 +90,7 @@ function Spotify() {
 
 
         for (let i = 0; i < data.length; i++) {
+
             const itt = data[i];
             axios.get(`${baseUrl}/?method=track.getInfo&api_key=${api_key}&artist=${itt.artist}&track=${itt.name}&format=json`, {
                 "Accept": "application/json",
@@ -103,7 +104,6 @@ function Spotify() {
             })
 
         }
-
     }, [s])
 
     return (

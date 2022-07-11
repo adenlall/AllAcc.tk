@@ -37,7 +37,7 @@ class ProfileUpdateController extends Controller
             'artist' => ['nullable','string'],
         ]);
         $servicesValidate = $request->validate([
-            'username' => ['unique:users'],
+            'username' => ['unique:users', new Username],
         ]);
 
         if($validated) {

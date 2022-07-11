@@ -3890,6 +3890,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-\[62vh\] {
   height: 62vh;
 }
+.h-\[70vh\] {
+  height: 70vh;
+}
 .max-h-\[10em\] {
   max-height: 10em;
 }

@@ -32,6 +32,8 @@ export default function Sidebar() {
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/setting`} >Skin Settings</Link></h4>
                                 </ul>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/statistics`} >Statistics</Link></h4>
+                                </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
                                 </ul>
                             </div>

@@ -19,6 +19,7 @@ use App\Http\Controllers\ProfileUpdateController;
 use App\Http\Controllers\SetSkinsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SoungController;
+use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,7 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('about', AboutController::class)->name('about');
 Route::get('privacy', function(){
 
-    $rec = DB::table('statistic')->where('page','about')->get()->first();
+    $rec = DB::table('statistic')->where('page','home');
     $rec->increment('visits');
     if(Auth::check()){
         $rec->increment('auth_v');
@@ -47,6 +48,7 @@ Route::middleware('auth', 'toAdminDash')->group(function () {
     Route::get('profile', ProfileController::class, 'show')->name('profile');
     Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('setting', SettingController::class)->name('setting');
+    Route::get('statistics', StatisticsController::class)->name('statistics');
 
 
     Route::post('setting/set', SetSkinsController::class);

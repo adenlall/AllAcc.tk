@@ -36,6 +36,7 @@ export default function Navbar({ props, pageName }) {
                                                     <li><Link className={component === 'Dashboard' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/dashboard" >Dashboard</Link></li>
                                                     <li><Link className={component === 'Profile' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/profile" >Profile</Link></li>
                                                     <li><Link className={component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/setting" >Skin Settings</Link></li>
+                                                    <li><Link className={component === 'Statistics' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/statistics" >Statistics</Link></li>
                                                     <li><Link className={component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={"/" + auth.user.username} >Public Page</Link></li>
                                                 </>
                                             )
@@ -86,7 +87,7 @@ export default function Navbar({ props, pageName }) {
                     <Link className=" btn-ghost btn w-[6em] sm:w-auto " href="/"><img className='w-full h-[2.5em]' src="/AllAcc-logo-gray-c.svg" alt="allacc logo" /></Link>
                 </div>
                 <div className="navbar-end p-0 sm:pr-4">
-                    {auth.user != null ? <Link href={'/' + auth.user.username} className='w-[max-content] text-lg font-bold'>@{auth.user.username}</Link> : <Link href="/register" className="w-[max-content] text-lg font-bold">Get yours</Link>}
+                    {auth.user != null ? <Link href={'/' + auth.user.username} className='w-[max-content] text-lg font-bold'>{auth.user.username === '__AdenDev' ? '_BOSS_': `@${auth.user.username}` }</Link> : <Link href="/register" className="w-[max-content] text-lg font-bold">Get yours</Link>}
                 </div>
             </div>
 

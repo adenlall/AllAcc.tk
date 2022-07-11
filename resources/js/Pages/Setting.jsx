@@ -23,4 +23,4 @@ export default function Setting() {
      );
 }
 
-Setting.layout = (page) => <Base children={page} title={"Setting"} />
+Setting.layout = (page) => <Base children={page} title={"Setting - AllAcc"} />

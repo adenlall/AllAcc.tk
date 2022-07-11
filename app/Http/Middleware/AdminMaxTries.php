@@ -22,9 +22,8 @@ class AdminMaxTries
     {
         if ($request->session()->has('try')) {
             if ('=> end' === Crypt::decrypt(session()->get('try'))) {
-                // dd('heerre');
-            // dd('max tries" fuck off');
-
+                dd('heerre');
+                // dd('max tries" fuck off');
                 Session::flush();
                 Auth::logout();
                 return redirect('/');

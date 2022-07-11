@@ -12,29 +12,33 @@ function AsSeem() {
     var e = 0;
     const icons_n = JSON.parse(icons.json_icons);
     // console.log('');
-    if (services.length !== 0) {
-        let i =0;
-        services_config.forEach(serv => {
-            let cle = serv.name.replace(/\./g, "");
+    if (services !== null) {
+        if (services.length !== 0) {
+            let i = 0;
+            services_config.forEach(serv => {
+                let cle = serv.name.replace(/\./g, "");
 
-            if (services[cle] === null) { } else {
-                accs.push(
-                    <a key={cle} href={serv.website + '/' + services[cle]}>
-                        <div className='ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary'>
-                            <div className='w-[6.5em] h-[6.5em] rounded-xl'>
-                                <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={icons_n[i]} alt={cle} />
+                if (services[cle] === null) { } else {
+                    accs.push(
+                        <a key={cle} href={serv.website + '/' + services[cle]}>
+                            <div className='ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary'>
+                                <div className='w-[6.5em] h-[6.5em] rounded-xl'>
+                                    <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={icons_n[i]} alt={cle} />
+                                </div>
+                                <div className='flex flex-col space-y-2'>
+                                    <h4 className='text-xl font-bold text-info'>{cle} :</h4>
+                                    <h3 className='text-2xl font-bold bg-info text-white p-1 px-3 rounded-lg'>@{services[cle]}</h3>
+                                </div>
                             </div>
-                            <div className='flex flex-col space-y-2'>
-                                <h4 className='text-xl font-bold text-info'>{cle} :</h4>
-                                <h3 className='text-2xl font-bold bg-info text-white p-1 px-3 rounded-lg'>@{services[cle]}</h3>
-                            </div>
-                        </div>
-                    </a>
-                )
-            }
+                        </a>
+                    )
+                }
 
-            i++;
-        });
+                i++;
+            });
+        }
+    }else{
+        accs.push('null');
     }
 
     console.log(JSON.parse(user.json_config).theme.skin);
@@ -55,8 +59,8 @@ function AsSeem() {
     }
 
     useEffect(() => {
-        e = Math.floor(Math.random()*2);
-    },[]);
+        e = Math.floor(Math.random() * 2);
+    }, []);
     useEffect(() => {
 
         let timerID = setInterval(() => {
@@ -83,8 +87,8 @@ function AsSeem() {
 
     return (
         <>
-        <Head title={user.name + " - AllAcc"} />
-            <div data-theme={JSON.parse(user.json_config).theme.skin} style={{'backgroundImage': `url(${skin[`img${e}`]})`,'backgroundSize':'contain','backgroundRepeat':'no-repeat','backgroundColor':' hsl(var(--b1))','borderRadius':'0'}} className=''>
+            <Head title={user.name + " - AllAcc"} />
+            <div data-theme={JSON.parse(user.json_config).theme.skin} style={{ 'backgroundImage': `url(${skin[`img${e}`]})`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
@@ -110,8 +114,8 @@ function AsSeem() {
 
 
 
-                <div className='mt-16 h-[2em]' style={{'borderRadius':'0', "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)" }}></div>
-                <div className='w-full pb-[2em] bg-base-100 mb-[-1.5em]'style={{'borderRadius':'0'}} >
+                <div className='mt-16 h-[2em]' style={{ 'borderRadius': '0', "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)" }}></div>
+                <div className='w-full pb-[2em] bg-base-100 mb-[-1.5em]' style={{ 'borderRadius': '0' }} >
                     <div className=' container m-auto pt-3 px-4 sm:px-0'>
 
                         {/* CTA */}
@@ -212,7 +216,7 @@ function AsSeem() {
 
                                             <section className='sm:space-y-3 space-y-5 w-full mt-[3em]'>
                                                 <h3 className='italic text-xl font-extrabold'>FEEL <span className="italic text-success">{user.name}</span> BY HIS FAVORITE SOUNG :</h3>
-                                                <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{'backgroundImage':`url(${JSON.parse(skin.json_config).imgs[e]})`,'backgroundSize':'cover'}}>
+                                                <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url(${JSON.parse(skin.json_config).imgs[e]})`, 'backgroundSize': 'cover' }}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
                                                         <div className="sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]" >
                                                             <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-lg' src={soung.album.cover_big} alt="" />
@@ -224,7 +228,7 @@ function AsSeem() {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className='flex flex-col justify-end sm:items-center items-start p-2; space-y-2 mt-[-1em] h-[6em] sm:w-[5em] w-auto sm:h-auto sm:m-0 bg-accent sm:bg-transparent rounded-bl-lg rounded-br-lg' style={{'border-top-left-radius': '0', 'borderTopRightRadius': '0'}}>
+                                                    <div className='flex flex-col justify-end sm:items-center items-start p-2; space-y-2 mt-[-1em] h-[6em] sm:w-[5em] w-auto sm:h-auto sm:m-0 bg-accent sm:bg-transparent rounded-bl-lg rounded-br-lg' style={{ 'border-top-left-radius': '0', 'borderTopRightRadius': '0' }}>
                                                         <div onClick={() => { play() }} id="pause" className='hidden w-[3.5em] h-[3.5em] rounded-lg sm:bg-white bg-black sm:hover:bg-[#f5cac3] hover:bg-primary m-4'></div>
                                                         <svg
                                                             id="play"
@@ -272,18 +276,27 @@ function AsSeem() {
 
 
                 </div>
-                <div  style={{'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background':`url(${skin.img2})`,'backgroundSize':'cover'}}   className='w-full bg-center bg-cover m-0'>
-                    <div  style={{'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background':'hsl(var(--p) / .4)'}}   className='w-full pt-[2em] pb-[2em]' >
+                <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url(${skin.img2})`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
+                    <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>
                             <section className="my-4  m-auto space-y-3">
-                                {accs.length === 0
-                                    ?
-                                    <div className='flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary'>
-                                        <h3 className="text-xl font-extrabold text-white">Nothing here yet!</h3>
-                                    </div>
-                                    :
-                                    accs
+                                {
+                                    accs[0] !== 'null'
+                                        ?
+                                        (
+                                            accs.length === 0
+                                                ?
+                                                <div className='flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary'>
+                                                    <h3 className="text-xl font-extrabold text-primary">Nothing here yet!</h3>
+                                                </div>
+                                                :
+                                                accs
+                                        )
+                                        :
+                                        <div className='flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary'>
+                                            <h3 className="text-xl font-extrabold text-primary">You had a fatal error please contact the developer!</h3>
+                                        </div>
                                 }
                             </section>
                         </div>

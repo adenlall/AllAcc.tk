@@ -22,9 +22,9 @@ export default function AdminStatistic() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {pages.map(page => (
+                                {pages.map((page,i) => (
                                     <tr>
-                                        <th>{page.id}</th>
+                                        <th>{i}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{page.page}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{page.visits}</th>
                                         <th className="md:max-w-[4em] max-w-fit overflow-hidden text-ellipsis">{page.guest_v}</th>

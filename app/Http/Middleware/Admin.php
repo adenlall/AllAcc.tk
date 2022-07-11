@@ -17,12 +17,13 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Auth::user()->username === env('ADMIN__USERNAME', '__AdenDev') || Auth::user()->password === env("ADMIN__PASS")){
+        // dd('hello');
+        if(Auth::user()->username === '__AdenDev'){
             // dd('admin : fine');
             return $next($request);
         }
-            // dd('admin : to dash');
-            return redirect('dashboard');
+            // dd(Auth::user()->username, Auth::user()->password);
+            return redirect('about');
 
 
     }

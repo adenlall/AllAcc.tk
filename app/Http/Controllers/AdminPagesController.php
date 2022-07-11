@@ -45,19 +45,19 @@ class AdminPagesController extends Controller
     function activities($admin){
         if(Admin::where('username',$admin)->exists()){
         // data to send
-        $select = ['id','name','username','birthday','visit','created_at'];
+        $select = ['id','name','username','birthday','visit','created_at','updated_at'];
             $first_u = User::oldest()->select($select)->take(5)->get();
             $last_u  = User::latest()->select($select)->take(5)->get();
             $most_v  = User::orderBy('visit', 'desc')->select($select)->take(3)->get();
-            $last_v  = User::orderBy('updated_at', 'desc')->select($select)->take(3)->get();
-            $oldest_u  = User::orderBy('birthday', 'desc')->select($select)->take(3)->get();
+            $last_up  = User::orderBy('updated_at', 'desc')->select($select)->take(3)->get();
+            $oldest_u  = User::whereNotNull('birthday')->orderBy('birthday', 'asc')->select($select)->take(3)->get();
             // dd($last_v);
 
             return Inertia('AdminActivities')->with([
                 'usersF' =>$first_u,
                 'usersL' =>$last_u,
                 'mostV'  =>$most_v,
-                'lastU'  =>$last_v,
+                'lastUP'  =>$last_up,
                 'oldestU'=>$oldest_u,
             ]);
         }else{
