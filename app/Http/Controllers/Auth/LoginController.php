@@ -37,19 +37,15 @@ class LoginController extends Controller
             {
                 session()->regenerate();
                 // dd($request->password, $request->email);
-                return redirect('/admin')->with([
-                    'type' => 'success',
-                    'message' => 'Hey Mr. superuser, you have 3 tries to submit the correct records!'
-                ]);
+                return Inertia::location('https://allacc.herokuappapp.com/admin');
+
             }else{
 
                 session()->regenerate();
 
                 // dd($request->password, 'dash');
-            return redirect('dashboard')->with([
-                'type' => 'success',
-                'message' => 'Welcome back!'
-            ]);
+                return Inertia::location('https://allacc.herokuappapp.com/dashboard');
+
             }
 
 

@@ -9,9 +9,8 @@ use App\Rules\Nospace;
 use App\Rules\Username;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Spatie\Activitylog\Models\Activity;
+use Inertia\Inertia;
 
 class RegisterController extends Controller
 {
@@ -31,16 +30,14 @@ class RegisterController extends Controller
 
         if ($validated) {
             $newUser = User::create($validated);
+            $newUser->save();
             Auth::login($newUser);
 
             Service::create([
                 'username' => $request->username
             ]);
+            return Inertia::location('https://allacc.herokuappapp.com/dashboard');
 
-            return redirect('dashboard')->with([
-                'type' => 'success',
-                'message' => 'You are logged in.'
-            ]);
         }
 
         throw ValidationException::withMessages([

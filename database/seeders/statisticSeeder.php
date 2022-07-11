@@ -15,8 +15,8 @@ class statisticSeeder extends Seeder
      */
     public function run()
     {
-        //
-        $data = ['home','about','privacy','dashboard','skinSetting','profile','AsSeem'];
+        // 
+        $data = ['home','about','privacy','dashboard','statistics', 'skinSetting','profile','AsSeem'];
 
 
          for ($i = 0; $i < count($data); $i++) {
