@@ -20,7 +20,7 @@ function AsSeem() {
 
                 if (services[cle] === null) { } else {
                     accs.push(
-                        <Link key={cle} method='post' href={"/statistics/set"} data={{url:`${serv.website}/${services[cle]}`, service:cle}}>
+                        <Link key={cle} method='post' href={"/statistics/set"} data={{for_user:user.id,url:`${serv.website}/${services[cle]}`, service:cle}}>
                             <div className='ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary'>
                                 <div className='w-[6.5em] h-[6.5em] rounded-xl'>
                                     <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={icons_n[i]} alt={cle} />

@@ -21,7 +21,7 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $query = ['username', 'name', 'age', 'gender', 'birthday', 'json_config', 'country', 'email', 'quote', 'track', 'artist'];
+            $query = ['id', 'username', 'name', 'age', 'gender', 'birthday', 'json_config', 'country', 'email', 'quote', 'track', 'artist'];
 
             User::where('username', $path)->get()->first()->increment('visit');
             $user = User::where('username', $path)->select($query)->get()->first();

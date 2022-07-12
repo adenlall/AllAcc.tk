@@ -12,7 +12,7 @@ class SetStatisticsController extends Controller
 
     function __invoke(Request $request)
     {
-        $user = User::find(Auth::user()->id);
+        $user = User::find($request->for_user);
         $path = json_decode($user->json_config, true);
         $ser  = $request->service;
         $pth  = $request->url;
