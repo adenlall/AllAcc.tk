@@ -11,7 +11,6 @@ export default function Register({ errors }) {
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
     function submitHandler(e){
-        // console.log(data);
         Inertia.post('/register', data);
     }
     return (
@@ -26,7 +25,7 @@ export default function Register({ errors }) {
                 <div className='flex z-10 flex-col items-center justify-center content-center p-[1.3em] py-10 bg-ago rounded-lg w-[90%] mb-10 shadow-none sm:shadow-lg sm:w-[30em]'>
 
                     <div className="form-control w-full mb-2 max-w-xs flex flex-col " >
-                        <h2 className='text-main text-2xl font-extrabold'>Let's start your special experience!</h2>
+                        <h2 className='text-main text-2xl font-extrabold hight w-[fit-content]'>Create an account</h2>
                         <i className='text-main text-sm'>Fill all blanks and submit.</i>
                     </div>
 

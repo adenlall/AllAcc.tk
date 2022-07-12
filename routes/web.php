@@ -3,8 +3,6 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPagesController;
-use App\Http\Controllers\AnilistController;
-use App\Http\Controllers\AnilistPrepareController;
 use App\Http\Controllers\AsSeemController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
@@ -24,7 +22,6 @@ use App\Http\Controllers\StatisticsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 Route::get('/', HomeController::class)->name('home');
@@ -94,5 +91,5 @@ Route::get('{username}', AsSeemController::class)->name('AsSeem');;
 
 Route::post('logout', function(){
     Auth::logout();
-    return redirect('login');
+    return Inertia::location('https://allacc.herokuapp.com/login');
 });

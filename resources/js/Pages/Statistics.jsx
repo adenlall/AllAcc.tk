@@ -40,7 +40,7 @@ export default function Statistics() {
             <h3 className='text-xl font-bold py-1'>Your public page visits:</h3>
             <div className='w-full rounded-lg m-auto bg-[url(https://nice-direct-links.herokuapp.com/12df0/file.jpg)] bg-cover bg-center bg-no-repeat'>
                 <div className='flex items-center rounded-lg w-full justify-start p-[4em]'style={{'background':'linear-gradient(90deg,darkcyan,transparent)'}}>
-                    <h1 className='text-2xl font-bold text-white w-[90%] sm:w-[40%]'>Number of visits to your public page is : <span class="itt">{visits}</span></h1>
+                    <h1 className='text-2xl font-bold text-white w-[90%] sm:w-[40%]'>Number of visits to your public page is : <span className="itt">{visits}</span></h1>
                 </div>
             </div>
 

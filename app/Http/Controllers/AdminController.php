@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class AdminController extends Controller
 {
@@ -83,7 +84,7 @@ class AdminController extends Controller
             $request->session()->put('admin_token', Crypt::encrypt($request->token));
             $data = Admin::where('token', $request->token)->get()->first();
             // dd($data,$data->username, Admin::where('token', $request->token)->get()->first());
-            return redirect("admin/{$data->username}/dashboard");
+            return Inertia::location("https://allacc.herokuapp.com/admin/{$data->username}/dashboard");
         }
 
     }
@@ -106,7 +107,7 @@ class AdminController extends Controller
                 ]);
             }else{
                 // dd('hello');
-                return redirect("admin/{$data->username}/dashboard");
+            return Inertia::location("https://allacc.herokuapp.com/admin/{$data->username}/dashboard");
 
             }
 

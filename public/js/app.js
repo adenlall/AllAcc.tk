@@ -5981,7 +5981,10 @@ function Header() {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           className: "inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-ap1 uppercase rounded-full bg-teal-accent-400",
-          children: "THE SKY IS THE LIMIT"
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            className: "itt hover:text-white",
+            children: "THE SKY IS THE LIMIT"
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
         className: "max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto",
@@ -6009,7 +6012,7 @@ function Header() {
               height: "24"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            className: "relative",
+            className: "relative itt",
             children: "AllAcc"
           })]
         }), ' ', "here where all accounts around the net meet"]
@@ -7704,7 +7707,7 @@ function Login(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full mb-2 max-w-xs flex flex-col ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-            className: "text-main text-2xl font-extrabold",
+            className: "text-main text-2xl font-extrabold hight w-[fit-content]",
             children: "Welcome Back !"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "text-main text-sm",
@@ -7876,8 +7879,8 @@ function Register(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "form-control w-full mb-2 max-w-xs flex flex-col ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-            className: "text-main text-2xl font-extrabold",
-            children: "Let's start your special experience!"
+            className: "text-main text-2xl font-extrabold hight w-[fit-content]",
+            children: "aCreate an account"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "text-main text-sm",
             children: "Fill all blanks and submit."
@@ -9389,7 +9392,7 @@ function Statistics() {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
           className: "text-2xl font-bold text-white w-[90%] sm:w-[40%]",
           children: ["Number of visits to your public page is : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-            "class": "itt",
+            className: "itt",
             children: visits
           })]
         })

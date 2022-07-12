@@ -108,6 +108,33 @@
     transform-origin: center left;
   }
 
+.hight {
+  position: relative;
+  z-index: 1;
+color:rgb(27, 27, 27);
+}
+
+.hight::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -0.25em;
+  right: -0.25em;
+  background-color: #143814;
+  transform-origin: bottom center;
+  transform: scaleY(0.1);
+  transition: all 0.1s ease-in-out;
+}
+.hight:hover{
+    color:white;
+}
+.hight:hover::before {
+  transform: scaleY(1);
+  background-color: #143814;
+}
+
 
 
 /* //////////////////////////////////////////////////// */

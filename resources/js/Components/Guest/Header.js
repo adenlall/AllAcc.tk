@@ -8,7 +8,7 @@ function Header() {
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                 <div>
                     <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-ap1 uppercase rounded-full bg-teal-accent-400">
-                        THE SKY IS THE LIMIT
+                        <span className="itt hover:text-white">THE SKY IS THE LIMIT</span>
                     </p>
                 </div>
                 <h1 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
@@ -34,7 +34,7 @@ function Header() {
                                 height="24"
                             />
                         </svg>
-                        <span className="relative">AllAcc</span>
+                        <span className="relative itt">AllAcc</span>
                     </span>{' '}
                     here where all accounts around the net meet
                 </h1>
