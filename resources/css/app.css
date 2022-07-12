@@ -84,6 +84,30 @@
 .ittem:hover{
     background: hsl(var(--b1)/0.5);
 }
+.itt {
+    position: relative;
+    z-index: 1;
+  }
+
+  .itt::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: -0.25em;
+    right: -0.25em;
+    background-color: hsla(341, 97%, 59%, 0.75);
+    transform-origin: center right;
+    transform: scaleX(0);
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .itt:hover::before {
+    transform: scaleX(1);
+    transform-origin: center left;
+  }
+
 
 
 /* //////////////////////////////////////////////////// */

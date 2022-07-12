@@ -7231,8 +7231,13 @@ function AsSeem() {
         var cle = serv.name.replace(/\./g, "");
 
         if (services[cle] === null) {} else {
-          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-            href: serv.website + '/' + services[cle],
+          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            method: "post",
+            href: "/statistics/set",
+            data: {
+              url: "".concat(serv.website, "/").concat(services[cle]),
+              service: cle
+            },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               className: "ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7248,7 +7253,7 @@ function AsSeem() {
                   className: "text-xl font-bold text-info",
                   children: [cle, " :"]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h3", {
-                  className: "text-2xl font-bold bg-info text-white p-1 px-3 rounded-lg",
+                  className: "text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg",
                   children: ["@", services[cle]]
                 })]
               })]
@@ -9314,26 +9319,121 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Statistics)
 /* harmony export */ });
 /* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 function Statistics() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      services = _usePage$props.services,
+      services_statistics = _usePage$props.services_statistics,
+      config = _usePage$props.config,
+      visits = _usePage$props.visits;
+  var sers = [];
+  var sers_d = [];
+  config.forEach(function (ser, i) {
+    if (services[ser.name] !== null) {
+      sers.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "w-full rounded-lg bg-ago p-2 py-[0.5em] flex flex-row items-center justify-center content-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "w-full p-2 m-2 rounded-lg text-xl sm:text-3xl font-extrabold italic text-white text-center",
+          style: {
+            'textShadow': "3px 3px 0px #".concat(ser['mColor'])
+          },
+          children: ser['name']
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+          className: "text-xl p-2 w-full m-2 text-white rounded-lg text-center bg-base-100",
+          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            className: "bg-ap3 text-black p-1 rounded-lg",
+            children: services_statistics['services'][ser['name']] === undefined || services_statistics['services'][ser['name']] === null ? '0' : services_statistics['services'][ser['name']]
+          })]
+        })]
+      }, ser['name']));
+    } else {
+      sers_d.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "w-full rounded-lg bg-[#f6bd6095] p-2 py-[0.5em] flex flex-row items-center justify-center content-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "w-full p-2 m-2 rounded-lg text-xl sm:text-3xl font-extrabold italic text-white text-center",
+          style: {
+            'textShadow': "3px 3px 0px #".concat(ser['mColor'])
+          },
+          children: ser['name']
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+          className: "text-xl p-2 w-full m-2 text-white rounded-lg text-center bg-base-100",
+          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            className: "bg-ap3 text-black p-1 rounded-lg",
+            children: services_statistics['services'][ser['name']] === undefined || services_statistics['services'][ser['name']] === null ? '0' : services_statistics['services'][ser['name']]
+          })]
+        })]
+      }, ser['name']));
+    }
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     id: "#head",
     className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
       className: "text-2xl font-extrabold py-4",
-      children: "Welcome to your new Statistics :"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "h-[70vh] w-full p-4 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
-      children: "This feature will come very soon!"
+      children: "Welcome to your new Statistics"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      className: "text-xl font-bold py-1",
+      children: "Your public page visits:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "w-full rounded-lg m-auto bg-[url(https://nice-direct-links.herokuapp.com/12df0/file.jpg)] bg-cover bg-center bg-no-repeat",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "flex items-center rounded-lg w-full justify-start p-[4em]",
+        style: {
+          'background': 'linear-gradient(90deg,darkcyan,transparent)'
+        },
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+          className: "text-2xl font-bold text-white w-[90%] sm:w-[40%]",
+          children: ["Number of visits to your public page is : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            "class": "itt",
+            children: visits
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      className: "text-xl font-bold py-1",
+      children: "Active services:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      "class": "collapse",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "checkbox"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2",
+        children: "Click to show Active services clicks"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "collapse-content space-y-2",
+        children: sers.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: " mb-4 my-1 w-full p-8 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
+          children: "Add your services from Dashboard first!"
+        }) : sers
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      className: "text-xl font-bold py-1",
+      children: "Deleted services:"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      "class": "collapse",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "checkbox"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2",
+        children: "Click to show Deleted services clicks"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        "class": "collapse-content space-y-2",
+        children: sers_d.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: " mb-4 my-1 w-full p-8 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
+          children: "Great! you don't have any deleted service."
+        }) : sers_d
+      })]
     })]
   });
 }
 
 Statistics.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
     title: "Statistics - AllAcc"
   });
