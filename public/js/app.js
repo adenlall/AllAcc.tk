@@ -4887,7 +4887,7 @@ function Skin(props) {
       skin: skk,
       icons: icc
     }, {
-      restOnSuccess: true,
+      restOnSuccess: false,
       preserveScroll: true
     });
   };

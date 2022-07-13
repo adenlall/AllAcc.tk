@@ -88,7 +88,7 @@ export default function Skin(props) {
 
     const cll = () => {
         // console.log({ skin: skk, icons: icc })
-        Inertia.post('/setting/set',{ skin: skk, icons: icc }, { restOnSuccess:true,preserveScroll: true });
+        Inertia.post('/setting/set',{ skin: skk, icons: icc }, { restOnSuccess:false,preserveScroll: true });
     }
 
 

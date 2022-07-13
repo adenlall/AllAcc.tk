@@ -26,7 +26,7 @@ class StatisticsController extends Controller
         $rec->increment('visits');
         $rec->increment('auth_v');
 
-        dd($arr);
+        // dd($arr);
         return Inertia('Statistics')->with([
             "services_statistics" => $arr['statistics'],
             "services" => $services,
