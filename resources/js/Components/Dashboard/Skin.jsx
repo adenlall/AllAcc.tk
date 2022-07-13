@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { usePage, Link } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
 
 export default function Skin(props) {
@@ -86,7 +87,8 @@ export default function Skin(props) {
     }
 
     const cll = () => {
-        console.log({ skin: skk, icons: icc })
+        // console.log({ skin: skk, icons: icc })
+        Inertia.post('/setting/set',{ skin: skk, icons: icc }, { restOnSuccess:true,preserveScroll: true });
     }
 
 
@@ -153,7 +155,7 @@ export default function Skin(props) {
                 </div>
             </div>
             <div id='forsave' className='p-2 pb-4 flex flex-col space-y-2'>
-                {((theskin.icons === icc) && (theskin.skin === skk)) ? '' : (<Link data={{ skin: skk, icons: icc }} href="/setting/set" method="post" as="button" type="button" className='btn' preserveScroll>Save yourSkin</Link>)}
+                {((theskin.icons === icc) && (theskin.skin === skk)) ? '' : (<button onClick={()=>{cll()}} type="button" className='btn'>Save yourSkin</button>)}
                 <p onClick={cll} className='text-sm italic font-light'>You can always change your skins.</p>
                 <p className='text-sm italic font-light'>Help us to create more skins on our <a className='font-bold text-pink-300' target={'_blank'} href='https://github.com/adenlall/allacc'>GitHub page</a>.</p>
             </div>
