@@ -16,13 +16,17 @@ class StatisticsController extends Controller
 
         $user = User::find(Auth::user()->id);
         $arr = json_decode($user->json_config, true);
+
+        if (!array_key_exists('statistics',$arr)) {
+            $arr += ['statistics'=>['services'=>[]]];
+        }
         $services_c = DB::table('config')->select('name','mColor','sColor')->get();
         $services = Service::find(Auth::user()->username);
         $rec = DB::table('statistic')->where('page','statistics');
         $rec->increment('visits');
         $rec->increment('auth_v');
 
-        // dd($services);
+        dd($arr);
         return Inertia('Statistics')->with([
             "services_statistics" => $arr['statistics'],
             "services" => $services,

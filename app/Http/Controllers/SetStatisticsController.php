@@ -15,7 +15,7 @@ class SetStatisticsController extends Controller
         $path = json_decode($user->json_config, true);
         $ser  = $request->service;
         $pth  = $request->url;
-        $oarr = array("statistics"=>["services"=>['pure'=>false]]);
+        // dd($path);
         if (array_key_exists('statistics',$path)) {
             if (!array_key_exists($ser,$path['statistics']['services'])) {
                 $path['statistics']['services'] += [$ser => 1];
@@ -23,12 +23,13 @@ class SetStatisticsController extends Controller
                 $path['statistics']['services'][$ser] = $path['statistics']['services'][$ser]+1;
             }
         } else {
-            $merged_arr = ["statistics" =>["services"=>array_merge($oarr['statistics']['services'], [$ser => 1])]];
+            $merged_arr = ["statistics" =>["services"=>[$ser => 1]]];
             $path += $merged_arr;
         }
         $user->update([
             "json_config"=>$path
         ]);
+        // dd($path);
         return Inertia::location($pth);
     }
 }
