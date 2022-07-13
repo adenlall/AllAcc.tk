@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class SetStatisticsController extends Controller
@@ -12,7 +11,7 @@ class SetStatisticsController extends Controller
 
     function __invoke(Request $request)
     {
-        $user = User::find($request->for_user);
+        $user = User::where('username',$request->for_user)->get()->first();
         $path = json_decode($user->json_config, true);
         $ser  = $request->service;
         $pth  = $request->url;

@@ -95,7 +95,7 @@ export default function Skin(props) {
         <>
             <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
                 <div className='flex flex-col space-y-1'>
-                    <h3 className='font-bold text-lg'>Chose your skin:</h3>
+                    <h3 id="skin" className='font-bold text-lg'>Chose your skin:</h3>
                     <h5 className='text-sm italic'>current : <span className='text-lg font-bold no-italic'>{theskin.skin}</span>.</h5>
                     {skk !== theskin.skin ? (<h5 style={{ 'lineHeight': '0.5em' }} className='text-sm italic'>selected : <span className='text-lg font-bold no-italic'>{skk}</span>.</h5>) : (<h5 className='text-sm italic' style={{ 'lineHeight': '0.5em' }}>selected : <span className='text-lg font-bold no-italic'>current</span>.</h5>)}
                 </div>
@@ -120,7 +120,7 @@ export default function Skin(props) {
                 </div>
             </div>
             <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
-                <div className='flex flex-col'>
+                <div id="icons" className='flex flex-col'>
                     <h3 className='font-bold text-lg'>Chose your icons style:</h3>
                     <h5 className='text-sm italic'>current : <span className='text-lg font-bold no-italic'>{theskin.icons}</span>.</h5>
                     {icc !== theskin.icons ? (<h5 className='text-sm italic' style={{ 'lineHeight': '0.5em' }}>selected : <span className='text-lg font-bold no-italic'>{icc}</span>.</h5>) : (<h5 className='text-sm italic' style={{ 'lineHeight': '0.5em' }}>selected : <span className='text-lg font-bold no-italic'>current</span>.</h5>)}

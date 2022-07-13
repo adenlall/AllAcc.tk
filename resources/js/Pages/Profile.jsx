@@ -180,10 +180,10 @@ export default function Profile() {
     return (
         <>
             <div id='profile' className="shadow-lg rounded-2xl my-4 w-[95%] sm:w-[72%] bg-primary">
-                <img alt="profil" src="https://tlgur.online/d/fpT0KB0y" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
+                <img alt="profil" src="https://nice-direct-links.herokuapp.com/12deb/file.jpg" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
                 <div className="flex flex-col items-center justify-center p-4 -mt-24">
                     {/* <a href="#" className="block relative"> */}
-                        <div onClick={()=>{click()}} className='rounded-full h-[8em] w-[8em] bg-[url("https://tlgur.online/d/uHwVUBEL")] bg-cover bg-center ' >
+                        <div onClick={()=>{click()}} className='rounded-full h-[8em] w-[8em] bg-[url("https://nice-direct-links.herokuapp.com/12915/file.jpg")] bg-cover bg-center ' >
                             <div className="flex justify-center items-center rounded-full h-[8em] w-[8em]">
                               <label htmlFor="dropzone-file" className="xelex flex flex-col justify-center items-center rounded-full h-[8em] w-[8em] border-2 cursor-pointer ">
                                     <div className="xelex mx-auto object-cover rounded-full h-[8em] w-[8em] flex flex-col items-center justify-center content-center border-2 border-gray-800 hover:bg-[#000000a8] " >
@@ -340,7 +340,7 @@ export default function Profile() {
 
                         <form onSubmit={passSubmit} className="w-full mt-19">
                             <hr />
-                            <div id="change_password" className="items-center w-full p-8 space-y-4 md:inline-flex md:space-y-0">
+                            <div id="password" className="items-center w-full p-8 space-y-4 md:inline-flex md:space-y-0">
                                 <h2 className="max-w-sm mx-auto md:w-4/12 text-light"> Change password
                                 </h2>
                                 <div className="max-w-sm mx-auto md:w-2/3 flex flex-col space-y-2">

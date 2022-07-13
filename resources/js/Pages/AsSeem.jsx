@@ -20,8 +20,8 @@ function AsSeem() {
 
                 if (services[cle] === null) { } else {
                     accs.push(
-                        <Link key={cle} method='post' href={"/statistics/set"} data={{for_user:user.id,url:`${serv.website}/${services[cle]}`, service:cle}}>
-                            <div className='ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary'>
+                        <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{for_user:user.username,url:`${serv.website}/${services[cle]}`, service:cle}}>
+                            <div className='ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary'>
                                 <div className='w-[6.5em] h-[6.5em] rounded-xl'>
                                     <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={icons_n[i]} alt={cle} />
                                 </div>
@@ -167,7 +167,7 @@ function AsSeem() {
 
                                             (
                                                 user.birthday === null ?
-                                                    <></>
+                                                    ''
                                                     :
                                                     <h1 className='flex items-start flex-col justify-start space-2'>
                                                         <p className='font-bold text-sm text-drk-l'>Birthday : </p><p className='w-[60%] sm:w-1/2'><span className='text-sm text-drk font-extrabold'>{user.birthday}</span></p>
@@ -178,7 +178,7 @@ function AsSeem() {
                                             (
                                                 user.country === null
                                                     ?
-                                                    <></>
+                                                    ''
                                                     :
                                                     <h1 className='flex items-start flex-col justify-start space-2'>
                                                         <p className='font-bold text-sm text-drk-l'>Country : </p><p className='w-[60%] sm:w-1/2'><span className='text-xl text-drk font-extrabold'>{user.country}</span></p>
@@ -195,7 +195,7 @@ function AsSeem() {
                                             ?
                                             <p className='font-bold text-xs italic'>Look like {user.name} don't want to share more details!</p>
                                             :
-                                            <></>
+                                            ''
                                     )
                                 }
                             </section>
@@ -280,15 +280,15 @@ function AsSeem() {
                     <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>
-                            <section className="my-4  m-auto space-y-3">
+                            <section className="my-4  m-auto space-y-3 flex flex-col items-center justify-center w-full">
                                 {
                                     accs[0] !== 'null'
                                         ?
                                         (
                                             accs.length === 0
                                                 ?
-                                                <div className='flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary'>
-                                                    <h3 className="text-xl font-extrabold text-primary">Nothing here yet!</h3>
+                                                <div className='flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#9c9c9c7e] bg-secondary'>
+                                                    <h3 className="text-xl font-extrabold text-base-100">Nothing here yet!</h3>
                                                 </div>
                                                 :
                                                 accs

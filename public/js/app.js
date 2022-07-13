@@ -4569,6 +4569,10 @@ function Sidebar() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props,
       auth = _usePage$props.auth,
       is_admin = _usePage$props.is_admin;
+
+  var _usePage = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)(),
+      component = _usePage.component;
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("aside", {
     className: "hidden md:block bg-default sticky top-5 h-full rounded-xl m-5 w-[20%] ",
     id: "sidenav-main",
@@ -4613,51 +4617,69 @@ function Sidebar() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              className: "p-2 bg-agr text-white rounded-lg",
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 href: '/dashboard',
                 children: "Dashboard"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-              className: "pl-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-                className: "text-sm text-drk-l",
-                href: "/dashboard#current",
-                children: "Your accounts"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-              className: "pl-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-                className: "text-sm text-drk-l",
-                href: "/dashboard#soung",
-                children: "Your soung"
-              })
-            })]
+            }), component === 'Dashboard' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#current",
+                  children: "Your accounts"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#soung",
+                  children: "Your soung"
+                })
+              })]
+            }) : '']
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              className: "p-2 bg-agr text-white rounded-lg",
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 href: '/profile',
                 children: "Profile"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            }), component === 'Profile' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
               className: "pl-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
                 className: "text-sm text-drk-l",
-                href: "/profile#change_password",
+                href: "#password",
                 children: "Change password"
               })
-            })]
+            }) : '']
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-              className: "p-2 bg-agr text-white rounded-lg",
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                 href: "/setting",
                 children: "Skin Settings"
               })
-            })]
+            }), component === 'Setting' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#skin",
+                  children: "Skin"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#icons",
+                  children: "Icons"
+                })
+              })]
+            }) : '']
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
@@ -4666,7 +4688,23 @@ function Sidebar() {
                 href: "/statistics",
                 children: "Statistics"
               })
-            })]
+            }), component === 'Statistics' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#head",
+                  children: "Visits"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#active_s",
+                  children: "Services clicks"
+                })
+              })]
+            }) : '']
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             className: "",
             children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
@@ -4854,6 +4892,7 @@ function Skin(props) {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "flex flex-col space-y-1",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+          id: "skin",
           className: "font-bold text-lg",
           children: "Chose your skin:"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h5", {
@@ -4930,6 +4969,7 @@ function Skin(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "skinn rounded-lg flex flex-col items-start p-3 space-y-2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        id: "icons",
         className: "flex flex-col",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
           className: "font-bold text-lg",
@@ -5963,77 +6003,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 function Header() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
     className: "flex flex-col items-center justify-center max-w-2xl px-4 pt-16 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8",
     style: {
       'background': 'linear-gradient(87deg, #f7ede2, #042b2833, #f7ede2 )'
     },
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
       className: "max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
           className: "inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-ap1 uppercase rounded-full bg-teal-accent-400",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
             className: "itt hover:text-white",
             children: "THE SKY IS THE LIMIT"
           })
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h1", {
         className: "max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("span", {
           className: "relative inline-block",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("svg", {
             viewBox: "0 0 52 24",
             className: "fill-ago absolute top-0 left-0 z-0 hidden w-32 -mt-8 -ml-20 text-blue-gray-100 lg:w-32 lg:-ml-28 lg:-mt-10 sm:block",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("defs", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pattern", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("defs", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("pattern", {
                 id: "9ef1ff62-feb2-41fe-8163-772b4c79de7b",
                 x: "0",
                 y: "0",
                 width: ".135",
                 height: ".30",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("circle", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("circle", {
                   cx: "1",
                   cy: "1",
                   r: ".7"
                 })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("rect", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("rect", {
               fill: "url(#9ef1ff62-feb2-41fe-8163-772b4c79de7b)",
               width: "52",
               height: "24"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
             className: "relative itt",
             children: "AllAcc"
           })]
         }), ' ', "here where all accounts around the net meet"]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
         className: "text-base text-gray-700 md:text-lg",
         children: "Manage the access to your Facebook, Instagram, Telegram, Github Accounts and much more tools to take the right decision in next time."
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
       className: "flex flex-col items-center justify-center w-full mb-4 md:flex-row md:px-16",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        method: "get",
         href: "/register",
         className: "btn btn-primary",
         children: "Let's start"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
       className: "max-w-md mb-10 text-xs text-gray-600 sm:text-sm md:text-center",
-      children: ["By creating account you accept all terms and our ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+      children: ["By creating account you accept all terms and our ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
         href: "/privacy",
         children: "Privacy"
       }), " policy."]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
       src: "https://kitwind.io/assets/kometa/half-phone.png",
       className: "w-full mx-auto md:w-auto md:max-w-xs",
       alt: ""
@@ -7235,14 +7274,17 @@ function AsSeem() {
 
         if (services[cle] === null) {} else {
           accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            className: "w-full",
             method: "post",
+            as: "button",
             href: "/statistics/set",
             data: {
+              for_user: user.username,
               url: "".concat(serv.website, "/").concat(services[cle]),
               service: cle
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "ittem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-secondary",
+              className: "ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
                 className: "w-[6.5em] h-[6.5em] rounded-xl",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
@@ -7421,7 +7463,7 @@ function AsSeem() {
                         children: user.name
                       })
                     })
-                  }), user.birthday === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+                  }), user.birthday === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
                     className: "flex items-start flex-col justify-start space-2",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                       className: "font-bold text-sm text-drk-l",
@@ -7433,7 +7475,7 @@ function AsSeem() {
                         children: user.birthday
                       })
                     })]
-                  }), user.country === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
+                  }), user.country === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h1", {
                     className: "flex items-start flex-col justify-start space-2",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                       className: "font-bold text-sm text-drk-l",
@@ -7450,7 +7492,7 @@ function AsSeem() {
               }), user.country === null && user.birthday === null || user.birthday === null && user.gender === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
                 className: "font-bold text-xs italic",
                 children: ["Look like ", user.name, " don't want to share more details!"]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {})]
+              }) : '']
             })]
           }), user.track === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             children: soung !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -7619,11 +7661,11 @@ function AsSeem() {
                 children: user.name
               }), " :"]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("section", {
-              className: "my-4  m-auto space-y-3",
+              className: "my-4  m-auto space-y-3 flex flex-col items-center justify-center w-full",
               children: accs[0] !== 'null' ? accs.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary",
+                className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#9c9c9c7e] bg-secondary",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-                  className: "text-xl font-extrabold text-primary",
+                  className: "text-xl font-extrabold text-base-100",
                   children: "Nothing here yet!"
                 })
               }) : accs : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -7860,7 +7902,6 @@ function Register(_ref) {
   };
 
   function submitHandler(e) {
-    // console.log(data);
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/register', data);
   }
 
@@ -7880,7 +7921,7 @@ function Register(_ref) {
           className: "form-control w-full mb-2 max-w-xs flex flex-col ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
             className: "text-main text-2xl font-extrabold hight w-[fit-content]",
-            children: "aCreate an account"
+            children: "Create an account"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
             className: "text-main text-sm",
             children: "Fill all blanks and submit."
@@ -8907,7 +8948,7 @@ function Profile() {
       className: "shadow-lg rounded-2xl my-4 w-[95%] sm:w-[72%] bg-primary",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
         alt: "profil",
-        src: "https://tlgur.online/d/fpT0KB0y",
+        src: "https://nice-direct-links.herokuapp.com/12deb/file.jpg",
         className: "rounded-t-lg h-[19em] object-cover w-full mb-4"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "flex flex-col items-center justify-center p-4 -mt-24",
@@ -8915,7 +8956,7 @@ function Profile() {
           onClick: function onClick() {
             click();
           },
-          className: "rounded-full h-[8em] w-[8em] bg-[url(\"https://tlgur.online/d/uHwVUBEL\")] bg-cover bg-center ",
+          className: "rounded-full h-[8em] w-[8em] bg-[url(\"https://nice-direct-links.herokuapp.com/12915/file.jpg\")] bg-cover bg-center ",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "flex justify-center items-center rounded-full h-[8em] w-[8em]",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
@@ -9161,7 +9202,7 @@ function Profile() {
             onSubmit: passSubmit,
             className: "w-full mt-19",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              id: "change_password",
+              id: "password",
               className: "items-center w-full p-8 space-y-4 md:inline-flex md:space-y-0",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
                 className: "max-w-sm mx-auto md:w-4/12 text-light",
@@ -9380,6 +9421,7 @@ function Statistics() {
       className: "text-2xl font-extrabold py-4",
       children: "Welcome to your new Statistics"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      id: "ffirst",
       className: "text-xl font-bold py-1",
       children: "Your public page visits:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -9398,6 +9440,7 @@ function Statistics() {
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      id: "active_s",
       className: "text-xl font-bold py-1",
       children: "Active services:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -9415,6 +9458,7 @@ function Statistics() {
         }) : sers
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+      id: "delete_s",
       className: "text-xl font-bold py-1",
       children: "Deleted services:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {

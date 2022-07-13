@@ -1619,7 +1619,7 @@ html {
   --ac: 0 0% 20%;
   --nc: 216 26% 17%;
   --inc: 0 0% 100%;
-  --suc: 0 0% 20%;
+  --suc: 0 0% 12%;
   --wac: 24 12% 82%;
   --erc: 216 26% 17%;
   --rounded-btn: 0;
@@ -1637,7 +1637,7 @@ html {
   --n: 216 12% 84%;
   --b1: 0 0% 0%;
   --in: 0 0% 0%;
-  --su: 0 0% 100%;
+  --su: 0 0% 58%;
   --wa: 24 10% 10%;
   --er: 216 12% 84%;
 }
@@ -3750,9 +3750,6 @@ body[dir="rtl"] .checkbox:checked,
 .mt-8 {
   margin-top: 2rem;
 }
-.mt-2 {
-  margin-top: 0.5rem;
-}
 .mt-16 {
   margin-top: 4rem;
 }
@@ -3770,6 +3767,9 @@ body[dir="rtl"] .checkbox:checked,
 }
 .mt-\[-1em\] {
   margin-top: -1em;
+}
+.mt-2 {
+  margin-top: 0.5rem;
 }
 .mt-4 {
   margin-top: 1rem;
@@ -4466,6 +4466,9 @@ body[dir="rtl"] .checkbox:checked,
 .bg-\[url\(https\:\/\/tlgur\.com\/d\/8BO1BzNG\)\] {
   background-image: url(https://tlgur.com/d/8BO1BzNG);
 }
+.bg-\[url\(\"https\:\/\/nice-direct-links\.herokuapp\.com\/12915\/file\.jpg\"\)\] {
+  background-image: url("https://nice-direct-links.herokuapp.com/12915/file.jpg");
+}
 .bg-cover {
   background-size: cover;
 }
@@ -5065,6 +5068,9 @@ color:rgb(27, 27, 27);
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
   background-color: hsl(var(--p) / var(--tw-bg-opacity));
+}
+.hover\:bg-\[\#9c9c9c7e\]:hover {
+  background-color: #9c9c9c7e;
 }
 .hover\:bg-\[\#dc50668f\]:hover {
   background-color: #dc50668f;

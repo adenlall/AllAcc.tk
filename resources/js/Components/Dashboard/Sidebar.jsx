@@ -4,6 +4,7 @@ import React from 'react';
 
 export default function Sidebar() {
     const { auth, is_admin } = usePage().props;
+    const { component } = usePage();
 
     return (
         <aside className="hidden md:block bg-default sticky top-5 h-full rounded-xl m-5 w-[20%] " id="sidenav-main">
@@ -23,16 +24,55 @@ export default function Sidebar() {
                             </div>
                             :
                             <div>
-                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={'/dashboard'} >Dashboard</Link></h4>
-                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/dashboard#current'>Your accounts</Link></li>
-                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/dashboard#soung'>Your soung</Link></li>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={'/dashboard'} >Dashboard</Link></h4>
+                                    {
+                                    component === 'Dashboard'
+                                        ? (
+                                            <>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#current'>Your accounts</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#soung'>Your soung</a></li>
+                                            </>
+                                        )
+                                        :
+                                        ''
+                                    }
+
                                 </ul>
-                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={'/profile'} >Profile</Link></h4>
-                                    <li className='pl-2'><Link className='text-sm text-drk-l' href='/profile#change_password'>Change password</Link></li>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={'/profile'} >Profile</Link></h4>
+                                {
+                                    component === 'Profile'
+                                        ? (
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#password'>Change password</a></li>
+                                        )
+                                        :
+                                        ''
+                                    }
                                 </ul>
-                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg'><Link href={`/setting`} >Skin Settings</Link></h4>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/setting`} >Skin Settings</Link></h4>
+                                {
+                                    component === 'Setting'
+                                        ? (
+                                            <>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#skin'>Skin</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#icons'>Icons</a></li>
+                                            </>
+                                        )
+                                        :
+                                        ''
+                                    }
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/statistics`} >Statistics</Link></h4>
+                                {
+                                    component === 'Statistics'
+                                        ? (
+                                            <>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#head'>Visits</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#active_s'>Services clicks</a></li>
+                                            </>
+                                        )
+                                        :
+                                        ''
+                                    }
                                 </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
                                 </ul>
@@ -50,7 +90,7 @@ export default function Sidebar() {
                                     </div>
                                 </div>
                         }
-                        <div className={'p-3 w-full rounded-lg flex flex-col items-center '+ (is_admin.is ? 'bg-ap3':'pt-12 mt-[-2em] bg-ago')}>
+                        <div className={'p-3 w-full rounded-lg flex flex-col items-center ' + (is_admin.is ? 'bg-ap3' : 'pt-12 mt-[-2em] bg-ago')}>
                             {
                                 is_admin.is
                                     ?

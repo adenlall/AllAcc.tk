@@ -1,5 +1,4 @@
 import { Link } from '@inertiajs/inertia-react';
-import React from 'react'
 
 function Header() {
 
@@ -45,6 +44,7 @@ function Header() {
             <form className="flex flex-col items-center justify-center w-full mb-4 md:flex-row md:px-16">
 
                 <Link
+                    method="get"
                     href='/register'
                     className="btn btn-primary"
                 >

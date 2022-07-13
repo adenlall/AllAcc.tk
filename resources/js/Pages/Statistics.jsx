@@ -37,7 +37,7 @@ export default function Statistics() {
         <div id='#head' className='w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col'>
             <h2 className='text-2xl font-extrabold py-4'>Welcome to your new Statistics</h2>
 
-            <h3 className='text-xl font-bold py-1'>Your public page visits:</h3>
+            <h3 id="ffirst" className='text-xl font-bold py-1'>Your public page visits:</h3>
             <div className='w-full rounded-lg m-auto bg-[url(https://nice-direct-links.herokuapp.com/12df0/file.jpg)] bg-cover bg-center bg-no-repeat'>
                 <div className='flex items-center rounded-lg w-full justify-start p-[4em]'style={{'background':'linear-gradient(90deg,darkcyan,transparent)'}}>
                     <h1 className='text-2xl font-bold text-white w-[90%] sm:w-[40%]'>Number of visits to your public page is : <span className="itt">{visits}</span></h1>
@@ -45,7 +45,7 @@ export default function Statistics() {
             </div>
 
 
-            <h3 className='text-xl font-bold py-1'>Active services:</h3>
+            <h3 id="active_s" className='text-xl font-bold py-1'>Active services:</h3>
             <div class="collapse">
                 <input type="checkbox" />
                 <div class="collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2">
@@ -64,7 +64,7 @@ export default function Statistics() {
                 </div>
             </div>
 
-            <h3 className='text-xl font-bold py-1'>Deleted services:</h3>
+            <h3 id="delete_s" className='text-xl font-bold py-1'>Deleted services:</h3>
             <div class="collapse">
                 <input type="checkbox" />
                 <div class="collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2">

@@ -51,7 +51,6 @@ Route::middleware('auth', 'toAdminDash')->group(function () {
 
     Route::post('setting/set', SetSkinsController::class);
 
-    Route::post('statistics/set', SetStatisticsController::class);
     Route::post('soung', SoungController::class);
     Route::post('profile', ProfileUpdateController::class);
     Route::post('setting', SevicesController::class);
@@ -87,6 +86,7 @@ Route::middleware('auth','admin', 'adminAccess')->group(function () {
 });
 
 Route::get('{username}', AsSeemController::class)->name('AsSeem');;
+Route::post('statistics/set', SetStatisticsController::class);
 
 
 Route::post('logout', function(){
