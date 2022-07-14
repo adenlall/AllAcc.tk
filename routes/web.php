@@ -43,7 +43,7 @@ Route::get('privacy', function(){
 
 
 
-Route::middleware('auth', 'toAdminDash')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('profile', ProfileController::class, 'show')->name('profile');
     Route::get('dashboard', DashboardController::class)->name('dashboard');
