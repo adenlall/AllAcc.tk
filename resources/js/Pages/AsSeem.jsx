@@ -41,16 +41,16 @@ function AsSeem() {
         accs.push('null');
     }
 
-    console.log(JSON.parse(user.json_config).theme.skin);
+    // console.log(JSON.parse(user.json_config).theme.skin);
     const play = () => {
         if (pl === true) {
-            console.log(pl, 'is now on pause')
+            // console.log(pl, 'is now on pause')
             document.querySelector('#audio').pause();
             document.querySelector('#pause').style.display = "none";
             document.querySelector('#play').style.display = "block";
             setPl(false);
         } else {
-            console.log(pl, 'is now on play')
+            // console.log(pl, 'is now on play')
             document.querySelector('#audio').play();
             document.querySelector('#play').style.display = "none";
             document.querySelector('#pause').style.display = "block";

@@ -16,7 +16,7 @@ function Spotify() {
         artist: null,
     })
 
-    const baseUrl = "http://ws.audioscrobbler.com/2.0";
+    const baseUrl = "https://ws.audioscrobbler.com/2.0";
     const api_key = "b23ead6cbeb54b78c6081fd264f205b4";
 
 

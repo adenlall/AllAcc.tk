@@ -4456,6 +4456,12 @@ function Navbar(_ref) {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                    className: component === 'Advanced' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk',
+                    href: "/advanced",
+                    children: "Advanced"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                     className: component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk',
                     href: "/" + auth.user.username,
                     children: "Public Page"
@@ -4539,6 +4545,220 @@ function Navbar(_ref) {
           className: "w-[max-content] text-lg font-bold",
           children: "Get yours"
         })
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/Components/Dashboard/Outside.jsx":
+/*!*******************************************************!*\
+  !*** ./resources/js/Components/Dashboard/Outside.jsx ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Outside)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Outside() {
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      auth = _usePage$props.auth,
+      advanced = _usePage$props.advanced;
+  console.log(advanced);
+
+  var cll = function cll() {
+    var data = document.querySelector('#place').value;
+
+    if (data === "" || data === null) {
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error('insert ypur record then submit!');
+    } else {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/advanced/set?is=outside&action=add', {
+        data: data
+      }, {
+        restOnSuccess: false,
+        preserveScroll: true
+      });
+    }
+
+    ;
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "flex flex-col shadow-lg lg:flex-row items-center justify-between p-2 text-lg  rounded-lg font-bold bg-ago text-black w-full",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "flex flex-col space-y-3 sm:space-y-0 sm:flex-row items-center justify-center lg:w-auto w-full",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            className: "bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 lg:w-auto w-full ",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "sm:block hidden",
+              children: "https://"
+            }), "allacc.herokuapp.com/", auth.user.username]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+            className: "p-2 pl-[0.1em] border-dashed border-[#042b28] border-[0.2em] sm:w-auto w-full bg-ap2 rounded-lg text-black font-bold md:text-lg lg:text-xl text-lg flex items-center",
+            style: {
+              'boxShadow': '-4px 5px 0px 0px black'
+            },
+            children: ["?from=", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+              type: "text",
+              name: "place",
+              id: "place",
+              className: "input bg-white sm:h-fit lg:h-[3em] h-[3em] text-sm w-auto sm:w-[5em] lg:w-auto"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "lg:pt-0 pt-3 flex items-center justify-start lg:w-auto w-full",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+            className: "lg:hidden block",
+            children: ["submit : ", ' ']
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            onClick: function onClick() {
+              cll();
+            },
+            className: "btn btn-accent mr-2",
+            type: "button",
+            children: "Add it"
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        className: "text-lg font-bold my-4",
+        children: "Current outsides : "
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "flex flex-col items-center justify-center space-y-2",
+        children: advanced.from.length !== 0 ? advanced.from.map(function (adv, i) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "flex flex-col lg:flex-row items-center rounded-lg bg-[darkslategray] w-full justify-between p-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              "class": "mockup-code w-[inherit] lg:w-[78%] text-[#a6adba] bg-[#191d24] rounded-lg",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pre", {
+                className: "text-[#fbbd23]",
+                "data-prefix": ">",
+                "class": "text-[#fbbd23]",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("code", {
+                  children: adv.is
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pre", {
+                className: "text-[#36d399]",
+                "data-prefix": ">",
+                "class": "text-[#36d399]",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+                  children: ["the link : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+                    children: ["https://allacc.herokuapp.com/", auth.user.username, "?from=", adv.is]
+                  })]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "lg:space-x-0 space-x-2 lg:space-y-2 space-y-0 flex flex-row lg:flex-col p-2 lg:items-start items-center lg:justify-center justify-between w-full lg:w-auto",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+                className: "lg:text-lg text-xl font-extrabold",
+                children: ["Clicks : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "text-ap1 font-bold text-xl",
+                  children: adv.clicks
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "space-x-2 flex flex-row",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                  preserveScroll: true,
+                  as: "button",
+                  method: "post",
+                  data: {
+                    data: adv.is
+                  },
+                  href: '/advanced/set?is=outside&action=setzero',
+                  className: "btn w-auto",
+                  children: "Set to 0"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                  preserveScroll: true,
+                  as: "button",
+                  method: "post",
+                  data: {
+                    data: adv.is
+                  },
+                  href: '/advanced/set?is=outside&action=delete',
+                  className: "btn btn-square",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    "class": "h-6 w-6",
+                    fill: "none",
+                    viewBox: "0 0 24 24",
+                    stroke: "currentColor",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      d: "M6 18L18 6M6 6l12 12"
+                    })
+                  })
+                })]
+              })]
+            })]
+          });
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "w-full rounded-lg p-4 bg-ago flex flex-col items-center justify-center spce-y-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+            className: "text-sm italic text-[#3c3c3c]",
+            children: "Add your outside sources from the input above to see them here"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("article", {
+            className: "text-[#3c3c3c]",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+              className: "text-xl font-bold m-auto text-center ",
+              children: "What's this ?"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+              className: "article text-lg space-y-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                children: "When you get your Public link from your Dashboard and you past it in your accounts Instagram, Facebook, Twitter..., and someone click it he enter to your public page, and you see that your public page incement in your Statistics page."
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                children: ["But What about if you want to know how many people clicked the link in specific place let's say ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "text-black",
+                  children: "Twitter"
+                }), " for example."]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                children: ["For that, you can add a ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "text-black",
+                  children: "\"from\""
+                }), " parameter in your url in Twitter, and name it ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "text-black",
+                  children: "\"twitter\""
+                }), "."]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                children: ["At the end, your public page URL will be like this ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+                  className: "text-black italic",
+                  children: ["https://allacc.herokuapp.com/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                    className: "font-bold",
+                    children: "?from=twitter"
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
+                children: ["And now, you can see every click on that link from ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  className: "text-black",
+                  children: "Twitter"
+                }), " in this case."]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                children: "And you can add how much you want of \"outside sources\"."
+              })]
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+        className: "text-lg font-bold my-4",
+        children: "Costum HTML : "
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago",
+        children: "This feature not available yet"
       })]
     })
   });
@@ -4702,6 +4922,31 @@ function Sidebar() {
                   className: "text-sm text-drk-l",
                   href: "#active_s",
                   children: "Services clicks"
+                })
+              })]
+            }) : '']
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+            className: "",
+            children: [" ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+              className: "p-2 bg-agr text-white rounded-lg mt-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                href: "/advanced",
+                children: "Advanced"
+              })
+            }), component === 'Advanced' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#head",
+                  children: "Outside clicks"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+                className: "pl-2",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+                  className: "text-sm text-drk-l",
+                  href: "#c_html",
+                  children: "Costum HTML"
                 })
               })]
             }) : '']
@@ -5190,7 +5435,7 @@ function Spotify() {
       values = _useState12[0],
       setValues = _useState12[1];
 
-  var baseUrl = "http://ws.audioscrobbler.com/2.0";
+  var baseUrl = "https://ws.audioscrobbler.com/2.0";
   var api_key = "b23ead6cbeb54b78c6081fd264f205b4";
 
   var query = function query() {
@@ -7216,6 +7461,44 @@ AdminStatistic.layout = function (page) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Advanced.jsx":
+/*!*****************************************!*\
+  !*** ./resources/js/Pages/Advanced.jsx ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Advanced)
+/* harmony export */ });
+/* harmony import */ var _Components_Dashboard_Outside__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Components/Dashboard/Outside */ "./resources/js/Components/Dashboard/Outside.jsx");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Advanced() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    id: "#head",
+    className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      className: "text-2xl font-extrabold py-4",
+      children: "Advanded setup"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Dashboard_Outside__WEBPACK_IMPORTED_MODULE_0__["default"], {})]
+  });
+}
+
+Advanced.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: page,
+    title: "Advanced - AllAcc"
+  });
+};
+
+/***/ }),
+
 /***/ "./resources/js/Pages/AsSeem.jsx":
 /*!***************************************!*\
   !*** ./resources/js/Pages/AsSeem.jsx ***!
@@ -7312,19 +7595,18 @@ function AsSeem() {
     }
   } else {
     accs.push('null');
-  }
+  } // console.log(JSON.parse(user.json_config).theme.skin);
 
-  console.log(JSON.parse(user.json_config).theme.skin);
 
   var play = function play() {
     if (pl === true) {
-      console.log(pl, 'is now on pause');
+      // console.log(pl, 'is now on pause')
       document.querySelector('#audio').pause();
       document.querySelector('#pause').style.display = "none";
       document.querySelector('#play').style.display = "block";
       setPl(false);
     } else {
-      console.log(pl, 'is now on play');
+      // console.log(pl, 'is now on play')
       document.querySelector('#audio').play();
       document.querySelector('#play').style.display = "none";
       document.querySelector('#pause').style.display = "block";
@@ -46256,6 +46538,8 @@ var map = {
 	"./AdminAuth.jsx": "./resources/js/Pages/AdminAuth.jsx",
 	"./AdminStatistic": "./resources/js/Pages/AdminStatistic.jsx",
 	"./AdminStatistic.jsx": "./resources/js/Pages/AdminStatistic.jsx",
+	"./Advanced": "./resources/js/Pages/Advanced.jsx",
+	"./Advanced.jsx": "./resources/js/Pages/Advanced.jsx",
 	"./AsSeem": "./resources/js/Pages/AsSeem.jsx",
 	"./AsSeem.jsx": "./resources/js/Pages/AsSeem.jsx",
 	"./Auth/Login": "./resources/js/Pages/Auth/Login.jsx",

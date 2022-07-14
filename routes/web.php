@@ -3,6 +3,8 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPagesController;
+use App\Http\Controllers\AdvancedController;
+use App\Http\Controllers\SetAdvancedController;
 use App\Http\Controllers\AsSeemController;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
@@ -47,10 +49,12 @@ Route::middleware('auth', 'toAdminDash')->group(function () {
     Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('setting', SettingController::class)->name('setting');
     Route::get('statistics', StatisticsController::class)->name('statistics');
+    Route::get('advanced', AdvancedController::class)->name('advanced');
 
 
+
+    Route::post('advanced/set', SetAdvancedController::class);
     Route::post('setting/set', SetSkinsController::class);
-
     Route::post('soung', SoungController::class);
     Route::post('profile', ProfileUpdateController::class);
     Route::post('setting', SevicesController::class);

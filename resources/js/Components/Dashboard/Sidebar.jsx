@@ -74,6 +74,19 @@ export default function Sidebar() {
                                         ''
                                     }
                                 </ul>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/advanced`} >Advanced</Link></h4>
+                                {
+                                    component === 'Advanced'
+                                        ? (
+                                            <>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#head'>Outside clicks</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#c_html'>Costum HTML</a></li>
+                                            </>
+                                        )
+                                        :
+                                        ''
+                                    }
+                                </ul>
                                 <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/${auth.user.username}`} >Public page</Link></h4>
                                 </ul>
                             </div>
