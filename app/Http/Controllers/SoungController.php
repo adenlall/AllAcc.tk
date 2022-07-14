@@ -25,13 +25,13 @@ class SoungController extends Controller
                 $resop = Http::get($deezURL)->json();
             } catch(ConnectionException $e)
             {
-                return redirect('/dashboard')->with([
+                return back()->with([
                     'type' => 'error',
                     'message' => 'A fatal error!'
                 ]);
             }
             if (count($resop["data"]) === 0) {
-                return redirect('/dashboard')->with([
+                return back()->with([
                     'type' => 'error',
                     'message' => 'Opps... Track selected not found please select other one and make sure that is original one!'
                 ]);
@@ -40,7 +40,7 @@ class SoungController extends Controller
                     'track' => $request['track'],
                     'artist' => $request['artist'],
                 ]);
-                return redirect('/dashboard')->with([
+                return back()->with([
                     'type' => 'success',
                     'message' => "{$request['artist']}'s track has beent set!"
                 ]);

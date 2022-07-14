@@ -38,14 +38,14 @@ class LoginController extends Controller
             {
                 session()->regenerate();
                 // dd($request->password, $request->email);
-                return Inertia::location('https://allacc.herokuapp.com/admin');
+                return redirect('/admin'); //('https://allacc.herokuapp.com/admin');
 
             }else{
 
                 session()->regenerate();
 
                 // dd($request->password, 'dash');
-                return Inertia::location('https://allacc.herokuapp.com/dashboard');
+                return back(); //('https://allacc.herokuapp.com/dashboard');
 
             }
 

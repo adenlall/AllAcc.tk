@@ -25,7 +25,7 @@ class SetSkinsController extends Controller
             ]);
             $user->save();
         }
-        return Redirect::route('setting')->with([
+        return back()->with([
             'type' => 'success',
             'message' => 'Your changes has been modified!'
         ]);

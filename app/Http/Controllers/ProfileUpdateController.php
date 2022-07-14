@@ -51,7 +51,7 @@ class ProfileUpdateController extends Controller
             }
 
         }
-        return redirect('/profile')->with([
+        return back()->with([
             'type' => 'success',
             'message' => 'Your changes has been modified!'
         ]);
