@@ -48,7 +48,7 @@ class SetAdvancedController extends Controller
             ]);
 
             // dd($path);
-            return Redirect::route('advanced')->with([
+            return back()->with([
                 'type' => 'success',
                 'message' => 'Your changes has been modified!'
             ]);

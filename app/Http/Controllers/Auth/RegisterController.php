@@ -9,9 +9,7 @@ use App\Rules\Nospace;
 use App\Rules\Username;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
-use Inertia\Inertia;
 
 class RegisterController extends Controller
 {
@@ -37,16 +35,8 @@ class RegisterController extends Controller
                 'username' => $request->username
             ]);
 
-            // return back(); //('https://allacc.herokuapp.com/dashboard');
-            $rec = DB::table('statistic')->where('page', 'dashboard');
-            $rec->increment('visits');
-            $rec->increment('auth_v');
-            $services_config = DB::table('config')->get();
-            $services = Service::where('username', Auth::user()->username)->get()->first();
-            return inertia('Dashboard', [
-                'services_config' => $services_config,
-                'services'        => $services,
-            ]);
+            return redirect('https://allacc.herokuapp.com/dashboard');
+
         }
 
         throw ValidationException::withMessages([
