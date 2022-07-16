@@ -30,7 +30,7 @@ export default function Item(props) {
     return (
         <div className={'flex flex-row items-stretch w-full xs:w-[17em] ss:w-[20em] ls:w-[25em] p-4 rounded-xl'} style={{ background: `linear-gradient(22deg, #${props.mColor}, #${props.sColor})` }} >
             <div className=' w-[inherit] xs:max-w-[7em] h-[10em] rounded-xl'>
-                <img className='rounded-xl object-contain w-[inherit] xs:max-w-[7em] h-[10em] bg-white p-2' src={props.img} alt={props.name} />
+                <img className='rounded-xl object-contain w-[inherit] xs:max-w-[7em] h-[10em] bg-white p-2' src={`/imgs/icons/rB/${props.name}.svg`} alt={props.name} />
             </div>
             <form onSubmit={handleSubmit} className='flex flex-col space-y-0 pl-2'>
                 <div className='flex flex-col'>

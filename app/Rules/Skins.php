@@ -27,7 +27,7 @@ class Skins implements Rule
     {
         //
 
-        $data = ['BnW', 'NnP', 'RRG','Ind', 'lines', 'light', 'drawing','blackwhite'];
+        $data = ['rB', 'Vx', 'C4', 'Dr', 'oB', 'NnP', 'Vnt', 'RPG', 'BnW', 'Ind'];
         // foreach ($data as $key) {
         for($i=0; $i < count($data); $i++) {
             if($value === $data[$i]){

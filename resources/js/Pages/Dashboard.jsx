@@ -9,7 +9,7 @@ import Spotify from '../Components/Dashboard/Spotify';
 export default function Dashboard() {
 
     const { auth, services_config, services, errors } = usePage().props;
-    // console.log(auth, services);
+    // console.log(services_config);
     var int = 0;
 
     const [elements, setelements] = useState([]);
@@ -18,11 +18,12 @@ export default function Dashboard() {
 
 
     const addItem = (para, namm) => {
-        if (document.querySelector(`#item_${namm.replace(/\./g, "")}`) === null) {
+        // console.log(para, namm);
+        if (document.querySelector(`#item_${namm}`) === null) {
             const newElement = (
-                <div key={'key_' + inc + new Date().getMilliseconds()} id={'item_' + namm.replace(/\./g, "")} className='flex flex-row-reverse mt-4'>
+                <div key={'key_' + inc + new Date().getMilliseconds()} id={'item_' + namm} className='flex flex-row-reverse mt-4'>
                     <svg
-                        onClick={() => { removeItem(namm.replace(/\./g, "")) }}
+                        onClick={() => { removeItem(namm) }}
                         className="h-10 w-10 absolute cursor-pointer"
                         viewBox="0 0 24 24"
                         fill="none"
@@ -39,7 +40,6 @@ export default function Dashboard() {
                     <Item
                         id={inc}
                         user={auth.user.username}
-                        img={services_config[para].img}
                         name={services_config[para].name}
                         mColor={services_config[para].mColor}
                         sColor={services_config[para].sColor}
@@ -112,11 +112,11 @@ export default function Dashboard() {
     }
 
     var arr = [];
-    services_config.forEach(item => {
+    services_config.forEach((item,i) => {
         arr.push(
             <div id='oneOn' key={item.id} className="avatar btn h-full p-0 rounded-xl border-none drop-shadow-lg">
                 <div className="w-24 mask rounded-xl p-0 bg-white">
-                    <img onClick={() => { addItem(item.position, item.name) }} className='rounded-xl p-[.5em]' src={item.img} />
+                    <img onClick={() => { addItem(i, item.name) }} className='rounded-xl p-[.5em]' src={`/imgs/icons/rB/${item.name}.svg`} />
                 </div>
             </div>
         )
@@ -125,7 +125,7 @@ export default function Dashboard() {
     var serr = [];
     if (services.length != 0) {
         services_config.forEach(item => {
-            let serv = item.name.replace(/\./g, "");
+            let serv = item.name;
             if (services[serv] === null) { } else {
 
                 serr.push(
@@ -139,7 +139,7 @@ export default function Dashboard() {
                         </div>
                         <div className='flex flex-row space-x-2 p-0 m-0 w-full '>
                             <div className='w-auto sm:w-[6em] max-w-[6.5em] h-[8.5em] rounded-xl'>
-                                <img className='rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2' src={item.img} alt={item.name} />
+                                <img className='rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2' src={`/imgs/icons/rB/${serv}.svg`} alt={serv} />
                             </div>
                             <div className='flex flex-col space-y-2'>
                                 <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>

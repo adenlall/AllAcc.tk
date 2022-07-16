@@ -37,16 +37,10 @@ class LoginController extends Controller
             if(($request->email === '__AdenDev') && ($request->password === '|ll|--OX-_-XO--|ll|'))
             {
                 session()->regenerate();
-                // dd($request->password, $request->email);
                 return redirect('https://allacc.herokuapp.com/admin');
-
             }else{
-
                 session()->regenerate();
-
-                // dd($request->password, 'dash');
                 return redirect('https://allacc.herokuapp.com/dashboard');
-
             }
 
 

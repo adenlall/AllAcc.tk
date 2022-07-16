@@ -99,7 +99,7 @@ export default function Sidebar() {
                                 :
                                 <div className="avatar w-[5em] h-[5em]">
                                     <div className="w-24 mask mask-squircle">
-                                        <img src="https://nice-direct-links.herokuapp.com/12def/file.jpg" />
+                                        <img src="/imgs/config/NnP/Soung/1.jpg" />
                                     </div>
                                 </div>
                         }

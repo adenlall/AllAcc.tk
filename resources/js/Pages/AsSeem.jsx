@@ -1,17 +1,18 @@
+import { Inertia } from '@inertiajs/inertia';
 import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
-
+import '../../css/fonts.css';
 
 function AsSeem() {
 
-    const { auth, user, services_config, services, soung, icons, skin } = usePage().props;
+    const { auth, user, services_config, services, soung } = usePage().props;
 
-    // console.log(icons, skin);
     const [pl, setPl] = useState(false);
     const accs = [];
-    var e = 0;
-    const icons_n = JSON.parse(icons.json_icons);
-    // console.log('');
+    const theme = JSON.parse(user.json_config);
+    const font = theme.theme.font;
+    // console.log(font);
+    const e = Math.floor(Math.random() * 2);
     if (services !== null) {
         if (services.length !== 0) {
             let i = 0;
@@ -20,10 +21,10 @@ function AsSeem() {
 
                 if (services[cle] === null) { } else {
                     accs.push(
-                        <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{for_user:user.username,url:`${serv.website}/${services[cle]}`, service:cle}}>
-                            <div className='ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary'>
+                        <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{ for_user: user.username, url: `${serv.website}/${services[cle]}`, service: cle }}>
+                            <div className='ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary boxAs'>
                                 <div className='w-[6.5em] h-[6.5em] rounded-xl'>
-                                    <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={icons_n[i]} alt={cle} />
+                                    <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={`/imgs/icons/${theme.theme.icons}/${cle}.svg`} alt={cle} />
                                 </div>
                                 <div className='flex flex-col space-y-2'>
                                     <h4 className='text-xl font-bold text-info'>{cle} :</h4>
@@ -37,20 +38,16 @@ function AsSeem() {
                 i++;
             });
         }
-    }else{
+    } else {
         accs.push('null');
     }
-
-    // console.log(JSON.parse(user.json_config).theme.skin);
     const play = () => {
         if (pl === true) {
-            // console.log(pl, 'is now on pause')
             document.querySelector('#audio').pause();
             document.querySelector('#pause').style.display = "none";
             document.querySelector('#play').style.display = "block";
             setPl(false);
         } else {
-            // console.log(pl, 'is now on play')
             document.querySelector('#audio').play();
             document.querySelector('#play').style.display = "none";
             document.querySelector('#pause').style.display = "block";
@@ -58,9 +55,6 @@ function AsSeem() {
         }
     }
 
-    useEffect(() => {
-        e = Math.floor(Math.random() * 2);
-    }, []);
     useEffect(() => {
 
         let timerID = setInterval(() => {
@@ -81,18 +75,15 @@ function AsSeem() {
     })
 
 
-
-
-
-
     return (
         <>
+
             <Head title={user.name + " - AllAcc"} />
-            <div data-theme={JSON.parse(user.json_config).theme.skin} style={{ 'backgroundImage': `url(${skin[`img${e}`]})`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
+            <div data-theme={theme.theme.skin} style={{ 'fontFamily': `${(font===null||font===undefined)?'Gracheva':font}`, 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Header/${e}.jpg")`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
-                    <nav className="navbar bg-secondary rounded-lg">
+                    <nav className="navbar bg-secondary rounded-lg boxAs">
                         <div className="flex-1 flex">
                             <a href="#" className="btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100">{user.username}</a>
                         </div>
@@ -135,7 +126,7 @@ function AsSeem() {
 
                                         <section className="space-y-3 md:w-1/2 w-full ">
                                             <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
-                                            <div className="w-full h-full p-4 rounded-lg bg-secondary ">
+                                            <div className="w-full h-full p-4 rounded-lg bg-secondary boxAs">
                                                 <h3 className="text-lg text-base-100 font-semibold">{user.quote}</h3>
                                             </div>
 
@@ -146,7 +137,7 @@ function AsSeem() {
                             {/* PROFILE */}
                             <section className={user.quote !== null ? 'space-y-3 md:w-1/2 w-full' : 'space-y-5 w-full'}>
                                 <h3 className='italic text-xl font-extrabold'>THE PROFILE :</h3>
-                                <div className='flex items-stretch h-full space-x-2 rounded-lg bg-accent'>
+                                <div className='flex items-stretch h-full space-x-2 rounded-lg bg-accent boxAs'>
                                     <div className=' md:min-w-[10em] w-[8em] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary'>
                                         {
                                             user.img === true
@@ -216,15 +207,15 @@ function AsSeem() {
 
                                             <section className='sm:space-y-3 space-y-5 w-full mt-[3em]'>
                                                 <h3 className='italic text-xl font-extrabold'>FEEL <span className="italic text-success">{user.name}</span> BY HIS FAVORITE SOUNG :</h3>
-                                                <div className='flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url(${JSON.parse(skin.json_config).imgs[e]})`, 'backgroundSize': 'cover' }}>
+                                                <div className='boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Soung/${e}.jpg")`, 'backgroundSize': 'cover' }}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
                                                         <div className="sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]" >
                                                             <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-lg' src={soung.album.cover_big} alt="" />
                                                         </div>
                                                         <div className='p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg '>
                                                             <div className='p-2 flex flex-col space-y-2'>
-                                                                <h2 className='font-extrabold text-[3em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
-                                                                <h2 className='font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
+                                                                <h2 className={`font-extrabold text-[3em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
+                                                                <h2 className='font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis artistUser' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -276,7 +267,7 @@ function AsSeem() {
 
 
                 </div>
-                <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url(${skin.img2})`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
+                <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
                     <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>

@@ -7,6 +7,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Inertia\Inertia;
@@ -21,10 +22,12 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $query = ['id', 'username', 'name', 'age', 'gender', 'birthday', 'json_config', 'country', 'email', 'quote', 'track', 'artist'];
 
             User::where('username', $path)->get()->first()->increment('visit');
-            $user = User::where('username', $path)->select($query)->get()->first();
+
+            $user = Cache::remember($path, now()->addMinutes(2), function() use ($path) {
+                return User::where('username', $path)->get()->first();
+            });
 
             $rec = DB::table('statistic')->where('page', 'AsSeem');
             $rec->increment('visits');
@@ -34,16 +37,17 @@ class AsSeemController extends Controller
                 $rec->increment('guest_v');
             }
 
-            $services = Service::where('username', $path)->get()->first();
-            $services_config = DB::table('config')->get();
-            $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
-            // $resop = Http::retry(2)->get($deezURL)->json();
-            // dd($resop);
 
-            $skin  = json_decode($user->json_config)->theme->skin;
-            $icons = json_decode($user->json_config)->theme->icons;
-            $skin_given =  DB::table('skin')->where('name', $skin)->select(['name', 'img0', 'img1', 'img2', 'clr0', 'clr1', '__img', 'json_config', 'json_headers'])->get()->first();
-            $icons_given = DB::table('skin')->where('icons', $icons)->select(['icons', 'json_icons'])->get()->first();
+            $services = Cache::remember("{Auth::user()->username}_s", now()->addMinutes(2), function() use ($path) {
+                return Service::where('username', $path)->get()->first();
+            });
+
+            $services_config = Cache::remember('config', now()->addHours(48), function () {
+                return DB::table('config')->get();
+            });
+
+
+
 
             if ($request->from !== null) {
                 $advance = json_decode($user->json_config, true);
@@ -52,7 +56,7 @@ class AsSeemController extends Controller
                         if ($advance["advanced"]["from"][$i]["is"] === $request->from) {
                             $advance["advanced"]["from"][$i]["clicks"] = $advance["advanced"]["from"][$i]["clicks"] + 1;
                             $user->update([
-                                'json_config'=>json_encode($advance)
+                                'json_config' => json_encode($advance)
                             ]);
                             break;
                         }
@@ -63,19 +67,19 @@ class AsSeemController extends Controller
 
 
 
-            if (User::where('username', $path)->select($query)->whereNotNull('artist')->exists()) {
+            if ($user->artist !== null) {
+                $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
 
                 try {
-                    $resop = Http::retry(2)->get($deezURL)->json();
+                    $resop = Cache::remember("{$user->username}_soung", now()->addMinutes(2), function() use ($deezURL){
+                        return Http::retry(2)->get($deezURL)->json();
+                    });
                     // dd($resop);
 
                     return Inertia::render('AsSeem', [
                         "soung" => $resop["data"][0],
                         "user" => $user,
                         "services" => $services,
-                        "icons" => $icons_given,
-                        "skin" => $skin_given,
-
                         "services_config" => $services_config,
                     ]);
                 } catch (Exception $ex) {
@@ -83,8 +87,6 @@ class AsSeemController extends Controller
                         "soung" => null,
                         "user" => $user,
                         "services" => $services,
-                        "icons" => $icons_given,
-                        "skin" => $skin_given,
                         "services_config" => $services_config,
                     ]);
                 }
@@ -94,9 +96,6 @@ class AsSeemController extends Controller
                     "soung" => null,
                     "user" => $user,
                     "services" => $services,
-
-                    "icons" => $icons_given,
-                    "skin" => $skin_given,
                     "services_config" => $services_config,
                 ]);
             }

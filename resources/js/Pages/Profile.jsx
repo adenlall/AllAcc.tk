@@ -46,7 +46,7 @@ export default function Profile() {
         data.username === auth.user.username ? delete data.username : '';
         data.email === auth.user.email ? delete data.email : '';
         data.quote === auth.user.quote ? delete data.quote : '';
-        console.log(data)
+        // console.log(data)
         Inertia.post('/profile', data);
     }
 
@@ -180,10 +180,10 @@ export default function Profile() {
     return (
         <>
             <div id='profile' className="shadow-lg rounded-2xl my-4 w-[95%] sm:w-[72%] bg-primary">
-                <img alt="profil" src="https://nice-direct-links.herokuapp.com/12deb/file.jpg" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
+                <img alt="profil" src="/imgs/config/Ind/Header/0.jpg" className="rounded-t-lg h-[19em] object-cover w-full mb-4" />
                 <div className="flex flex-col items-center justify-center p-4 -mt-24">
                     {/* <a href="#" className="block relative"> */}
-                        <div onClick={()=>{click()}} className='rounded-full h-[8em] w-[8em] bg-[url("https://nice-direct-links.herokuapp.com/12915/file.jpg")] bg-cover bg-center ' >
+                        <div onClick={()=>{click()}} className='rounded-full h-[8em] w-[8em] bg-[url("/imgs/config/NnP/Soung/1.jpg")] bg-cover bg-center ' >
                             <div className="flex justify-center items-center rounded-full h-[8em] w-[8em]">
                               <label htmlFor="dropzone-file" className="xelex flex flex-col justify-center items-center rounded-full h-[8em] w-[8em] border-2 cursor-pointer ">
                                     <div className="xelex mx-auto object-cover rounded-full h-[8em] w-[8em] flex flex-col items-center justify-center content-center border-2 border-gray-800 hover:bg-[#000000a8] " >

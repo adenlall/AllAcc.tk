@@ -18,20 +18,16 @@ return new class extends Migration
 
             $table->id();
             $table->string('name');
+            $table->string('c_name');
             $table->string('icons');
+            $table->string('c_icons');
 
-            $table->string('img0');
-            $table->string('img1');
-            $table->string('img2');
             $table->string('clr0');
             $table->string('clr1');
             $table->string('clr2');
-
-            $table->string('__img');
+            $table->string('header');
 
             $table->json('json_config');
-            $table->json('json_icons');
-            $table->json('json_headers');
 
         });
     }

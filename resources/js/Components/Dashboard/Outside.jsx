@@ -5,14 +5,29 @@ import { usePage, Link } from '@inertiajs/inertia-react';
 
 export default function Outside() {
     const { auth, advanced } = usePage().props;
-    console.log(advanced);
+    // console.log(advanced);
+
+    function check_if_repeated(e){
+        for (let i = 0; i <  advanced.from.length; i++) {
+            const ele =  advanced.from[i].is;
+            if(ele === e){
+                return false;
+            }
+
+        }
+        return true;
+    }
 
     const cll = () => {
         let data = document.querySelector('#place').value;
         if (data === "" || data === null) {
             toast['error']('insert ypur record then submit!');
         } else {
-            Inertia.post('/advanced/set?is=outside&action=add', { data: data }, { restOnSuccess: false, preserveScroll: true });
+           if(check_if_repeated(data)){
+               Inertia.post('/advanced/set?is=outside&action=add', { data: data }, { restOnSuccess: false, preserveScroll: true });
+           }else{
+                toast['error']("You can't type the some outside source name!");
+           }
         };
     };
 
@@ -55,7 +70,7 @@ export default function Outside() {
                                     <h4 className="text-sm italic text-[#3c3c3c]">Add your outside sources from the input above to see them here</h4>
                                         <article className="text-[#3c3c3c]">
                                             <h3 className="text-xl font-bold m-auto text-center ">What's this ?</h3>
-                                            <p className="article text-lg space-y-2">
+                                            <p className="article text-lg space-y-2 w-auto">
                                                 <li>When you get your Public link from your Dashboard and you past it in your accounts Instagram, Facebook, Twitter..., and someone click it he enter to your public page, and you see that your public page incement in your Statistics page.</li>
                                                 <li>But What about if you want to know how many people clicked the link in specific place let's say <span className="text-black">Twitter</span> for example.</li>
                                                 <li>For that, you can add a <span className="text-black">"from"</span> parameter in your url in Twitter, and name it <span className="text-black">"twitter"</span>.</li>

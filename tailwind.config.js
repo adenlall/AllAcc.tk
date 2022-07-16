@@ -11,11 +11,31 @@ module.exports = {
         themes: [
             "light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter",
             {
+
+                Vnt:{
+
+                    "--rounded-box": "0", // border radius rounded-box utility class, used in card and other large boxes
+                    "--rounded-btn": "0", // border radius rounded-btn utility class, used in buttons and similar element
+                    "--tab-radius": "0", // border radius of tabs
+
+                    "index":'#fff',
+                    "primary": "#a16207",
+                    "secondary": "#ffcb70",
+                    "accent": "#edbf9e",
+                    "neutral": "#f0b27a",
+                    "base-100": "#797d62",
+                    "info": "#ffcb69",
+                    "success": "#d08c60",
+                    "warning": "#f59e0b",
+                    "error": "#718355",
+                },
+
                 NnP: {
                     "--rounded-box": "10em", // border radius rounded-box utility class, used in card and other large boxes
                     "--rounded-btn": "10em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "10em", // border radius of tabs
 
+                    "index":'#fff',
                     "primary": "#e11d48",
                     "secondary": "#facc15",
                     "accent": "#f43f5e",
@@ -31,6 +51,7 @@ module.exports = {
                     "--rounded-btn": "1em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "1em", // border radius of tabs
 
+                    "index":'#fff',
                     "primary": "#f28482",    // pink 2
                     "secondary": "#f5cac3", // pink 1
                     "accent": "#f7ede2",   // pink 0
@@ -67,7 +88,7 @@ module.exports = {
 
                 },
 
-                RRG: {
+                RPG: {
                     "--rounded-box": "10em", // border radius rounded-box utility class, used in card and other large boxes
                     "--rounded-btn": "10em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "10em", // border radius of tabs
