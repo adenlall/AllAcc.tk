@@ -156,6 +156,12 @@ color:rgb(27, 27, 27);
 [data-theme="Ind"] .artistUser{
    color: black;
 }
+[data-theme="BnW"] .trackUser{
+   color: auto;
+}
+[data-theme="NnP"] .artistUser{
+   color: auto;
+}
 [data-theme="Vnt"] *{
    border-radius: 0;
 }
