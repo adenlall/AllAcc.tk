@@ -5155,21 +5155,12 @@ function Skin(props) {
 
     for (var i = 0; i < contai.length; i++) {
       var lele = contai[i];
-      lele.firstChild.style.border = 'solid';
-      lele.firstChild.style.padding = '1em';
-      lele.firstChild.style.background = 'linear-gradient(70deg, #042b28, #377566)';
-      lele.lastChild.style.background = 'linear-gradient(70deg, #042b28, #a2d7ca)';
+      lele.style.background = '#e5e7eb';
+      lele.style.boxShadow = 'none';
     }
 
-    ele.lastChild.innerHTML = e + ' is slected!';
-    setTimeout(function () {
-      ele.lastChild.innerHTML = 'Just you, adn just you.';
-    }, 500);
-    ele.lastChild.style.background = 'linear-gradient(70deg, #558682, #fff)';
-    ele.firstChild.style.background = 'linear-gradient(70deg,#042b28,#8cd7d1)';
-    ele.firstChild.style.borderWidth = '.3em';
-    ele.firstChild.style.borderColor = 'white';
-    ele.firstChild.style.padding = '.8em';
+    ele.style.background = 'linear-gradient(137deg, white, #8f8f8f)';
+    ele.style.boxShadow = 'inset 0 0 0 0.4em black, 0.3em 0.3em black';
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -5383,35 +5374,23 @@ function Skin(props) {
         className: "font-bold text-lg",
         children: "Chose your font:"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "fonts flex flex-col items-center w-full justify-center content-center space-y-3",
+        className: "fonts flex flex-wrap items-center w-full justify-start",
         children: fonts.map(function (font) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            onClick: function onClick() {
+              setFont(font);
+            },
             id: font,
-            className: "itt_f cursor-pointer flex sm:flex-row flex-col w-full items-center justify-center content-center sm:space-y-[2em]",
+            className: "itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              onClick: function onClick() {
-                setFont(font);
-              },
-              className: "bg-ap2 rounded-lg p-4 font-bold text-black w-[9em] m-auto text-center text-lg",
+              className: "text-gray-900 text-center text-2xl",
               style: {
-                'zIndex': '0',
-                'boxShadow': '9px 6px 0px black',
-                'border': 'solid',
-                'background': 'linear-gradient(70deg, #042b28, #377566)'
+                'fontFamily': "".concat(font)
               },
-              children: font
+              children: "Aa"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              onClick: function onClick() {
-                setFont(font);
-              },
-              className: "bg-ap3 text-black w-full rounded-lg p-4 sm:ml-[-1.2em] shadow-lg pt-[1em] mt-[-0.5em] sm:pt-4 sm:mt-0 sm:pl-[1.2em] text-center text-2xl",
-              style: {
-                'fontFamily': "".concat(font),
-                'boxShadow': '9px 6px 0px black',
-                'border': 'solid',
-                'background': 'linear-gradient(70deg, #042b28, #a2d7ca)'
-              },
-              children: "Just you, and just you."
+              className: "font-bold text-gray-700 text-center text-sm",
+              children: font
             })]
           }, font);
         })
@@ -5419,12 +5398,12 @@ function Skin(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       id: "forsave",
       className: "p-2 pb-4 flex flex-col space-y-2",
-      children: [theskin.icons === icc && theskin.skin === skk && theskin.font === fnt ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         onClick: function onClick() {
           cll();
         },
         type: "button",
-        className: "btn",
+        className: "btn ".concat(theskin.icons === icc && theskin.skin === skk && theskin.font === fnt ? ' btn-disabled' : ''),
         children: "Save yourSkin"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         onClick: cll,

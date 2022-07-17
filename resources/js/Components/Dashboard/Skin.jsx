@@ -92,27 +92,19 @@ export default function Skin(props) {
         Inertia.post('/setting/set', data, { restOnSuccess: false, preserveScroll: true });
     }
     const setFont = (e) => {
+
         setData({ ...data, ['font']: e });
         const contai = document.querySelectorAll('.itt_f');
         const ele = document.getElementById(e);
 
         for (let i = 0; i < contai.length; i++) {
-            const lele = contai[i];
-            lele.firstChild.style.border      = 'solid';
-            lele.firstChild.style.padding     = '1em';
-            lele.firstChild.style.background  = 'linear-gradient(70deg, #042b28, #377566)'
-            lele.lastChild.style.background  = 'linear-gradient(70deg, #042b28, #a2d7ca)'
+            let lele = contai[i];
+            lele.style.background = '#e5e7eb';
+            lele.style.boxShadow = 'none';
         }
-        ele.lastChild.innerHTML = e + ' is slected!';
-        setTimeout(() => {
-            ele.lastChild.innerHTML = 'Just you, adn just you.';
-        }, 500);
 
-        ele.lastChild.style.background  = 'linear-gradient(70deg, #558682, #fff)'
-        ele.firstChild.style.background  = 'linear-gradient(70deg,#042b28,#8cd7d1)';
-        ele.firstChild.style.borderWidth = '.3em';
-        ele.firstChild.style.borderColor = 'white';
-        ele.firstChild.style.padding     = '.8em';
+        ele.style.background = 'linear-gradient(137deg, white, #8f8f8f)';
+        ele.style.boxShadow = 'inset 0 0 0 0.4em black, 0.3em 0.3em black';
     }
 
 
@@ -186,15 +178,15 @@ export default function Skin(props) {
 
                 <div className='flex flex-col space-y-2 w-full '>
                     <h3 className='font-bold text-lg'>Chose your font:</h3>
-                    <div className="fonts flex flex-col items-center w-full justify-center content-center space-y-3">
+                    <div className="fonts flex flex-wrap items-center w-full justify-start">
                         {
                             fonts.map( font =>(
-                                <div key={font} id={font} className="itt_f cursor-pointer flex sm:flex-row flex-col w-full items-center justify-center content-center sm:space-y-[2em]">
-                                    <div onClick={()=>{setFont(font)}} className='bg-ap2 rounded-lg p-4 font-bold text-black w-[9em] m-auto text-center text-lg' style={{'zIndex':'0', 'boxShadow':'9px 6px 0px black', 'border':'solid', 'background':'linear-gradient(70deg, #042b28, #377566)'}}>
-                                        {font}
+                                <div onClick={()=>{setFont(font)}} key={font} id={font} className="itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center">
+                                    <div className='text-gray-900 text-center text-2xl' style={{'fontFamily': `${font}`}}>
+                                        Aa
                                     </div>
-                                    <div onClick={()=>{setFont(font)}} className='bg-ap3 text-black w-full rounded-lg p-4 sm:ml-[-1.2em] shadow-lg pt-[1em] mt-[-0.5em] sm:pt-4 sm:mt-0 sm:pl-[1.2em] text-center text-2xl' style={{'fontFamily': `${font}`, 'boxShadow':'9px 6px 0px black', 'border':'solid', 'background':'linear-gradient(70deg, #042b28, #a2d7ca)'}}>
-                                        Just you, and just you.
+                                    <div className='font-bold text-gray-700 text-center text-sm'>
+                                        {font}
                                     </div>
                                 </div>
                             ))
@@ -203,7 +195,7 @@ export default function Skin(props) {
                 </div>
 
             <div id='forsave' className='p-2 pb-4 flex flex-col space-y-2'>
-                {((theskin.icons === icc) && (theskin.skin === skk) && (theskin.font === fnt)) ? '' : (<button onClick={() => { cll() }} type="button" className='btn'>Save yourSkin</button>)}
+                <button onClick={() => { cll() }} type="button" className={`btn ${((theskin.icons === icc) && (theskin.skin === skk) && (theskin.font === fnt))?' btn-disabled':''}`}>Save yourSkin</button>
                 <p onClick={cll} className='text-sm italic font-light'>You can always change your skins.</p>
                 <p className='text-sm italic font-light'>Help us to create more skins on our <a className='font-bold text-pink-300' target={'_blank'} href='https://github.com/adenlall/allacc'>GitHub page</a>.</p>
             </div>

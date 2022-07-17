@@ -21,7 +21,7 @@ class ConfigSeeder extends Seeder
             ['facebook',    '1877f2', 'ffffff', '1877f2', 'https://www.facebook.com'],
             ['telegram',    '0088cc', 'ffffff', '0088cc', 'https://t.me'],
             ['twitter',     '1da1f2', 'f5f8fa', '1da1f2', 'https://twitter.com'],
-            ['deviantArt',  '05cc47', '4dc47d', '181a1b', 'https://deviantart.com'],
+            ['deviantart',  '05cc47', '4dc47d', '181a1b', 'https://deviantart.com'],
             ['behance',     '1769ff', '1769ff', 'ffffff', 'https://behance.net'],
             ['lastfm',      'd51007', 'd51007', 'd51007', 'https://www.last.fm/user '],
             ['linkedin',    '0077b5', '00a0dc', '00a0dc', 'https://linkedin.com/in'],
