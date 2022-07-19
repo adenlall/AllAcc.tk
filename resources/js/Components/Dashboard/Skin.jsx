@@ -182,10 +182,10 @@ export default function Skin(props) {
                         {
                             fonts.map( font =>(
                                 <div onClick={()=>{setFont(font)}} key={font} id={font} className="itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center">
-                                    <div className='text-gray-900 text-center text-2xl' style={{'fontFamily': `${font}`}}>
+                                    <div className='text-gray-900 text-center text-xl xs:text-3xl' style={{'fontFamily': `${font}`}}>
                                         Aa
                                     </div>
-                                    <div className='font-bold text-gray-700 text-center text-sm'>
+                                    <div className='font-bold text-gray-700 text-center text-xs xs:text-sm'>
                                         {font}
                                     </div>
                                 </div>

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Rules\Nospace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 
 class SetAdvancedController extends Controller
 {
@@ -13,7 +13,7 @@ class SetAdvancedController extends Controller
     {
         if ($request->is === "outside") {
             $validate = $request->validate([
-                'data'  => ["required"],
+                'data'  => ["required", new Nospace],
             ]);
 
             if ($validate) {

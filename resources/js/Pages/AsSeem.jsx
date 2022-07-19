@@ -1,37 +1,110 @@
-import { Inertia } from '@inertiajs/inertia';
 import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import '../../css/fonts.css';
 
 function AsSeem() {
 
     const { auth, user, services_config, services, soung } = usePage().props;
-
+    const [cdnS, setCdnS] = useState({ twitter: false, facebook: false, instagram: false });
     const [pl, setPl] = useState(false);
     const accs = [];
     const theme = JSON.parse(user.json_config);
     const font = theme.theme.font;
     // console.log(font);
     const e = Math.floor(Math.random() * 2);
+
+    const dots = () => (
+        <div className='bg-agr rounded-lg sticky bottom-2 m-0 p-4  w-full flex items-center justify-center'>
+            <div className="dots">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    );
+
+    const ele = (a) => (
+        <div className="flex flex-col w-full items-center justify-center content-center m-0 p-2">
+            <TwitterTimelineEmbed
+                onLoad={function noRefCheck() { }}
+                placeholder={(dots())}
+                noFooter
+                noHeader
+                screenName={a}
+                sourceType="profile"
+                tweetLimit={1}
+            />
+        </div>
+    );
+    const setCdn = (e) => {
+        setCdnS(cdnS => ({
+            ...cdnS,
+            [e]: cdnS[e] ? false : true,
+        }));
+        // console.log(cdnS, cdnS[e]);
+    }
     if (services !== null) {
         if (services.length !== 0) {
             let i = 0;
-            services_config.forEach(serv => {
+            services_config.forEach((serv, i) => {
                 let cle = serv.name.replace(/\./g, "");
 
                 if (services[cle] === null) { } else {
                     accs.push(
-                        <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{ for_user: user.username, url: `${serv.website}/${services[cle]}`, service: cle }}>
-                            <div className='ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary boxAs'>
-                                <div className='w-[6.5em] h-[6.5em] rounded-xl'>
-                                    <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={`/imgs/icons/${theme.theme.icons}/${cle}.svg`} alt={cle} />
+                        <div className='w-full rounded-lg bg-secondary boxAs flex flex-col items-start'>
+                            <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{ for_user: user.username, url: `${serv.website}/${services[cle]}`, service: cle }}>
+                                <div className='ittem rounded-lg flex flex-row space-x-3 p-2 w-full'>
+                                    <div className='rounded-xl'>
+                                        <img className='rounded-xl object-contain w-[6.5em] h-full bg-white p-2' src={`/imgs/icons/${theme.theme.icons}/${cle}.svg`} alt={cle} />
+                                    </div>
+                                    <div className='flex flex-col space-y-2'>
+                                        <h4 className='text-xl font-bold pl-2 text-info text-start'>{cle} :</h4>
+                                        <h3 className='text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg'>@{services[cle]}</h3>
+                                    </div>
                                 </div>
-                                <div className='flex flex-col space-y-2'>
-                                    <h4 className='text-xl font-bold text-info'>{cle} :</h4>
-                                    <h3 className='text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg'>@{services[cle]}</h3>
-                                </div>
-                            </div>
-                        </Link>
+                            </Link>
+                            {
+                                ((cle === 'twitter') && (cdnS.twitter === true)) ?
+                                    ele(services[cle])
+                                    : ''
+                            }
+
+                            {(cle === 'twitter') ?
+                                (
+                                    <>
+                                        {
+                                            window.innerWidth > '300'
+                                                ?
+                                                (
+                                                    <>
+                                                        <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }} >click to show/hide it embed</label>
+
+                                                        <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
+
+                                                        <label for={`my-modal-${i}`} style={{ 'borderRadius': '1em' }} class="modal cursor-pointer">
+                                                            <label class="modal-box relative" for="" style={{ 'borderRadius': '1em' }} >
+                                                                {ele(services[cle])}
+                                                            </label>
+                                                        </label>
+                                                    </>
+
+
+                                                )
+                                                :
+                                                <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
+                                        }
+                                    </>
+                                )
+                                : ''
+                            }
+                        </div>
                     )
                 }
 
@@ -54,6 +127,7 @@ function AsSeem() {
             setPl(true);
         }
     }
+
 
     useEffect(() => {
 
@@ -79,7 +153,7 @@ function AsSeem() {
         <>
 
             <Head title={user.name + " - AllAcc"} />
-            <div data-theme={theme.theme.skin} style={{ 'fontFamily': `${(font===null||font===undefined)?'Gracheva':font}`, 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Header/${e}.jpg")`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
+            <div data-theme={theme.theme.skin} style={{ 'fontFamily': `${(font === null || font === undefined) ? 'Gracheva' : font}`, 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Header/${e}.jpg")`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
@@ -209,12 +283,12 @@ function AsSeem() {
                                                 <h3 className='italic text-xl font-extrabold'>FEEL <span className="italic text-success">{user.name}</span> BY HIS FAVORITE SOUNG :</h3>
                                                 <div className='boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Soung/${e}.jpg")`, 'backgroundSize': 'cover' }}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
-                                                        <div className="sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]" >
+                                                        <div className="ss:w-[17em] ss:h-[17em] w-[11em] h-[11em] sm:m-0 mt-8 m-auto z-[1]" >
                                                             <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-lg' src={soung.album.cover_big} alt="" />
                                                         </div>
                                                         <div className='p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg '>
                                                             <div className='p-2 flex flex-col space-y-2'>
-                                                                <h2 className={`font-extrabold text-[3em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
+                                                                <h2 className={`font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
                                                                 <h2 className='font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis artistUser' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
                                                             </div>
                                                         </div>
@@ -266,7 +340,9 @@ function AsSeem() {
                     </div>
 
 
+
                 </div>
+
                 <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
                     <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>

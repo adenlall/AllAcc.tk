@@ -4593,8 +4593,8 @@ function Outside() {
   var cll = function cll() {
     var data = document.querySelector('#place').value;
 
-    if (data === "" || data === null) {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error('insert ypur record then submit!');
+    if (data === "" || data === null || data.match(" ") !== null) {
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("we can't submit this!");
     } else {
       if (check_if_repeated(data)) {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/advanced/set?is=outside&action=add', {
@@ -4604,7 +4604,7 @@ function Outside() {
           preserveScroll: true
         });
       } else {
-        react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("You can't type the some outside source name!");
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("source already exists!");
       }
     }
 
@@ -4618,7 +4618,7 @@ function Outside() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "flex flex-col space-y-3 sm:space-y-0 sm:flex-row items-center justify-center lg:w-auto w-full",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
-            className: "bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 lg:w-auto w-full ",
+            className: "bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 sm:w-auto w-full ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               className: "sm:block hidden",
               children: "https://"
@@ -4632,11 +4632,11 @@ function Outside() {
               type: "text",
               name: "place",
               id: "place",
-              className: "input bg-white sm:h-fit lg:h-[3em] h-[3em] text-sm w-auto sm:w-[5em] lg:w-auto"
+              className: "input bg-white sm:h-fit lg:h-[3em] h-[3em] text-sm w-auto max-w-[9em] md:max-w-auto ml-2 md:ml-0 sm:w-[5em] lg:w-inherit"
             })]
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "lg:pt-0 pt-3 flex items-center justify-start lg:w-auto w-full",
+          className: "lg:pt-0 pt-3 flex items-center justify-between lg:w-auto w-full",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
             className: "lg:hidden block",
             children: ["submit : ", ' ']
@@ -4728,7 +4728,7 @@ function Outside() {
             className: "text-sm italic text-[#3c3c3c]",
             children: "Add your outside sources from the input above to see them here"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("article", {
-            className: "text-[#3c3c3c]",
+            className: "text-[#3c3c3c] w-[inherit]",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
               className: "text-xl font-bold m-auto text-center ",
               children: "What's this ?"
@@ -4751,7 +4751,7 @@ function Outside() {
                 }), "."]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
                 children: ["At the end, your public page URL will be like this ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
-                  className: "text-black italic",
+                  className: "text-black italic break-words",
                   children: ["https://allacc.herokuapp.com/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
                     className: "font-bold",
                     children: "?from=twitter"
@@ -5383,13 +5383,13 @@ function Skin(props) {
             id: font,
             className: "itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "text-gray-900 text-center text-2xl",
+              className: "text-gray-900 text-center text-xl xs:text-3xl",
               style: {
                 'fontFamily': "".concat(font)
               },
               children: "Aa"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "font-bold text-gray-700 text-center text-sm",
+              className: "font-bold text-gray-700 text-center text-xs xs:text-sm",
               children: font
             })]
           }, font);
@@ -7576,11 +7576,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_twitter_embed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-twitter-embed */ "./node_modules/react-twitter-embed/dist/index.modern.js");
 /* harmony import */ var _css_fonts_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/fonts.css */ "./resources/css/fonts.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -7602,17 +7608,26 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function AsSeem() {
-  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props,
       auth = _usePage$props.auth,
       user = _usePage$props.user,
       services_config = _usePage$props.services_config,
       services = _usePage$props.services,
       soung = _usePage$props.soung;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    twitter: false,
+    facebook: false,
+    instagram: false
+  }),
       _useState2 = _slicedToArray(_useState, 2),
-      pl = _useState2[0],
-      setPl = _useState2[1];
+      cdnS = _useState2[0],
+      setCdnS = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      pl = _useState4[0],
+      setPl = _useState4[1];
 
   var accs = [];
   var theme = JSON.parse(user.json_config);
@@ -7620,44 +7635,116 @@ function AsSeem() {
 
   var e = Math.floor(Math.random() * 2);
 
+  var dots = function dots() {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "bg-agr rounded-lg sticky bottom-2 m-0 p-4  w-full flex items-center justify-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "dots",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {})]
+      })
+    });
+  };
+
+  var ele = function ele(a) {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "flex flex-col w-full items-center justify-center content-center m-0 p-2",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_twitter_embed__WEBPACK_IMPORTED_MODULE_2__.TwitterTimelineEmbed, {
+        onLoad: function noRefCheck() {},
+        placeholder: dots(),
+        noFooter: true,
+        noHeader: true,
+        screenName: a,
+        sourceType: "profile",
+        tweetLimit: 1
+      })
+    });
+  };
+
+  var setCdn = function setCdn(e) {
+    setCdnS(function (cdnS) {
+      return _objectSpread(_objectSpread({}, cdnS), {}, _defineProperty({}, e, cdnS[e] ? false : true));
+    }); // console.log(cdnS, cdnS[e]);
+  };
+
   if (services !== null) {
     if (services.length !== 0) {
       var i = 0;
-      services_config.forEach(function (serv) {
+      services_config.forEach(function (serv, i) {
         var cle = serv.name.replace(/\./g, "");
 
         if (services[cle] === null) {} else {
-          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-            className: "w-full",
-            method: "post",
-            as: "button",
-            href: "/statistics/set",
-            data: {
-              for_user: user.username,
-              url: "".concat(serv.website, "/").concat(services[cle]),
-              service: cle
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: "ittem flex flex-row space-x-3 p-2 w-full rounded-lg bg-secondary boxAs",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-[6.5em] h-[6.5em] rounded-xl",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                  className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
-                  src: "/imgs/icons/".concat(theme.theme.icons, "/").concat(cle, ".svg"),
-                  alt: cle
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                className: "flex flex-col space-y-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
-                  className: "text-xl font-bold text-info",
-                  children: [cle, " :"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
-                  className: "text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg",
-                  children: ["@", services[cle]]
+          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "w-full rounded-lg bg-secondary boxAs flex flex-col items-start",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              className: "w-full",
+              method: "post",
+              as: "button",
+              href: "/statistics/set",
+              data: {
+                for_user: user.username,
+                url: "".concat(serv.website, "/").concat(services[cle]),
+                service: cle
+              },
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: "ittem rounded-lg flex flex-row space-x-3 p-2 w-full",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "rounded-xl",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                    className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
+                    src: "/imgs/icons/".concat(theme.theme.icons, "/").concat(cle, ".svg"),
+                    alt: cle
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "flex flex-col space-y-2",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
+                    className: "text-xl font-bold pl-2 text-info text-start",
+                    children: [cle, " :"]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
+                    className: "text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg",
+                    children: ["@", services[cle]]
+                  })]
                 })]
-              })]
-            })
-          }, cle));
+              })
+            }, cle), cle === 'twitter' && cdnS.twitter === true ? ele(services[cle]) : '', cle === 'twitter' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: window.innerWidth > '300' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  "for": "my-modal-".concat(i),
+                  className: "cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none",
+                  style: {
+                    'fontFamily': 'sans-serif'
+                  },
+                  children: "click to show/hide it embed"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                  type: "checkbox",
+                  id: "my-modal-".concat(i),
+                  "class": "modal-toggle"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                  "for": "my-modal-".concat(i),
+                  style: {
+                    'borderRadius': '1em'
+                  },
+                  "class": "modal cursor-pointer",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+                    "class": "modal-box relative",
+                    "for": "",
+                    style: {
+                      'borderRadius': '1em'
+                    },
+                    children: ele(services[cle])
+                  })
+                })]
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                onClick: function onClick() {
+                  setCdn(cle);
+                },
+                className: "cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none",
+                style: {
+                  'fontFamily': 'sans-serif'
+                },
+                children: "click to show/hide it embed"
+              })
+            }) : '']
+          }));
         }
 
         i++;
@@ -7681,7 +7768,7 @@ function AsSeem() {
     }
   };
 
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     var timerID = setInterval(function () {
       if (soung !== null) {
         if (document.querySelector('#audio').currentTime === document.querySelector('#audio').duration) {
@@ -7697,7 +7784,7 @@ function AsSeem() {
     };
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: user.name + " - AllAcc"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       "data-theme": theme.theme.skin,
@@ -7726,19 +7813,19 @@ function AsSeem() {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
               className: "menu menu-horizontal p-0 space-x-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/",
                   className: "btn btn-primary btn-ghost text-base-100 hidden sm:grid ",
                   children: "AllAcc"
                 })
               }), auth.user === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/register",
                   className: "btn text-base-100 btn-accent",
                   children: "Get your own"
                 })
               }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/dashboard",
                   className: "btn text-base-100 btn-accent",
                   children: "Dashboard"
@@ -7862,7 +7949,7 @@ function AsSeem() {
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent ",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                      className: "sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]",
+                      className: "ss:w-[17em] ss:h-[17em] w-[11em] h-[11em] sm:m-0 mt-8 m-auto z-[1]",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         onError: function onError(event) {
                           event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg";
@@ -7877,7 +7964,7 @@ function AsSeem() {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "p-2 flex flex-col space-y-2",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                          className: "font-extrabold text-[3em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser",
+                          className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser",
                           style: {
                             'display': 'Webkit-box',
                             'WebkitLineClamp': '2',
@@ -8422,6 +8509,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var _Components_Dashboard_Spotify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Dashboard/Spotify */ "./resources/js/Components/Dashboard/Spotify.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -8457,9 +8550,15 @@ function Dashboard() {
       auth = _usePage$props.auth,
       services_config = _usePage$props.services_config,
       services = _usePage$props.services,
-      errors = _usePage$props.errors; // console.log(services_config);
+      errors = _usePage$props.errors;
 
-  var _int = 0;
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+    data: null,
+    service: null
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData,
+      processing = _useForm.processing;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
@@ -8471,10 +8570,18 @@ function Dashboard() {
       inc = _useState4[0],
       setInc = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      st = _useState6[0],
-      setSt = _useState6[1];
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var arr = ['twitter', 'facebook', 'instagram'];
+    var servs = JSON.parse(auth.user.json_config).services.cdn; // console.log(servs);
+
+    for (var i = 0; i < arr.length; i++) {
+      if (servs[arr[i]]) {
+        document.getElementById("cdn".concat(arr[i])).checked = true;
+      }
+
+      ;
+    }
+  }, []);
 
   var addItem = function addItem(para, namm) {
     // console.log(para, namm);
@@ -8518,12 +8625,6 @@ function Dashboard() {
         return [].concat(_toConsumableArray(elements), [newElement]);
       });
       setInc(inc + 1);
-
-      if (document.querySelector('#items').children === undefined) {
-        setSt(false);
-      } else {
-        setSt(true);
-      }
     } else {
       react_hot_toast__WEBPACK_IMPORTED_MODULE_7__["default"].error("Please we don't support more than one account in each service!");
     }
@@ -8533,11 +8634,7 @@ function Dashboard() {
     var items = document.querySelector("#item_".concat(para));
     items.remove();
 
-    if (document.querySelector('#items').children[0] === undefined) {
-      setSt(false);
-    } else {
-      setSt(true);
-    }
+    if (document.querySelector('#items').children[0] === undefined) {} else {}
   };
 
   var handelDelete = function handelDelete(ele, dt) {
@@ -8557,12 +8654,12 @@ function Dashboard() {
     what.setAttribute('value', services[dt]);
     what.setAttribute('id', ele);
     what.setAttribute('type', 'text');
+    where.style.display = 'block';
     where.appendChild(what); // console.log(ele)
   }; ///////////////////////////////////////////
 
 
   var saveEdits = function saveEdits(ele, ser) {
-    // console.log(ele)
     var input = document.querySelector("#".concat(ele));
     var data = input.value;
     var service = ser;
@@ -8595,6 +8692,29 @@ function Dashboard() {
       })
     }, item.id));
   });
+
+  var cdn_ch = function cdn_ch(e) {
+    var item = document.getElementById("cdn".concat(e));
+    item.disabled = true;
+    var val = item.checked;
+    setData(function (data) {
+      return _objectSpread(_objectSpread({}, data), {}, {
+        data: val,
+        service: e
+      });
+    });
+
+    if (!processing) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/setting?is=cdn', data, {
+        preserveScroll: true
+      });
+    }
+
+    setTimeout(function () {
+      item.disabled = false;
+    }, 3000);
+  };
+
   var serr = [];
 
   if (services.length != 0) {
@@ -8603,7 +8723,7 @@ function Dashboard() {
 
       if (services[serv] === null) {} else {
         serr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-          className: "flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-accent",
+          className: "flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-ap1",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
             className: "flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("svg", {
@@ -8675,9 +8795,9 @@ function Dashboard() {
                 alt: serv
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
-              className: "flex flex-col space-y-2",
+              className: "flex flex-col items-start space-y-2",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h4", {
-                className: "text-xl font-bold text-ap1",
+                className: "text-xl font-bold text-accent ",
                 children: [serv, " :"]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("h3", {
                 id: serv + inc,
@@ -8685,13 +8805,34 @@ function Dashboard() {
                 children: ["@", services[serv]]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 id: serv + inc + serv,
-                className: "text-black w-auto ",
+                className: "text-black w-auto hidden",
                 style: {
                   "color": "black"
                 }
               }), errors.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                 className: "label-text-alt text-red-700",
                 children: errors.data
+              }) : "", serv === 'twitter' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+                "class": "form-control w-auto m-0 p-0",
+                style: {
+                  'margin': "0"
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
+                  "class": "label cursor-pointer m-0 p-0 flex flex-col items-start space-y-1 w-auto",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    "class": "label-text text-sm font-medium text-ap3",
+                    children: "preview in public page : "
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
+                    id: "cdn".concat(serv),
+                    onChange: function onChange() {
+                      cdn_ch(serv);
+                    },
+                    type: "checkbox",
+                    disabled: processing,
+                    "class": "toggle tooltip tooltip-bottom md:tooltip-right",
+                    "data-tip": "your account should be public"
+                  })]
+                })
               }) : '']
             })]
           })]
@@ -41896,6 +42037,535 @@ var Toaster = function Toaster(_ref) {
 
 /***/ }),
 
+/***/ "./node_modules/react-twitter-embed/dist/index.modern.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-twitter-embed/dist/index.modern.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "TwitterDMButton": () => (/* binding */ TwitterDMButton),
+/* harmony export */   "TwitterFollowButton": () => (/* binding */ TwitterFollowButton),
+/* harmony export */   "TwitterHashtagButton": () => (/* binding */ TwitterHashtagButton),
+/* harmony export */   "TwitterMentionButton": () => (/* binding */ TwitterMentionButton),
+/* harmony export */   "TwitterMomentShare": () => (/* binding */ TwitterMomentShare),
+/* harmony export */   "TwitterOnAirButton": () => (/* binding */ TwitterOnAirButton),
+/* harmony export */   "TwitterShareButton": () => (/* binding */ TwitterShareButton),
+/* harmony export */   "TwitterTimelineEmbed": () => (/* binding */ TwitterTimelineEmbed),
+/* harmony export */   "TwitterTweetEmbed": () => (/* binding */ TwitterTweetEmbed),
+/* harmony export */   "TwitterVideoEmbed": () => (/* binding */ TwitterVideoEmbed)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+var twitterWidgetJs = 'https://platform.twitter.com/widgets.js';
+
+var methodName = 'createTimeline';
+
+var TwitterTimelineEmbed = function TwitterTimelineEmbed(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  var buildOptions = function buildOptions() {
+    var options = Object.assign({}, props.options);
+
+    if (props !== null && props !== void 0 && props.autoHeight) {
+      var _ref$current, _ref$current$parentNo;
+
+      options.height = (_ref$current = ref.current) === null || _ref$current === void 0 ? void 0 : (_ref$current$parentNo = _ref$current.parentNode) === null || _ref$current$parentNo === void 0 ? void 0 : _ref$current$parentNo.offsetHeight;
+    }
+
+    options = Object.assign({}, options, {
+      theme: props === null || props === void 0 ? void 0 : props.theme,
+      linkColor: props === null || props === void 0 ? void 0 : props.linkColor,
+      borderColor: props === null || props === void 0 ? void 0 : props.borderColor,
+      lang: props === null || props === void 0 ? void 0 : props.lang,
+      tweetLimit: props === null || props === void 0 ? void 0 : props.tweetLimit,
+      ariaPolite: props === null || props === void 0 ? void 0 : props.ariaPolite
+    });
+    return options;
+  };
+
+  var buildChromeOptions = function buildChromeOptions(options) {
+    options.chrome = '';
+
+    if (props.noHeader) {
+      options.chrome = options.chrome + ' noheader';
+    }
+
+    if (props.noFooter) {
+      options.chrome = options.chrome + ' nofooter';
+    }
+
+    if (props.noBorders) {
+      options.chrome = options.chrome + ' noborders';
+    }
+
+    if (props.noScrollbar) {
+      options.chrome = options.chrome + ' noscrollbar';
+    }
+
+    if (props.transparent) {
+      options.chrome = options.chrome + ' transparent';
+    }
+
+    return options;
+  };
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName]) {
+          console.error("Method " + methodName + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        var options = buildOptions();
+        options = buildChromeOptions(options);
+        window.twttr.widgets[methodName]({
+          sourceType: props.sourceType,
+          screenName: props.screenName,
+          userId: props.userId,
+          ownerScreenName: props.ownerScreenName,
+          slug: props.slug,
+          id: props.id || props.widgetId,
+          url: props.url
+        }, ref === null || ref === void 0 ? void 0 : ref.current, options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$1 = 'createShareButton';
+
+var TwitterShareButton = function TwitterShareButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$1]) {
+          console.error("Method " + methodName$1 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$1](props.url, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$2 = 'createFollowButton';
+
+var TwitterFollowButton = function TwitterFollowButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$2]) {
+          console.error("Method " + methodName$2 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$2](props.screenName, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$3 = 'createHashtagButton';
+
+var TwitterHashtagButton = function TwitterHashtagButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$3]) {
+          console.error("Method " + methodName$3 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$3](props.tag, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$4 = 'createMentionButton';
+
+var TwitterMentionButton = function TwitterMentionButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$4]) {
+          console.error("Method " + methodName$4 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$4](props.screenName, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$5 = 'createTweet';
+
+var TwitterTweetEmbed = function TwitterTweetEmbed(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$5]) {
+          console.error("Method " + methodName$5 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$5](props.tweetId, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$6 = 'createMoment';
+
+var TwitterMomentShare = function TwitterMomentShare(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$6]) {
+          console.error("Method " + methodName$6 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$6](props.momentId, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$7 = 'createDMButton';
+
+var TwitterDMButton = function TwitterDMButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$7]) {
+          console.error("Method " + methodName$7 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$7](props.id, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          if (isComponentMounted) {
+            setLoading(false);
+
+            if (props.onLoad) {
+              props.onLoad(element);
+            }
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$8 = 'createVideo';
+
+var TwitterVideoEmbed = function TwitterVideoEmbed(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$8]) {
+          console.error("Method " + methodName$8 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$8](props.id, ref === null || ref === void 0 ? void 0 : ref.current).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+var methodName$9 = 'createPeriscopeOnAirButton';
+
+var TwitterOnAirButton = function TwitterOnAirButton(props) {
+  var ref = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+      loading = _React$useState[0],
+      setLoading = _React$useState[1];
+
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    var isComponentMounted = true;
+
+    var script = __webpack_require__(/*! scriptjs */ "./node_modules/scriptjs/dist/script.js");
+
+    script(twitterWidgetJs, 'twitter-embed', function () {
+      if (!window.twttr) {
+        console.error('Failure to load window.twttr, aborting load');
+        return;
+      }
+
+      if (isComponentMounted) {
+        if (!window.twttr.widgets[methodName$9]) {
+          console.error("Method " + methodName$9 + " is not present anymore in twttr.widget api");
+          return;
+        }
+
+        window.twttr.widgets[methodName$9](props.username, ref === null || ref === void 0 ? void 0 : ref.current, props.options).then(function (element) {
+          setLoading(false);
+
+          if (props.onLoad) {
+            props.onLoad(element);
+          }
+        });
+      }
+    });
+    return function () {
+      isComponentMounted = false;
+    };
+  }, []);
+  return react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, loading && react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, props.placeholder), react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    ref: ref
+  }));
+};
+
+
+//# sourceMappingURL=index.modern.js.map
+
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react-jsx-runtime.development.js":
 /*!*****************************************************************!*\
   !*** ./node_modules/react/cjs/react-jsx-runtime.development.js ***!
@@ -46547,6 +47217,144 @@ if (false) {} else {
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/scheduler-tracing.development.js */ "./node_modules/scheduler/cjs/scheduler-tracing.development.js");
 }
+
+
+/***/ }),
+
+/***/ "./node_modules/scriptjs/dist/script.js":
+/*!**********************************************!*\
+  !*** ./node_modules/scriptjs/dist/script.js ***!
+  \**********************************************/
+/***/ ((module, exports, __webpack_require__) => {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  * $script.js JS loader & dependency manager
+  * https://github.com/ded/script.js
+  * (c) Dustin Diaz 2014 | License MIT
+  */
+
+(function (name, definition) {
+  if ( true && module.exports) module.exports = definition()
+  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+		__WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+  else {}
+})('$script', function () {
+  var doc = document
+    , head = doc.getElementsByTagName('head')[0]
+    , s = 'string'
+    , f = false
+    , push = 'push'
+    , readyState = 'readyState'
+    , onreadystatechange = 'onreadystatechange'
+    , list = {}
+    , ids = {}
+    , delay = {}
+    , scripts = {}
+    , scriptpath
+    , urlArgs
+
+  function every(ar, fn) {
+    for (var i = 0, j = ar.length; i < j; ++i) if (!fn(ar[i])) return f
+    return 1
+  }
+  function each(ar, fn) {
+    every(ar, function (el) {
+      fn(el)
+      return 1
+    })
+  }
+
+  function $script(paths, idOrDone, optDone) {
+    paths = paths[push] ? paths : [paths]
+    var idOrDoneIsDone = idOrDone && idOrDone.call
+      , done = idOrDoneIsDone ? idOrDone : optDone
+      , id = idOrDoneIsDone ? paths.join('') : idOrDone
+      , queue = paths.length
+    function loopFn(item) {
+      return item.call ? item() : list[item]
+    }
+    function callback() {
+      if (!--queue) {
+        list[id] = 1
+        done && done()
+        for (var dset in delay) {
+          every(dset.split('|'), loopFn) && !each(delay[dset], loopFn) && (delay[dset] = [])
+        }
+      }
+    }
+    setTimeout(function () {
+      each(paths, function loading(path, force) {
+        if (path === null) return callback()
+        
+        if (!force && !/^https?:\/\//.test(path) && scriptpath) {
+          path = (path.indexOf('.js') === -1) ? scriptpath + path + '.js' : scriptpath + path;
+        }
+        
+        if (scripts[path]) {
+          if (id) ids[id] = 1
+          return (scripts[path] == 2) ? callback() : setTimeout(function () { loading(path, true) }, 0)
+        }
+
+        scripts[path] = 1
+        if (id) ids[id] = 1
+        create(path, callback)
+      })
+    }, 0)
+    return $script
+  }
+
+  function create(path, fn) {
+    var el = doc.createElement('script'), loaded
+    el.onload = el.onerror = el[onreadystatechange] = function () {
+      if ((el[readyState] && !(/^c|loade/.test(el[readyState]))) || loaded) return;
+      el.onload = el[onreadystatechange] = null
+      loaded = 1
+      scripts[path] = 2
+      fn()
+    }
+    el.async = 1
+    el.src = urlArgs ? path + (path.indexOf('?') === -1 ? '?' : '&') + urlArgs : path;
+    head.insertBefore(el, head.lastChild)
+  }
+
+  $script.get = create
+
+  $script.order = function (scripts, id, done) {
+    (function callback(s) {
+      s = scripts.shift()
+      !scripts.length ? $script(s, id, done) : $script(s, callback)
+    }())
+  }
+
+  $script.path = function (p) {
+    scriptpath = p
+  }
+  $script.urlArgs = function (str) {
+    urlArgs = str;
+  }
+  $script.ready = function (deps, ready, req) {
+    deps = deps[push] ? deps : [deps]
+    var missing = [];
+    !each(deps, function (dep) {
+      list[dep] || missing[push](dep);
+    }) && every(deps, function (dep) {return list[dep]}) ?
+      ready() : !function (key) {
+      delay[key] = delay[key] || []
+      delay[key][push](ready)
+      req && req(missing)
+    }(deps.join('|'))
+    return $script
+  }
+
+  $script.done = function (idOrDone) {
+    $script([null], idOrDone)
+  }
+
+  return $script
+});
 
 
 /***/ }),

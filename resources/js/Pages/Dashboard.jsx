@@ -1,7 +1,7 @@
-import { usePage } from '@inertiajs/inertia-react';
+import { useForm, usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import toast from 'react-hot-toast'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../Components/Dashboard/item';
 import Base from '../Layouts/Base'
 import Spotify from '../Components/Dashboard/Spotify';
@@ -9,13 +9,25 @@ import Spotify from '../Components/Dashboard/Spotify';
 export default function Dashboard() {
 
     const { auth, services_config, services, errors } = usePage().props;
-    // console.log(services_config);
-    var int = 0;
+    const { data, setData, processing } = useForm({
+        data: null,
+        service: null
+    });
 
     const [elements, setelements] = useState([]);
     const [inc, setInc] = useState(0);
-    const [st, setSt] = useState(false);
 
+
+    useEffect(() => {
+        let arr = ['twitter', 'facebook', 'instagram'];
+        const servs = JSON.parse(auth.user.json_config).services.cdn;
+        // console.log(servs);
+        for (let i = 0; i < arr.length; i++) {
+            if (servs[arr[i]]) {
+                document.getElementById(`cdn${arr[i]}`).checked = true;
+            };
+        }
+    }, []);
 
     const addItem = (para, namm) => {
         // console.log(para, namm);
@@ -31,7 +43,6 @@ export default function Dashboard() {
                         strokeWidth={2}
                         strokeLinecap="round"
                         strokeLinejoin="round"
-
                     >
                         <rect x={3} y={3} width={18} height={18} rx={2} ry={2} />
                         <path d="M9 9L15 15" />
@@ -49,11 +60,6 @@ export default function Dashboard() {
 
             setelements(elements => [...elements, newElement]);
             setInc(inc + 1);
-            if (document.querySelector('#items').children === undefined) {
-                setSt(false)
-            } else {
-                setSt(true);
-            }
         } else {
             toast['error']("Please we don't support more than one account in each service!");
 
@@ -64,17 +70,12 @@ export default function Dashboard() {
         let items = document.querySelector(`#item_${para}`);
         items.remove();
         if (document.querySelector('#items').children[0] === undefined) {
-            setSt(false);
         } else {
-            setSt(true);
         }
     }
     const handelDelete = (ele, dt) => {
         Inertia.post('/deleteItem', { name: ele, username: auth.user.username });
     }
-
-
-
 
 
     ///////////////////////////////////////////
@@ -87,17 +88,15 @@ export default function Dashboard() {
         what.setAttribute('value', services[dt]);
         what.setAttribute('id', ele);
         what.setAttribute('type', 'text');
+        where.style.display = 'block';
         where.appendChild(what);
         // console.log(ele)
     }
     ///////////////////////////////////////////
     const saveEdits = (ele, ser) => {
-        // console.log(ele)
-
         let input = document.querySelector(`#${ele}`);
         let data = input.value;
         let service = ser;
-
         if (services[ser] === data) {
             toast['error']("You didn't make any change!");
         } else {
@@ -107,12 +106,10 @@ export default function Dashboard() {
                 username: auth.user.username,
             });
         }
-
-
     }
 
     var arr = [];
-    services_config.forEach((item,i) => {
+    services_config.forEach((item, i) => {
         arr.push(
             <div id='oneOn' key={item.id} className="avatar btn h-full p-0 rounded-xl border-none drop-shadow-lg">
                 <div className="w-24 mask rounded-xl p-0 bg-white">
@@ -121,7 +118,22 @@ export default function Dashboard() {
             </div>
         )
     })
-
+    const cdn_ch = (e) => {
+        let item = document.getElementById(`cdn${e}`);
+        item.disabled = true;
+        let val = item.checked;
+        setData(data => ({
+            ...data,
+            data: val,
+            service: e,
+        }));
+        if (!processing) {
+            Inertia.post('/setting?is=cdn', data, { preserveScroll: true })
+        }
+        setTimeout(() => {
+            item.disabled = false;
+        }, 3000);
+    }
     var serr = [];
     if (services.length != 0) {
         services_config.forEach(item => {
@@ -129,7 +141,7 @@ export default function Dashboard() {
             if (services[serv] === null) { } else {
 
                 serr.push(
-                    <div key={services[serv] + serv + inc} className='flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-accent'>
+                    <div key={services[serv] + serv + inc} className='flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-ap1'>
                         <div className='flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary'>
                             <svg onClick={() => { handelDelete(serv) }} className="h-8 w-8 cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">  <polyline points="3 6 5 6 21 6" />  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />  <line x1="10" y1="11" x2="10" y2="17" />  <line x1="14" y1="11" x2="14" y2="17" /></svg>
                             <svg onClick={() => { editItem(serv + inc, serv) }} className="h-8 w-8 text-black cursor-pointer bg-blue-100 rounded-lg p-[.2em] hover:bg-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -141,16 +153,30 @@ export default function Dashboard() {
                             <div className='w-auto sm:w-[6em] max-w-[6.5em] h-[8.5em] rounded-xl'>
                                 <img className='rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2' src={`/imgs/icons/rB/${serv}.svg`} alt={serv} />
                             </div>
-                            <div className='flex flex-col space-y-2'>
-                                <h4 className='text-xl font-bold text-ap1'>{serv} :</h4>
+                            <div className='flex flex-col items-start space-y-2'>
+                                <h4 className='text-xl font-bold text-accent '>{serv} :</h4>
                                 <h3 id={serv + inc} className='text-lg font-bold bg-secondary text-drk p-1 rounded-lg'>@{services[serv]}</h3>
-                                <div id={serv + inc + serv} className='text-black w-auto ' style={{ "color": "black" }}></div>
-                                {errors.data ? (
-                                    <div className="label-text-alt text-red-700">
-                                        {errors.data}
-                                    </div>
+                                <div id={serv + inc + serv} className='text-black w-auto hidden' style={{ "color": "black" }}></div>
+                                {
+                                    errors.data ? (
+                                        <div className="label-text-alt text-red-700">
+                                            {errors.data}
+                                        </div>
 
-                                    ) : ''}
+                                    ) : ""
+                                }
+                                {
+                                    (serv === 'twitter')
+                                        ?
+                                        (
+                                            <div class="form-control w-auto m-0 p-0" style={{ 'margin': "0" }}>
+                                                <label class="label cursor-pointer m-0 p-0 flex flex-col items-start space-y-1 w-auto">
+                                                    <span class="label-text text-sm font-medium text-ap3">preview in public page : </span>
+                                                    <input id={`cdn${serv}`} onChange={() => { cdn_ch(serv) }} type="checkbox" disabled={processing} class="toggle tooltip tooltip-bottom md:tooltip-right" data-tip="your account should be public" />
+                                                </label>
+                                            </div>
+                                        ) : ''
+                                }
 
                             </div>
                         </div>
@@ -247,6 +273,7 @@ export default function Dashboard() {
                         }
                     </div>
                 </div>
+
 
 
                 <div id="soung" className="flex flex-col">
