@@ -5,14 +5,12 @@ import React, { useEffect, useState } from 'react';
 import Item from '../Components/Dashboard/item';
 import Base from '../Layouts/Base'
 import Spotify from '../Components/Dashboard/Spotify';
+import Urls from '../Components/Dashboard/Urls';
 
 export default function Dashboard() {
 
     const { auth, services_config, services, errors } = usePage().props;
-    const { data, setData, processing } = useForm({
-        data: null,
-        service: null
-    });
+    const path = auth.user.json_config;
 
     const [elements, setelements] = useState([]);
     const [inc, setInc] = useState(0);
@@ -20,7 +18,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         let arr = ['twitter', 'facebook', 'instagram'];
-        const servs = JSON.parse(auth.user.json_config).services.cdn;
+        let servs = JSON.parse(path).services.cdn;
         // console.log(servs);
         for (let i = 0; i < arr.length; i++) {
             if (servs[arr[i]]) {
@@ -122,14 +120,9 @@ export default function Dashboard() {
         let item = document.getElementById(`cdn${e}`);
         item.disabled = true;
         let val = item.checked;
-        setData(data => ({
-            ...data,
-            data: val,
-            service: e,
-        }));
-        if (!processing) {
-            Inertia.post('/setting?is=cdn', data, { preserveScroll: true })
-        }
+        console.log(val, e);
+        
+        Inertia.post('/setting?is=cdn', {data: val, service: e}, { preserveScroll: true });
         setTimeout(() => {
             item.disabled = false;
         }, 3000);
@@ -172,7 +165,7 @@ export default function Dashboard() {
                                             <div class="form-control w-auto m-0 p-0" style={{ 'margin': "0" }}>
                                                 <label class="label cursor-pointer m-0 p-0 flex flex-col items-start space-y-1 w-auto">
                                                     <span class="label-text text-sm font-medium text-ap3">preview in public page : </span>
-                                                    <input id={`cdn${serv}`} onChange={() => { cdn_ch(serv) }} type="checkbox" disabled={processing} class="toggle tooltip tooltip-bottom md:tooltip-right" data-tip="your account should be public" />
+                                                    <input id={`cdn${serv}`} onChange={() => { cdn_ch(serv) }} type="checkbox" class="toggle tooltip tooltip-bottom md:tooltip-right" data-tip="your account should be public" />
                                                 </label>
                                             </div>
                                         ) : ''
@@ -274,6 +267,7 @@ export default function Dashboard() {
                     </div>
                 </div>
 
+                        <Urls path={path} />
 
 
                 <div id="soung" className="flex flex-col">
@@ -297,3 +291,4 @@ export default function Dashboard() {
 }
 
 Dashboard.layout = (page) => <Base children={page} title={"Dashboard - AllAcc"} />
+

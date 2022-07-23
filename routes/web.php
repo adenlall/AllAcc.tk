@@ -21,6 +21,7 @@ use App\Http\Controllers\SetStatisticsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SoungController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\UrlsControllerr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -46,13 +47,13 @@ Route::get('privacy', function(){
 Route::middleware('auth')->group(function () {
 
     Route::get('profile', ProfileController::class, 'show')->name('profile');
-    Route::get('dashboard', DashboardController::class)->name('dashboard');
     Route::get('setting', SettingController::class)->name('setting');
     Route::get('statistics', StatisticsController::class)->name('statistics');
     Route::get('advanced', AdvancedController::class)->name('advanced');
+    Route::get('dashboard', DashboardController::class)->name('dashboard');
 
 
-
+    Route::post('urls/set', UrlsControllerr::class);
     Route::post('advanced/set', SetAdvancedController::class);
     Route::post('setting/set', SetSkinsController::class);
     Route::post('soung', SoungController::class);

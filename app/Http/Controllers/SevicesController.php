@@ -22,17 +22,13 @@ class SevicesController extends Controller
             $user = User::where('username', Auth::user()->username)->first();
             $path = json_decode($user->json_config, true);
 
-            if (!array_key_exists('services', $path)) {
-                $path += ['services' => ['cdn' => [$serv => $data]]];
+            if (!array_key_exists($serv, $path['services']['cdn'])) {
+                $path['services']['cdn'] += [$serv => $data];
                 $user->update(['json_config' => json_encode($path)]);
             } else {
-                if (!array_key_exists($serv, $path['services']['cdn'])) {
-                    $path['services']['cdn'] += [$serv => $data];
-                    $user->update(['json_config' => json_encode($path)]);
-                } else {
-                    $path['services']['cdn'][$serv] = $data;
-                    $user->update(['json_config' => json_encode($path)]);
-                }
+                $path['services']['cdn'][$serv] = $data;
+                $user->update(['json_config' => json_encode($path)]);
+                dd($path);
             }
             // dd($path);
             return back()->with([

@@ -2,6 +2,7 @@ import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import '../../css/fonts.css';
+import '../../css/button.css';
 
 function AsSeem() {
 
@@ -11,7 +12,7 @@ function AsSeem() {
     const accs = [];
     const theme = JSON.parse(user.json_config);
     const font = theme.theme.font;
-    // console.log(font);
+    console.log(theme);
     const e = Math.floor(Math.random() * 2);
 
     const dots = () => (
@@ -71,16 +72,16 @@ function AsSeem() {
                                 </div>
                             </Link>
                             {
-                                ((cle === 'twitter') && (cdnS.twitter === true)) ?
+                                ((cle === 'twitter') && (cdnS.twitter === true) && (theme.services.cdn.twitter === true)) ?
                                     ele(services[cle])
                                     : ''
                             }
 
-                            {(cle === 'twitter') ?
+                            {(cle === 'twitter' && theme.services.cdn.twitter === true) ?
                                 (
                                     <>
                                         {
-                                            window.innerWidth > '300'
+                                            window.innerWidth > '440'
                                                 ?
                                                 (
                                                     <>
@@ -101,6 +102,7 @@ function AsSeem() {
                                                 <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
                                         }
                                     </>
+
                                 )
                                 : ''
                             }
@@ -187,86 +189,84 @@ function AsSeem() {
                         <div className=' m-auto my-12'>
                             <h1 className='w-full text-3xl font-extrabold'>Welcome to <span className='text-success'>{user.name}</span> accounts space</h1>
                         </div>
+                        {
+                            (((user.country === null && user.birthday === null) || (user.birthday === null && user.gender === null)) && (user.quote === null || user.quote === ''))
+                                ? <div className="h-[44vh]"></div> :
 
-                        <div className=' flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]'>
 
-                            {/* QUOTE */}
-                            {
-                                user.quote === null || user.quote === ''
-                                    ?
-                                    ''
-                                    :
-                                    <>
+                                <div className=' flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]'>
 
-                                        <section className="space-y-3 md:w-1/2 w-full ">
-                                            <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
-                                            <div className="w-full h-full p-4 rounded-lg bg-secondary boxAs">
-                                                <h3 className="text-lg text-base-100 font-semibold">{user.quote}</h3>
+                                    {/* QUOTE */}
+                                    {
+                                        user.quote === null || user.quote === ''
+                                            ?
+                                            ''
+                                            :
+                                            <>
+
+                                                <section className="space-y-3 md:w-1/2 w-full ">
+                                                    <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
+                                                    <div className="w-full h-full p-4 rounded-lg bg-secondary boxAs">
+                                                        <h3 className="text-lg text-base-100 font-semibold">{user.quote}</h3>
+                                                    </div>
+
+                                                </section>
+                                            </>
+                                    }
+
+                                    {/* PROFILE */}
+                                    <section className={user.quote !== null ? 'space-y-3 md:w-1/2 w-full' : 'space-y-5 w-full'}>
+                                        <h3 className='italic text-xl font-extrabold'>THE PROFILE :</h3>
+                                        <div className='flex items-stretch h-full space-x-2 rounded-lg bg-accent boxAs'>
+                                            <div className=' md:min-w-[10em] w-[8em] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary'>
+                                                {
+                                                    user.img === true
+                                                        ?
+                                                        <>
+                                                        </>
+                                                        :
+                                                        <>
+                                                            <h3 className=' font-extrabold text-[3em] uppercase md:text-[5em] text-primary'>{(user.name).split(' ').length === 1 ? (user.name).split(' ')[0][0] + (user.name).split(' ')[0][1] : (user.name).split(' ')[0][0] + (user.name).split(' ')[1][0]}</h3>
+                                                        </>
+                                                }
                                             </div>
+                                            <menu className='flex flex-col space-y-1 p-2 min-w-[min-content]'>
+                                                <h1 className='flex items-center justify-between space-2'>
+                                                    <p className='w-[88%] overflow-hidden'><span className={(user.country === null && user.birthday === null) || (user.birthday === null && user.gender === null) ? 'md:text-[11vmin] text-[1.5em] leading-[1em] text-success font-extrabold h-full' : 'text-2xl text-success font-extrabold'}>{user.name}</span></p>
+                                                </h1>
+                                                {
 
-                                        </section>
-                                    </>
-                            }
+                                                    (
+                                                        user.birthday === null ?
+                                                            ''
+                                                            :
+                                                            <h1 className='flex items-start flex-col justify-start space-2'>
+                                                                <p className='font-bold text-sm text-drk-l'>Birthday : </p><p className='w-[60%] sm:w-1/2'><span className='text-sm text-drk font-extrabold'>{user.birthday}</span></p>
+                                                            </h1>
+                                                    )
+                                                }
+                                                {
+                                                    (
+                                                        user.country === null
+                                                            ?
+                                                            ''
+                                                            :
+                                                            <h1 className='flex items-start flex-col justify-start space-2'>
+                                                                <p className='font-bold text-sm text-drk-l'>Country : </p><p className='w-[60%] sm:w-1/2'><span className='text-xl text-drk font-extrabold'>{user.country}</span></p>
+                                                            </h1>
+                                                    )
 
-                            {/* PROFILE */}
-                            <section className={user.quote !== null ? 'space-y-3 md:w-1/2 w-full' : 'space-y-5 w-full'}>
-                                <h3 className='italic text-xl font-extrabold'>THE PROFILE :</h3>
-                                <div className='flex items-stretch h-full space-x-2 rounded-lg bg-accent boxAs'>
-                                    <div className=' md:min-w-[10em] w-[8em] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary'>
-                                        {
-                                            user.img === true
-                                                ?
-                                                <>
-                                                </>
-                                                :
-                                                <>
-                                                    <h3 className=' font-extrabold text-[3em] uppercase md:text-[5em] text-primary'>{(user.name).split(' ').length === 1 ? (user.name).split(' ')[0][0] + (user.name).split(' ')[0][1] : (user.name).split(' ')[0][0] + (user.name).split(' ')[1][0]}</h3>
-                                                </>
-                                        }
-                                    </div>
-                                    <menu className='flex flex-col space-y-1 p-2 min-w-[min-content]'>
-                                        <h1 className='flex items-center justify-between space-2'>
-                                            <p className='w-[88%] overflow-hidden'><span className={(user.country === null && user.birthday === null) || (user.birthday === null && user.gender === null) ? 'md:text-[11vmin] text-[1.5em] leading-[1em] text-success font-extrabold h-full' : 'text-2xl text-success font-extrabold'}>{user.name}</span></p>
-                                        </h1>
-                                        {
+                                                }
+                                            </menu>
 
-                                            (
-                                                user.birthday === null ?
-                                                    ''
-                                                    :
-                                                    <h1 className='flex items-start flex-col justify-start space-2'>
-                                                        <p className='font-bold text-sm text-drk-l'>Birthday : </p><p className='w-[60%] sm:w-1/2'><span className='text-sm text-drk font-extrabold'>{user.birthday}</span></p>
-                                                    </h1>
-                                            )
-                                        }
-                                        {
-                                            (
-                                                user.country === null
-                                                    ?
-                                                    ''
-                                                    :
-                                                    <h1 className='flex items-start flex-col justify-start space-2'>
-                                                        <p className='font-bold text-sm text-drk-l'>Country : </p><p className='w-[60%] sm:w-1/2'><span className='text-xl text-drk font-extrabold'>{user.country}</span></p>
-                                                    </h1>
-                                            )
+                                        </div>
 
-                                        }
-                                    </menu>
+                                    </section>
+
 
                                 </div>
-                                {
-                                    (
-                                        (user.country === null && user.birthday === null) || (user.birthday === null && user.gender === null)
-                                            ?
-                                            <p className='font-bold text-xs italic'>Look like {user.name} don't want to share more details!</p>
-                                            :
-                                            ''
-                                    )
-                                }
-                            </section>
+                        }
 
-
-                        </div>
 
                         {/* TRACK */}
                         {user.track === null
@@ -339,15 +339,74 @@ function AsSeem() {
                         }
                     </div>
 
+                    {
+                        theme.urls.length === 0 ? '' :
+
+
+                            <div className="container my-4 mb-[3em] m-auto">
+                                <div className="w-full bg-primary text-secondary boxAs rounded-lg p-4 ">
+                                    <h3 className='italic text-xl font-extrabold p-2 text-secondary'><span className='text-base-100'>{user.name}</span>'s Links</h3>
+                                    <div className="space-y-3">
+                                        {
+                                            theme.config.urlsGrps.map((urlGrp) => (
+                                                <div style={{ background: 'hsl(var(--b1)/0.6)' }} className=" rounded-lg p-4 w-full">
+                                                    <h3 className='text-xl my-2 p-2 font-bold text-accent '>{urlGrp}</h3>
+                                                    <div className="space-y-4 w-full p-4">
+                                                        {
+                                                            theme.urls.map((url) => (
+                                                                <>
+                                                                    {
+                                                                        url['grp'] === urlGrp[0] ?
+                                                                            <a className="w-full block p-0" href={url.link}>
+                                                                                <button className="w-full m-auto orangebtn">
+                                                                                    <span style={{ fontFamily: 'sans-serif' }} class="text font-light  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
+                                                                                </button>
+
+                                                                            </a>
+                                                                            : ''
+                                                                    }
+                                                                </>
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
+                                            ))
+
+                                        }
+                                        <div className="space-y-4 w-full">
+                                            {
+                                                theme.urls.map((url) => (
+                                                    <>
+                                                        {
+                                                            ((url['grp'] === null) || (url['grp'] === 'none')) ?
+                                                                <a className="w-full block p-0" href={url.link}>
+                                                                    <button className="w-full m-auto orangebtn">
+                                                                        <span style={{ fontFamily: 'sans-serif' }} class="text font-light  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
+                                                                    </button>
+                                                                </a>
+                                                                : ''
+                                                        }
+                                                    </>
+                                                ))
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    }
 
 
                 </div>
+
+
+
+
 
                 <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
                     <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>
-                            <section className="my-4  m-auto space-y-3 flex flex-col items-center justify-center w-full">
+                            <section className="my-4  m-auto space-y-4 flex flex-col items-center justify-center w-full">
                                 {
                                     accs[0] !== 'null'
                                         ?

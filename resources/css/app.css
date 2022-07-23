@@ -165,9 +165,8 @@ color:rgb(27, 27, 27);
 [data-theme="Vnt"] *{
    border-radius: 0;
 }
-
 [data-theme="Vnt"] .boxAs {
     padding: 1.25em;
     border: 5px dashed rgb(165, 138, 104);
     box-shadow: inset 0 0 0 2.5px #6d6850,inset 0 0 0 12.5px #fff, inset 0 0 0 2.5px #a09280,inset 0 5px 10px 15px rgba(0, 0, 0, 0.5), inset 0 0 0 6px #fff,inset 9px 3px 14vw 0.5em beige;
-  }
+}

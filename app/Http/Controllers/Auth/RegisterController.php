@@ -35,9 +35,36 @@ class RegisterController extends Controller
                 'username' => $request->username
             ]);
 
-            return redirect('https://allacc.herokuapp.com/dashboard');
-
+             
+        $user = User::find(Auth::user()->id);
+        $path = json_decode($user->json_config, true);
+        
+        if(!array_key_exists('services', $path)){
+            $path += ['services' => ['cdn' => []]];
+        
+            $user->update([
+                'json_config' => json_encode($path),
+            ]);
         }
+        
+        if(!array_key_exists('urls', $path)){
+            $path += ['urls' => []];
+        
+            $user->update([
+                'json_config' => json_encode($path),
+            ]);
+        }
+        
+        if(!array_key_exists('config', $path)){
+            $path += ['config' => ['urlsGrps' => []]];
+    
+            $user->update([
+                'json_config' => json_encode($path),
+            ]);
+        }
+
+        return redirect('https://allacc.herokuapp.com/dashboard');
+    }
 
         throw ValidationException::withMessages([
             'email' => 'The provide credentials does not match our record.',
