@@ -84,26 +84,4 @@
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
     ),
   ),
-  'stevebauman/location' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Stevebauman\\Location\\LocationServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'Location' => 'Stevebauman\\Location\\Facades\\Location',
-    ),
-  ),
-  'zarei/user-agent-parser' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'Zarei\\UserAgentParser\\UserAgentServiceProvider',
-    ),
-    'aliases' => 
-    array (
-      'UserAgentParser' => 'Zarei\\UserAgentParser\\Facades\\UserAgentParser',
-    ),
-  ),
 );
