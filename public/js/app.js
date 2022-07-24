@@ -5030,10 +5030,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Skin)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _css_fonts_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../css/fonts.css */ "./resources/css/fonts.css");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _css_fonts_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/fonts.css */ "./resources/css/fonts.css");
+/* harmony import */ var _css_button_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../css/button.css */ "./resources/css/button.css");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -5049,12 +5049,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 function Skin(props) {
-  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var theskin = JSON.parse(auth.user.json_config).theme;
 
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
     skin: theskin.skin,
     icons: theskin.icons,
+    button: theskin.button,
     font: theskin.font
   }),
       data = _useForm.data,
@@ -5063,6 +5064,8 @@ function Skin(props) {
   var skk = data.skin;
   var icc = data.icons;
   var fnt = data.font;
+  var button = data.button;
+  var buttons = ['orangebtn', 'oldbtn', 'roundedborderbtn', 'rgbbtn', 'purplebtn', 'blurbtn'];
   var fonts = ['BeatWord', 'Calygraphy', 'Gracheva', 'OldGorgeous', 'OldMe', 'Profont'];
   var skins = ['NnP', 'Vnt', 'RPG', 'BnW', 'Ind'];
   var icons = ['rB', 'Vx', 'C4', 'Dr', 'oB'];
@@ -5142,7 +5145,7 @@ function Skin(props) {
 
   var cll = function cll() {
     // console.log(data);
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post('/setting/set', data, {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/setting/set', data, {
       restOnSuccess: false,
       preserveScroll: true
     });
@@ -5161,6 +5164,18 @@ function Skin(props) {
 
     ele.style.background = 'linear-gradient(137deg, white, #8f8f8f)';
     ele.style.boxShadow = 'inset 0 0 0 0.4em black, 0.3em 0.3em black';
+  };
+
+  var setbutton = function setbutton(e) {
+    var a = document.getElementsByClassName('buttons');
+
+    for (var i = 0; i < a.length; i++) {
+      a[i].style.background = 'none';
+    }
+
+    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, 'button', e)));
+    document.getElementById(e).style.background = 'white';
+    document.getElementById('buttoncurrent').innerHTML = 'current : ' + e;
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
@@ -5244,7 +5259,7 @@ function Skin(props) {
           })
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "skinn rounded-lg flex flex-col items-start p-3 space-y-2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         id: "icons",
@@ -5368,7 +5383,37 @@ function Skin(props) {
           });
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "flex flex-col my-4 space-y-2 w-full ",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        className: "font-bold text-lg",
+        children: "Links button style:"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        id: "buttoncurrent",
+        className: "font-meduim text-sm"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "flex flex-wrap items-center w-auto m-auto justify-center",
+        children: buttons.map(function (button) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            id: button,
+            onClick: function onClick() {
+              setbutton(button);
+            },
+            className: "buttons w-[8.5em] m-3 p-2 rounded-lg",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              className: "w-full m-auto ".concat(button),
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                style: {
+                  fontFamily: 'sans-serif'
+                },
+                "class": "text font-bold  overflow-hidden text-ellipsis whitespace-nowrap",
+                children: "mob"
+              })
+            })
+          });
+        })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "flex flex-col space-y-2 w-full ",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "font-bold text-lg",
@@ -5403,7 +5448,7 @@ function Skin(props) {
           cll();
         },
         type: "button",
-        className: "btn ".concat(theskin.icons === icc && theskin.skin === skk && theskin.font === fnt ? ' btn-disabled' : ''),
+        className: "btn ".concat(theskin.icons === icc && theskin.button === button && theskin.skin === skk && theskin.font === fnt ? ' btn-disabled' : ''),
         children: "Save yourSkin"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
         onClick: cll,
@@ -8265,6 +8310,17 @@ function AsSeem() {
       clearInterval(timerID);
     };
   });
+
+  var grpCheck = function grpCheck(e) {
+    for (var _i2 = 0; _i2 < theme.urls.length; _i2++) {
+      if (theme.urls[_i2].grp === e) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: user.name + " - AllAcc"
@@ -8445,7 +8501,7 @@ function AsSeem() {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                         className: "p-2 flex flex-col space-y-2",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
-                          className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser",
+                          className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis trackUser"),
                           style: {
                             'display': 'Webkit-box',
                             'WebkitLineClamp': '2',
@@ -8453,7 +8509,7 @@ function AsSeem() {
                           },
                           children: user.track
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
-                          className: "font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis artistUser",
+                          className: "font-bold text-lg ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis artistUser"),
                           style: {
                             'display': 'Webkit-box',
                             'WebkitLineClamp': '2',
@@ -8555,17 +8611,26 @@ function AsSeem() {
         }), theme.urls.length === 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "container my-4 mb-[3em] m-auto",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-            className: "w-full bg-primary text-secondary boxAs rounded-lg p-4 ",
+            style: {
+              background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)'
+            },
+            className: "w-full text-secondary boxAs rounded-lg p-4 ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
-              className: "italic text-xl font-extrabold p-2 text-secondary",
+              style: {
+                color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
+              },
+              className: "italic text-2xl font-extrabold p-2 text-primary",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                className: "text-base-100",
+                style: {
+                  color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
+                },
+                className: "text-primary",
                 children: user.name
               }), "'s Links"]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "space-y-3",
               children: [theme.config.urlsGrps.map(function (urlGrp) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                return grpCheck(urlGrp[0]) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                   style: {
                     background: 'hsl(var(--b1)/0.6)'
                   },
@@ -8581,12 +8646,12 @@ function AsSeem() {
                           className: "w-full block p-0",
                           href: url.link,
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                            className: "w-full m-auto orangebtn",
+                            className: "w-full m-auto ".concat(theme.theme.button === null ? 'orangebtn' : theme.theme.button),
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                               style: {
                                 fontFamily: 'sans-serif'
                               },
-                              "class": "text font-light  overflow-hidden text-ellipsis whitespace-nowrap",
+                              "class": "text font-bold  overflow-hidden text-ellipsis whitespace-nowrap",
                               children: url.name
                             })
                           })
@@ -8594,7 +8659,7 @@ function AsSeem() {
                       });
                     })
                   })]
-                });
+                }) : '';
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "space-y-4 w-full",
                 children: theme.urls.map(function (url) {
@@ -10833,7 +10898,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* CSS */\n.blurbtn {\n  all: unset;\n  width: 80%;\n  height: 30px;\n  font-size: 16px;\n  background: transparent;\n  border: none;\n  position: relative;\n  color: #f0f0f0;\n  cursor: pointer;\n  z-index: 1;\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin:auto;\n  white-space: nowrap;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.blurbtn::after,\n.blurbtn::before {\n  content: '';\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  z-index: -99999;\n  transition: all .4s;\n}\n\n.blurbtn::before {\n  transform: translate(0%, 0%);\n  width: 100%;\n  height: 100%;\n  background: #28282d;\n  border-radius: 10px;\n}\n\n.blurbtn::after {\n  transform: translate(10px, 10px);\n  width: 35px;\n  height: 35px;\n  background: #ffffff15;\n  backdrop-filter: blur(5px);\n  -webkit-backdrop-filter: blur(5px);\n  border-radius: 50px;\n}\n\n.blurbtn:hover::before {\n  transform: translate(5%, 20%);\n  width: 110%;\n  height: 110%;\n}\n\n.blurbtn:hover::after {\n  border-radius: 10px;\n  transform: translate(0, 0);\n  width: 100%;\n  height: 100%;\n}\n\n.blurbtn:active::after {\n  transition: 0s;\n  transform: translate(0, 5%);\n}\n\n/* //////////////////////////////////////////////////////////////////////////////////// */\n\n\n.purplebtn {\n    align-items: center;\n    background-image: linear-gradient(144deg, hsl(var(--p)), hsl(var(--s)) 50%,hsl(var(--p)));\n    border: 0;\n    border-radius: 8px;\n    box-shadow: hsl(var(--a)/0.2) 0 15px 30px -5px;\n    box-sizing: border-box;\n    color: hsl(var(--b1));\n    display: flex;\n    font-family: Phantomsans, sans-serif;\n    font-size: 20px;\n    justify-content: center;\n    line-height: 1em;\n    max-width: 100%;\n    min-width: 140px;\n    padding: 3px;\n    text-decoration: none;\n    -moz-user-select: none;\n         user-select: none;\n    margin: 0;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n    white-space: nowrap;\n    cursor: pointer;\n  }\n\n  .purplebtn:active,\n  .purplebtn:hover {\n    outline: 0;\n  }\n\n  .purplebtn span {\n    background-color: hsl(var(--a));\n    padding: 16px 24px;\n    border-radius: 6px;\n    width: 100%;\n    height: 100%;\n    transition: 300ms;\n  }\n\n  .purplebtn:hover span {\n    background: none;\n  }\n\n  @media (min-width: 768px) {\n    .purplebtn {\n      font-size: 24px;\n      min-width: 196px;\n    }\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n  .rgbbtn {\n    padding: 0.6em 2em;\n    border: none;\n    outline: none;\n    color: #000;\n    background: #fff;\n    cursor: pointer;\n    position: relative;\n    z-index: 0;\n    border-radius: 10px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .rgbbtn:before {\n    content: \"\";\n    background: linear-gradient(\n      45deg,\n      #da5874,\n      #ff8581,\n      #ffaea0,\n      #e9d478,\n      #e292b4,\n      #a8d2da,\n      #f3bae7,\n      #da5874\n\n    );\n    position: absolute;\n    top: -2px;\n    left: -2px;\n    background-size: 400%;\n    z-index: -1;\n    filter: blur(5px);\n    -webkit-filter: blur(5px);\n    width: calc(100% + 4px);\n    height: calc(100% + 4px);\n    -webkit-animation: glowing-button-85 20s linear infinite;\n            animation: glowing-button-85 20s linear infinite;\n    transition: opacity 0.3s ease-in-out;\n    border-radius: 10px;\n  }\n\n  @-webkit-keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  @keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  .rgbbtn:after {\n    z-index: -1;\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: rgb(255, 241, 241);\n    left: 0;\n    top: 0;\n    border-radius: 10px;\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.roundedborderbtn {\n  background-color: #fbeee0;\n  border: 2px solid #422800;\n  border-radius: 30px;\n  box-shadow: #422800 4px 4px 0 0;\n  color: #422800;\n  cursor: pointer;\n  display: inline-block;\n  font-weight: 600;\n  font-size: 18px;\n  padding: 0 18px;\n  line-height: 50px;\n  text-align: center;\n  text-decoration: none;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.roundedborderbtn:hover {\n  background-color: #fff;\n}\n\n.roundedborderbtn:active {\n  box-shadow: #422800 2px 2px 0 0;\n  transform: translate(2px, 2px);\n}\n\n@media (min-width: 768px) {\n  .roundedborderbtn {\n    min-width: 120px;\n    padding: 0 25px;\n  }\n}\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.orangebtn {\n  margin: 0;\n  padding: 15px 30px;\n  text-align: center;\n  text-transform: uppercase;\n  transition: 0.5s;\n  background-size: 200% auto;\n  color: white;\n  border-radius: 10px;\n  display: block;\n  border: 0px;\n  font-weight: 700;\n  box-shadow: 0px 0px 14px -7px #f09819;\n  background-image: linear-gradient(45deg, hsl(var(--s)) 0%, hsl(var(--p))  51%, hsl(var(--a))  100%);\n  cursor: pointer;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.orangebtn:hover {\n  background-position: right center;\n  /* change the direction of the change here */\n  color: #fff;\n  text-decoration: none;\n}\n\n.orangebtn:active {\n  transform: scale(0.95);\n}\n\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n\n  .oldbtn {\n    align-self: center;\n    background-color: #fff;\n    background-image: none;\n    background-position: 0 90%;\n    background-repeat: repeat no-repeat;\n    background-size: 4px 3px;\n    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;\n    border-style: solid;\n    border-width: 2px;\n    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;\n    box-sizing: border-box;\n    color: #41403e;\n    cursor: pointer;\n    display: inline-block;\n    font-family: Neucha, sans-serif;\n    font-size: 1rem;\n    line-height: 23px;\n    outline: none;\n    padding: .75rem;\n    text-decoration: none;\n    transition: all 235ms ease-in-out;\n    border-bottom-left-radius: 15px 255px;\n    border-bottom-right-radius: 225px 15px;\n    border-top-left-radius: 255px 15px;\n    border-top-right-radius: 15px 225px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .oldbtn:hover {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;\n    transform: translate3d(0, 2px, 0);\n  }\n\n  .oldbtn:focus {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;\n  }\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* CSS */\n.blurbtn {\n  all: unset;\n  width: 80%;\n  height: 30px;\n  font-size: 16px;\n  background: transparent;\n  border: none;\n  position: relative;\n  color: #f0f0f0;\n  cursor: pointer;\n  z-index: 1;\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin:auto;\n  white-space: nowrap;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.blurbtn::after,\n.blurbtn::before {\n  content: '';\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  z-index: -99999;\n  transition: all .4s;\n}\n\n.blurbtn::before {\n  transform: translate(0%, 0%);\n  width: 100%;\n  height: 100%;\n  background: #28282d;\n  border-radius: 10px;\n}\n\n.blurbtn::after {\n  transform: translate(10px, 10px);\n  width: 35px;\n  height: 35px;\n  background: #ffffff15;\n  backdrop-filter: blur(5px);\n  -webkit-backdrop-filter: blur(5px);\n  border-radius: 50px;\n}\n\n.blurbtn:hover::before {\n  transform: translate(5%, 20%);\n  width: 110%;\n  height: 110%;\n}\n\n.blurbtn:hover::after {\n  border-radius: 10px;\n  transform: translate(0, 0);\n  width: 100%;\n  height: 100%;\n}\n\n.blurbtn:active::after {\n  transition: 0s;\n  transform: translate(0, 5%);\n}\n\n/* //////////////////////////////////////////////////////////////////////////////////// */\n\n\n.purplebtn {\n    align-items: center;\n    background-image: linear-gradient(144deg, hsl(var(--p)), hsl(var(--s)) 50%,hsl(var(--p)));\n    border: 0;\n    border-radius: 8px;\n    box-shadow: hsl(var(--a)/0.2) 0 15px 30px -5px;\n    box-sizing: border-box;\n    color: hsl(var(--b1));\n    display: flex;\n    font-family: Phantomsans, sans-serif;\n    font-size: 20px;\n    justify-content: center;\n    line-height: 1em;\n    max-width: 100%;\n    padding: 3px;\n    text-decoration: none;\n    -moz-user-select: none;\n         user-select: none;\n    margin: 0;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n    white-space: nowrap;\n    cursor: pointer;\n  }\n\n  .purplebtn:active,\n  .purplebtn:hover {\n    outline: 0;\n  }\n\n  .purplebtn span {\n    background-color: hsl(var(--a));\n    padding: 16px 24px;\n    border-radius: 6px;\n    width: 100%;\n    height: 100%;\n    transition: 300ms;\n  }\n\n  .purplebtn:hover span {\n    background: none;\n  }\n\n  @media (min-width: 768px) {\n    .purplebtn {\n      font-size: 24px;\n    }\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n  .rgbbtn {\n    padding: 0.6em 2em;\n    border: none;\n    outline: none;\n    color: #000;\n    background: #fff;\n    cursor: pointer;\n    position: relative;\n    z-index: 0;\n    border-radius: 10px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .rgbbtn:before {\n    content: \"\";\n    background: linear-gradient(\n      45deg,\n      #da5874,\n      #ff8581,\n      #ffaea0,\n      #e9d478,\n      #e292b4,\n      #a8d2da,\n      #f3bae7,\n      #da5874\n\n    );\n    position: absolute;\n    top: -2px;\n    left: -2px;\n    background-size: 400%;\n    z-index: -1;\n    filter: blur(5px);\n    -webkit-filter: blur(5px);\n    width: calc(100% + 4px);\n    height: calc(100% + 4px);\n    -webkit-animation: glowing-button-85 20s linear infinite;\n            animation: glowing-button-85 20s linear infinite;\n    transition: opacity 0.3s ease-in-out;\n    border-radius: 10px;\n  }\n\n  @-webkit-keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  @keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  .rgbbtn:after {\n    z-index: -1;\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: rgb(255, 241, 241);\n    left: 0;\n    top: 0;\n    border-radius: 10px;\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.roundedborderbtn {\n  background-color: #fbeee0;\n  border: 2px solid #422800;\n  border-radius: 30px;\n  box-shadow: #422800 4px 4px 0 0;\n  color: #422800;\n  cursor: pointer;\n  display: inline-block;\n  font-weight: 600;\n  font-size: 18px;\n  padding: 0 18px;\n  line-height: 50px;\n  text-align: center;\n  text-decoration: none;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.roundedborderbtn:hover {\n  background-color: #fff;\n}\n\n.roundedborderbtn:active {\n  box-shadow: #422800 2px 2px 0 0;\n  transform: translate(2px, 2px);\n}\n\n@media (min-width: 768px) {\n  .roundedborderbtn {\n    padding: 0 25px;\n  }\n}\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.orangebtn {\n  margin: 0;\n  padding: 15px 30px;\n  text-align: center;\n  text-transform: uppercase;\n  transition: 0.5s;\n  background-size: 200% auto;\n  color: white;\n  border-radius: 10px;\n  display: block;\n  border: 0px;\n  font-weight: 700;\n  box-shadow: 0px 0px 14px -7px hsl(var(--s));\n  background-image: linear-gradient(45deg, hsl(var(--s)) 0%, hsl(var(--p))  51%, hsl(var(--a))  100%);\n  cursor: pointer;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.orangebtn:hover {\n  background-position: right center;\n  /* change the direction of the change here */\n  color: #fff;\n  text-decoration: none;\n}\n\n.orangebtn:active {\n  transform: scale(0.95);\n}\n\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n\n  .oldbtn {\n    align-self: center;\n    background-color: #fff;\n    background-image: none;\n    background-position: 0 90%;\n    background-repeat: repeat no-repeat;\n    background-size: 4px 3px;\n    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;\n    border-style: solid;\n    border-width: 2px;\n    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;\n    box-sizing: border-box;\n    color: #41403e;\n    cursor: pointer;\n    display: inline-block;\n    font-family: Neucha, sans-serif;\n    font-size: 1rem;\n    line-height: 23px;\n    outline: none;\n    padding: .75rem;\n    text-decoration: none;\n    transition: all 235ms ease-in-out;\n    border-bottom-left-radius: 15px 255px;\n    border-bottom-right-radius: 225px 15px;\n    border-top-left-radius: 255px 15px;\n    border-top-right-radius: 15px 225px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .oldbtn:hover {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;\n    transform: translate3d(0, 2px, 0);\n  }\n\n  .oldbtn:focus {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;\n  }\n\n\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -19,7 +19,7 @@ class SetSkinsController extends Controller
         if($validated){
             $user = User::find(Auth::user()->id);
             $path = json_decode($user->json_config, true);
-            $path['theme'] = ['skin'=>$request->skin, 'icons'=>$request->icons, 'font'=>$request->font, 'besthex'=>$request->hex, 'pure'=>false];
+            $path['theme'] = ['skin'=>$request->skin, 'icons'=>$request->icons, 'font'=>$request->font, 'besthex'=>$request->hex,'button'=>$request->button, 'pure'=>false];
             $user->update([
                 'json_config' => json_encode($path),
             ]);

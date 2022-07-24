@@ -144,24 +144,6 @@ color:rgb(27, 27, 27);
 [data-theme="RPG"] *{
    border-radius: 5vmin;
 }
-[data-theme="RPG"] .trackUser{
-   color: black;
-}
-[data-theme="RPG"] .artistUser{
-   color: black;
-}
-[data-theme="Ind"] .trackUser{
-   color: black;
-}
-[data-theme="Ind"] .artistUser{
-   color: black;
-}
-[data-theme="BnW"] .trackUser{
-   color: auto;
-}
-[data-theme="NnP"] .artistUser{
-   color: auto;
-}
 [data-theme="Vnt"] *{
    border-radius: 0;
 }

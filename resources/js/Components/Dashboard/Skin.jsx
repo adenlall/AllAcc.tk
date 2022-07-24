@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { usePage, Link, useForm } from '@inertiajs/inertia-react';
+import { usePage, useForm } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import '../../../css/fonts.css';
+import '../../../css/button.css';
 
 export default function Skin(props) {
 
@@ -9,13 +9,15 @@ export default function Skin(props) {
     const theskin = JSON.parse(auth.user.json_config).theme;
 
     const { data, setData } = useForm({
-        skin: theskin.skin, icons: theskin.icons, font: theskin.font,
+        skin: theskin.skin, icons: theskin.icons, button: theskin.button, font: theskin.font,
     })
 
     const skk = data.skin;
     const icc = data.icons;
     const fnt = data.font;
+    const button = data.button;
 
+    const buttons = ['orangebtn', 'oldbtn', 'roundedborderbtn', 'rgbbtn', 'purplebtn', 'blurbtn'];
     const fonts = ['BeatWord', 'Calygraphy', 'Gracheva', 'OldGorgeous', 'OldMe', 'Profont'];
     const skins = ['NnP', 'Vnt', 'RPG', 'BnW', 'Ind'];
     const icons = ['rB', 'Vx', 'C4', 'Dr', 'oB'];
@@ -107,7 +109,15 @@ export default function Skin(props) {
         ele.style.boxShadow = 'inset 0 0 0 0.4em black, 0.3em 0.3em black';
     }
 
-
+    const setbutton = (e) => {
+        let a = document.getElementsByClassName('buttons');
+        for(let i=0; i<a.length; i++){
+            a[i].style.background='none';
+        }
+        setData({ ...data, ['button']: e });
+            document.getElementById(e).style.background='white'
+            document.getElementById('buttoncurrent').innerHTML= 'current : '+ e;
+    }
 
     return (
         <>
@@ -137,6 +147,8 @@ export default function Skin(props) {
                     </div>
                 </div>
             </div>
+            <hr />
+
             <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
                 <div id="icons" className='flex flex-col'>
                     <h3 className='font-bold text-lg'>Chose your icons style:</h3>
@@ -175,27 +187,45 @@ export default function Skin(props) {
                     }
                 </div>
             </div>
-
-                <div className='flex flex-col space-y-2 w-full '>
-                    <h3 className='font-bold text-lg'>Chose your font:</h3>
-                    <div className="fonts flex flex-wrap items-center w-full justify-start">
-                        {
-                            fonts.map( font =>(
-                                <div onClick={()=>{setFont(font)}} key={font} id={font} className="itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center">
-                                    <div className='text-gray-900 text-center text-xl xs:text-3xl' style={{'fontFamily': `${font}`}}>
-                                        Aa
-                                    </div>
-                                    <div className='font-bold text-gray-700 text-center text-xs xs:text-sm'>
-                                        {font}
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </div>
+            <hr />
+            <div className='flex flex-col my-4 space-y-2 w-full '>
+                <h3 className='font-bold text-lg'>Links button style:</h3>
+                <h3 id='buttoncurrent' className='font-meduim text-sm'></h3>
+                <div className="flex flex-wrap items-center w-auto m-auto justify-center">
+                    {
+                        buttons.map((button) => (
+                            <div id={button} onClick={()=>{setbutton(button)}} className='buttons w-[8.5em] m-3 p-2 rounded-lg'>
+                                <button className={`w-full m-auto ${button}`}>
+                                    <span style={{ fontFamily: 'sans-serif' }} class="text font-bold  overflow-hidden text-ellipsis whitespace-nowrap">mob</span>
+                                </button>
+                            </div>
+                        ))
+                    }
                 </div>
+            </div>
+
+            <hr />
+
+            <div className='flex flex-col space-y-2 w-full '>
+                <h3 className='font-bold text-lg'>Chose your font:</h3>
+                <div className="fonts flex flex-wrap items-center w-full justify-start">
+                    {
+                        fonts.map(font => (
+                            <div onClick={() => { setFont(font) }} key={font} id={font} className="itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center">
+                                <div className='text-gray-900 text-center text-xl xs:text-3xl' style={{ 'fontFamily': `${font}` }}>
+                                    Aa
+                                </div>
+                                <div className='font-bold text-gray-700 text-center text-xs xs:text-sm'>
+                                    {font}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
 
             <div id='forsave' className='p-2 pb-4 flex flex-col space-y-2'>
-                <button onClick={() => { cll() }} type="button" className={`btn ${((theskin.icons === icc) && (theskin.skin === skk) && (theskin.font === fnt))?' btn-disabled':''}`}>Save yourSkin</button>
+                <button onClick={() => { cll() }} type="button" className={`btn ${((theskin.icons === icc) && (theskin.button === button) && (theskin.skin === skk) && (theskin.font === fnt)) ? ' btn-disabled' : ''}`}>Save yourSkin</button>
                 <p onClick={cll} className='text-sm italic font-light'>You can always change your skins.</p>
                 <p className='text-sm italic font-light'>Help us to create more skins on our <a className='font-bold text-pink-300' target={'_blank'} href='https://github.com/adenlall/allacc'>GitHub page</a>.</p>
             </div>

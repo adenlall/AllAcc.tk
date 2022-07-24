@@ -71,40 +71,40 @@ function AsSeem() {
                                     </div>
                                 </div>
                             </Link>
-                            {
-                                ((cle === 'twitter') && (cdnS.twitter === true) && (theme.services.cdn.twitter === true)) ?
-                                    ele(services[cle])
-                                    : ''
+                            {                     
+                                    ((cle === 'twitter') && (cdnS.twitter === true) && (theme.services.cdn.twitter === true)) ?
+                                            ele(services[cle])
+                                            : ''
                             }
 
-                            {(cle === 'twitter' && theme.services.cdn.twitter === true) ?
-                                (
-                                    <>
-                                        {
-                                            window.innerWidth > '440'
-                                                ?
-                                                (
-                                                    <>
-                                                        <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }} >click to show/hide it embed</label>
+                            {
+                                        (cle === 'twitter' && theme.services.cdn.twitter === true) ?
+                                            (
+                                                <>
+                                                    {
+                                                        window.innerWidth > '440'
+                                                            ?
+                                                            (
+                                                                <>
+                                                                    <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }} >click to show/hide it embed</label>
 
-                                                        <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
+                                                                    <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
 
-                                                        <label for={`my-modal-${i}`} style={{ 'borderRadius': '1em' }} class="modal cursor-pointer">
-                                                            <label class="modal-box relative" for="" style={{ 'borderRadius': '1em' }} >
-                                                                {ele(services[cle])}
-                                                            </label>
-                                                        </label>
-                                                    </>
+                                                                    <label for={`my-modal-${i}`} style={{ 'borderRadius': '1em' }} class="modal cursor-pointer">
+                                                                        <label class="modal-box relative" for="" style={{ 'borderRadius': '1em' }} >
+                                                                            {ele(services[cle])}
+                                                                        </label>
+                                                                    </label>
+                                                                </>
 
 
-                                                )
-                                                :
-                                                <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
-                                        }
-                                    </>
+                                                            )
+                                                            :
+                                                            <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
+                                                    }
+                                                </>
+                                            ) : ''
 
-                                )
-                                : ''
                             }
                         </div>
                     )
@@ -149,6 +149,15 @@ function AsSeem() {
         }
 
     })
+
+    const grpCheck = (e) => {
+        for (let i = 0; i < theme.urls.length; i++) {
+            if (theme.urls[i].grp === e) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     return (
@@ -288,8 +297,8 @@ function AsSeem() {
                                                         </div>
                                                         <div className='p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg '>
                                                             <div className='p-2 flex flex-col space-y-2'>
-                                                                <h2 className={`font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
-                                                                <h2 className='font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis artistUser' style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
+                                                                <h2 className={`font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ${theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
+                                                                <h2 className={`font-bold text-lg ${theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis artistUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -344,32 +353,37 @@ function AsSeem() {
 
 
                             <div className="container my-4 mb-[3em] m-auto">
-                                <div className="w-full bg-primary text-secondary boxAs rounded-lg p-4 ">
-                                    <h3 className='italic text-xl font-extrabold p-2 text-secondary'><span className='text-base-100'>{user.name}</span>'s Links</h3>
+                                <div style={{ background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)' }} className="w-full text-secondary boxAs rounded-lg p-4 ">
+                                    <h3 style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='italic text-2xl font-extrabold p-2 text-primary'><span style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='text-primary'>{user.name}</span>'s Links</h3>
                                     <div className="space-y-3">
                                         {
                                             theme.config.urlsGrps.map((urlGrp) => (
-                                                <div style={{ background: 'hsl(var(--b1)/0.6)' }} className=" rounded-lg p-4 w-full">
-                                                    <h3 className='text-xl my-2 p-2 font-bold text-accent '>{urlGrp}</h3>
-                                                    <div className="space-y-4 w-full p-4">
-                                                        {
-                                                            theme.urls.map((url) => (
-                                                                <>
-                                                                    {
-                                                                        url['grp'] === urlGrp[0] ?
-                                                                            <a className="w-full block p-0" href={url.link}>
-                                                                                <button className="w-full m-auto orangebtn">
-                                                                                    <span style={{ fontFamily: 'sans-serif' }} class="text font-light  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
-                                                                                </button>
+                                                grpCheck(urlGrp[0]) ?
+                                                    (
+                                                        <div style={{ background: 'hsl(var(--b1)/0.6)' }} className=" rounded-lg p-4 w-full">
+                                                            <h3 className='text-xl my-2 p-2 font-bold text-accent '>{urlGrp}</h3>
+                                                            <div className="space-y-4 w-full p-4">
+                                                                {
+                                                                    theme.urls.map((url) => (
+                                                                        <>
+                                                                            {
+                                                                                url['grp'] === urlGrp[0] ?
+                                                                                    <a className="w-full block p-0" href={url.link}>
+                                                                                        <button className={`w-full m-auto ${theme.theme.button === null ? 'orangebtn' : theme.theme.button}`}>
+                                                                                            <span style={{ fontFamily: 'sans-serif' }} class="text font-bold  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
+                                                                                        </button>
 
-                                                                            </a>
-                                                                            : ''
-                                                                    }
-                                                                </>
-                                                            ))
-                                                        }
-                                                    </div>
-                                                </div>
+                                                                                    </a>
+                                                                                    : ''
+                                                                            }
+                                                                        </>
+                                                                    ))
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    )
+                                                    : ''
+
                                             ))
 
                                         }
