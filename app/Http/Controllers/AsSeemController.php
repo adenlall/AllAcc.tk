@@ -26,56 +26,57 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $sp_user = User::where('username', $path)->select(['json_locate','visit'])->cursor()->first();
-            $locate = json_decode($sp_user->json_locate, true);
-            $ip = FacadesRequest::ip();
-            $coun = (Location::get($ip) !== false) ? Location::get($ip)->countryName : 'locate';
+            $sp_user = User::where('username', $path)->select(['visit'])->cursor()->first();
+            // $locate = json_decode($sp_user->json_locate, true);
+            // $ip = FacadesRequest::ip();
+            // $coun = (Location::get($ip) !== false) ? Location::get($ip)->countryName : 'locate';
 
 
-            $parsed = UserAgentParser::parse(request()->userAgent());
-            $os = $parsed->os();
-            $device = $parsed->device();
-            $browser = $parsed->browser();
+            
+            // $parsed = UserAgentParser::parse(request()->userAgent());
+            // $os = $parsed->os();
+            // $device = $parsed->device();
+            // $browser = $parsed->browser();
 
-            if (count($locate['logs']) === 0) {
-                array_push($locate['logs'], ['agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
-            } else {
-                if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
-                    array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
-                    dd('else if');
-                } else {
-                    $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
-                    $index = true;
-                    for ($i = 0; $i < count($locate['logs'][count($locate['logs']) - 1]['srcs']); $i++) { //
-                        if ($locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['country'] === $coun) {
-                            $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] = $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] + 1;
-                            if (!in_array($ip, $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'])) {
-                                $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'][] = $ip;
-                            }
-                            $index = false;
-                            break;
-                        }
-                    }
-                    if ($index) {
-                        array_push($locate['logs'][count($locate['logs']) - 1]['srcs'], ['ips' => [$ip], 'country' => $coun, 'count' => 1]);
-                    }
-                    $to_for = ['os', 'device', 'browser'];
-                    for ($i = 0; $i < count($to_for); $i++) { //
-                        for ($in = 0; $in < count($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]]); $in++) { //
-                            $is = true;
-                            if ($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['name'] ===  ($to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type)) {
-                                $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] = $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] + 1;
-                                $is = false;
-                                break;
-                            }
-                        }
-                        if ($is) array_push($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]], ['name' => $to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type, 'count' => 1]);
-                    }
-                }
-            }
+            // if (count($locate['logs']) === 0) {
+            //     array_push($locate['logs'], ['agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
+            // } else {
+            //     if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
+            //         array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
+            //         dd('else if');
+            //     } else {
+            //         $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
+            //         $index = true;
+            //         for ($i = 0; $i < count($locate['logs'][count($locate['logs']) - 1]['srcs']); $i++) { //
+            //             if ($locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['country'] === $coun) {
+            //                 $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] = $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] + 1;
+            //                 if (!in_array($ip, $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'])) {
+            //                     $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'][] = $ip;
+            //                 }
+            //                 $index = false;
+            //                 break;
+            //             }
+            //         }
+            //         if ($index) {
+            //             array_push($locate['logs'][count($locate['logs']) - 1]['srcs'], ['ips' => [$ip], 'country' => $coun, 'count' => 1]);
+            //         }
+            //         $to_for = ['os', 'device', 'browser'];
+            //         for ($i = 0; $i < count($to_for); $i++) { //
+            //             for ($in = 0; $in < count($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]]); $in++) { //
+            //                 $is = true;
+            //                 if ($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['name'] ===  ($to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type)) {
+            //                     $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] = $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] + 1;
+            //                     $is = false;
+            //                     break;
+            //                 }
+            //             }
+            //             if ($is) array_push($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]], ['name' => $to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type, 'count' => 1]);
+            //         }
+            //     }
+            // }
             $sp_user->update([
                 'visit'       => $sp_user->visit+1,
-                'json_locate' => json_encode($locate),
+                // 'json_locate' => json_encode($locate),
             ]);
 
 

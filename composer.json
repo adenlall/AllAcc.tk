@@ -14,9 +14,7 @@
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.0",
-        "spatie/laravel-activitylog": "^4.5",
-        "stevebauman/location": "^6.5",
-        "zarei/user-agent-parser": "dev-master"
+        "spatie/laravel-activitylog": "^4.5"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
