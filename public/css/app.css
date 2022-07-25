@@ -4066,11 +4066,11 @@ body[dir="rtl"] .checkbox:checked,
 .m-5 {
   margin: 1.25rem;
 }
-.m-\[2\.5\%\] {
-  margin: 2.5%;
-}
 .m-3 {
   margin: 0.75rem;
+}
+.m-\[2\.5\%\] {
+  margin: 2.5%;
 }
 .mx-auto {
   margin-left: auto;
@@ -4334,6 +4334,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-\[62vh\] {
   height: 62vh;
 }
+.h-\[80vh\] {
+  height: 80vh;
+}
 .max-h-\[10em\] {
   max-height: 10em;
 }
@@ -4420,6 +4423,9 @@ body[dir="rtl"] .checkbox:checked,
 .w-1\/3 {
   width: 33.333333%;
 }
+.w-\[8\.5em\] {
+  width: 8.5em;
+}
 .w-\[45\%\] {
   width: 45%;
 }
@@ -4477,12 +4483,6 @@ body[dir="rtl"] .checkbox:checked,
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-}
-.w-\[7em\] {
-  width: 7em;
-}
-.w-\[8\.5em\] {
-  width: 8.5em;
 }
 .min-w-\[min-content\] {
   min-width: -webkit-min-content;

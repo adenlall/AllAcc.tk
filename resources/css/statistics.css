@@ -1,0 +1,5 @@
+canvas {
+    height: min(70vh, 800px) !important;
+    width:  min(70vh, 800px) !important;
+    margin: auto;
+};

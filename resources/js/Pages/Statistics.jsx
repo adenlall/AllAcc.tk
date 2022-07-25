@@ -1,7 +1,8 @@
 import Base from '../Layouts/Base';
 import { usePage } from '@inertiajs/inertia-react';
 import Chart from 'chart.js/auto';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Doughnut } from 'react-chartjs-2';
+import '../../css/statistics.css';
 
 
 export default function Statistics() {
@@ -9,8 +10,15 @@ export default function Statistics() {
     const sers = [];
     const sers_d = [];
 
-    config.forEach((ser, i) => {
+    const chart_services = [];
+    const chart_ser_value = [];
+    const chart_ser_colors = [];
+
+    config.forEach((ser) => {
         if (services[ser.name] !== null) {
+            ((services_statistics['services'][ser['name']] === undefined) || (services_statistics['services'][ser['name']] === null)) ? chart_ser_value.push('0') : chart_ser_value.push(services_statistics['services'][ser['name']])
+            chart_services.push(ser['name'])
+            chart_ser_colors.push('#' + ser['mColor'])
             sers.push(
                 <div key={ser['name']} className={`w-full rounded-lg bg-ago p-2 py-[0.5em] flex flex-row items-center justify-center content-center`}>
                     <div className={`w-full p-2 m-2 rounded-lg text-xl sm:text-3xl font-extrabold italic text-white text-center`} style={{ 'textShadow': `3px 3px 0px #${ser['mColor']}` }}>
@@ -39,34 +47,34 @@ export default function Statistics() {
         <div id='#head' className='w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col'>
             <h2 className='text-2xl font-extrabold py-4'>Welcome to your new Statistics</h2>
 
-            <Bar
+            <Doughnut
                 data={{
-                    labels: ['hello', 'mob', 'opps'],
+                    labels: chart_services,
+                    boxHeight: 300,
                     datasets: [
                         {
-                            label: "Price in USD",
-                            data: [12, 65, 43],
-                            backgroundColor: [
-                                "#ffbb11",
-                                "#ecf0f1",
-                                "#50AF95",
-                                "#f3ba2f",
-                                "#2a71d0"
-                            ],
+                            label: "Accounts clicks",
+                            data: chart_ser_value,
+                            backgroundColor: chart_ser_colors,
                         }
                     ]
                 }}
-
+                boxHeight={300}
                 options={{
                     plugins: {
                         title: {
                             display: true,
-                            text: "Cryptocurrency prices"
+                            text: "Accounts clicks",
+                            fontSize: 215
                         },
                         legend: {
                             display: true,
-                            position: "bottom"
-                        }
+                            position: "bottom",
+                            labels: {
+                                fontSize: 350
+                            },
+                        },
+                        responsive: true
                     }
                 }}
             />
