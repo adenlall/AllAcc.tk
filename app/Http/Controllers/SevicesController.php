@@ -28,7 +28,7 @@ class SevicesController extends Controller
             } else {
                 $path['services']['cdn'][$serv] = $data;
                 $user->update(['json_config' => json_encode($path)]);
-                dd($path);
+                // dd($path);
             }
             // dd($path);
             return back()->with([

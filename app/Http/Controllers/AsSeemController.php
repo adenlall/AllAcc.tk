@@ -94,7 +94,7 @@ class AsSeemController extends Controller
             }
 
 
-            $services = Cache::remember(Auth::user()->username."_s", now()->addMinutes(4), function () use ($path) {
+            $services = Cache::remember($path."_s", now()->addMinutes(4), function () use ($path) {
                 return Service::where('username', $path)->cursor()->first();
             });
 

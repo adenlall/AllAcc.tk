@@ -10449,10 +10449,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
+/* harmony import */ var react_chartjs_2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-chartjs-2 */ "./node_modules/react-chartjs-2/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -10469,34 +10468,34 @@ function Statistics() {
   var sers_d = [];
   config.forEach(function (ser, i) {
     if (services[ser.name] !== null) {
-      sers.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      sers.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "w-full rounded-lg bg-ago p-2 py-[0.5em] flex flex-row items-center justify-center content-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "w-full p-2 m-2 rounded-lg text-xl sm:text-3xl font-extrabold italic text-white text-center",
           style: {
             'textShadow': "3px 3px 0px #".concat(ser['mColor'])
           },
           children: ser['name']
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
           className: "text-xl p-2 w-full m-2 text-white rounded-lg text-center bg-base-100",
-          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "bg-ap3 text-black p-1 rounded-lg",
             children: services_statistics['services'][ser['name']] === undefined || services_statistics['services'][ser['name']] === null ? '0' : services_statistics['services'][ser['name']]
           })]
         })]
       }, ser['name']));
     } else {
-      sers_d.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      sers_d.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "w-full rounded-lg bg-[#f6bd6095] p-2 py-[0.5em] flex flex-row items-center justify-center content-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "w-full p-2 m-2 rounded-lg text-xl sm:text-3xl font-extrabold italic text-white text-center",
           style: {
             'textShadow': "3px 3px 0px #".concat(ser['mColor'])
           },
           children: ser['name']
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h2", {
           className: "text-xl p-2 w-full m-2 text-white rounded-lg text-center bg-base-100",
-          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["Clicks :  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "bg-ap3 text-black p-1 rounded-lg",
             children: services_statistics['services'][ser['name']] === undefined || services_statistics['services'][ser['name']] === null ? '0' : services_statistics['services'][ser['name']]
           })]
@@ -10504,13 +10503,13 @@ function Statistics() {
       }, ser['name']));
     }
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     id: "#head",
     className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       className: "text-2xl font-extrabold py-4",
       children: "Welcome to your new Statistics"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Scatter, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_chartjs_2__WEBPACK_IMPORTED_MODULE_4__.Bar, {
       data: {
         labels: ['hello', 'mob', 'opps'],
         datasets: [{
@@ -10531,57 +10530,57 @@ function Statistics() {
           }
         }
       }
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       id: "ffirst",
       className: "text-xl font-bold py-1",
       children: "Your public page visits:"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "w-full rounded-lg m-auto bg-[url(https://nice-direct-links.herokuapp.com/12df0/file.jpg)] bg-cover bg-center bg-no-repeat",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex items-center rounded-lg w-full justify-start p-[4em]",
         style: {
           'background': 'linear-gradient(90deg,darkcyan,transparent)'
         },
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h1", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
           className: "text-2xl font-bold text-white w-[90%] sm:w-[40%]",
-          children: ["Number of visits to your public page is : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["Number of visits to your public page is : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "itt",
             children: visits
           })]
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       id: "active_s",
       className: "text-xl font-bold py-1",
       children: "Active services:"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       "class": "collapse",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "checkbox"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         "class": "collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2",
         children: "Click to show Active services clicks"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         "class": "collapse-content space-y-2",
-        children: sers.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: sers.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: " mb-4 my-1 w-full p-8 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
           children: "Add your services from Dashboard first!"
         }) : sers
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
       id: "delete_s",
       className: "text-xl font-bold py-1",
       children: "Deleted services:"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       "class": "collapse",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
         type: "checkbox"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         "class": "collapse-title text-xl font-medium bg-ap2 text-black rounded-lg mb-2",
         children: "Click to show Deleted services clicks"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         "class": "collapse-content space-y-2",
-        children: sers_d.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: sers_d.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: " mb-4 my-1 w-full p-8 bg-ago text-black text-lg text-bold rounded-lg flex flex-row items-center justify-center content-center",
           children: "Great! you don't have any deleted service."
         }) : sers_d
@@ -10591,7 +10590,7 @@ function Statistics() {
 }
 
 Statistics.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
     title: "Statistics - AllAcc"
   });
@@ -39235,6 +39234,212 @@ var ConnectedDroppable = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.connect)(ma
 ConnectedDroppable.defaultProps = defaultProps;
 
 
+
+
+/***/ }),
+
+/***/ "./node_modules/react-chartjs-2/dist/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-chartjs-2/dist/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Bar": () => (/* binding */ Bar),
+/* harmony export */   "Bubble": () => (/* binding */ Bubble),
+/* harmony export */   "Chart": () => (/* binding */ Chart),
+/* harmony export */   "Doughnut": () => (/* binding */ Doughnut),
+/* harmony export */   "Line": () => (/* binding */ Line),
+/* harmony export */   "Pie": () => (/* binding */ Pie),
+/* harmony export */   "PolarArea": () => (/* binding */ PolarArea),
+/* harmony export */   "Radar": () => (/* binding */ Radar),
+/* harmony export */   "Scatter": () => (/* binding */ Scatter),
+/* harmony export */   "getDatasetAtEvent": () => (/* binding */ getDatasetAtEvent),
+/* harmony export */   "getElementAtEvent": () => (/* binding */ getElementAtEvent),
+/* harmony export */   "getElementsAtEvent": () => (/* binding */ getElementsAtEvent)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/chart.esm.js");
+
+
+
+const defaultDatasetIdKey = 'label';
+function reforwardRef(ref, value) {
+    if (typeof ref === 'function') {
+        ref(value);
+    } else if (ref) {
+        ref.current = value;
+    }
+}
+function setOptions(chart, nextOptions) {
+    Object.assign(chart.options, nextOptions);
+}
+function setLabels(currentData, nextLabels) {
+    currentData.labels = nextLabels;
+}
+function setDatasets(currentData, nextDatasets) {
+    let datasetIdKey = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : defaultDatasetIdKey;
+    const addedDatasets = [];
+    currentData.datasets = nextDatasets.map((nextDataset)=>{
+        // given the new set, find it's current match
+        const currentDataset = currentData.datasets.find((dataset)=>dataset[datasetIdKey] === nextDataset[datasetIdKey]
+        );
+        // There is no original to update, so simply add new one
+        if (!currentDataset || !nextDataset.data || addedDatasets.includes(currentDataset)) {
+            return {
+                ...nextDataset
+            };
+        }
+        addedDatasets.push(currentDataset);
+        Object.assign(currentDataset, nextDataset);
+        return currentDataset;
+    });
+}
+function cloneData(data) {
+    let datasetIdKey = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : defaultDatasetIdKey;
+    const nextData = {
+        labels: [],
+        datasets: []
+    };
+    setLabels(nextData, data.labels);
+    setDatasets(nextData, data.datasets, datasetIdKey);
+    return nextData;
+}
+/**
+ * Get dataset from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */ function getDatasetAtEvent(chart, event) {
+    return chart.getElementsAtEventForMode(event.nativeEvent, 'dataset', {
+        intersect: true
+    }, false);
+}
+/**
+ * Get single dataset element from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */ function getElementAtEvent(chart, event) {
+    return chart.getElementsAtEventForMode(event.nativeEvent, 'nearest', {
+        intersect: true
+    }, false);
+}
+/**
+ * Get all dataset elements from mouse click event
+ * @param chart - Chart.js instance
+ * @param event - Mouse click event
+ * @returns Dataset
+ */ function getElementsAtEvent(chart, event) {
+    return chart.getElementsAtEventForMode(event.nativeEvent, 'index', {
+        intersect: true
+    }, false);
+}
+
+function ChartComponent(param, ref) {
+    let { height =150 , width =300 , redraw =false , datasetIdKey , type , data , options , plugins =[] , fallbackContent , updateMode , ...props } = param;
+    const canvasRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+    const chartRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+    const renderChart = ()=>{
+        if (!canvasRef.current) return;
+        chartRef.current = new chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart(canvasRef.current, {
+            type,
+            data: cloneData(data, datasetIdKey),
+            options: options && {
+                ...options
+            },
+            plugins
+        });
+        reforwardRef(ref, chartRef.current);
+    };
+    const destroyChart = ()=>{
+        reforwardRef(ref, null);
+        if (chartRef.current) {
+            chartRef.current.destroy();
+            chartRef.current = null;
+        }
+    };
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (!redraw && chartRef.current && options) {
+            setOptions(chartRef.current, options);
+        }
+    }, [
+        redraw,
+        options
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (!redraw && chartRef.current) {
+            setLabels(chartRef.current.config.data, data.labels);
+        }
+    }, [
+        redraw,
+        data.labels
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (!redraw && chartRef.current && data.datasets) {
+            setDatasets(chartRef.current.config.data, data.datasets, datasetIdKey);
+        }
+    }, [
+        redraw,
+        data.datasets
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (!chartRef.current) return;
+        if (redraw) {
+            destroyChart();
+            setTimeout(renderChart);
+        } else {
+            chartRef.current.update(updateMode);
+        }
+    }, [
+        redraw,
+        options,
+        data.labels,
+        data.datasets,
+        updateMode
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        if (!chartRef.current) return;
+        destroyChart();
+        setTimeout(renderChart);
+    }, [
+        type
+    ]);
+    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{
+        renderChart();
+        return ()=>destroyChart()
+        ;
+    }, []);
+    return(/*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement("canvas", Object.assign({
+        ref: canvasRef,
+        role: "img",
+        height: height,
+        width: width
+    }, props), fallbackContent));
+}
+const Chart = /*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)(ChartComponent);
+
+function createTypedChart(type, registerables) {
+    chart_js__WEBPACK_IMPORTED_MODULE_1__.Chart.register(registerables);
+    return(/*#__PURE__*/ (0,react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)((props, ref)=>/*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0__.createElement(Chart, Object.assign({}, props, {
+            ref: ref,
+            type: type
+        }))
+    ));
+}
+const Line = /* #__PURE__ */ createTypedChart('line', chart_js__WEBPACK_IMPORTED_MODULE_1__.LineController);
+const Bar = /* #__PURE__ */ createTypedChart('bar', chart_js__WEBPACK_IMPORTED_MODULE_1__.BarController);
+const Radar = /* #__PURE__ */ createTypedChart('radar', chart_js__WEBPACK_IMPORTED_MODULE_1__.RadarController);
+const Doughnut = /* #__PURE__ */ createTypedChart('doughnut', chart_js__WEBPACK_IMPORTED_MODULE_1__.DoughnutController);
+const PolarArea = /* #__PURE__ */ createTypedChart('polarArea', chart_js__WEBPACK_IMPORTED_MODULE_1__.PolarAreaController);
+const Bubble = /* #__PURE__ */ createTypedChart('bubble', chart_js__WEBPACK_IMPORTED_MODULE_1__.BubbleController);
+const Pie = /* #__PURE__ */ createTypedChart('pie', chart_js__WEBPACK_IMPORTED_MODULE_1__.PieController);
+const Scatter = /* #__PURE__ */ createTypedChart('scatter', chart_js__WEBPACK_IMPORTED_MODULE_1__.ScatterController);
+
+
+//# sourceMappingURL=index.js.map
 
 
 /***/ }),

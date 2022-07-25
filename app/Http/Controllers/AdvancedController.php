@@ -14,13 +14,11 @@ class AdvancedController extends Controller
     function __invoke()
     {
 
-        $user = Cache::remember(Auth::user()->username, now()->addMinute(), function() {
-            return User::find(Auth::user()->id);
-        });
-
+        
         $path = json_decode($user->json_config, true);
-
+        
         if(!array_key_exists("advanced", $path)){
+            $user = User::find(Auth::user()->id);
             $path += ["advanced"=>["from"=>[]]];
             $user->update([
                 'json_config' => json_encode($path),

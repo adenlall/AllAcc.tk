@@ -1,8 +1,7 @@
 import Base from '../Layouts/Base';
 import { usePage } from '@inertiajs/inertia-react';
-import { useEffect, useState } from 'react';
 import Chart from 'chart.js/auto';
-import { Bar, Bubble } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
 
 
 export default function Statistics() {
@@ -40,7 +39,7 @@ export default function Statistics() {
         <div id='#head' className='w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full flex flex-col'>
             <h2 className='text-2xl font-extrabold py-4'>Welcome to your new Statistics</h2>
 
-            <Scatter
+            <Bar
                 data={{
                     labels: ['hello', 'mob', 'opps'],
                     datasets: [

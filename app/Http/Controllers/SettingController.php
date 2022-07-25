@@ -10,7 +10,7 @@ class SettingController extends Controller
 {
     function __invoke() {
 
-        $data = Cache::remember('skin', now()->addHours(48), function() {
+        $data = Cache::remember('skin', now()->addHours(72), function() {
              return DB::table('skin')->get();
         });
         $skin_arr = [];
