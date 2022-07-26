@@ -1,0 +1,35 @@
+
+@font-face {
+    font-family: "BeatWord";
+    src: url(/fonts/BeatWord.ttf);
+}
+
+@font-face {
+    font-family: "BillyHatter";
+    src: url(/fonts/BillyHatter.otf);
+}
+
+@font-face {
+    font-family: "Calygraphy";
+    src: url(/fonts/Calygraphy.ttf);
+}
+
+@font-face {
+    font-family: "Gracheva";
+    src: url(/fonts/Gracheva.otf);
+}
+
+@font-face {
+    font-family: "OldGorgeous";
+    src: url(/fonts/OldGorgeous.otf);
+}
+
+@font-face {
+    font-family: "OldMe";
+    src: url(/fonts/OldMe.otf);
+}
+
+@font-face {
+    font-family: "Profont";
+    src: url(/fonts/Profont.ttf);
+}

@@ -1,0 +1,3 @@
+*.sqlite*
+/seeder/AdminSeeder.php
+/seeder/AdminationSeeder.php
