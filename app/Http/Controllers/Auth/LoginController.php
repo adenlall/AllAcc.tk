@@ -41,9 +41,6 @@ class LoginController extends Controller
                 return Redirect::route('admin', 303);
             }else{
                 session()->regenerate();
-                // return back();
-                return Redirect::route('dashboard');
-
             }
 
 

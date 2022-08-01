@@ -1,9 +1,10 @@
-import { Link, useForm } from '@inertiajs/inertia-react'
+import { Link, useForm, usePage } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
 import React from 'react'
 import Auth from '../../Layouts/Auth'
 
-export default function Login({ errors }) {
+export default function Login() {
+    const { errors } = usePage().props;
     const { data, setData } = useForm({
         email: '', password: '', remember: '',
     })
@@ -11,7 +12,7 @@ export default function Login({ errors }) {
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
     function submitHandler(){
-        Inertia.post('/login', data, { onSuccess: () => form.reset()});
+        Inertia.post('/login', data, { onSuccess: () => {form.reset(); window.location('/dashboard')}});
     }
     return (
         <>

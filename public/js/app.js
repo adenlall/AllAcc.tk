@@ -9922,8 +9922,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-function Login(_ref) {
-  var errors = _ref.errors;
+function Login() {
+  var errors = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.errors;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
     email: '',
@@ -9940,7 +9940,8 @@ function Login(_ref) {
   function submitHandler() {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/login', data, {
       onSuccess: function onSuccess() {
-        return form.reset();
+        form.reset();
+        window.location('/dashboard');
       }
     });
   }
