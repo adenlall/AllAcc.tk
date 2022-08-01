@@ -12,8 +12,6 @@ export default function Urls(props) {
     const path = JSON.parse(props.path).urls;
     const grpsNames = JSON.parse(props.path).config.urlsGrps;
 
-    console.log(path, grpsNames);
-
     const [load, setLoad] = useState(false);
 
     useEffect(() => {
@@ -40,12 +38,13 @@ if(path !== undefined || path !== null ){
         Inertia.post('/urls/set?to=delgrp', { data: e }, { preserveScroll: true });
     }
 
-    const checkGrp = (e = '') => {
+    const checkGrp = (e) => {
         if (e.length < 3 || e === 'none' || e === null) {
             return false;
         }
         for (let i = 0; i < grpsNames.length; i++) {
-            if (grpsNames[i] === e) {
+            if (grpsNames[i][0] === e) {
+                console.log('false');
                 return false;
             }
         }
@@ -53,8 +52,14 @@ if(path !== undefined || path !== null ){
     }
     const grpSav = () => {
         let val = document.getElementById(`groupName`).value;
+        val = removeSpaceEnd(val);
+        console.log(grpsNames.length);
         if (checkGrp(val)) {
-            Inertia.post('/urls/set?to=grp', { data: val }, { preserveScroll: true });
+            if(grpsNames.length < 8){
+                Inertia.post('/urls/set?to=grp', { data: val }, { preserveScroll: true });
+            }else{
+                toast['error']('8 link groups is the max!');
+            }
         } else {
             toast['error']('invalid group name');
         }
@@ -87,18 +92,36 @@ if(path !== undefined || path !== null ){
     const hundelChange = (id = 0, name = '', val = '') => {
         for (let i = 0; i < path.length; i++) {
             if (path[i]['id'] === id) {
-                path[i][name] = document.getElementById(val).value;
+                path[i][name] = removeSpaceEnd(document.getElementById(val).value);
                 break;
             }
         }
     }
+    const fastCheck = (link) => {
+        var url;
+        try {
+            url = new URL(link);
+          }
+          catch (err) {
+            return false;
+          }
+          return true;
+        }
     const sav = () => {
-        let linkv = document.getElementById('linkName').value;
-        let link = document.getElementById('link').value;
+        let linkv = removeSpaceEnd(document.getElementById('linkName').value);
+        let link = removeSpaceEnd(document.getElementById('link').value);
         if (linkv === '' || linkv.length < 2 || link === '' || link.length < 4) {
             toast['error']('invalid inputs');
         } else {
-            Inertia.post('/urls/set?to=default', { name: linkv, link: link }, { preserveScroll: true })
+            if(fastCheck(link)){
+                if(path.length <= 15){
+                    Inertia.post('/urls/set?to=default', { name: linkv, link: link }, { preserveScroll: true })
+                }else{
+                    toast['error']('15 link is the max!');
+                }
+            }else{
+                toast['error']('not a valid link');
+            }
         }
     }
     const saveChange = () => {
@@ -218,7 +241,7 @@ if(path !== undefined || path !== null ){
 
                     </Droppable>
                 </DragDropContext>
-                
+
                 {
                     path.length === 0 ?
                         (<h3 className="text-xl font-bold p-4 bg-ago text-black mt-0 text-center rounded-lg py-[5em]">Add your links from the input above.</h3>)

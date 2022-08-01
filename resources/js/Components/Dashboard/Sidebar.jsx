@@ -1,3 +1,4 @@
+import { Inertia } from '@inertiajs/inertia';
 import { usePage, Link } from '@inertiajs/inertia-react';
 import React from 'react';
 
@@ -5,6 +6,9 @@ import React from 'react';
 export default function Sidebar() {
     const { auth, is_admin } = usePage().props;
     const { component } = usePage();
+    const ssubmit = () => {
+        Inertia.post('/logout', { onSuccess: () => Inertia.get('/')})
+    }
 
     return (
         <aside className="hidden md:block bg-default sticky top-5 h-full rounded-xl m-5 w-[20%] " id="sidenav-main">
@@ -117,7 +121,7 @@ export default function Sidebar() {
                                         <h5 className='text-sm font-bold text-black'>@{auth.user.username}</h5>
                                     </>
                             }
-                            <Link className="btn mt-2 btn-primary btn-sm" href="/logout" method='post' as='button'>Logout</Link>
+                            <button onClick={()=>{ssubmit()}} className="btn mt-2 btn-primary btn-sm">Log out</button>
                         </div>
                     </div>
                 </ul>

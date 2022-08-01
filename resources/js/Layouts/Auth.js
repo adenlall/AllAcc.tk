@@ -6,7 +6,7 @@ import React, { useEffect } from 'react'
 export default function Auth({ children, title }) {
     const { flash } = usePage().props;
 
-    useEffect(()=>{
+    useEffect(() => {
         flash.type && toast[flash.type](flash.message)
     })
 

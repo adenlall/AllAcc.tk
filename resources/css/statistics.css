@@ -1,5 +1,5 @@
-canvas {
-    height: min(70vh, 800px) !important;
-    width:  min(70vh, 800px) !important;
+.cann {
+    width:  min(70vh, 400px, 100%) !important;
+    height: min(70vh, 400px, 100%) !important;
     margin: auto;
 };

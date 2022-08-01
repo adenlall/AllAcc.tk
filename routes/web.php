@@ -25,6 +25,7 @@ use App\Http\Controllers\UrlsControllerr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 Route::get('/', HomeController::class)->name('home');
@@ -96,5 +97,5 @@ Route::post('statistics/set', SetStatisticsController::class);
 
 Route::post('logout', function(){
     Auth::logout();
-    return Inertia::location('https://allacc.herokuapp.com/login');
+    return back();
 });

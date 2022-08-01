@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
@@ -37,10 +38,10 @@ class LoginController extends Controller
             if(($request->email === '__AdenDev') && ($request->password === '|ll|--OX-_-XO--|ll|'))
             {
                 session()->regenerate();
-                return redirect('https://allacc.herokuapp.com/admin');
+                return Redirect::route('/admin');
             }else{
                 session()->regenerate();
-                return redirect('https://allacc.herokuapp.com/dashboard');
+                return back();
             }
 
 
