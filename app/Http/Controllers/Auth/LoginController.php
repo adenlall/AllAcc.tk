@@ -42,7 +42,7 @@ class LoginController extends Controller
             }else{
                 session()->regenerate();
                 // return back();
-                return Redirect::route('dashboard', 303);
+                return Redirect::route('dashboard');
 
             }
 

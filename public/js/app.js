@@ -9940,7 +9940,7 @@ function Login(_ref) {
   function submitHandler() {
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/login', data, {
       onSuccess: function onSuccess() {
-        return _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.get('/dashboard');
+        return form.reset();
       }
     });
   }

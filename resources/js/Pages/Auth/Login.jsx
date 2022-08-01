@@ -11,7 +11,7 @@ export default function Login({ errors }) {
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
     function submitHandler(){
-        Inertia.post('/login', data, { onSuccess: () => Inertia.get('/dashboard')});
+        Inertia.post('/login', data, { onSuccess: () => form.reset()});
     }
     return (
         <>
