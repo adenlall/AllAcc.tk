@@ -20,54 +20,6 @@ class StatisticsController extends Controller
         });
         $arr = json_decode($user->json_config, true);
         $locate = json_decode($user->json_locate, true);
-        // dd($locate);
-        // $locate = [
-        //     "logs" => [
-
-        //         [
-        //             'visits' => 23,
-        //             "day" => "2022-07-29",
-        //             'agents'=>[
-        //                 'device'=>[['name'=>'Webkit','count'=>5]],
-        //                 'browser'=>[['name'=>'Chrome','count'=>5],['name'=>'Firefox','count'=>2]],
-        //                 'os'=>[['name'=>'Android','count'=>5],['name'=>'Window','count'=>5]],
-        //             ],
-        //             'srcs' => [
-        //                 ['country' => "Japan", 'count' => 13],
-        //                 ['country' => "Palestine", 'count' => 9],
-        //                 ['country' => "Morocco", 'count' => 3],
-        //             ],
-        //         ],
-        //         [
-        //             "day" => "2022-07-30",
-        //             'visits' => 50,
-        //             'agents'=>[
-        //                 'device'=>[],
-        //                 'browser'=>[['name'=>false,'count'=>5],['name'=>'Firefox','count'=>2]],
-        //                 'os'=>[['name'=>'Android','count'=>5],['name'=>'Window','count'=>5]],
-        //             ],
-        //             'srcs' => [
-        //                 ['country' => "Japan", 'count' => 9],
-        //                 ['country' => "Morocco", 'count' => 29],
-        //                 ['country' => "France", 'count' => 29],
-        //             ],
-        //         ],
-        //         [
-        //             "day" => "2022-07-31",
-        //             'visits' => 16,
-        //             'agents'=>[
-        //                 'device'=>[['name'=>'Webkit','count'=>5],['name'=>'Monkey','count'=>9]],
-        //                 'browser'=>[['name'=>'Chrome','count'=>5],['name'=>'Firefox','count'=>2]],
-        //                 'os'=>[['name'=>'Net','count'=>33]],
-        //             ],
-        //             'srcs' => [
-        //                 ['country' => "Morocco", 'count' => 19],
-        //                 ['country' => "Spain", 'count' => 8],
-        //             ],
-        //         ]
-        //     ]
-        // ];
-        // dd($locate);
         $data = Cache::remember(Auth::user()->id.'stats', now()->addHours(16), function () use($locate) {
             $data = ['timeline'=>[],'countries'=>[],'stats'=>['os' => [], 'device' => [], 'browser' => []]];
             $cnt_ = [];

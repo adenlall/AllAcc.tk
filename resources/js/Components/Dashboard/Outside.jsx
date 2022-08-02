@@ -19,11 +19,16 @@ export default function Outside() {
 
     const cll = () => {
         let data = document.querySelector('#place').value;
+
         if (data === "" || data === null || data.match(" ") !== null) {
             toast['error']("we can't submit this!");
         } else {
            if(check_if_repeated(data)){
-               Inertia.post('/advanced/set?is=outside&action=add', { data: data }, { restOnSuccess: false, preserveScroll: true });
+            if(advanced.length <= 8){
+                Inertia.post('/advanced/set?is=outside&action=add', { data: data }, { restOnSuccess: false, preserveScroll: true });
+            }else{
+                toast['error']("8 outside sources is the max!");
+            }
            }else{
                 toast['error']("source already exists!");
            }
@@ -85,7 +90,7 @@ export default function Outside() {
 
                 <h2 className="text-lg font-bold my-4">Costum HTML : </h2>
                 <div className="flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago">
-                    This feature not available yet
+                    This feature not available now for some security issues
                 </div>
 
 

@@ -25,7 +25,7 @@ export default function Bars(props) {
                 data={{
                     labels: eloow.map((el) => el.name === false ? 'developers' : el.name),
                     datasets: [{
-                        label: 'Agent visit',
+                        label: "agent",
                         data: eloow.map((el) => el.count),
                         backgroundColor: arrPrepare(0),
                         borderWidth: 1

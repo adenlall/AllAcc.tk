@@ -32,7 +32,6 @@ class AsSeemController extends Controller
             $sp_user = User::where('username', $path)->get()->first();
             $locate = json_decode($sp_user->json_locate, true);
             $ip = FacadesRequest::ip();
-            $ip = '150.24.23.53';
 
             $cntr = Location::get($ip) === false ? null :(Location::get($ip))->countryName;
             $agent = new Agent();
@@ -42,7 +41,6 @@ class AsSeemController extends Controller
             $browser = $agent->browser();
             $lng = $agent->languages();
 
-            // dd(Location::get($ip) );
             if (count($locate['logs']) === 0) {
                 array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
             } else {

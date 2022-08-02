@@ -4330,7 +4330,7 @@ function Bars(props) {
           return el.name === false ? 'developers' : el.name;
         }),
         datasets: [{
-          label: 'Agent visit',
+          label: "agent",
           data: eloow.map(function (el) {
             return el.count;
           }),
@@ -4801,12 +4801,16 @@ function Outside() {
       react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("we can't submit this!");
     } else {
       if (check_if_repeated(data)) {
-        _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/advanced/set?is=outside&action=add', {
-          data: data
-        }, {
-          restOnSuccess: false,
-          preserveScroll: true
-        });
+        if (advanced.length <= 8) {
+          _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/advanced/set?is=outside&action=add', {
+            data: data
+          }, {
+            restOnSuccess: false,
+            preserveScroll: true
+          });
+        } else {
+          react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("8 outside sources is the max!");
+        }
       } else {
         react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("source already exists!");
       }
@@ -4977,7 +4981,7 @@ function Outside() {
         children: "Costum HTML : "
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago",
-        children: "This feature not available yet"
+        children: "This feature not available now for some security issues"
       })]
     })
   });
