@@ -18,6 +18,8 @@ module.exports = {
                     "--rounded-btn": "0", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "0", // border radius of tabs
 
+                    "headd":'#a9b274',
+
                     "index":'#fff',
                     "primary": "#a16207",
                     "secondary": "#ffcb70",
@@ -35,6 +37,9 @@ module.exports = {
                     "--rounded-btn": "10em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "10em", // border radius of tabs
 
+                    "headd":'#ffbaee',
+                    "headdd":'##ffd9f69c',
+
                     "index":'#fff',
                     "primary": "#e11d48",
                     "secondary": "#facc15",
@@ -50,6 +55,8 @@ module.exports = {
                     "--rounded-box": "1em", // border radius rounded-box utility class, used in card and other large boxes
                     "--rounded-btn": "1em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "1em", // border radius of tabs
+
+                    "headd":'#f28482',
 
                     "index":'#fff',
                     "primary": "#f28482",    // pink 2
@@ -92,6 +99,8 @@ module.exports = {
                     "--rounded-box": "10em", // border radius rounded-box utility class, used in card and other large boxes
                     "--rounded-btn": "10em", // border radius rounded-btn utility class, used in buttons and similar element
                     "--tab-radius": "10em", // border radius of tabs
+
+                    "headd":'#19b89e91',
 
                     "primary": "#49e566",
                     "secondary": "#99f78c",

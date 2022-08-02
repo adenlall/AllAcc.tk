@@ -138,6 +138,9 @@ color:rgb(27, 27, 27);
 [data-theme="BnW"] *{
     border-radius: 0;
 }
+[data-theme="BnW"] img{
+   background-color: unset;
+}
 [data-theme="cyberpunk"] *{
     border-radius: 0;
 }
@@ -146,6 +149,9 @@ color:rgb(27, 27, 27);
 }
 [data-theme="Vnt"] *{
    border-radius: 0;
+}
+[data-theme="Vnt"] img{
+   background-color: unset;
 }
 [data-theme="Vnt"] .boxAs {
     padding: 1.25em;

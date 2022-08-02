@@ -8628,7 +8628,6 @@ function AsSeem() {
   var accs = [];
   var theme = JSON.parse(user.json_config);
   var font = theme.theme.font;
-  console.log(theme);
   var e = Math.floor(Math.random() * 2);
 
   var dots = function dots() {
@@ -8812,7 +8811,7 @@ function AsSeem() {
             className: "flex-1 flex",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
               href: "#",
-              className: "btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
+              className: "btn btn-secondary btn-ghost text-lg font-bold w-auto text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
               children: user.username
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -8876,7 +8875,7 @@ function AsSeem() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "w-full h-full p-4 rounded-lg bg-secondary boxAs",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
-                    className: "text-lg text-base-100 font-semibold",
+                    className: "text-lg ".concat(theme.theme.skin === 'RPG' ? 'text-black' : theme.theme.skin === 'BnW' ? 'white' : 'text-base-100', " font-semibold"),
                     children: user.quote
                   })
                 })]
@@ -8887,9 +8886,9 @@ function AsSeem() {
                 className: "italic text-xl font-extrabold",
                 children: "THE PROFILE :"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-                className: "flex items-stretch h-full space-x-2 rounded-lg bg-accent boxAs",
+                className: "flex items-stretch h-full sm:space-x-2 rounded-lg bg-accent boxAs",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                  className: " md:min-w-[10em] w-[8em] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary",
+                  className: " sm:w-[16em] w-[-webkit-fill-available] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary",
                   children: user.img === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
                       className: " font-extrabold text-[3em] uppercase md:text-[5em] text-primary",
@@ -8897,7 +8896,7 @@ function AsSeem() {
                     })
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("menu", {
-                  className: "flex flex-col space-y-1 p-2 min-w-[min-content]",
+                  className: "flex flex-col space-y-1 p-2 w-[-webkit-fill-available]",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
                     className: "flex items-center justify-between space-2",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
@@ -8908,26 +8907,60 @@ function AsSeem() {
                       })
                     })
                   }), user.birthday === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h1", {
-                    className: "flex items-start flex-col justify-start space-2",
+                    className: "flex items-center justify-start space-x-1 sm:space-x-4 sm:my-4 my-2 mt-4",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                      className: "font-bold text-sm text-drk-l",
-                      children: "Birthday : "
+                      className: "font-bold text-md ",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                        style: {
+                          borderRadius: '0'
+                        },
+                        className: "h-6 sm:h-10 ",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 32 32",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+                          "data-name": "calendar android app aplication phone",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                            d: "M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM8.7 3.42a63.65 63.65 0 0114.6 0A6 6 0 0127.56 6H4.44A6 6 0 018.7 3.42zM28.58 23.3a6 6 0 01-5.28 5.28 63.65 63.65 0 01-14.6 0 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6 5.44 5.44 0 01.15-.7h24.86a5.44 5.44 0 01.15.7 63.65 63.65 0 010 14.6z"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                            d: "M9 11H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM17 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM9 19H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 19h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM18.71 19.29a1 1 0 00-1.42 0L16 20.59l-1.29-1.3a1 1 0 00-1.42 1.42l1.3 1.29-1.3 1.29a1 1 0 001.42 1.42l1.29-1.3 1.29 1.3a1 1 0 001.42-1.42L17.41 22l1.3-1.29a1 1 0 000-1.42z"
+                          })]
+                        })
+                      })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
                       className: "w-[60%] sm:w-1/2",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                        className: "text-sm text-drk font-extrabold",
-                        children: user.birthday
+                        className: "text-sm sm:text-lg text-black font-bold",
+                        children: user.birthday.replace(/-/g, '/')
                       })
                     })]
                   }), user.country === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h1", {
-                    className: "flex items-start flex-col justify-start space-2",
+                    className: "flex items-center justify-start space-x-2 sm:space-x-4 sm:my-4 my-2",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-                      className: "font-bold text-sm text-drk-l",
-                      children: "Country : "
+                      className: "font-bold text-md ",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                        style: {
+                          borderRadius: '0'
+                        },
+                        className: "h-6 sm:h-10 ",
+                        xmlns: "http://www.w3.org/2000/svg",
+                        viewBox: "0 0 32 32",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+                          "data-name": "map android app aplication phone",
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                            d: "M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM3.42 23.3a63.65 63.65 0 010-14.6 6 6 0 011.07-2.79L14.59 16 4.49 26.09a6 6 0 01-1.07-2.79zm19.88 5.28a63.65 63.65 0 01-14.6 0 6 6 0 01-2.79-1.07L16 17.41l10.09 10.1a6 6 0 01-2.79 1.07zm5.28-5.28a6 6 0 01-1.07 2.79L5.91 4.49A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6z"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                            d: "M22 6a4 4 0 00-4 4c0 1.87 2.65 5.8 3.18 6.57a1 1 0 001.64 0C23.35 15.8 26 11.87 26 10a4 4 0 00-4-4zm0 8.18A13.26 13.26 0 0120 10a2 2 0 014 0 13.36 13.36 0 01-2 4.18z"
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("circle", {
+                            cx: 22,
+                            cy: 10,
+                            r: 1
+                          })]
+                        })
+                      })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
                       className: "w-[60%] sm:w-1/2",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-                        className: "text-xl text-drk font-extrabold",
+                        className: "text-lg text-black font-extrabold",
                         children: user.country
                       })
                     })]
@@ -9105,23 +9138,26 @@ function AsSeem() {
                   },
                   className: " rounded-lg p-4 w-full",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
-                    className: "text-xl my-2 p-2 font-bold text-accent ",
+                    className: "text-xl my-2 p-2 font-bold text-accent text-center",
                     children: urlGrp
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     className: "space-y-4 w-full p-4",
                     children: theme.urls.map(function (url) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                         children: url['grp'] === urlGrp[0] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-                          className: "w-full block p-0",
+                          className: "w-full block p-0 shadow-sm shadow-gray",
                           href: url.link,
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                            className: "w-full m-auto ".concat(theme.theme.button === null ? 'orangebtn' : theme.theme.button),
+                            className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                               style: {
                                 fontFamily: 'sans-serif'
                               },
-                              "class": "text font-bold  overflow-hidden text-ellipsis whitespace-nowrap",
-                              children: url.name
+                              "class": "text font-bold overflow-hidden text-ellipsis whitespace-nowrap",
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                                className: "m-auto",
+                                children: url.name
+                              })
                             })
                           })
                         }) : ''
@@ -9134,16 +9170,19 @@ function AsSeem() {
                 children: theme.urls.map(function (url) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
                     children: url['grp'] === null || url['grp'] === 'none' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-                      className: "w-full block p-0",
+                      className: "w-[95%]  m-auto block p-0 shadow-sm shadow-gray",
                       href: url.link,
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
-                        className: "w-full m-auto orangebtn",
+                        className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
                           style: {
                             fontFamily: 'sans-serif'
                           },
-                          "class": "text font-light  overflow-hidden text-ellipsis whitespace-nowrap",
-                          children: url.name
+                          "class": "noMoreBreak text font-bold overflow-hidden text-ellipsis whitespace-nowrap",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                            className: "m-auto",
+                            children: url.name
+                          })
                         })
                       })
                     }) : ''
@@ -32953,7 +32992,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n@font-face {\r\n    font-family: \"BeatWord\";\r\n    src: url(/fonts/BeatWord.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BillyHatter\";\r\n    src: url(/fonts/BillyHatter.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Calygraphy\";\r\n    src: url(/fonts/Calygraphy.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Gracheva\";\r\n    src: url(/fonts/Gracheva.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldGorgeous\";\r\n    src: url(/fonts/OldGorgeous.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldMe\";\r\n    src: url(/fonts/OldMe.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Profont\";\r\n    src: url(/fonts/Profont.ttf);\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n\n.noMoreBreak{\n    display: -webkit-inline-box;\n    width: 100%;\n    width: -moz-available;\n    width: -webkit-fill-available;\n    width: fill-available;\n    display: flex;\n}\n\n@font-face {\n    font-family: \"BeatWord\";\n    src: url(/fonts/BeatWord.ttf);\n}\n\n@font-face {\n    font-family: \"BillyHatter\";\n    src: url(/fonts/BillyHatter.otf);\n}\n\n@font-face {\n    font-family: \"Calygraphy\";\n    src: url(/fonts/Calygraphy.ttf);\n}\n\n@font-face {\n    font-family: \"Gracheva\";\n    src: url(/fonts/Gracheva.otf);\n}\n\n@font-face {\n    font-family: \"OldGorgeous\";\n    src: url(/fonts/OldGorgeous.otf);\n}\n\n@font-face {\n    font-family: \"OldMe\";\n    src: url(/fonts/OldMe.otf);\n}\n\n@font-face {\n    font-family: \"Profont\";\n    src: url(/fonts/Profont.ttf);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
