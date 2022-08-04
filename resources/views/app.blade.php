@@ -11,15 +11,21 @@
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="apple-mobile-web-app-title" content="AllAcc">
-    <meta name="application-name" content="AllAcc">
+    <meta name="application-name" content="AllAcc">editor.experimental.stickyScroll
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#0b320b">
+    <title>Adenlalll - AllAcc</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
-    <script src="{{ mix('/js/app.js') }}" defer></script>
-    @inertiaHead
+    {{-- <script src="{{ mix('/js/app.js') }}" defer></script> --}}
+    @stack('js0')
   </head>
   <body>
-    @inertia
+
+
+    @include('free.nav')
+    @include('free.master')
+
+    @stack('js1')
   </body>
 </html>

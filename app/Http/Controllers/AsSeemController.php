@@ -129,6 +129,11 @@ class AsSeemController extends Controller
             }
 
 
+            return view('app', [
+                "user" => $user,
+                "services" => $services,
+                "services_config" => $services_config,
+            ]);
 
 
             if ($user->artist !== null) {
