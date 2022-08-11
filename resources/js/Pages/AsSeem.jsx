@@ -2,7 +2,8 @@ import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import '../../css/fonts.css';
-import '../../css/button.css';
+// import '../../css/button.css';
+
 
 function AsSeem() {
 
@@ -55,8 +56,7 @@ function AsSeem() {
             let i = 0;
             services_config.forEach((serv, i) => {
                 let cle = serv.name.replace(/\./g, "");
-
-                if (services[cle] === null) { } else {
+                if (services[cle] !== null) {
                     accs.push(
                         <div className='w-full rounded-lg bg-secondary boxAs flex flex-col items-start'>
                             <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{ for_user: user.username, url: `${serv.website}/${services[cle]}`, service: cle }}>

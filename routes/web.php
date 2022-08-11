@@ -21,6 +21,7 @@ use App\Http\Controllers\SetStatisticsController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SoungController;
 use App\Http\Controllers\StatisticsController;
+use App\Http\Controllers\UIController;
 use App\Http\Controllers\UrlsControllerr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -42,15 +43,13 @@ Route::get('privacy', function(){
     return Inertia('Privacy');
 });
 
-
-
-
 Route::middleware('auth')->group(function () {
 
     Route::get('profile', ProfileController::class, 'show')->name('profile');
     Route::get('setting', SettingController::class)->name('setting');
     Route::get('statistics', StatisticsController::class)->name('statistics');
     Route::get('advanced', AdvancedController::class)->name('advanced');
+    Route::get('advanced/ui', UIController::class)->name('advancedui');
     Route::get('dashboard', DashboardController::class)->name('dashboard');
 
 
@@ -92,7 +91,7 @@ Route::middleware('auth','admin', 'adminAccess')->group(function () {
 });
 
 Route::get('{username}', AsSeemController::class)->name('AsSeem');;
-Route::post('statistics/set', SetStatisticsController::class);
+Route::post('statistics/set', SetStatisticsController::class)->name('stts');
 
 
 Route::post('logout', function(){

@@ -44,10 +44,10 @@ class AsSeemController extends Controller
                 $lng = $agent->languages();
 
                 if (count($locate['logs']) === 0) {
-                    array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang'=>['name'=>$lng, 'count'=>1] ],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                    array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang' => ['name' => $lng, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
                 } else {
                     if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
-                        array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang'=>['name'=>$lng, 'count'=>1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                        array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang' => ['name' => $lng, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
                         // dd('else if');
                     } else {
                         $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
@@ -85,7 +85,7 @@ class AsSeemController extends Controller
                 'json_locate' => json_encode($locate),
             ]);
             $sp_user->save();
-            // dd($locate);
+            dd($ip,Location::get($ip),$locate,json_decode($sp_user->json_config, true));
 
 
             User::where('username', $path)->get()->first()->increment('visit');
@@ -102,7 +102,8 @@ class AsSeemController extends Controller
                 $rec->increment('guest_v');
             }
 
-            $services = Cache::remember($path . "_s", now()->addMinutes(4), function () use ($path) {
+            // dd(Service::where('username', $path)->first()->cursor(), count(Service::where('username', $path)->first()->cursor()));
+            $services = Cache::remember($path . "_services_", now()->addMinutes(4), function () use ($path) {
                 return Service::where('username', $path)->cursor()->first();
             });
 
@@ -129,26 +130,42 @@ class AsSeemController extends Controller
             }
 
 
-            return view('app', [
-                "user" => $user,
-                "services" => $services,
-                "services_config" => $services_config,
-            ]);
+            $ui = json_decode($user->json_config, true);
 
+            if (!array_key_exists('UI', $ui)) {
+                $ui += ['UI' => ['type' => "JSX"]];
+            }
 
-            if ($user->artist !== null) {
-                $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
-                try {
-                    $resop = Cache::remember($user->username . "_soung", now()->addMinutes(2), function () use ($deezURL) {
-                        return Http::retry(2)->get($deezURL)->json();
-                    });
-                    return Inertia::render('AsSeem', [
-                        "soung" => $resop["data"][0],
-                        "user" => $user,
-                        "services" => $services,
-                        "services_config" => $services_config,
-                    ]);
-                } catch (Exception $ex) {
+            if ($ui['UI']['type'] === 'Blade') {
+                return view('app', [
+                    "cosui"=> $ui['UI']['costume0'],
+                    "user" => $user,
+                    "services" => $services,
+                    "services_config" => $services_config,
+                ]);
+            } else {
+
+                if ($user->artist !== null) {
+                    $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
+                    try {
+                        $resop = Cache::remember($user->username . "_soung", now()->addMinutes(2), function () use ($deezURL) {
+                            return Http::retry(2)->get($deezURL)->json();
+                        });
+                        return Inertia::render('AsSeem', [
+                            "soung" => $resop["data"][0],
+                            "user" => $user,
+                            "services" => $services,
+                            "services_config" => $services_config,
+                        ]);
+                    } catch (Exception $ex) {
+                        return Inertia::render('AsSeem', [
+                            "soung" => null,
+                            "user" => $user,
+                            "services" => $services,
+                            "services_config" => $services_config,
+                        ]);
+                    }
+                } else {
                     return Inertia::render('AsSeem', [
                         "soung" => null,
                         "user" => $user,
@@ -156,14 +173,9 @@ class AsSeemController extends Controller
                         "services_config" => $services_config,
                     ]);
                 }
-            } else {
-                return Inertia::render('AsSeem', [
-                    "soung" => null,
-                    "user" => $user,
-                    "services" => $services,
-                    "services_config" => $services_config,
-                ]);
             }
+
+
         } else {
             return abort(404);
         }

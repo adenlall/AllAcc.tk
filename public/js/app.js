@@ -5373,8 +5373,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _css_fonts_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../css/fonts.css */ "./resources/css/fonts.css");
-/* harmony import */ var _css_button_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../css/button.css */ "./resources/css/button.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5387,10 +5386,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-
 function Skin(props) {
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
-  var theskin = JSON.parse(auth.user.json_config).theme;
+  var parsed = JSON.parse(auth.user.json_config);
+  var theskin = parsed.theme;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
     skin: theskin.skin,
@@ -5518,127 +5517,144 @@ function Skin(props) {
     document.getElementById('buttoncurrent').innerHTML = 'current : ' + e;
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "skinn rounded-lg flex flex-col items-start p-3 space-y-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        className: "flex flex-col space-y-1",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-          id: "skin",
-          className: "font-bold text-lg",
-          children: "Chose your skin:"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
-          className: "text-sm italic",
-          children: ["current : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "text-lg font-bold no-italic",
-            children: theskin.skin
-          }), "."]
-        }), skk !== theskin.skin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
-          style: {
-            'lineHeight': '0.5em'
-          },
-          className: "text-sm italic",
-          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "text-lg font-bold no-italic",
-            children: skk
-          }), "."]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
-          className: "text-sm italic",
-          style: {
-            'lineHeight': '0.5em'
-          },
-          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-            className: "text-lg font-bold no-italic",
-            children: "current"
-          }), "."]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: "w-full",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          className: "overflow-hidden w-full flex flex-col sm:flex-row items-stretch content-center justify-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0",
-          children: _skins.map(function (skin) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              id: skin.name,
-              onClick: function onClick() {
-                setSkin("".concat(skin.name), "".concat(skin.combo.colors[2]));
-              },
-              className: "forBorder cursor-pointer flex flex-col space-y-2 w-full items-center content-center justify-center p-2 rounded-lg",
-              style: {
-                'background': "".concat(skin.combo.colors[0], "59")
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                className: "flex w-full flex-row space-x-2 items-center content-center justify-center",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "rounded-lg h-8 sm:h-12 w-1/3",
-                  style: {
-                    'background': skin.combo.colors[0]
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "rounded-lg h-8 sm:h-12 w-1/3",
-                  style: {
-                    'background': skin.combo.colors[1]
-                  }
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                  className: "rounded-lg h-8 sm:h-12 w-1/3",
-                  style: {
-                    'background': skin.combo.colors[2]
-                  }
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [parsed.UI && parsed.UI.type === 'JSX' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "skinn rounded-lg flex flex-col items-start p-3 space-y-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex flex-col space-y-1",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+            id: "skin",
+            className: "font-bold text-lg",
+            children: "Chose your skin:"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
+            className: "text-sm italic",
+            children: ["current: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "text-lg font-bold no-italic",
+              children: theskin.skin
+            }), "."]
+          }), skk !== theskin.skin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
+            style: {
+              'lineHeight': '0.5em'
+            },
+            className: "text-sm italic",
+            children: ["selected: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "text-lg font-bold no-italic",
+              children: skk
+            }), "."]
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
+            className: "text-sm italic",
+            style: {
+              'lineHeight': '0.5em'
+            },
+            children: ["selected: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              className: "text-lg font-bold no-italic",
+              children: "current"
+            }), "."]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "w-full",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "overflow-hidden w-full flex flex-col sm:flex-row items-stretch content-center justify-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0",
+            children: _skins.map(function (skin) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                id: skin.name,
+                onClick: function onClick() {
+                  setSkin("".concat(skin.name), "".concat(skin.combo.colors[2]));
+                },
+                className: "forBorder cursor-pointer flex flex-col space-y-2 w-full items-center content-center justify-center p-2 rounded-lg",
+                style: {
+                  'background': "".concat(skin.combo.colors[0], "59")
+                },
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  className: "flex w-full flex-row space-x-2 items-center content-center justify-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                    className: "rounded-lg h-8 sm:h-12 w-1/3",
+                    style: {
+                      'background': skin.combo.colors[0]
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                    className: "rounded-lg h-8 sm:h-12 w-1/3",
+                    style: {
+                      'background': skin.combo.colors[1]
+                    }
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                    className: "rounded-lg h-8 sm:h-12 w-1/3",
+                    style: {
+                      'background': skin.combo.colors[2]
+                    }
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  className: "w-full h-16 sm:h-32 rounded-lg",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                    className: "w-full h-full object-cover rounded-lg",
+                    alt: skin.name,
+                    src: "/imgs/config/".concat(skin.name, "/Soung/0.jpg")
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                  className: "text-purple-200 font-bold text-xl",
+                  children: skin.name
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                className: "w-full h-16 sm:h-32 rounded-lg",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                  className: "w-full h-full object-cover rounded-lg",
-                  alt: skin.name,
-                  src: "/imgs/config/".concat(skin.name, "/Soung/0.jpg")
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                className: "text-purple-200 font-bold text-xl",
-                children: skin.name
-              })]
-            }, skin.name);
+              }, skin.name);
+            })
           })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {})]
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "rounded-lg bg-agr p-8 text-white text-lg font-bold text-center w-full",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+        "data-name": "theme android app aplication phone",
+        xmlns: "http://www.w3.org/2000/svg",
+        viewBox: "0 0 32 32",
+        className: "w-[4em] h-[4em] fill-white m-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+          d: "M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM15 29V19h2v10h-2zm13.58-5.7a6 6 0 01-5.28 5.28c-1.43.16-2.86.26-4.3.33V19a2 2 0 00-2-2v-2h7a2 2 0 002-2v-3a2 2 0 00-2-2h-1a2 2 0 00-2-2H11a2 2 0 00-2 2v2a2 2 0 002 2h10a2 2 0 002-2h1v3h-7a2 2 0 00-2 2v2a2 2 0 00-2 2v9.91a68.52 68.52 0 01-4.3-.33 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6zM21 10H11V8h10z"
         })
+      }), "chose by yourself the color that match your brand", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        href: "advanced/ui",
+        className: "btn m-auto mt-2",
+        children: "costumise"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "skinn rounded-lg flex flex-col items-start p-3 space-y-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         id: "icons",
         className: "flex flex-col",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
           className: "font-bold text-lg",
           children: "Chose your icons style:"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
           className: "text-sm italic",
-          children: ["current : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["current : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "text-lg font-bold no-italic",
             children: theskin.icons
           }), "."]
-        }), icc !== theskin.icons ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
+        }), icc !== theskin.icons ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
           className: "text-sm italic",
           style: {
             'lineHeight': '0.5em'
           },
-          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "text-lg font-bold no-italic",
             children: icc
           }), "."]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
           className: "text-sm italic",
           style: {
             'lineHeight': '0.5em'
           },
-          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+          children: ["selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             className: "text-lg font-bold no-italic",
             children: "current"
           }), "."]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "ultcont w-full flex flex-col space-y-3 p-2",
         children: _icons.map(function (icon, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             id: "cont".concat(i),
             className: "w-full flex flex-col md:flex-row p-2 space-x-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               id: "set".concat(i),
               onClick: function onClick() {
                 click(i);
@@ -5655,29 +5671,29 @@ function Skin(props) {
                 'backgroundSize': 'cover',
                 'backgroundRepeat': 'no-repeat'
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "p-3 h-full w-full rounded-lg flex flex-row items-center content-center justify-between md:justify-center bg-[#c1dbc55a]",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
                   className: "texttt text-lg md:text-2xl text-white font-bold",
                   children: icon.icons
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "flex md:hidden flex-row space-x-2 items-center content-center justify-center",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "hidden xs:block w-10 h-10 rounded-lg",
                     src: "/imgs/icons/".concat(icon.icons, "/dribbble.svg"),
                     alt: "dribbble"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "w-10 h-10 rounded-lg",
                     src: "/imgs/icons/".concat(icon.icons, "/linkedin.svg"),
                     alt: "linkedin"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "w-10 h-10 rounded-lg",
                     src: "/imgs/icons/".concat(icon.icons, "/twitter.svg"),
                     alt: "twitter"
                   })]
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               id: "gliss".concat(i),
               onMouseOver: function onMouseOver() {
                 ov(i);
@@ -5690,32 +5706,32 @@ function Skin(props) {
                 'background': "url('/imgs/config/".concat(_skins[i].name, "/Soung/0.jpg')"),
                 'backgroundSize': 'cover'
               },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
                 className: "hidden text-xl font-bold text-white",
                 children: "Drawing style"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "hidden flex-row space-x-2 items-center content-center justify-center",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "w-10 md:w-20 h-10 md:h-20 rounded-lg",
                   src: "/imgs/icons/".concat(icon.icons, "/dribbble.svg"),
                   alt: "dribbble"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "w-10 md:w-20 h-10 md:h-20 rounded-lg",
                   src: "/imgs/icons/".concat(icon.icons, "/linkedin.svg"),
                   alt: "linkedin"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "hidden sm:block w-10 md:w-20 h-10 md:h-20 rounded-lg",
                   src: "/imgs/icons/".concat(icon.icons, "/telegram.svg"),
                   alt: "telegram"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "hidden sm:block w-10 md:w-20 h-10 md:h-20 rounded-lg",
                   src: "/imgs/icons/".concat(icon.icons, "/twitter.svg"),
                   alt: "twitter"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "ovv hidden md:flex w-full flex-col items-center content-center justify-center",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
                 className: "text-xl hidden md:block font-light text-center font-serif italic",
                 children: _skins[i].combo.header
               })
@@ -5723,26 +5739,26 @@ function Skin(props) {
           });
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "flex flex-col my-4 space-y-2 w-full ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
         className: "font-bold text-lg",
         children: "Links button style:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
         id: "buttoncurrent",
         className: "font-meduim text-sm"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-wrap items-center w-auto m-auto justify-center",
         children: buttons.map(function (button) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             id: button,
             onClick: function onClick() {
               setbutton(button);
             },
             className: "buttons w-[8.5em] m-3 p-2 rounded-lg",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               className: "w-full m-auto ".concat(button),
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                 style: {
                   fontFamily: 'sans-serif'
                 },
@@ -5753,50 +5769,50 @@ function Skin(props) {
           });
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "flex flex-col space-y-2 w-full ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
         className: "font-bold text-lg",
         children: "Chose your font:"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "fonts flex flex-wrap items-center w-full justify-start",
         children: fonts.map(function (font) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             onClick: function onClick() {
               setFont(font);
             },
             id: font,
             className: "itt_f bg-gray-200 rounded-lg m-[2.5%] sm:m-[1.5%] p-4 sm:w-[30%] w-[45%] cursor-pointer flex flex-col items-start border-solid justify-center content-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "text-gray-900 text-center text-xl xs:text-3xl",
               style: {
                 'fontFamily': "".concat(font)
               },
               children: "Aa"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               className: "font-bold text-gray-700 text-center text-xs xs:text-sm",
               children: font
             })]
           }, font);
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       id: "forsave",
       className: "p-2 pb-4 flex flex-col space-y-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
         onClick: function onClick() {
           cll();
         },
         type: "button",
         className: "btn ".concat(theskin.icons === icc && theskin.button === button && theskin.skin === skk && theskin.font === fnt ? ' btn-disabled' : ''),
         children: "Save yourSkin"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         onClick: cll,
         className: "text-sm italic font-light",
         children: "You can always change your skins."
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
         className: "text-sm italic font-light",
-        children: ["Help us to create more skins on our ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+        children: ["Help us to create more skins on our ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
           className: "font-bold text-pink-300",
           target: '_blank',
           href: "https://github.com/adenlall/allacc",
@@ -6097,6 +6113,114 @@ function Spotify() {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Spotify);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Dashboard/UIType.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/Components/Dashboard/UIType.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function UIType() {
+  var over = function over(e) {
+    document.getElementById("type-h-".concat(e)).style.display = 'none';
+    document.getElementById("type-d-".concat(e)).style.display = 'flex';
+  };
+
+  var out = function out(e) {
+    document.getElementById("type-h-".concat(e)).style.display = 'block';
+    document.getElementById("type-d-".concat(e)).style.display = 'none';
+  };
+
+  var isType = function isType(e) {
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('setting/set?is=type', {
+      type: e
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "flex sm:flex-row flex-col items-center justify-center content-center sm:space-x-2 space-y-2 sm:space-y-0 w-full",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "rounded-lg bg-[url(/imgs/app/react.jpg)] w-full h-[12em] bg-contain bg-no-repeat bg-center bg-white sm:h-[17em]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        onMouseOver: function onMouseOver() {
+          over(0);
+        },
+        onMouseOut: function onMouseOut() {
+          out(0);
+        },
+        className: "type-js type-all rounded-lg w-full h-full bg-yellow-300 p-2 flex items-center justify-center content-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          id: "type-h-0",
+          className: "text-3xl font-extrabold text-center text-black",
+          children: "JSX"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          id: "type-d-0",
+          className: "menu hidden text-black font-bold text-lg",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "Built with JavaScript"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "For stander use"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "Funny user interface"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            onClick: function onClick() {
+              isType('JSX');
+            },
+            className: "btn btn-sm m-auto mt-3",
+            children: "Set it!"
+          })]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "rounded-lg bg-[url(/imgs/app/laravel.jpg)] w-full h-[12em] bg-contain bg-no-repeat bg-center bg-[#ef3c2f] sm:h-[17em]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        onMouseOver: function onMouseOver() {
+          over(1);
+        },
+        onMouseOut: function onMouseOut() {
+          out(1);
+        },
+        className: "type-php type-all rounded-lg w-full h-full bg-red-500 p-2 flex items-center justify-center content-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+          id: "type-h-1",
+          className: "text-3xl font-extrabold text-center text-black",
+          children: "Blade"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+          id: "type-d-1",
+          className: "menu hidden text-black font-bold text-lg",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "Built with Laravel Blade"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "For profotionel use"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+            children: "Simple user interface"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+            onClick: function onClick() {
+              isType('Blade');
+            },
+            className: "btn btn-sm m-auto mt-3",
+            children: "Set it!"
+          })]
+        })]
+      })
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UIType);
 
 /***/ }),
 
@@ -8574,8 +8698,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_twitter_embed__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-twitter-embed */ "./node_modules/react-twitter-embed/dist/index.modern.js");
 /* harmony import */ var _css_fonts_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../css/fonts.css */ "./resources/css/fonts.css");
-/* harmony import */ var _css_button_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../css/button.css */ "./resources/css/button.css");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -8597,7 +8720,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
+ // import '../../css/button.css';
 
 
 
@@ -8631,19 +8754,19 @@ function AsSeem() {
   var e = Math.floor(Math.random() * 2);
 
   var dots = function dots() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "bg-agr rounded-lg sticky bottom-2 m-0 p-4  w-full flex items-center justify-center",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "dots",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {})]
       })
     });
   };
 
   var ele = function ele(a) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "flex flex-col w-full items-center justify-center content-center m-0 p-2",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_twitter_embed__WEBPACK_IMPORTED_MODULE_2__.TwitterTimelineEmbed, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_twitter_embed__WEBPACK_IMPORTED_MODULE_2__.TwitterTimelineEmbed, {
         onLoad: function noRefCheck() {},
         placeholder: dots(),
         noFooter: true,
@@ -8667,10 +8790,10 @@ function AsSeem() {
       services_config.forEach(function (serv, i) {
         var cle = serv.name.replace(/\./g, "");
 
-        if (services[cle] === null) {} else {
-          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        if (services[cle] !== null) {
+          accs.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "w-full rounded-lg bg-secondary boxAs flex flex-col items-start",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               className: "w-full",
               method: "post",
               as: "button",
@@ -8680,46 +8803,46 @@ function AsSeem() {
                 url: "".concat(serv.website, "/").concat(services[cle]),
                 service: cle
               },
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "ittem rounded-lg flex flex-row space-x-3 p-2 w-full",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "rounded-xl",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                     className: "rounded-xl object-contain w-[6.5em] h-full bg-white p-2",
                     src: "/imgs/icons/".concat(theme.theme.icons, "/").concat(cle, ".svg"),
                     alt: cle
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "flex flex-col space-y-2",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h4", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h4", {
                     className: "text-xl font-bold pl-2 text-info text-start",
                     children: [cle, " :"]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
                     className: "text-2xl font-bold bg-info text-white p-1 px-2 rounded-lg",
                     children: ["@", services[cle]]
                   })]
                 })]
               })
-            }, cle), cle === 'twitter' && cdnS.twitter === true && theme.services.cdn.twitter === true ? ele(services[cle]) : '', cle === 'twitter' && theme.services.cdn.twitter === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-              children: window.innerWidth > '440' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+            }, cle), cle === 'twitter' && cdnS.twitter === true && theme.services.cdn.twitter === true ? ele(services[cle]) : '', cle === 'twitter' && theme.services.cdn.twitter === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: window.innerWidth > '440' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   "for": "my-modal-".concat(i),
                   className: "cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none",
                   style: {
                     'fontFamily': 'sans-serif'
                   },
                   children: "click to show/hide it embed"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                   type: "checkbox",
                   id: "my-modal-".concat(i),
                   "class": "modal-toggle"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                   "for": "my-modal-".concat(i),
                   style: {
                     'borderRadius': '1em'
                   },
                   "class": "modal cursor-pointer",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
                     "class": "modal-box relative",
                     "for": "",
                     style: {
@@ -8728,7 +8851,7 @@ function AsSeem() {
                     children: ele(services[cle])
                   })
                 })]
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 onClick: function onClick() {
                   setCdn(cle);
                 },
@@ -8789,10 +8912,10 @@ function AsSeem() {
     return false;
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: user.name + " - AllAcc"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       "data-theme": theme.theme.skin,
       style: {
         'fontFamily': "".concat(font === null || font === undefined ? 'Gracheva' : font),
@@ -8803,35 +8926,35 @@ function AsSeem() {
         'borderRadius': '0'
       },
       className: "",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
         className: "container m-auto p-4 ",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("nav", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("nav", {
           className: "navbar bg-secondary rounded-lg boxAs",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "flex-1 flex",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
               href: "#",
               className: "btn btn-secondary btn-ghost text-lg font-bold w-auto text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100",
               children: user.username
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "flex-none hidden xs:flex",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
               className: "menu menu-horizontal p-0 space-x-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/",
                   className: "btn btn-primary btn-ghost text-base-100 hidden sm:grid ",
                   children: "AllAcc"
                 })
-              }), auth.user === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              }), auth.user === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/register",
                   className: "btn text-base-100 btn-accent",
                   children: "Get your own"
                 })
-              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                   href: "/dashboard",
                   className: "btn text-base-100 btn-accent",
                   children: "Dashboard"
@@ -8840,126 +8963,126 @@ function AsSeem() {
             })
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "mt-16 h-[2em]",
         style: {
           'borderRadius': '0',
           "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)"
         }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "w-full pb-[2em] bg-base-100 mb-[-1.5em]",
         style: {
           'borderRadius': '0'
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: " container m-auto pt-3 px-4 sm:px-0",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: " m-auto my-12",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h1", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h1", {
               className: "w-full text-3xl font-extrabold",
-              children: ["Welcome to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: ["Welcome to ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "text-success",
                 children: user.name
               }), " accounts space"]
             })
-          }), (user.country === null && user.birthday === null || user.birthday === null && user.gender === null) && (user.quote === null || user.quote === '') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          }), (user.country === null && user.birthday === null || user.birthday === null && user.gender === null) && (user.quote === null || user.quote === '') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "h-[44vh]"
-          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: " flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]",
-            children: [user.quote === null || user.quote === '' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+            children: [user.quote === null || user.quote === '' ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
                 className: "space-y-3 md:w-1/2 w-full ",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                   className: "italic text-xl font-extrabold",
                   children: "THE QUOTE :"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "w-full h-full p-4 rounded-lg bg-secondary boxAs",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                     className: "text-lg ".concat(theme.theme.skin === 'RPG' ? 'text-black' : theme.theme.skin === 'BnW' ? 'white' : 'text-base-100', " font-semibold"),
                     children: user.quote
                   })
                 })]
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
               className: user.quote !== null ? 'space-y-3 md:w-1/2 w-full' : 'space-y-5 w-full',
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                 className: "italic text-xl font-extrabold",
                 children: "THE PROFILE :"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "flex items-stretch h-full sm:space-x-2 rounded-lg bg-accent boxAs",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: " sm:w-[16em] w-[-webkit-fill-available] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary",
-                  children: user.img === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                  children: user.img === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                       className: " font-extrabold text-[3em] uppercase md:text-[5em] text-primary",
                       children: user.name.split(' ').length === 1 ? user.name.split(' ')[0][0] + user.name.split(' ')[0][1] : user.name.split(' ')[0][0] + user.name.split(' ')[1][0]
                     })
                   })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("menu", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("menu", {
                   className: "flex flex-col space-y-1 p-2 w-[-webkit-fill-available]",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
                     className: "flex items-center justify-between space-2",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "w-[88%] overflow-hidden",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                         className: user.country === null && user.birthday === null || user.birthday === null && user.gender === null ? 'md:text-[11vmin] text-[1.5em] leading-[1em] text-success font-extrabold h-full' : 'text-2xl text-success font-extrabold',
                         children: user.name
                       })
                     })
-                  }), user.birthday === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h1", {
+                  }), user.birthday === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h1", {
                     className: "flex items-center justify-start space-x-1 sm:space-x-4 sm:my-4 my-2 mt-4",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "font-bold text-md ",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                         style: {
                           borderRadius: '0'
                         },
                         className: "h-6 sm:h-10 ",
                         xmlns: "http://www.w3.org/2000/svg",
                         viewBox: "0 0 32 32",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("g", {
                           "data-name": "calendar android app aplication phone",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             d: "M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM8.7 3.42a63.65 63.65 0 0114.6 0A6 6 0 0127.56 6H4.44A6 6 0 018.7 3.42zM28.58 23.3a6 6 0 01-5.28 5.28 63.65 63.65 0 01-14.6 0 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6 5.44 5.44 0 01.15-.7h24.86a5.44 5.44 0 01.15.7 63.65 63.65 0 010 14.6z"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             d: "M9 11H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM17 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM9 19H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 19h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM18.71 19.29a1 1 0 00-1.42 0L16 20.59l-1.29-1.3a1 1 0 00-1.42 1.42l1.3 1.29-1.3 1.29a1 1 0 001.42 1.42l1.29-1.3 1.29 1.3a1 1 0 001.42-1.42L17.41 22l1.3-1.29a1 1 0 000-1.42z"
                           })]
                         })
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "w-[60%] sm:w-1/2",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                         className: "text-sm sm:text-lg text-black font-bold",
                         children: user.birthday.replace(/-/g, '/')
                       })
                     })]
-                  }), user.country === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h1", {
+                  }), user.country === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h1", {
                     className: "flex items-center justify-start space-x-2 sm:space-x-4 sm:my-4 my-2",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "font-bold text-md ",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                         style: {
                           borderRadius: '0'
                         },
                         className: "h-6 sm:h-10 ",
                         xmlns: "http://www.w3.org/2000/svg",
                         viewBox: "0 0 32 32",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("g", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("g", {
                           "data-name": "map android app aplication phone",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             d: "M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM3.42 23.3a63.65 63.65 0 010-14.6 6 6 0 011.07-2.79L14.59 16 4.49 26.09a6 6 0 01-1.07-2.79zm19.88 5.28a63.65 63.65 0 01-14.6 0 6 6 0 01-2.79-1.07L16 17.41l10.09 10.1a6 6 0 01-2.79 1.07zm5.28-5.28a6 6 0 01-1.07 2.79L5.91 4.49A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6z"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             d: "M22 6a4 4 0 00-4 4c0 1.87 2.65 5.8 3.18 6.57a1 1 0 001.64 0C23.35 15.8 26 11.87 26 10a4 4 0 00-4-4zm0 8.18A13.26 13.26 0 0120 10a2 2 0 014 0 13.36 13.36 0 01-2 4.18z"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("circle", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("circle", {
                             cx: 22,
                             cy: 10,
                             r: 1
                           })]
                         })
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "w-[60%] sm:w-1/2",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                         className: "text-lg text-black font-extrabold",
                         children: user.country
                       })
@@ -8968,28 +9091,28 @@ function AsSeem() {
                 })]
               })]
             })]
-          }), user.track === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            children: soung !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          }), user.track === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: soung !== null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: " flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
                 className: "sm:space-y-3 space-y-5 w-full mt-[3em]",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
                   className: "italic text-xl font-extrabold",
-                  children: ["FEEL ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  children: ["FEEL ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                     className: "italic text-success",
                     children: user.name
                   }), " BY HIS FAVORITE SOUNG :"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover",
                   style: {
                     'backgroundImage': "url(\"/imgs/config/".concat(theme.theme.skin, "/Soung/").concat(e, ".jpg\")"),
                     'backgroundSize': 'cover'
                   },
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent ",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       className: "ss:w-[17em] ss:h-[17em] w-[11em] h-[11em] sm:m-0 mt-8 m-auto z-[1]",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         onError: function onError(event) {
                           event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg";
                           event.onerror = null;
@@ -8998,11 +9121,11 @@ function AsSeem() {
                         src: soung.album.cover_big,
                         alt: ""
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       className: "p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg ",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "p-2 flex flex-col space-y-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
                           className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis trackUser"),
                           style: {
                             'display': 'Webkit-box',
@@ -9010,7 +9133,7 @@ function AsSeem() {
                             'WebkitBoxOrient': 'vertical'
                           },
                           children: user.track
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
                           className: "font-bold text-lg ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis artistUser"),
                           style: {
                             'display': 'Webkit-box',
@@ -9021,19 +9144,19 @@ function AsSeem() {
                         })]
                       })
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "flex flex-col justify-end sm:items-center items-start p-2; space-y-2 mt-[-1em] h-[6em] sm:w-[5em] w-auto sm:h-auto sm:m-0 bg-accent sm:bg-transparent rounded-bl-lg rounded-br-lg",
                     style: {
                       'border-top-left-radius': '0',
                       'borderTopRightRadius': '0'
                     },
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       onClick: function onClick() {
                         play();
                       },
                       id: "pause",
                       className: "hidden w-[3.5em] h-[3.5em] rounded-lg sm:bg-white bg-black sm:hover:bg-[#f5cac3] hover:bg-primary m-4"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                       id: "play",
                       onClick: function onClick() {
                         play();
@@ -9043,37 +9166,37 @@ function AsSeem() {
                       height: "5.3em",
                       viewBox: "0 0 512 512",
                       xmlns: "http://www.w3.org/2000/svg",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                         d: "M133 440a35.37 35.37 0 01-17.5-4.67c-12-6.8-19.46-20-19.46-34.33V111c0-14.37 7.46-27.53 19.46-34.33a35.13 35.13 0 0135.77.45l247.85 148.36a36 36 0 010 61l-247.89 148.4A35.5 35.5 0 01133 440z"
                       })
                     })]
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("audio", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("audio", {
                 id: "audio",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("source", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("source", {
                   src: soung.preview,
                   id: "audioSrc",
                   type: "audio/ogg"
                 }), "Your browser does not support the audio element."]
               })]
-            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: " flex md:flex-row space-x-0 md:space-y-0 md:space-x-4 space-y-4 flex-col items-stretch my-[5em] lg:mt-[8em]",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("section", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
                 className: "sm:space-y-3 space-y-5 w-full mt-[3em]",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
                   className: "italic text-xl font-extrabold",
-                  children: ["FEEL ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                  children: ["FEEL ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                     className: "italic text-success",
                     children: user.name
                   }), " BY HIS FAVORITE SOUNG :"]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-[url(https://tlgur.com/d/8e05BE94)] bg-cover",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent ",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       className: "sm:w-[17em] sm:h-[17em] h-[17em] w-[17em] sm:m-0 mt-8 m-auto z-[1]",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         onError: function onError(event) {
                           event.target.src = "https://tlgur.com/d/GXjOEVn4";
                           event.onerror = null;
@@ -9082,11 +9205,11 @@ function AsSeem() {
                         src: soung !== null ? soung.album.cover_big : 'https://tlgur.com/d/GXjOEVn4',
                         alt: ""
                       })
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       className: "p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg ",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "p-2 flex flex-col space-y-2",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
                           className: "font-extrabold text-[3em] leading-2 mt-[.3em] sm:text-white text-black overflow-hidden text-ellipsis",
                           style: {
                             'display': 'Webkit-box',
@@ -9094,7 +9217,7 @@ function AsSeem() {
                             'WebkitBoxOrient': 'vertical'
                           },
                           children: user.track
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
                           className: "font-bold text-lg sm:text-white text-black overflow-hidden text-ellipsis",
                           style: {
                             'display': 'Webkit-box',
@@ -9110,51 +9233,51 @@ function AsSeem() {
               })
             })
           })]
-        }), theme.urls.length === 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), theme.urls.length === 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "container my-4 mb-[3em] m-auto",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             style: {
               background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)'
             },
             className: "w-full text-secondary boxAs rounded-lg p-4 ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
               style: {
                 color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
               },
               className: "italic text-2xl font-extrabold p-2 text-primary",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 style: {
                   color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
                 },
                 className: "text-primary",
                 children: user.name
               }), "'s Links"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "space-y-3",
               children: [theme.config.urlsGrps.map(function (urlGrp) {
-                return grpCheck(urlGrp[0]) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                return grpCheck(urlGrp[0]) ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   style: {
                     background: 'hsl(var(--b1)/0.6)'
                   },
                   className: " rounded-lg p-4 w-full",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                     className: "text-xl my-2 p-2 font-bold text-accent text-center",
                     children: urlGrp
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                     className: "space-y-4 w-full p-4",
                     children: theme.urls.map(function (url) {
-                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-                        children: url['grp'] === urlGrp[0] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                        children: url['grp'] === urlGrp[0] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                           className: "w-full block p-0 shadow-sm shadow-gray",
                           href: url.link,
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                             className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
-                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                               style: {
                                 fontFamily: 'sans-serif'
                               },
                               "class": "text font-bold overflow-hidden text-ellipsis whitespace-nowrap",
-                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                                 className: "m-auto",
                                 children: url.name
                               })
@@ -9165,21 +9288,21 @@ function AsSeem() {
                     })
                   })]
                 }) : '';
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "space-y-4 w-full",
                 children: theme.urls.map(function (url) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-                    children: url['grp'] === null || url['grp'] === 'none' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+                    children: url['grp'] === null || url['grp'] === 'none' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                       className: "w-[95%]  m-auto block p-0 shadow-sm shadow-gray",
                       href: url.link,
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                         className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                           style: {
                             fontFamily: 'sans-serif'
                           },
                           "class": "noMoreBreak text font-bold overflow-hidden text-ellipsis whitespace-nowrap",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                             className: "m-auto",
                             children: url.name
                           })
@@ -9192,7 +9315,7 @@ function AsSeem() {
             })]
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         style: {
           'borderBottomLeftRadius': '0',
           'borderBottomRightRadius': '0',
@@ -9200,32 +9323,32 @@ function AsSeem() {
           'backgroundSize': 'cover'
         },
         className: "w-full bg-center bg-cover m-0",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           style: {
             'borderBottomLeftRadius': '0',
             'borderBottomRightRadius': '0',
             'background': 'hsl(var(--p) / .4)'
           },
           className: "w-full pt-[2em] pb-[2em]",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: " container m-auto pt-3 px-4 sm:px-0",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
               className: "italic text-xl font-extrabold text-white",
-              children: ["WHERE CAN YOU FIND ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: ["WHERE CAN YOU FIND ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 className: "text-white",
                 children: user.name
               }), " :"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("section", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("section", {
               className: "my-4  m-auto space-y-4 flex flex-col items-center justify-center w-full",
-              children: accs[0] !== 'null' ? accs.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              children: accs[0] !== 'null' ? accs.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#9c9c9c7e] bg-secondary",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                   className: "text-xl font-extrabold text-base-100",
                   children: "Nothing here yet!"
                 })
-              }) : accs : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              }) : accs : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "flex flex-row justify-center items-center content-center space-x-3 p-2 mt-2 w-full rounded-lg hover:bg-[#dc50668f] bg-secondary",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h3", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                   className: "text-xl font-extrabold text-primary",
                   children: "You had a fatal error please contact the developer!"
                 })
@@ -11604,7 +11727,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var _Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Skin */ "./resources/js/Components/Dashboard/Skin.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Components_Dashboard_UIType__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Dashboard/UIType */ "./resources/js/Components/Dashboard/UIType.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -11616,24 +11753,47 @@ function Setting() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props,
       icons = _usePage$props.icons,
       skins = _usePage$props.skins;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      ind = _useState2[0],
+      setInd = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     id: "#head",
     className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "container-fluid p-4 w-full",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h2", {
         className: "text-3xl py-2 font-bold rounded-lg w-full",
         children: "Manage your setting"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+      "class": "tabs tabs-boxed w-fit sm:m-2 m-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        onClick: function onClick() {
+          setInd(0);
+        },
+        type: "button",
+        "class": "tab ".concat(ind === 0 ? 'tab-active' : ''),
+        children: "Type"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
+        onClick: function onClick() {
+          setInd(1);
+        },
+        type: "button",
+        "class": "tab ".concat(ind === 1 ? 'tab-active' : ''),
+        children: "Settings"
+      })]
+    }), ind === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__["default"], {
       skins: JSON.stringify(skins),
       icons: JSON.stringify(icons)
-    })]
+    }) : ind === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_UIType__WEBPACK_IMPORTED_MODULE_5__["default"], {}) : '']
   });
 }
 
 Setting.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: page,
     title: "Setting - AllAcc"
   });
@@ -11901,6 +12061,731 @@ Statistics.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
     title: "Statistics - AllAcc"
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Pages/interface/UI.jsx":
+/*!*********************************************!*\
+  !*** ./resources/js/Pages/interface/UI.jsx ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ UI)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+function UI() {
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
+      cosUI = _usePage$props.cosUI,
+      skins = _usePage$props.skins;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(cosUI),
+      _useState2 = _slicedToArray(_useState, 2),
+      color = _useState2[0],
+      setColor = _useState2[1];
+
+  var hundelsave = function hundelsave() {
+    // console.log(color);
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.post('/setting/set?is=cosui', {
+      ui: color
+    });
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    id: "#head",
+    className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "container-fluid p-4 w-full",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+        className: "text-3xl py-2 font-bold rounded-lg w-full",
+        children: "Costumise your AsSeem"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "flex sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-[#00000054] space-y-3 rounded-lg p-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+            className: "text-lg font-bold pl-2",
+            children: "Page :"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "flex flex-col space-y-2 p-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  console.log(e.target.value);
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, _defineProperty({}, 'bg', e.target.value));
+                  });
+                },
+                value: color.bg,
+                name: "furniture",
+                id: "age",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "page backgroumd"
+              })]
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-[#00000054] space-y-3 rounded-lg p-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+            className: "text-lg font-bold pl-2",
+            children: "Accounts Drawer :"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col space-y-2 p-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      to_draw: _objectSpread(_objectSpread({}, color.to_draw), {}, _defineProperty({}, 'bg', e.target.value))
+                    });
+                  });
+                },
+                value: color.to_draw.bg,
+                name: "throat",
+                id: "pie",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      to_draw: _objectSpread(_objectSpread({}, color.to_draw), {}, _defineProperty({}, 'text', e.target.value))
+                    });
+                  });
+                },
+                value: color.to_draw.text,
+                name: "native",
+                id: "aloud",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "text"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      to_draw: _objectSpread(_objectSpread({}, color.to_draw), {}, {
+                        button: _objectSpread(_objectSpread({}, color.to_draw.button), {}, _defineProperty({}, 'bg', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.to_draw.button.bg,
+                name: "feet",
+                id: "straw",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "button"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-[#00000054] space-y-3 rounded-lg p-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+            className: "text-lg font-bold pl-2",
+            children: "Profile :"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col space-y-2 p-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      profile: _objectSpread(_objectSpread({}, color.profile), {}, {
+                        img: _objectSpread(_objectSpread({}, color.profile.img), {}, _defineProperty({}, 'bg', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.profile.img.bg,
+                name: "struggle",
+                id: "coat",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "image background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      profile: _objectSpread(_objectSpread({}, color.profile), {}, _defineProperty({}, 'txt', e.target.value))
+                    });
+                  });
+                },
+                value: color.profile.txt,
+                name: "task",
+                id: "everywhere",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "name color"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-[#00000054] space-y-3 rounded-lg p-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+            className: "text-lg font-bold pl-2",
+            children: "Links :"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col space-y-2 p-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      links: _objectSpread(_objectSpread({}, color.links), {}, _defineProperty({}, 'bg', e.target.value))
+                    });
+                  });
+                },
+                value: color.links.bg,
+                name: "cheese",
+                id: "twelve",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      links: _objectSpread(_objectSpread({}, color.links), {}, {
+                        grp: _objectSpread(_objectSpread({}, color.links.grp), {}, _defineProperty({}, 'bg', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.links.grp.bg,
+                name: "snake",
+                id: "include",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "groupe background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      links: _objectSpread(_objectSpread({}, color.links), {}, {
+                        grp: _objectSpread(_objectSpread({}, color.links.grp), {}, _defineProperty({}, 'txt', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.links.grp.txt,
+                name: "habit",
+                id: "remember",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "group name color"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "bg-[#00000054] space-y-3 rounded-lg p-2",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+            className: "text-lg font-bold pl-2",
+            children: "Draw :"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "flex flex-col space-y-2 p-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, _defineProperty({}, 'bg', e.target.value))
+                    });
+                  });
+                },
+                value: color.draw.bg,
+                name: "laugh",
+                id: "middle",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, {
+                        items: _objectSpread(_objectSpread({}, color.draw.items), {}, _defineProperty({}, 'bg', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.draw.items.bg,
+                name: "beneath",
+                id: "snake",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "items background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, {
+                        items: _objectSpread(_objectSpread({}, color.draw.items), {}, {
+                          img: _objectSpread(_objectSpread({}, color.draw.items.img), {}, _defineProperty({}, 'background', e.target.value))
+                        })
+                      })
+                    });
+                  });
+                },
+                value: color.draw.items.img.background,
+                name: "acres",
+                id: "run",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "items images background"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, {
+                        items: _objectSpread(_objectSpread({}, color.draw.items), {}, _defineProperty({}, 'main_txt', e.target.value))
+                      })
+                    });
+                  });
+                },
+                value: color.draw.items.main_txt,
+                name: "eye",
+                id: "lesson",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "items service name color"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, {
+                        items: _objectSpread(_objectSpread({}, color.draw.items), {}, {
+                          username: _objectSpread(_objectSpread({}, color.draw.items.username), {}, _defineProperty({}, 'txt', e.target.value))
+                        })
+                      })
+                    });
+                  });
+                },
+                value: color.draw.items.username.txt,
+                name: "room",
+                id: "possibly",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "items username color"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex bg-[#00000054] rounded-lg p-1 space-x-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+                type: "color",
+                onChange: function onChange(e) {
+                  setColor(function (color) {
+                    return _objectSpread(_objectSpread({}, color), {}, {
+                      draw: _objectSpread(_objectSpread({}, color.draw), {}, {
+                        items: _objectSpread(_objectSpread({}, color.draw.items), {}, {
+                          username: _objectSpread(_objectSpread({}, color.draw.items.username), {}, _defineProperty({}, 'bg', e.target.value))
+                        })
+                      })
+                    });
+                  });
+                },
+                value: color.draw.items.username.bg,
+                name: "means",
+                id: "pan",
+                className: "bg-transparent w-8 h-8"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                className: "text-lg font-bold",
+                children: "items username background"
+              })]
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "flex space-x-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          style: {
+            background: "url(".concat(color.img, ") center center / cover")
+          },
+          className: "rounded-lg",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            style: {
+              background: color.bg + '9c'
+            },
+            className: "rounded-lg flex p-2 flex-col items-center justify-start content-center space-y-4 w-[12em] h-[60vh] overflow-auto",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              "class": "tooltip w-full tooltip-bottom z-10",
+              "data-tip": "accounts drawer",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                style: {
+                  background: color.to_draw.bg
+                },
+                className: "w-full rounded-lg p-2 flex items-center justify-between",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.to_draw.text
+                  },
+                  className: " h-2 rounded-lg w-12"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  "class": "tooltip tooltip-bottom",
+                  "data-tip": "button",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    style: {
+                      background: color.to_draw.button.bg
+                    },
+                    className: " h-2 rounded-lg w-8"
+                  })
+                })]
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex flex-col items-center justify-start content-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[9]",
+                "data-tip": "user profile image",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.profile.img.bg
+                  },
+                  className: "w-8 h-8 rounded-full m-auto"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[8]",
+                "data-tip": "user name",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.profile.txt
+                  },
+                  className: "w-7 h-1 rounded-lg m-auto mt-1"
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              style: {
+                background: color.links.bg
+              },
+              className: "flex flex-col p-2 w-full rounded-lg space-y-2 bg-[#59a09c6c] items-center justify-start content-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip w-full tooltip-bottom z-[7]",
+                "data-tip": "links group",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  style: {
+                    background: color.links.grp.bg
+                  },
+                  className: "flex flex-col p-1 w-full rounded-lg bg-[#1ca5c76c] items-center justify-start content-center",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    style: {
+                      background: color.links.grp.txt
+                    },
+                    className: "bg-gray-700 h-1 w-8 my-1 rounded-lg"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    className: "flex flex-col p-1 w-full space-y-2 items-center justify-start content-center",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      className: "w-full h-3 bg-white rounded-lg m-auto"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      className: "w-full h-3 bg-white rounded-lg m-auto"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      className: "w-full h-3 bg-white rounded-lg m-auto"
+                    })]
+                  })]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[6] w-full",
+                "data-tip": "link item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "w-full h-3 bg-white rounded-lg m-auto"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[5] w-full",
+                "data-tip": "link item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "w-full h-3 bg-white rounded-lg m-auto"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[4] w-full",
+                "data-tip": "link item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "w-full h-3 bg-white rounded-lg m-auto"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[3] w-full",
+                "data-tip": "link item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "w-full h-3 bg-white rounded-lg m-auto"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                "class": "tooltip tooltip-bottom z-[2] w-full",
+                "data-tip": "link item",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  className: "w-full h-3 bg-white rounded-lg m-auto"
+                })
+              })]
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          style: {
+            background: color.draw.bg
+          },
+          className: "rounded-lg bg-[#307070] flex p-2 flex-col items-center justify-start content-center space-y-2 w-[9em] h-[60vh] overflow-auto",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            style: {
+              background: color.draw.items.bg
+            },
+            className: "bg-slate-800 p-1 rounded-lg space-x-2 w-full flex items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              style: {
+                background: color.draw.items.img.background
+              },
+              className: "bg-green-300 rounded-lg w-[3em] h-[3em]"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "w-[3em] space-y-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.main_txt
+                },
+                className: "bg-white rounded-lg w-full h-1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.username.bg
+                },
+                className: "bg-blue-300 rounded-lg p-1 w-full",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.draw.items.username.txt
+                  },
+                  className: "bg-green-800 h-[0.15em] w-full"
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            style: {
+              background: color.draw.items.bg
+            },
+            className: "bg-slate-800 p-1 rounded-lg space-x-2 w-full flex items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              style: {
+                background: color.draw.items.img.background
+              },
+              className: "bg-red-300 rounded-lg w-[3em] h-[3em]"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "w-[3em] space-y-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.main_txt
+                },
+                className: "bg-white rounded-lg w-full h-1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.username.bg
+                },
+                className: "bg-blue-300 rounded-lg p-1 w-full",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.draw.items.username.txt
+                  },
+                  className: "bg-green-800 h-[0.15em] w-full"
+                })
+              })]
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            style: {
+              background: color.draw.items.bg
+            },
+            className: "bg-slate-800 p-1 rounded-lg space-x-2 w-full flex items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              style: {
+                background: color.draw.items.img.background
+              },
+              className: "bg-yellow-300 rounded-lg w-[3em] h-[3em]"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "w-[3em] space-y-2",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.main_txt
+                },
+                className: "bg-white rounded-lg w-full h-1"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                style: {
+                  background: color.draw.items.username.bg
+                },
+                className: "bg-blue-300 rounded-lg p-1 w-full",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  style: {
+                    background: color.draw.items.username.txt
+                  },
+                  className: "bg-green-800 h-[0.15em] w-full"
+                })
+              })]
+            })]
+          })]
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "flex space-x-2 overflow-auto p-2 bg-ap2 rounded-lg",
+      children: skins.map(function (skn) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            onClick: function onClick() {
+              setColor(function (color) {
+                return _objectSpread(_objectSpread({}, color), {}, _defineProperty({}, 'img', "/imgs/config/".concat(skn.name, "/Header/0.jpg")));
+              });
+            },
+            style: {
+              background: "url(/imgs/config/".concat(skn.name, "/Header/0.jpg)"),
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            },
+            className: "bg-ago rounded-lg",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "rounded-lg",
+              style: {
+                width: '8em',
+                height: '13em'
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            onClick: function onClick() {
+              setColor(function (color) {
+                return _objectSpread(_objectSpread({}, color), {}, _defineProperty({}, 'img', "/imgs/config/".concat(skn.name, "/Header/1.jpg")));
+              });
+            },
+            style: {
+              background: "url(/imgs/config/".concat(skn.name, "/Header/1.jpg)"),
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            },
+            className: "bg-ago rounded-lg",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "rounded-lg",
+              style: {
+                width: '8em',
+                height: '13em'
+              }
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            onClick: function onClick() {
+              setColor(function (color) {
+                return _objectSpread(_objectSpread({}, color), {}, _defineProperty({}, 'img', "/imgs/config/".concat(skn.name, "/Header/footer-0.jpg")));
+              });
+            },
+            style: {
+              background: "url(/imgs/config/".concat(skn.name, "/Header/footer-0.jpg)"),
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            },
+            className: "bg-ago rounded-lg",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "rounded-lg",
+              style: {
+                width: '8em',
+                height: '13em'
+              }
+            })
+          })]
+        });
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      onClick: function onClick() {
+        hundelsave();
+      },
+      className: "btn w-full",
+      children: "Save your costume skin"
+    })]
+  });
+}
+
+UI.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: page,
+    title: "Costumise - AllAcc"
   });
 };
 
@@ -32947,30 +33832,6 @@ var getBox = function getBox(el) {
 };
 
 
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/button.css":
-/*!********************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/button.css ***!
-  \********************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* CSS */\r\n.blurbtn {\r\n  all: unset;\r\n  width: 80%;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  background: transparent;\r\n  border: none;\r\n  position: relative;\r\n  color: #f0f0f0;\r\n  cursor: pointer;\r\n  z-index: 1;\r\n  padding: 10px 20px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin:auto;\r\n  white-space: nowrap;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.blurbtn::after,\r\n.blurbtn::before {\r\n  content: '';\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: -99999;\r\n  transition: all .4s;\r\n}\r\n\r\n.blurbtn::before {\r\n  transform: translate(0%, 0%);\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #28282d;\r\n  border-radius: 10px;\r\n}\r\n\r\n.blurbtn::after {\r\n  transform: translate(10px, 10px);\r\n  width: 35px;\r\n  height: 35px;\r\n  background: #ffffff15;\r\n  backdrop-filter: blur(5px);\r\n  -webkit-backdrop-filter: blur(5px);\r\n  border-radius: 50px;\r\n}\r\n\r\n.blurbtn:hover::before {\r\n  transform: translate(5%, 20%);\r\n  width: 110%;\r\n  height: 110%;\r\n}\r\n\r\n.blurbtn:hover::after {\r\n  border-radius: 10px;\r\n  transform: translate(0, 0);\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.blurbtn:active::after {\r\n  transition: 0s;\r\n  transform: translate(0, 5%);\r\n}\r\n\r\n/* //////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n\r\n.purplebtn {\r\n    align-items: center;\r\n    background-image: linear-gradient(144deg, hsl(var(--p)), hsl(var(--s)) 50%,hsl(var(--p)));\r\n    border: 0;\r\n    border-radius: 8px;\r\n    box-shadow: hsl(var(--a)/0.2) 0 15px 30px -5px;\r\n    box-sizing: border-box;\r\n    color: hsl(var(--b1));\r\n    display: flex;\r\n    font-family: Phantomsans, sans-serif;\r\n    font-size: 20px;\r\n    justify-content: center;\r\n    line-height: 1em;\r\n    max-width: 100%;\r\n    padding: 3px;\r\n    text-decoration: none;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    margin: 0;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n    white-space: nowrap;\r\n    cursor: pointer;\r\n  }\r\n\r\n  .purplebtn:active,\r\n  .purplebtn:hover {\r\n    outline: 0;\r\n  }\r\n\r\n  .purplebtn span {\r\n    background-color: hsl(var(--a));\r\n    padding: 16px 24px;\r\n    border-radius: 6px;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: 300ms;\r\n  }\r\n\r\n  .purplebtn:hover span {\r\n    background: none;\r\n  }\r\n\r\n  @media (min-width: 768px) {\r\n    .purplebtn {\r\n      font-size: 24px;\r\n    }\r\n  }\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n  .rgbbtn {\r\n    padding: 0.6em 2em;\r\n    border: none;\r\n    outline: none;\r\n    color: #000;\r\n    background: #fff;\r\n    cursor: pointer;\r\n    position: relative;\r\n    z-index: 0;\r\n    border-radius: 10px;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n  }\r\n\r\n  .rgbbtn:before {\r\n    content: \"\";\r\n    background: linear-gradient(\r\n      45deg,\r\n      #da5874,\r\n      #ff8581,\r\n      #ffaea0,\r\n      #e9d478,\r\n      #e292b4,\r\n      #a8d2da,\r\n      #f3bae7,\r\n      #da5874\r\n\r\n    );\r\n    position: absolute;\r\n    top: -2px;\r\n    left: -2px;\r\n    background-size: 400%;\r\n    z-index: -1;\r\n    filter: blur(5px);\r\n    -webkit-filter: blur(5px);\r\n    width: calc(100% + 4px);\r\n    height: calc(100% + 4px);\r\n    -webkit-animation: glowing-button-85 20s linear infinite;\r\n            animation: glowing-button-85 20s linear infinite;\r\n    transition: opacity 0.3s ease-in-out;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  @-webkit-keyframes glowing-button-85 {\r\n    0% {\r\n      background-position: 0 0;\r\n    }\r\n    50% {\r\n      background-position: 400% 0;\r\n    }\r\n    100% {\r\n      background-position: 0 0;\r\n    }\r\n  }\r\n\r\n  @keyframes glowing-button-85 {\r\n    0% {\r\n      background-position: 0 0;\r\n    }\r\n    50% {\r\n      background-position: 400% 0;\r\n    }\r\n    100% {\r\n      background-position: 0 0;\r\n    }\r\n  }\r\n\r\n  .rgbbtn:after {\r\n    z-index: -1;\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgb(255, 241, 241);\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n.roundedborderbtn {\r\n  background-color: #fbeee0;\r\n  border: 2px solid #422800;\r\n  border-radius: 30px;\r\n  box-shadow: #422800 4px 4px 0 0;\r\n  color: #422800;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-weight: 600;\r\n  font-size: 18px;\r\n  padding: 0 18px;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.roundedborderbtn:hover {\r\n  background-color: #fff;\r\n}\r\n\r\n.roundedborderbtn:active {\r\n  box-shadow: #422800 2px 2px 0 0;\r\n  transform: translate(2px, 2px);\r\n}\r\n\r\n@media (min-width: 768px) {\r\n  .roundedborderbtn {\r\n    padding: 0 25px;\r\n  }\r\n}\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n.orangebtn {\r\n  margin: 0;\r\n  padding: 15px 30px;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  transition: 0.5s;\r\n  background-size: 200% auto;\r\n  color: white;\r\n  border-radius: 10px;\r\n  display: block;\r\n  border: 0px;\r\n  font-weight: 700;\r\n  box-shadow: 0px 0px 14px -7px hsl(var(--s));\r\n  background-image: linear-gradient(45deg, hsl(var(--s)) 0%, hsl(var(--p))  51%, hsl(var(--a))  100%);\r\n  cursor: pointer;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.orangebtn:hover {\r\n  background-position: right center;\r\n  /* change the direction of the change here */\r\n  color: #fff;\r\n  text-decoration: none;\r\n}\r\n\r\n.orangebtn:active {\r\n  transform: scale(0.95);\r\n}\r\n\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n\r\n  .oldbtn {\r\n    align-self: center;\r\n    background-color: #fff;\r\n    background-image: none;\r\n    background-position: 0 90%;\r\n    background-repeat: repeat no-repeat;\r\n    background-size: 4px 3px;\r\n    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;\r\n    border-style: solid;\r\n    border-width: 2px;\r\n    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;\r\n    box-sizing: border-box;\r\n    color: #41403e;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    font-family: Neucha, sans-serif;\r\n    font-size: 1rem;\r\n    line-height: 23px;\r\n    outline: none;\r\n    padding: .75rem;\r\n    text-decoration: none;\r\n    transition: all 235ms ease-in-out;\r\n    border-bottom-left-radius: 15px 255px;\r\n    border-bottom-right-radius: 225px 15px;\r\n    border-top-left-radius: 255px 15px;\r\n    border-top-right-radius: 15px 225px;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n  }\r\n\r\n  .oldbtn:hover {\r\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;\r\n    transform: translate3d(0, 2px, 0);\r\n  }\r\n\r\n  .oldbtn:focus {\r\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;\r\n  }\r\n\r\n\r\n\r\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
 
 /***/ }),
@@ -104202,36 +105063,6 @@ module.exports = function getSideChannel() {
 
 /***/ }),
 
-/***/ "./resources/css/button.css":
-/*!**********************************!*\
-  !*** ./resources/css/button.css ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_button_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./button.css */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[6].oneOf[1].use[2]!./resources/css/button.css");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_button_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_6_oneOf_1_use_2_button_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
 /***/ "./resources/css/fonts.css":
 /*!*********************************!*\
   !*** ./resources/css/fonts.css ***!
@@ -104765,7 +105596,9 @@ var map = {
 	"./Setting": "./resources/js/Pages/Setting.jsx",
 	"./Setting.jsx": "./resources/js/Pages/Setting.jsx",
 	"./Statistics": "./resources/js/Pages/Statistics.jsx",
-	"./Statistics.jsx": "./resources/js/Pages/Statistics.jsx"
+	"./Statistics.jsx": "./resources/js/Pages/Statistics.jsx",
+	"./interface/UI": "./resources/js/Pages/interface/UI.jsx",
+	"./interface/UI.jsx": "./resources/js/Pages/interface/UI.jsx"
 };
 
 

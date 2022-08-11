@@ -1,12 +1,12 @@
-import { usePage, useForm } from '@inertiajs/inertia-react';
+import { usePage, useForm, Link } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
 import '../../../css/fonts.css';
-import '../../../css/button.css';
 
 export default function Skin(props) {
 
     const { auth } = usePage().props;
-    const theskin = JSON.parse(auth.user.json_config).theme;
+    const parsed = JSON.parse(auth.user.json_config);
+    const theskin = parsed.theme;
 
     const { data, setData } = useForm({
         skin: theskin.skin, icons: theskin.icons, button: theskin.button, font: theskin.font,
@@ -111,43 +111,59 @@ export default function Skin(props) {
 
     const setbutton = (e) => {
         let a = document.getElementsByClassName('buttons');
-        for(let i=0; i<a.length; i++){
-            a[i].style.background='none';
+        for (let i = 0; i < a.length; i++) {
+            a[i].style.background = 'none';
         }
         setData({ ...data, ['button']: e });
-            document.getElementById(e).style.background='white'
-            document.getElementById('buttoncurrent').innerHTML= 'current : '+ e;
+        document.getElementById(e).style.background = 'white'
+        document.getElementById('buttoncurrent').innerHTML = 'current : ' + e;
     }
 
     return (
         <>
-            <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
-                <div className='flex flex-col space-y-1'>
-                    <h3 id="skin" className='font-bold text-lg'>Chose your skin:</h3>
-                    <h5 className='text-sm italic'>current : <span className='text-lg font-bold no-italic'>{theskin.skin}</span>.</h5>
-                    {skk !== theskin.skin ? (<h5 style={{ 'lineHeight': '0.5em' }} className='text-sm italic'>selected : <span className='text-lg font-bold no-italic'>{skk}</span>.</h5>) : (<h5 className='text-sm italic' style={{ 'lineHeight': '0.5em' }}>selected : <span className='text-lg font-bold no-italic'>current</span>.</h5>)}
-                </div>
-                <div className="w-full">
-                    <div className="overflow-hidden w-full flex flex-col sm:flex-row items-stretch content-center justify-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0">
-                        {
-                            _skins.map(skin => (
-                                <div key={skin.name} id={skin.name} onClick={() => { setSkin(`${skin.name}`, `${skin.combo.colors[2]}`) }} className={`forBorder cursor-pointer flex flex-col space-y-2 w-full items-center content-center justify-center p-2 rounded-lg`} style={{ 'background': `${skin.combo.colors[0]}59` }}>
-                                    <div className='flex w-full flex-row space-x-2 items-center content-center justify-center'>
-                                        <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[0] }}></span>
-                                        <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[1] }}></span>
-                                        <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[2] }}></span>
-                                    </div>
-                                    <div className="w-full h-16 sm:h-32 rounded-lg">
-                                        <img className="w-full h-full object-cover rounded-lg" alt={skin.name} src={`/imgs/config/${skin.name}/Soung/0.jpg`} />
-                                    </div>
-                                    <h4 className="text-purple-200 font-bold text-xl">{skin.name}</h4>
+            {
+                parsed.UI && parsed.UI.type === 'JSX' ?
+                    <>
+                        <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
+                            <div className='flex flex-col space-y-1'>
+                                <h3 id="skin" className='font-bold text-lg'>Chose your skin:</h3>
+                                <h5 className='text-sm italic'>current: <span className='text-lg font-bold no-italic'>{theskin.skin}</span>.</h5>
+                                {skk !== theskin.skin ? (<h5 style={{ 'lineHeight': '0.5em' }} className='text-sm italic'>selected: <span className='text-lg font-bold no-italic'>{skk}</span>.</h5>) : (<h5 className='text-sm italic' style={{ 'lineHeight': '0.5em' }}>selected: <span className='text-lg font-bold no-italic'>current</span>.</h5>)}
+                            </div>
+                            <div className="w-full">
+                                <div className="overflow-hidden w-full flex flex-col sm:flex-row items-stretch content-center justify-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0">
+                                    {_skins.map(skin => (
+                                        <div key={skin.name} id={skin.name} onClick={() => { setSkin(`${skin.name}`, `${skin.combo.colors[2]}`); }} className={`forBorder cursor-pointer flex flex-col space-y-2 w-full items-center content-center justify-center p-2 rounded-lg`} style={{ 'background': `${skin.combo.colors[0]}59` }}>
+                                            <div className='flex w-full flex-row space-x-2 items-center content-center justify-center'>
+                                                <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[0] }}></span>
+                                                <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[1] }}></span>
+                                                <span className={`rounded-lg h-8 sm:h-12 w-1/3`} style={{ 'background': skin.combo.colors[2] }}></span>
+                                            </div>
+                                            <div className="w-full h-16 sm:h-32 rounded-lg">
+                                                <img className="w-full h-full object-cover rounded-lg" alt={skin.name} src={`/imgs/config/${skin.name}/Soung/0.jpg`} />
+                                            </div>
+                                            <h4 className="text-purple-200 font-bold text-xl">{skin.name}</h4>
+                                        </div>
+                                    ))}
                                 </div>
-                            ))
-                        }
+                            </div>
+                        </div>
+                        <hr />
+                    </>
+                    :
+                    <div className="rounded-lg bg-agr p-8 text-white text-lg font-bold text-center w-full">
+                        <svg
+                            data-name="theme android app aplication phone"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 32 32"
+                            className="w-[4em] h-[4em] fill-white m-auto"
+                        >
+                            <path d="M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM15 29V19h2v10h-2zm13.58-5.7a6 6 0 01-5.28 5.28c-1.43.16-2.86.26-4.3.33V19a2 2 0 00-2-2v-2h7a2 2 0 002-2v-3a2 2 0 00-2-2h-1a2 2 0 00-2-2H11a2 2 0 00-2 2v2a2 2 0 002 2h10a2 2 0 002-2h1v3h-7a2 2 0 00-2 2v2a2 2 0 00-2 2v9.91a68.52 68.52 0 01-4.3-.33 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6zM21 10H11V8h10z" />
+                        </svg>
+                        chose by yourself the color that match your brand<br/>
+                        <Link  href="advanced/ui" className="btn m-auto mt-2">costumise</Link>
                     </div>
-                </div>
-            </div>
-            <hr />
+            }
 
             <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
                 <div id="icons" className='flex flex-col'>
@@ -194,7 +210,7 @@ export default function Skin(props) {
                 <div className="flex flex-wrap items-center w-auto m-auto justify-center">
                     {
                         buttons.map((button) => (
-                            <div id={button} onClick={()=>{setbutton(button)}} className='buttons w-[8.5em] m-3 p-2 rounded-lg'>
+                            <div id={button} onClick={() => { setbutton(button) }} className='buttons w-[8.5em] m-3 p-2 rounded-lg'>
                                 <button className={`w-full m-auto ${button}`}>
                                     <span style={{ fontFamily: 'sans-serif' }} class="text font-bold  overflow-hidden text-ellipsis whitespace-nowrap">mob</span>
                                 </button>

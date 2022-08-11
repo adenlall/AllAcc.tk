@@ -30,6 +30,6 @@ class SetStatisticsController extends Controller
             "json_config"=>$path
         ]);
         // dd($path);
-        return Inertia::location($pth);
+        return redirect($pth);
     }
 }
