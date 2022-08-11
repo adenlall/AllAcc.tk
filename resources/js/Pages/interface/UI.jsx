@@ -18,7 +18,7 @@ export default function UI() {
                 <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Costumise your AsSeem</h2>
             </div>
 
-            <div className="flex items-center sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
+            <div className="flex items-center justify-center content-center sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
                 {/* ////////////////////////////////////////////////////////////////////// */}
                 {/* ////////////////////////////////////////////////////////////////////// */}
                 <div className="bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]">
@@ -357,7 +357,7 @@ export default function UI() {
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
-                <div className="flex space-x-2">
+                <div className="flex space-x-2 w-fit m-auto">
                     <div style={{ background: `url(${color.img}) center center / cover` }} className='rounded-lg'>
                         <div style={{ background: color.bg + '9c' }} className={`rounded-lg flex p-2 flex-col items-center justify-start content-center space-y-4 w-[12em] h-[60vh] overflow-auto`}>
                             <div class="tooltip w-full tooltip-bottom z-10" data-tip="accounts drawer">

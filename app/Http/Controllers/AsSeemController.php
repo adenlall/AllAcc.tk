@@ -84,7 +84,6 @@ class AsSeemController extends Controller
                 'json_locate' => json_encode($locate),
             ]);
             $sp_user->save();
-            dd($ip,Location::get($ip),$locate,json_decode($sp_user->json_config, true));
 
 
             User::where('username', $path)->get()->first()->increment('visit');
