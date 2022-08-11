@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -31,7 +30,7 @@ class AsSeemController extends Controller
 
             $sp_user = User::where('username', $path)->get()->first();
             $locate = json_decode($sp_user->json_locate, true);
-            $ip = FacadesRequest::ip();
+            $ip = request()->ip();
 
             if (Location::get($ip) !== false) {
 

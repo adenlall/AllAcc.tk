@@ -122,7 +122,21 @@ export default function Skin(props) {
     return (
         <>
             {
-                parsed.UI && parsed.UI.type === 'JSX' ?
+                parsed.UI === undefined ? '':
+                parsed.UI.type === 'Blade' ?
+                    <div className="rounded-lg bg-agr p-8 text-white text-lg font-bold text-center w-full">
+                        <svg
+                            data-name="theme android app aplication phone"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 32 32"
+                            className="w-[4em] h-[4em] fill-white m-auto"
+                        >
+                            <path d="M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM15 29V19h2v10h-2zm13.58-5.7a6 6 0 01-5.28 5.28c-1.43.16-2.86.26-4.3.33V19a2 2 0 00-2-2v-2h7a2 2 0 002-2v-3a2 2 0 00-2-2h-1a2 2 0 00-2-2H11a2 2 0 00-2 2v2a2 2 0 002 2h10a2 2 0 002-2h1v3h-7a2 2 0 00-2 2v2a2 2 0 00-2 2v9.91a68.52 68.52 0 01-4.3-.33 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6zM21 10H11V8h10z" />
+                        </svg>
+                        chose by yourself the color that match your brand<br/>
+                        <Link  href="advanced/ui" className="btn m-auto mt-2">costumise</Link>
+                    </div>
+                    :
                     <>
                         <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
                             <div className='flex flex-col space-y-1'>
@@ -150,19 +164,6 @@ export default function Skin(props) {
                         </div>
                         <hr />
                     </>
-                    :
-                    <div className="rounded-lg bg-agr p-8 text-white text-lg font-bold text-center w-full">
-                        <svg
-                            data-name="theme android app aplication phone"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 32 32"
-                            className="w-[4em] h-[4em] fill-white m-auto"
-                        >
-                            <path d="M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM15 29V19h2v10h-2zm13.58-5.7a6 6 0 01-5.28 5.28c-1.43.16-2.86.26-4.3.33V19a2 2 0 00-2-2v-2h7a2 2 0 002-2v-3a2 2 0 00-2-2h-1a2 2 0 00-2-2H11a2 2 0 00-2 2v2a2 2 0 002 2h10a2 2 0 002-2h1v3h-7a2 2 0 00-2 2v2a2 2 0 00-2 2v9.91a68.52 68.52 0 01-4.3-.33 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6zM21 10H11V8h10z" />
-                        </svg>
-                        chose by yourself the color that match your brand<br/>
-                        <Link  href="advanced/ui" className="btn m-auto mt-2">costumise</Link>
-                    </div>
             }
 
             <div className='skinn rounded-lg flex flex-col items-start p-3 space-y-2'>
