@@ -18,7 +18,7 @@ export default function UI() {
                 <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Costumise your AsSeem</h2>
             </div>
 
-            <div className="flex sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
+            <div className="flex items-center sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
                 {/* ////////////////////////////////////////////////////////////////////// */}
                 {/* ////////////////////////////////////////////////////////////////////// */}
                 <div className="bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]">
