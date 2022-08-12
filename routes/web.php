@@ -43,6 +43,16 @@ Route::get('privacy', function(){
     return Inertia('Privacy');
 });
 
+
+Route::get('login', [LoginController::class, 'create'])->name('login');
+Route::post('login', [LoginController::class, 'store'])->name('login');
+
+Route::get('register', [RegisterController::class, 'create'])->name('register');
+Route::post('register', [RegisterController::class, 'store']);
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+
 Route::middleware('auth')->group(function () {
 
     Route::get('profile', ProfileController::class, 'show')->name('profile');
@@ -60,21 +70,9 @@ Route::middleware('auth')->group(function () {
     Route::post('profile', ProfileUpdateController::class);
     Route::post('setting', SevicesController::class);
     Route::post('deleteItem', DeleteItemController::class);
-    Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
     Route::post('password', PasswordController::class);
 });
 
-Route::middleware('guest')->group(function () {
-    // Route::get('login/admin', [LoginController::class, 'admin']);
-    Route::get('login', [LoginController::class, 'create'])->name('login');
-    Route::post('login', [LoginController::class, 'store'])->name('login');
-
-    Route::get('register', [RegisterController::class, 'create'])->name('register');
-    Route::post('register', [RegisterController::class, 'store']);
-
-    Route::get('auth/google', [GoogleController::class, 'redirectToGoogle'])->name('auth.google');
-    Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
-});
 
 Route::middleware('auth', 'admin', 'adminRequ')->group(function () {
 

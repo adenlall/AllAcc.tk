@@ -14,15 +14,23 @@ class LoginController extends Controller
 {
     public function create()
     {
-        return inertia('Auth/Login');
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return inertia('Auth/Login');
+        }
     }
 
     public function store(Request $request)
     {
 
+
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
         // security...
-        Session::flush();
-        Auth::logout();
+        // Session::flush();
+        // Auth::logout();
         // ..............
 
 
@@ -49,6 +57,7 @@ class LoginController extends Controller
             'email'=>"your records doesn't mutch"
         ]);
 
+    }
     }
 
 

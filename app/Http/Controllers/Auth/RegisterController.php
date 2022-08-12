@@ -15,7 +15,11 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return inertia('Auth/Auth');
+        if(Auth::check()){
+            return redirect('dashboard');
+        }else{
+            return inertia('Auth/Auth');
+        }
     }
 
     public function store(Request $request)
