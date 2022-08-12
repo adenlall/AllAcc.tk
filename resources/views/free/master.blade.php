@@ -1,4 +1,4 @@
-<div style="font-family: {{ $user_js['theme']['font'] ? $user_js['theme']['font'] : 'Gracheva' }}; background: url({{ array_key$cosui['img'] ? $cosui['img'] : '/imgs/config/Ind/Header/0.jpg' }}); background-size:cover; background-position:center"
+<div style="font-family: {{ $user_js['theme']['font'] ? $user_js['theme']['font'] : 'Gracheva' }}; background: url({{ array_key_exists('img', $cosui) ? $cosui['img'] : '/imgs/config/Ind/Header/0.jpg' }}); background-size:cover; background-position:center"
     class="min-h-[91vh]">
     <div style="background: {{ $cosui['bg'] }}82" class="p-4 min-h-[91vh] space-y-4">
 
