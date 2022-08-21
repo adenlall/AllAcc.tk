@@ -25,7 +25,7 @@ class Username implements Rule
      */
     public function passes($attribute, $value)
     {
-        $data = ['privacy','adenlall', 'home', 'login', 'allacc', 'dashboard', 'register','faq', 'logout', 'profile', 'about','logout','admin','boss'];
+        $data = ['privacy','adenlall', 'home', 'login', 'allacc', 'dashboard', 'register','faq', 'logout', 'profile', 'about', 'advanced', 'settings','setting','skin','skins', 'dd','logout','admin','boss'];
 
         for($i=0; $i < count($data); $i++) {
             if($data[$i] === strtolower($value)){

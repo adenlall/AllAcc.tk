@@ -21,20 +21,18 @@ class AdminMaxTries
     public function handle(Request $request, Closure $next)
     {
         if ($request->session()->has('try')) {
-            if ('=> end' === Crypt::decrypt(session()->get('try'))) {
-                dd('heerre');
+            if (session()->get('try') >= 3) {
+                // dd('heerre');
                 // dd('max tries" fuck off');
                 Session::flush();
                 Auth::logout();
-                return redirect('/');
+                return redirect("/");
             }else{
-                // dd('max tries" fine');
                 return $next($request);
             }
 
         } else {
-            // dd('max tries" else fine');
-            $request->session()->put('try', Crypt::encrypt('=> 0'));
+            $request->session()->put('try', 1);
             return $next($request);
         }
     }

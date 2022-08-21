@@ -2,7 +2,8 @@ import { usePage, Link, Head } from '@inertiajs/inertia-react';
 import { useState, useEffect } from 'react';
 import { TwitterTimelineEmbed } from 'react-twitter-embed';
 import '../../css/fonts.css';
-import '../../css/button.css';
+// import '../../css/button.css';
+
 
 function AsSeem() {
 
@@ -12,7 +13,6 @@ function AsSeem() {
     const accs = [];
     const theme = JSON.parse(user.json_config);
     const font = theme.theme.font;
-    console.log(theme);
     const e = Math.floor(Math.random() * 2);
 
     const dots = () => (
@@ -56,8 +56,7 @@ function AsSeem() {
             let i = 0;
             services_config.forEach((serv, i) => {
                 let cle = serv.name.replace(/\./g, "");
-
-                if (services[cle] === null) { } else {
+                if (services[cle] !== null) {
                     accs.push(
                         <div className='w-full rounded-lg bg-secondary boxAs flex flex-col items-start'>
                             <Link className="w-full" key={cle} method='post' as="button" href={"/statistics/set"} data={{ for_user: user.username, url: `${serv.website}/${services[cle]}`, service: cle }}>
@@ -71,39 +70,39 @@ function AsSeem() {
                                     </div>
                                 </div>
                             </Link>
-                            {                     
-                                    ((cle === 'twitter') && (cdnS.twitter === true) && (theme.services.cdn.twitter === true)) ?
-                                            ele(services[cle])
-                                            : ''
+                            {
+                                ((cle === 'twitter') && (cdnS.twitter === true) && (theme.services.cdn.twitter === true)) ?
+                                    ele(services[cle])
+                                    : ''
                             }
 
                             {
-                                        (cle === 'twitter' && theme.services.cdn.twitter === true) ?
-                                            (
-                                                <>
-                                                    {
-                                                        window.innerWidth > '440'
-                                                            ?
-                                                            (
-                                                                <>
-                                                                    <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }} >click to show/hide it embed</label>
+                                (cle === 'twitter' && theme.services.cdn.twitter === true) ?
+                                    (
+                                        <>
+                                            {
+                                                window.innerWidth > '440'
+                                                    ?
+                                                    (
+                                                        <>
+                                                            <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-inherit rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif', 'width':'inherit' }} >click to show/hide it embed</label>
 
-                                                                    <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
+                                                            <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
 
-                                                                    <label for={`my-modal-${i}`} style={{ 'borderRadius': '1em' }} class="modal cursor-pointer">
-                                                                        <label class="modal-box relative" for="" style={{ 'borderRadius': '1em' }} >
-                                                                            {ele(services[cle])}
-                                                                        </label>
-                                                                    </label>
-                                                                </>
+                                                            <label for={`my-modal-${i}`} style={{ 'borderRadius': '1em' }} class="modal cursor-pointer">
+                                                                <label class="modal-box relative" for="" style={{ 'borderRadius': '1em' }} >
+                                                                    {ele(services[cle])}
+                                                                </label>
+                                                            </label>
+                                                        </>
 
 
-                                                            )
-                                                            :
-                                                            <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
-                                                    }
-                                                </>
-                                            ) : ''
+                                                    )
+                                                    :
+                                                    <span onClick={() => { setCdn(cle) }} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }}>click to show/hide it embed</span>
+                                            }
+                                        </>
+                                    ) : ''
 
                             }
                         </div>
@@ -170,7 +169,7 @@ function AsSeem() {
                 <section className="container m-auto p-4 ">
                     <nav className="navbar bg-secondary rounded-lg boxAs">
                         <div className="flex-1 flex">
-                            <a href="#" className="btn btn-secondary btn-ghost text-lg font-bold w-[8em] sm:w-[50%] text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100">{user.username}</a>
+                            <a href="#" className="btn btn-secondary btn-ghost text-lg font-bold w-auto text-ellipsis overflow-hidden sm:overflow-visible block p-2 text-left text-base-100">{user.username}</a>
                         </div>
                         <div className="flex-none hidden xs:flex">
                             <ul className="menu menu-horizontal p-0 space-x-2">
@@ -192,7 +191,7 @@ function AsSeem() {
 
                 <div className='mt-16 h-[2em]' style={{ 'borderRadius': '0', "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)" }}></div>
                 <div className='w-full pb-[2em] bg-base-100 mb-[-1.5em]' style={{ 'borderRadius': '0' }} >
-                    <div className=' container m-auto pt-3 px-4 sm:px-0'>
+                    <div className=' container m-auto pt-3 px-4'>
 
                         {/* CTA */}
                         <div className=' m-auto my-12'>
@@ -216,7 +215,7 @@ function AsSeem() {
                                                 <section className="space-y-3 md:w-1/2 w-full ">
                                                     <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
                                                     <div className="w-full h-full p-4 rounded-lg bg-secondary boxAs">
-                                                        <h3 className="text-lg text-base-100 font-semibold">{user.quote}</h3>
+                                                        <h3 className={`text-lg ${theme.theme.skin === 'RPG' ? 'text-black' : theme.theme.skin === 'BnW' ? 'white' : 'text-base-100'} font-semibold`}>{user.quote}</h3>
                                                     </div>
 
                                                 </section>
@@ -226,8 +225,8 @@ function AsSeem() {
                                     {/* PROFILE */}
                                     <section className={user.quote !== null ? 'space-y-3 md:w-1/2 w-full' : 'space-y-5 w-full'}>
                                         <h3 className='italic text-xl font-extrabold'>THE PROFILE :</h3>
-                                        <div className='flex items-stretch h-full space-x-2 rounded-lg bg-accent boxAs'>
-                                            <div className=' md:min-w-[10em] w-[8em] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary'>
+                                        <div className='flex items-stretch h-full sm:space-x-2 rounded-lg bg-accent boxAs'>
+                                            <div className=' sm:w-[16em] w-[-webkit-fill-available] h-[revert] flex items-center justify-center rounded-lg m-2 bg-secondary'>
                                                 {
                                                     user.img === true
                                                         ?
@@ -239,7 +238,7 @@ function AsSeem() {
                                                         </>
                                                 }
                                             </div>
-                                            <menu className='flex flex-col space-y-1 p-2 min-w-[min-content]'>
+                                            <menu className='flex flex-col space-y-1 p-2 w-[-webkit-fill-available]'>
                                                 <h1 className='flex items-center justify-between space-2'>
                                                     <p className='w-[88%] overflow-hidden'><span className={(user.country === null && user.birthday === null) || (user.birthday === null && user.gender === null) ? 'md:text-[11vmin] text-[1.5em] leading-[1em] text-success font-extrabold h-full' : 'text-2xl text-success font-extrabold'}>{user.name}</span></p>
                                                 </h1>
@@ -249,8 +248,16 @@ function AsSeem() {
                                                         user.birthday === null ?
                                                             ''
                                                             :
-                                                            <h1 className='flex items-start flex-col justify-start space-2'>
-                                                                <p className='font-bold text-sm text-drk-l'>Birthday : </p><p className='w-[60%] sm:w-1/2'><span className='text-sm text-drk font-extrabold'>{user.birthday}</span></p>
+                                                            <h1 className='flex items-center justify-start space-x-1 sm:space-x-4 sm:my-4 my-2 mt-4'>
+                                                                <p className={`font-bold text-md `}>
+                                                                    <svg style={{ borderRadius: '0' }} className={`h-6 sm:h-10 `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                                                        <g data-name="calendar android app aplication phone">
+                                                                            <path d="M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM8.7 3.42a63.65 63.65 0 0114.6 0A6 6 0 0127.56 6H4.44A6 6 0 018.7 3.42zM28.58 23.3a6 6 0 01-5.28 5.28 63.65 63.65 0 01-14.6 0 6 6 0 01-5.28-5.28 63.65 63.65 0 010-14.6 5.44 5.44 0 01.15-.7h24.86a5.44 5.44 0 01.15.7 63.65 63.65 0 010 14.6z" />
+                                                                            <path d="M9 11H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM17 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 11h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM9 19H7a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM25 19h-2a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2zm-2 4v-2h2v2zM18.71 19.29a1 1 0 00-1.42 0L16 20.59l-1.29-1.3a1 1 0 00-1.42 1.42l1.3 1.29-1.3 1.29a1 1 0 001.42 1.42l1.29-1.3 1.29 1.3a1 1 0 001.42-1.42L17.41 22l1.3-1.29a1 1 0 000-1.42z" />
+                                                                        </g>
+                                                                    </svg>
+                                                                </p>
+                                                                <p className='w-[60%] sm:w-1/2'><span className={`text-sm sm:text-lg text-black font-bold`}>{user.birthday.replace(/-/g, '/')}</span></p>
                                                             </h1>
                                                     )
                                                 }
@@ -260,8 +267,17 @@ function AsSeem() {
                                                             ?
                                                             ''
                                                             :
-                                                            <h1 className='flex items-start flex-col justify-start space-2'>
-                                                                <p className='font-bold text-sm text-drk-l'>Country : </p><p className='w-[60%] sm:w-1/2'><span className='text-xl text-drk font-extrabold'>{user.country}</span></p>
+                                                            <h1 className='flex items-center justify-start space-x-2 sm:space-x-4 sm:my-4 my-2'>
+                                                                <p className={`font-bold text-md `}>
+                                                                    <svg style={{ borderRadius: '0' }} className={`h-6 sm:h-10 `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                                                                        <g data-name="map android app aplication phone">
+                                                                            <path d="M30.56 8.47a8 8 0 00-7-7 64.29 64.29 0 00-15.06 0 8 8 0 00-7 7 64.29 64.29 0 000 15.06 8 8 0 007 7 64.29 64.29 0 0015.06 0 8 8 0 007-7 64.29 64.29 0 000-15.06zM3.42 23.3a63.65 63.65 0 010-14.6 6 6 0 011.07-2.79L14.59 16 4.49 26.09a6 6 0 01-1.07-2.79zm19.88 5.28a63.65 63.65 0 01-14.6 0 6 6 0 01-2.79-1.07L16 17.41l10.09 10.1a6 6 0 01-2.79 1.07zm5.28-5.28a6 6 0 01-1.07 2.79L5.91 4.49A6 6 0 018.7 3.42a63.65 63.65 0 0114.6 0 6 6 0 015.28 5.28 63.65 63.65 0 010 14.6z" />
+                                                                            <path d="M22 6a4 4 0 00-4 4c0 1.87 2.65 5.8 3.18 6.57a1 1 0 001.64 0C23.35 15.8 26 11.87 26 10a4 4 0 00-4-4zm0 8.18A13.26 13.26 0 0120 10a2 2 0 014 0 13.36 13.36 0 01-2 4.18z" />
+                                                                            <circle cx={22} cy={10} r={1} />
+                                                                        </g>
+                                                                    </svg>
+                                                                </p>
+                                                                <p className='w-[60%] sm:w-1/2'><span className={`text-lg text-black font-extrabold`}>{user.country}</span></p>
                                                             </h1>
                                                     )
 
@@ -352,7 +368,7 @@ function AsSeem() {
                         theme.urls.length === 0 ? '' :
 
 
-                            <div className="container my-4 mb-[3em] m-auto">
+                            <div className="container my-4 px-4 mb-[3em] m-auto">
                                 <div style={{ background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)' }} className="w-full text-secondary boxAs rounded-lg p-4 ">
                                     <h3 style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='italic text-2xl font-extrabold p-2 text-primary'><span style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='text-primary'>{user.name}</span>'s Links</h3>
                                     <div className="space-y-3">
@@ -361,16 +377,16 @@ function AsSeem() {
                                                 grpCheck(urlGrp[0]) ?
                                                     (
                                                         <div style={{ background: 'hsl(var(--b1)/0.6)' }} className=" rounded-lg p-4 w-full">
-                                                            <h3 className='text-xl my-2 p-2 font-bold text-accent '>{urlGrp}</h3>
+                                                            <h3 className='text-xl my-2 p-2 font-bold text-accent text-center'>{urlGrp}</h3>
                                                             <div className="space-y-4 w-full p-4">
                                                                 {
                                                                     theme.urls.map((url) => (
                                                                         <>
                                                                             {
                                                                                 url['grp'] === urlGrp[0] ?
-                                                                                    <a className="w-full block p-0" href={url.link}>
-                                                                                        <button className={`w-full m-auto ${theme.theme.button === null ? 'orangebtn' : theme.theme.button}`}>
-                                                                                            <span style={{ fontFamily: 'sans-serif' }} class="text font-bold  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
+                                                                                    <a className="w-full block p-0 shadow-sm shadow-gray" href={url.link}>
+                                                                                        <button className={`w-full m-auto ${theme.theme.button ? theme.theme.button : 'orangebtn'}`}>
+                                                                                            <span style={{ fontFamily: 'sans-serif' }} class="text font-bold overflow-hidden text-ellipsis whitespace-nowrap"><span className="m-auto">{url.name}</span></span>
                                                                                         </button>
 
                                                                                     </a>
@@ -383,7 +399,6 @@ function AsSeem() {
                                                         </div>
                                                     )
                                                     : ''
-
                                             ))
 
                                         }
@@ -393,9 +408,9 @@ function AsSeem() {
                                                     <>
                                                         {
                                                             ((url['grp'] === null) || (url['grp'] === 'none')) ?
-                                                                <a className="w-full block p-0" href={url.link}>
-                                                                    <button className="w-full m-auto orangebtn">
-                                                                        <span style={{ fontFamily: 'sans-serif' }} class="text font-light  overflow-hidden text-ellipsis whitespace-nowrap">{url.name}</span>
+                                                                <a className="w-[95%]  m-auto block p-0 shadow-sm shadow-gray" href={url.link}>
+                                                                    <button className={`w-full m-auto ${theme.theme.button ? theme.theme.button : 'orangebtn'}`}>
+                                                                        <span style={{ fontFamily: 'sans-serif' }} class="noMoreBreak text font-bold overflow-hidden text-ellipsis whitespace-nowrap"><span className="m-auto">{url.name}</span></span>
                                                                     </button>
                                                                 </a>
                                                                 : ''
@@ -417,7 +432,7 @@ function AsSeem() {
 
 
                 <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
-                    <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
+                    <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] px-4 pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>
                             <section className="my-4  m-auto space-y-4 flex flex-col items-center justify-center w-full">

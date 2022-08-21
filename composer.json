@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "codeat3/blade-carbon-icons": "^2.7",
         "fruitcake/laravel-cors": "^3.0",
         "guzzlehttp/guzzle": "^7.2",
         "inertiajs/inertia-laravel": "^0.6.2",
@@ -13,8 +14,11 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "phattarachai/laravel-mobile-detect": "^1.0",
         "predis/predis": "^2.0",
-        "spatie/laravel-activitylog": "^4.5"
+        "spatie/laravel-activitylog": "^4.5",
+        "stevebauman/location": "^6.5",
+        "victorybiz/geoip-location": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

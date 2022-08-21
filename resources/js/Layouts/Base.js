@@ -7,8 +7,17 @@ import Footer from '../Components/Dashboard/Footer'
 
 export default function Base({ children, title }) {
     const { flash } = usePage().props;
-
-    useEffect(()=>{
+    window.removeSpaceEnd = function (e) {
+        if (typeof (e) === 'string') {
+            while (e[e.length - 1] === ' '){
+                e = e.replace(/\s+$/, '');
+            }
+            return e;
+        } else {
+            return false;
+        }
+    };
+    useEffect(() => {
         flash.type && toast[flash.type](flash.message)
     })
 

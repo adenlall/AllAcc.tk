@@ -61,6 +61,7 @@ class Kernel extends HttpKernel
         'toAdminDash' => \App\Http\Middleware\ToAdminDash::class,
         'adminAccess' => \App\Http\Middleware\AdminationAccess::class,
         'adminRequ' => \App\Http\Middleware\AdminMaxTries::class,
+        'is_admin' => \App\Http\Middleware\Admin\isAdmin::class,
         'admin' => \App\Http\Middleware\Admin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
@@ -72,6 +73,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'translated' => \App\Http\Middleware\Translated::class,
         // 'cors' => \Fruitcake\Cors\HandleCors::class,
+
     ];
 }

@@ -1,0 +1,26 @@
+{
+    "home":{
+        "footer":{
+            "header":{
+                "guest":"Create your account now, 100% free!",
+                "auth":"That's good, look like you are already loged in."
+            },
+            "btn":{
+                "guest":[
+                    "login",
+                    "register"
+                ],
+                "auth":[
+                    "your public page",
+                    "dashboard"
+                ]
+            },
+            "between":"made for your respect"
+        },
+        "chart":[
+            "That number above present the number of actions in the whole website, white actions we mean the number of the accounts & the number of services add by users & how many our pages had fetched... We collect data without any information can specify the user identity, you can read",
+            "Privacy Policy",
+            "for more informations."
+        ]
+    }
+}

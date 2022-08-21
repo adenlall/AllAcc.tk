@@ -1,7 +1,7 @@
 import React from 'react'
 
-function Content() {
-
+function Content(props) {
+    const data = JSON.parse(props.lang);
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="grid gap-10 lg:grid-cols-2">
@@ -20,16 +20,16 @@ function Content() {
                     </div>
                     <div className="max-w-xl mb-6">
                         <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-ago sm:text-4xl sm:leading-none">
-                            Let us analityc
+                            {data.header[0]}
                             <br className="hidden md:block" />
-                            all your{' '}
+                            {data.header[1]}{' '}
                             <span className="inline-block text-deep-purple-accent-400">
-                                accounts
+                            {data.header[2]}
                             </span>
                         </h2>
                         <p className="text-base text-gray-700 md:text-lg">
-                            We can provide to you powerful tools to keep your followors
-                            feel comfortable inside all your differents accounts.
+                            {data.sub[0]}
+                            {data.sub[1]}
                         </p>
                     </div>
                 </div>

@@ -1,18 +1,19 @@
-import { Link, useForm } from '@inertiajs/inertia-react'
+import { Link, useForm, usePage } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
 import React from 'react'
 import Auth from '../../Layouts/Auth'
 
-export default function Login({ errors }) {
+export default function Login() {
+    const { errors } = usePage().props;
     const { data, setData } = useForm({
         email: '', password: '', remember: '',
     })
 
     const changeHandler = (e) => setData({ ...data, [e.target.id]: e.target.value })
 
-    // function submitHandler(e){
-        // Inertia.post('/login', data);
-    // }
+    function submitHandler(){
+        Inertia.post('/login', data);
+    }
     return (
         <>
             <div className='w-full flex flex-col items-center justify-center content-center'>
@@ -53,10 +54,10 @@ export default function Login({ errors }) {
                         </label>
                     </div>
                     <div className="form-control mt-6 w-full max-w-xs">
-                        <Link as="button" method='post' data={data} href="/login" className="btn btn-primary w-fit">Submit</Link>
+                        <button onClick={()=>{submitHandler()}} className="btn btn-primary w-full">Login</button>
                     </div>
                     <div className="form-control w-full max-w-xs mt-2">
-                        <div className='text-main text-sm italic'>Don't have account yet, <Link className='text-white hover:text-main' href="/register" >Register</Link> now!</div>
+                        <Link className='btn btn-outline btn-accent hover:text-white text-main w-full' href="/register" >Register</Link>
                     </div>
 
                 </div>
@@ -65,4 +66,4 @@ export default function Login({ errors }) {
         </>
     )
 }
-Login.layout = (page) => <Auth children={page} title={"Login"} />
+Login.layout = (page) => <Auth children={page} title={"Login - AllAcc"} />

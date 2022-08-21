@@ -5,7 +5,9 @@ namespace App\Http\Middleware;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\File;
 use Inertia\Middleware;
+use Jenssegers\Agent\Facades\Agent;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -63,7 +65,63 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'type' => $request->session()->get('type'),
                 'message' => $request->session()->get('message'),
-            ]
+            ],
+            'lang' => fn () => $request->path() === '/' ?
+                ($request->cookie('lang') !== null ?
+                    (File::exists(resource_path("lang/{$request->cookie('lang')}/" . str_replace('/', '_', $request->path() . ".json")))
+                        ?
+                        (json_decode(File::get(resource_path("lang/{$request->cookie('lang')}/" . str_replace('/', '_', $request->path()) . ".json")), true)
+                        )
+                        : (json_decode(File::get(resource_path("lang/en/" . str_replace('/', '_', $request->path()) . ".json")), true)
+                        )
+                    )
+                    : (File::exists(resource_path("lang/" . Agent::languages()[0] . "/" . str_replace('/', '_', $request->path() . ".json")))
+                        ?
+                        (json_decode(File::get(resource_path("lang/" . Agent::languages()[0] . "/" . str_replace('/', '_', $request->path()) . ".json")), true)
+                        )
+                        : (File::exists(resource_path("lang/" . Agent::languages()[1] . "/" . str_replace('/', '_', $request->path() . ".json")))
+                            ?
+                            (json_decode(File::get(resource_path("lang/" . Agent::languages()[1] . "/" . str_replace('/', '_', $request->path()) . ".json")), true)
+                            )
+                            : (json_decode(File::get(resource_path("lang/en/" . str_replace('/', '_', $request->path()) . ".json")), true)
+                            )
+                        )
+                    )
+                )
+                : 'not supported translated route - Lang::en',
+            'ibd' => fn () => ($request->path() === '/' OR $request->path() === 'about' )? (
+                    $request->cookie('lang') !== null ?
+                    (
+                        File::exists(resource_path("lang/{$request->cookie('lang')}/index.json"))
+                        ?
+                        (
+                            json_decode(File::get(resource_path("lang/{$request->cookie('lang')}/index.json")), true)
+                        )
+                        : 
+                        (
+                            json_decode(File::get(resource_path("lang/en/index.json")), true)
+                        )
+                    )
+                    : 
+                    (
+                        File::exists(resource_path("lang/" . Agent::languages()[0] . "/index.json"))
+                        ?
+                        (
+                            json_decode(File::get(resource_path("lang/" . Agent::languages()[0] . "/index.json")), true)
+                        )
+                        : 
+                        (
+                            File::exists(resource_path("lang/" . Agent::languages()[1] . "/index.json"))
+                            ?
+                            (json_decode(File::get(resource_path("lang/" . Agent::languages()[1] . "/index.json")), true)
+                            )
+                            : (json_decode(File::get(resource_path("lang/en/index.json")), true)
+                            )
+                        )
+                    )
+                )
+                : 'not supported translated route - Lang:en',
+                '__lang__' => $request->cookie('lang') ? $request->cookie('lang') : 'english'
         ]);
     }
 }

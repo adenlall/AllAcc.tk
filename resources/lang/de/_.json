@@ -1,0 +1,58 @@
+{
+    "header": {
+        "sky": "DER HIMMEL IST DIE GRENZE",
+        "header": [
+            "Allacc",
+            "hier, wo sich alle Konten rund um das Netz treffen"
+        ],
+        "sub": "Verwalten Sie den Zugriff auf Ihre Facebook-, Instagram-, Telegramm-, Github-Konten und viele weitere Tools, um beim nächsten Mal die richtige Entscheidung zu treffen.",
+        "btn": "LOS GEHT'S",
+        "terms": ["Mit der Erstellung eines Kontos akzeptieren Sie alle ","Bedingungen und unsere Datenschutzerklärung."]
+    },
+    "content": {
+        "header": [
+            "Lassen Sie uns analityc",
+            "alle Ihre",
+            "Konten"
+        ],
+        "sub": [
+            "Wir können Ihnen leistungsstarke Tools zur Verfügung stellen, um Ihre Anhänger zu halten",
+            "Fühlen Sie sich in all Ihren verschiedenen Konten wohl."
+        ]
+    },
+    "feature": {
+        "header": [
+            "Genießen",
+            "AllAcc",
+            "Funktionen und trotzdem können Sie immer dazu beitragen, weitere Funktionen in unserem Open-Source-Projekt auf"
+        ],
+        "items": [
+            {
+                "header": "Verfolgen Sie alle Tragödien.",
+                "sub": "Behalten Sie den gesamten Traffic auf Ihrer Seite im Auge, besuchen Sie mehr Konten und erhalten Sie stärkere Analitäten."
+            },
+            {
+                "header": "Saubere Benutzeroberfläche",
+                "sub": "Saubere und fantastische Benutzeroberfläche, um den Datenverkehr zwischen Ihren Konten reibungsloser und moderner zu gestalten."
+            },
+            {
+                "header": "Frei & Open Source",
+                "sub": "Genießen Sie alle unsere Dienstleistungen 100% kostenlos, Open Source & keine Werbung & kein Tracking..., der Himmel ist die Grenze."
+            }
+        ]
+    },
+    "steps": [
+        {
+            "header": "Erstellen Sie ein Konto",
+            "sub": "Erstellen Sie hier ein Konto ist viel einfacher, als Sie denken, dass ein Fiew Eingaben zu füllen ist, und Sie werden in Ihrem Dashboard sein."
+        },
+        {
+            "header": "Fügen Sie alle Ihre Konten und Links hinzu",
+            "sub": "Wählen Sie in Ihrem Dashboard alle sozialen Apps aus, die Sie in einem Konto haben, schreiben Sie Ihren Benutzernamen und senden Sie ihn in jede einzelne."
+        },
+        {
+            "header": "Shair your link",
+            "sub": "Verschmutzen Sie den Link, der in Ihrem Dashboard in allen Ihren Social-Media-Konten angegeben ist."
+        }
+    ]
+}

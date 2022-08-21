@@ -1,0 +1,26 @@
+{
+    "home": {
+      "footer": {
+        "header": {
+          "guest": "Erstellen Sie jetzt Ihr Konto, 100% kostenlos!",
+          "auth": "Das ist gut, sehen Sie so aus, als wären Sie bereits eingeloggt."
+        },
+        "btn": {
+          "guest": [
+            "login",
+            "registrieren"
+          ],
+          "auth": [
+            "Ihre öffentliche Seite",
+            "Instrumententafel"
+          ]
+        },
+        "between": "für Ihren Respekt gemacht"
+      },
+      "chart": [
+        "Diese Zahl oben stellt die Anzahl der Aktionen auf der gesamten Website dar, weiße Aktionen meinen wir die Anzahl der Konten und die Anzahl der von Benutzern hinzugefügten Dienste und wie viele unsere Seiten abgerufen hatten ... Wir sammeln Daten, ohne dass Informationen die Benutzeridentität angeben können, die Sie lesen können",
+        "Datenschutzrichtlinie",
+        "für weitere Informationen."
+      ]
+    }
+  }

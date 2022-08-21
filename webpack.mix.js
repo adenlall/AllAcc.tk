@@ -15,8 +15,8 @@ mix.js('resources/js/app.js', 'public/js')
     .react()
     .postCss('resources/css/app.css', 'public/css', [
         require("tailwindcss"),
-        require('autoprefixer'),
     ]);
 
 mix.browserSync('127.0.0.1:8000');
+// mix.browserSync('localhost:8000');
 

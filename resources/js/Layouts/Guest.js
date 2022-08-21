@@ -6,20 +6,20 @@ import React, { useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 
 
-export default function Guest({children, title}) {//resources/js/Components/Guest/Statistic.jsx
-    const { flash } = usePage().props;
-
-    useEffect(()=>{
+export default function Guest({ children, title }) {//resources/js/Components/Guest/Statistic.jsx
+    const { flash, ibd } = usePage().props;
+    useEffect(() => {
         flash.type && toast[flash.type](flash.message)
     })
 
     return (
-    <div className='bg-ap3'>
-        <Head title={ title } />
-        <Navbar/>
-        {children}
-        <Statistic/>
-        <Footer/>
-    </div>
-  )
+        <div className='bg-ap3'>
+            <Head title={title} />
+            <Toaster />
+            <Navbar />
+            {children}
+            <Statistic lang={JSON.stringify(ibd.home.chart)} />
+            <Footer lang={JSON.stringify(ibd.home.footer)} />
+        </div>
+    )
 }

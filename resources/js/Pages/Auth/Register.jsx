@@ -89,5 +89,5 @@ export default function Register({ errors }) {
     )
 }
 
-Register.layout = (page) => <Auth children={page} title={"Register"} />
+Register.layout = (page) => <Auth children={page} title={"Register - AllAcc"} />
 

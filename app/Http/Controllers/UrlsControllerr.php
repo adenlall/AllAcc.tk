@@ -25,8 +25,8 @@ class UrlsControllerr extends Controller
                 }
             }
         }
-        if ($request->to === 'grp') {
-            array_push($path['config']['urlsGrps'], [$request->data]);
+        if ($request->to === 'grp' && count($path['config']['urlsGrps'])<= 8) {
+            $path['config']['urlsGrps'][] = [$request->data];
         }
         if ($request->to === 'delgrp') {
             for ($i = 0; $i < count($path['urls']); $i++) {
@@ -42,7 +42,7 @@ class UrlsControllerr extends Controller
                 }
             }
         }
-        if ($request->to === "default") {
+        if ($request->to === "default" && count($path['urls']) <= 15) {
             $val = $request->validate([
                 'name' => ['required'],
                 'link' => ['required', 'url'],
@@ -72,6 +72,7 @@ class UrlsControllerr extends Controller
                 array_push($path['urls'], ['name' => $request->name, 'link' => $request->link, 'grp' => null, 'id' => ($num + 1)]);
             }
         }
+
         $user->update([
             'json_config' => json_encode($path),
         ]);
@@ -80,5 +81,6 @@ class UrlsControllerr extends Controller
             'type' => 'success',
             'message' => "done!"
         ]);
+
     }
 }

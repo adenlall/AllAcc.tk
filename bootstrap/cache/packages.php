@@ -1,4 +1,18 @@
 <?php return array (
+  'blade-ui-kit/blade-icons' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
+    ),
+  ),
+  'codeat3/blade-carbon-icons' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Codeat3\\BladeCarbonIcons\\BladeCarbonIconsServiceProvider',
+    ),
+  ),
   'fruitcake/laravel-cors' => 
   array (
     'providers' => 
@@ -66,6 +80,17 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'phattarachai/laravel-mobile-detect' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Phattarachai\\LaravelMobileDetect\\AgentServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Agent' => 'Phattarachai\\LaravelMobileDetect\\Facades\\Agent',
+    ),
+  ),
   'spatie/laravel-activitylog' => 
   array (
     'providers' => 
@@ -82,6 +107,28 @@
     'aliases' => 
     array (
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
+    ),
+  ),
+  'stevebauman/location' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Stevebauman\\Location\\LocationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Location' => 'Stevebauman\\Location\\Facades\\Location',
+    ),
+  ),
+  'victorybiz/geoip-location' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Victorybiz\\GeoIPLocation\\GeoIPLocationServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'GeoIPLocation' => 'Victorybiz\\GeoIPLocation\\Facades\\GeoIPLocationFacade',
     ),
   ),
 );

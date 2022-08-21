@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Request as FacadesRequest;
-use Stevebauman\Location\Facades\Location;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +12,11 @@ use App\Models\Service;
 use Inertia\Inertia;
 use App\Models\User;
 use Exception;
+use Jenssegers\Agent\Agent;
+use Victorybiz\GeoIPLocation\GeoIPLocation;
 use Zarei\UserAgentParser\Facades\UserAgentParser;
+use Stevebauman\Location\Facades\Location;
+
 
 class AsSeemController extends Controller
 {
@@ -26,63 +28,85 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $sp_user = User::where('username', $path)->select(['visit'])->cursor()->first();
-            // $locate = json_decode($sp_user->json_locate, true);
-            // $ip = FacadesRequest::ip();
-            // $coun = (Location::get($ip) !== false) ? Location::get($ip)->countryName : 'locate';
+            $ip = request()->ip();
+            // $ip = "209.242.29.87";
+            $geoip = new GeoIPLocation();
 
+            if ($geoip->getCountry() !== false) {
 
-            
-            // $parsed = UserAgentParser::parse(request()->userAgent());
-            // $os = $parsed->os();
-            // $device = $parsed->device();
-            // $browser = $parsed->browser();
+                $to_for = ['os', 'device', 'browser', 'lang'];
 
-            // if (count($locate['logs']) === 0) {
-            //     array_push($locate['logs'], ['agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
-            // } else {
-            //     if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
-            //         array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os->name, 'count' => 1]], 'device' => [['name' => $device->type, 'count' => 1]],  'browser' => [['name' => $browser->name, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $coun, 'count' => 1]]]);
-            //         dd('else if');
-            //     } else {
-            //         $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
-            //         $index = true;
-            //         for ($i = 0; $i < count($locate['logs'][count($locate['logs']) - 1]['srcs']); $i++) { //
-            //             if ($locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['country'] === $coun) {
-            //                 $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] = $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] + 1;
-            //                 if (!in_array($ip, $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'])) {
-            //                     $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'][] = $ip;
-            //                 }
-            //                 $index = false;
-            //                 break;
-            //             }
-            //         }
-            //         if ($index) {
-            //             array_push($locate['logs'][count($locate['logs']) - 1]['srcs'], ['ips' => [$ip], 'country' => $coun, 'count' => 1]);
-            //         }
-            //         $to_for = ['os', 'device', 'browser'];
-            //         for ($i = 0; $i < count($to_for); $i++) { //
-            //             for ($in = 0; $in < count($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]]); $in++) { //
-            //                 $is = true;
-            //                 if ($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['name'] ===  ($to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type)) {
-            //                     $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] = $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] + 1;
-            //                     $is = false;
-            //                     break;
-            //                 }
-            //             }
-            //             if ($is) array_push($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]], ['name' => $to_for[$i] !== 'device' ? ${$to_for[$i]}->name : ${$to_for[$i]}->type, 'count' => 1]);
-            //         }
-            //     }
-            // }
-            $sp_user->update([
-                'visit'       => $sp_user->visit+1,
-                // 'json_locate' => json_encode($locate),
-            ]);
+                $sp_user = User::where('username', $path)->get()->first();
+                $locate = json_decode($sp_user->json_locate, true);
+
+                $agent = new Agent();
+                // dd($agent->languages(), $ip,Location::get($ip));
+                $cntr = $geoip->getCountry();
+
+                $os =  $agent->platform();
+                $device = $agent->device();
+                $browser = $agent->browser();
+                $lang = $agent->languages();
+                if(gettype($lang) === 'array'){
+                    foreach ($lang as $ln) {
+                        if(strlen($ln) === 2){
+                            $lang = $ln;
+                            break;
+                        }
+                    }
+                }
+                if(gettype($lang) === 'array'){
+                    $lang = $lang[0];
+                }
+                // $locate['logs'] = [];
+
+                if (count($locate['logs']) === 0) {
+                    array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]], 'lang' => [['name' => $lang, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                } else {
+                    if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
+                        array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]], 'lang' => [['name' => $lang, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                        // dd('else if');
+                    } else {
+                        $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
+                        $index = true;
+                        for ($i = 0; $i < count($locate['logs'][count($locate['logs']) - 1]['srcs']); $i++) { //
+                            if ($locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['country'] === $cntr) {
+                                $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] = $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['count'] + 1;
+                                if (!in_array($ip, $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'])) {
+                                    $locate['logs'][count($locate['logs']) - 1]['srcs'][$i]['ips'][] = $ip;
+                                }
+                                $index = false;
+                                break;
+                            }
+                        }
+                        if ($index) {
+                            array_push($locate['logs'][count($locate['logs']) - 1]['srcs'], ['ips' => [$ip], 'country' => $cntr, 'count' => 1]);
+                        }
+                        for ($i = 0; $i < count($to_for); $i++) { //
+                            for ($in = 0; $in < count($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]]); $in++) { //
+                                $is = true;
+                                if ($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['name'] ===  ${$to_for[$i]}) {
+                                    $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] = $locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]][$in]['count'] + 1;
+                                    $is = false;
+                                    break;
+                                }
+                            }
+                            if ($is) array_push($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]], ['name' => ${$to_for[$i]}, 'count' => 1]);
+                        }
+                    }
+                }
+                $sp_user->update([
+                    'visit'       => $sp_user->visit + 1,
+                    'json_locate' => json_encode($locate),
+                ]);
+                $sp_user->save();
+                // dd($locate);
+            }
 
 
 
             $user = Cache::remember($path . 'asseem', now()->addMinutes(3), function () use ($path) {
-                return User::where('username', $path)->select(['id', 'name','artist', 'track', 'username', 'email', 'age', 'gender', 'birthday', 'country', 'quote', 'json_config'])->cursor()->first();
+                return User::where('username', $path)->select(['id', 'name', 'artist', 'track', 'username', 'email', 'age', 'gender', 'birthday', 'country', 'quote', 'json_config'])->cursor()->first();
             });
 
             $rec = DB::table('statistic')->where('page', 'AsSeem');
@@ -93,8 +117,8 @@ class AsSeemController extends Controller
                 $rec->increment('guest_v');
             }
 
-
-            $services = Cache::remember($path."_s", now()->addMinutes(4), function () use ($path) {
+            // dd(Service::where('username', $path)->first()->cursor(), count(Service::where('username', $path)->first()->cursor()));
+            $services = Cache::remember($path . "_services_", now()->addMinutes(4), function () use ($path) {
                 return Service::where('username', $path)->cursor()->first();
             });
 
@@ -121,21 +145,42 @@ class AsSeemController extends Controller
             }
 
 
+            $ui = json_decode($user->json_config, true);
 
+            if (!array_key_exists('UI', $ui)) {
+                $ui += ['UI' => ['type' => "JSX"]];
+            }
 
-            if ($user->artist !== null) {
-                $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
-                try {
-                    $resop = Cache::remember($user->username."_soung", now()->addMinutes(2), function () use ($deezURL) {
-                        return Http::retry(2)->get($deezURL)->json();
-                    });
-                    return Inertia::render('AsSeem', [
-                        "soung" => $resop["data"][0],
-                        "user" => $user,
-                        "services" => $services,
-                        "services_config" => $services_config,
-                    ]);
-                } catch (Exception $ex) {
+            if ($ui['UI']['type'] === 'Blade') {
+                return view('app', [
+                    "cosui" => $ui['UI']['costume0'],
+                    "user" => $user,
+                    "services" => $services,
+                    "services_config" => $services_config,
+                ]);
+            } else {
+
+                if ($user->artist !== null) {
+                    $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
+                    try {
+                        $resop = Cache::remember($user->username . "_soung", now()->addMinutes(2), function () use ($deezURL) {
+                            return Http::retry(2)->get($deezURL)->json();
+                        });
+                        return Inertia::render('AsSeem', [
+                            "soung" => $resop["data"][0],
+                            "user" => $user,
+                            "services" => $services,
+                            "services_config" => $services_config,
+                        ]);
+                    } catch (Exception $ex) {
+                        return Inertia::render('AsSeem', [
+                            "soung" => null,
+                            "user" => $user,
+                            "services" => $services,
+                            "services_config" => $services_config,
+                        ]);
+                    }
+                } else {
                     return Inertia::render('AsSeem', [
                         "soung" => null,
                         "user" => $user,
@@ -143,13 +188,6 @@ class AsSeemController extends Controller
                         "services_config" => $services_config,
                     ]);
                 }
-            } else {
-                return Inertia::render('AsSeem', [
-                    "soung" => null,
-                    "user" => $user,
-                    "services" => $services,
-                    "services_config" => $services_config,
-                ]);
             }
         } else {
             return abort(404);

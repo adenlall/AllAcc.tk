@@ -1,13 +1,14 @@
 import { Link } from '@inertiajs/inertia-react';
 
-function Header() {
+function Header(props) {
 
+    const data = JSON.parse(props.lang);
     return (
         <div className="flex flex-col items-center justify-center max-w-2xl px-4 pt-16 mx-auto sm:max-w-xl md:max-w-2xl lg:pt-32 md:px-8" style={{'background':'linear-gradient(87deg, #f7ede2, #042b2833, #f7ede2 )'}} >
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                 <div>
                     <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-ap1 uppercase rounded-full bg-teal-accent-400">
-                        <span className="itt hover:text-white">THE SKY IS THE LIMIT</span>
+                        <span className="itt hover:text-white">{data.sky}</span>
                     </p>
                 </div>
                 <h1 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
@@ -35,10 +36,10 @@ function Header() {
                         </svg>
                         <span className="relative itt">AllAcc</span>
                     </span>{' '}
-                    here where all accounts around the net meet
+                    {data.header[1]}
                 </h1>
                 <h2 className="text-base text-gray-700 md:text-lg">
-                    Manage the access to your Facebook, Instagram, Telegram, Github Accounts and much more tools to take the right decision in next time.
+                    {data.sub}
                 </h2>
             </div>
             <form className="flex flex-col items-center justify-center w-full mb-4 md:flex-row md:px-16">
@@ -48,11 +49,12 @@ function Header() {
                     href='/register'
                     className="btn btn-primary"
                 >
-                    Let's start
+                    {data.btn}
                 </Link>
             </form>
             <p className="max-w-md mb-10 text-xs text-gray-600 sm:text-sm md:text-center">
-                By creating account you accept all terms and our <Link href="/privacy">Privacy</Link> policy.
+                {data.terms[0]}
+                <Link href="/privacy">{data.terms[1]}</Link>.
             </p>
             <img
                 src="https://kitwind.io/assets/kometa/half-phone.png"

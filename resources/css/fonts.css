@@ -1,4 +1,14 @@
 
+
+.noMoreBreak{
+    display: -webkit-inline-box;
+    width: 100%;
+    width: -moz-available;
+    width: -webkit-fill-available;
+    width: fill-available;
+    display: flex;
+}
+
 @font-face {
     font-family: "BeatWord";
     src: url(/fonts/BeatWord.ttf);
