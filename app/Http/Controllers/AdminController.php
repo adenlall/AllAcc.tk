@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 
+use function PHPSTORM_META\type;
+
 class AdminController extends Controller
 {
     //
@@ -55,9 +57,9 @@ class AdminController extends Controller
         ])->first();
 
         if ($record === null) {
-            
+
             $ind = $num ? $num : 1;
-            $request->session()->put('try', Crypt::encrypt($ind+1));
+            $request->session()->put('try', $ind+1);
 
             Admin::where('username', $request->username)->increment('visit');
             return redirect('admin')->with([

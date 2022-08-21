@@ -21,7 +21,7 @@ class AdminMaxTries
     public function handle(Request $request, Closure $next)
     {
         if ($request->session()->has('try')) {
-            if (Crypt::decrypt(session()->get('try')) >= 3) {
+            if (session()->get('try') >= 3) {
                 // dd('heerre');
                 // dd('max tries" fuck off');
                 Session::flush();
@@ -32,7 +32,7 @@ class AdminMaxTries
             }
 
         } else {
-            $request->session()->put('try', Crypt::encrypt(1));
+            $request->session()->put('try', 1);
             return $next($request);
         }
     }

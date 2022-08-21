@@ -27,7 +27,7 @@ class AdminPagesController extends Controller
 
                 if(Admin::where('token',$tk)->exists()){
                     $dm = Admin::where('token',$tk)->get()->first();
-                    return redirect("/admin/{$dm->username}/statistic");
+                    return redirect("admin/{$dm->username}/statistic");
                 }else{
                     Session::flush();
                     Auth::logout();
@@ -35,7 +35,7 @@ class AdminPagesController extends Controller
                 }
 
             }else{
-                return redirect('/admin');
+                return redirect('admin');
             }
         }
 

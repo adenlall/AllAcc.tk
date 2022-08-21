@@ -25,7 +25,7 @@ class LoginController extends Controller
     {
 
 
-        if(Auth::check()){            
+        if(Auth::check()){
             return redirect('/dashboard');
         }else{
         // security...
@@ -46,10 +46,10 @@ class LoginController extends Controller
             if(($request->email === env("ADMIN")) && ($request->password === env("PASS")))
             {
                 session()->regenerate();
-                return redirect('/admin');
+                return redirect('admin');
             }else{
                 session()->regenerate();
-                return redirect('/dashboard');
+                return redirect('dashboard');
             }
 
 

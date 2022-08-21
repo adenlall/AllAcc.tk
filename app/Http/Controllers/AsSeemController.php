@@ -30,8 +30,9 @@ class AsSeemController extends Controller
 
             $ip = request()->ip();
             // $ip = "209.242.29.87";
+            $geoip = new GeoIPLocation();
 
-            if (Location::get($ip) !== false) {
+            if ($geoip->getCountry() !== false) {
 
                 $to_for = ['os', 'device', 'browser', 'lang'];
 
@@ -40,8 +41,8 @@ class AsSeemController extends Controller
 
                 $agent = new Agent();
                 // dd($agent->languages(), $ip,Location::get($ip));
-                $cntr = Location::get($ip)->countryName;
-                
+                $cntr = $geoip->getCountry();
+
                 $os =  $agent->platform();
                 $device = $agent->device();
                 $browser = $agent->browser();
@@ -50,7 +51,7 @@ class AsSeemController extends Controller
                     foreach ($lang as $ln) {
                         if(strlen($ln) === 2){
                             $lang = $ln;
-                            break; 
+                            break;
                         }
                     }
                 }

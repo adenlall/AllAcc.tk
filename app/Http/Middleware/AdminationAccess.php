@@ -26,7 +26,7 @@ class AdminationAccess
                 // dd('fine');
                 return $next($request);
             }else{
-                return redirect('/about');
+                return redirect('/');
             }
 
         }else{

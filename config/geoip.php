@@ -148,9 +148,9 @@ return [
 
     'default_location' => [
         'ip' => '127.0.0.0',
-        'iso_code' => 'US',
-        'country' => 'United States',
-        'city' => 'New Haven',
+        'iso_code' => 'WW',
+        'country' => 'World wide',
+        'city' => 'Moon',
         'state' => 'CT',
         'state_name' => 'Connecticut',
         'postal_code' => '06510',
