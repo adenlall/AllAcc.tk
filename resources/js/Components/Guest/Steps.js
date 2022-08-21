@@ -1,8 +1,9 @@
 import { Link } from '@inertiajs/inertia-react';
 import React from 'react'
 
-function Steps() {
+function Steps(props) {
 
+    const data = JSON.parse(props.lang);
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="grid max-w-2xl mx-auto">
@@ -33,10 +34,10 @@ function Steps() {
                         </div>
                         <div>
                             <p className="text-xl font-semibold sm:text-[1.5em] text-black">
-                                <Link href="/register">Creat an account</Link>
+                                <Link href="/register">{data[0].header}</Link>
                             </p>
                             <p className="text-sm text-gray-700">
-                                Create an account here is much easy than you think a fiew inputs to fill and you will be inside your dashboard.
+                                {data[0].sub}
                             </p>
                         </div>
                     </div>
@@ -67,9 +68,9 @@ function Steps() {
                             </div>
                         </div>
                         <div>
-                            <p className="text-xl font-semibold sm:text-[1.5em] text-black">Add all your accounts</p>
+                            <p className="text-xl font-semibold sm:text-[1.5em] text-black">{data[1].header}</p>
                             <p className="text-sm text-gray-700">
-                                In your dashboard select all the social apps that you have in them an account, write your username and submit in each one.
+                                {data[1].sub}
                             </p>
                         </div>
                     </div>
@@ -100,9 +101,9 @@ function Steps() {
                             </div>
                         </div>
                         <div>
-                            <p className="text-xl font-semibold sm:text-[1.5em] text-black">Shair the link</p>
+                            <p className="text-xl font-semibold sm:text-[1.5em] text-black">{data[2].header}</p>
                             <p className="text-sm text-gray-700">
-                                Shair the link given in your dashboard in all your social media accounts.
+                                {data[2].sub}
                             </p>
                         </div>
                     </div>

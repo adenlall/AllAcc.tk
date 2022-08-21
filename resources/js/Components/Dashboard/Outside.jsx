@@ -18,13 +18,14 @@ export default function Outside() {
     }
 
     const cll = () => {
-        let data = document.querySelector('#place').value;
+        let data = removeSpaceEnd(document.querySelector('#place').value);
 
         if (data === "" || data === null || data.match(" ") !== null) {
             toast['error']("we can't submit this!");
         } else {
+            console.log(advanced.from.length, advanced.from, advanced, advanced.length);
            if(check_if_repeated(data)){
-            if(advanced.length <= 8){
+            if(advanced.from.length <= 8){
                 Inertia.post('/advanced/set?is=outside&action=add', { data: data }, { restOnSuccess: false, preserveScroll: true });
             }else{
                 toast['error']("8 outside sources is the max!");
@@ -70,7 +71,7 @@ export default function Outside() {
                             )
                             :
                             (
-                                <div className="w-full rounded-lg p-4 bg-ago flex flex-col items-center justify-center spce-y-2">
+                                <div className="w-full rounded-lg p-8 bg-ago flex flex-col items-center justify-center spce-y-2">
                                     <h4 className="text-sm italic text-[#3c3c3c]">Add your outside sources from the input above to see them here</h4>
                                         <article className="text-[#3c3c3c] w-[inherit]">
                                             <h3 className="text-xl font-bold m-auto text-center ">What's this ?</h3>
@@ -86,11 +87,6 @@ export default function Outside() {
                                 </div>
                             )
                     }
-                </div>
-
-                <h2 className="text-lg font-bold my-4">Costum HTML : </h2>
-                <div className="flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago">
-                    This feature not available now for some security issues
                 </div>
 
 

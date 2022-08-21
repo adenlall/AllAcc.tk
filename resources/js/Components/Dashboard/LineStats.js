@@ -8,21 +8,25 @@ function LineStats(props) {
     const myarr = [];
     const config = [];
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) { //  [key] => value
             myarr[data[i]['on']] = data[i]['visits'];
     }
 
 
-    let curentDate = moment(new Date());
+    let xy = moment(new Date());
+    
     for (let i = 0; i < 7; i++) {
-        let xy = curentDate.subtract(1, "days");
-        xy = xy.format("YYYY-MM-DD");
-        if(myarr[xy]!==undefined){
-            config.push({on:xy,visits:myarr[xy]})
+        let ddy = xy.subtract(i, 'days').format("YYYY-MM-DD");
+        console.info('(-____-)');
+        console.log(ddy);
+        
+        if(myarr[ddy]!==undefined){
+            config.push({on:ddy,visits:myarr[ddy]})
         }else{
-            config.push({on:xy,visits:0})
+            config.push({on:ddy,visits:0})
         }
     }
+    
     config.reverse();
 
     return (

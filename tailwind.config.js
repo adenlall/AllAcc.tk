@@ -126,6 +126,7 @@ module.exports = {
     theme: {
         extend: {
             screens: {
+                "xx": "220px",
                 "xs": "300px",
                 "ss": "350px",
                 "ls": "450px",
@@ -146,8 +147,6 @@ module.exports = {
     },
     plugins: [
         require("daisyui"),
-        require('tailwindcss'),
-        require('autoprefixer'),
     ],
 
 

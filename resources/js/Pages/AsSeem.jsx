@@ -85,7 +85,7 @@ function AsSeem() {
                                                     ?
                                                     (
                                                         <>
-                                                            <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-[-webkit-fill-available] rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif' }} >click to show/hide it embed</label>
+                                                            <label for={`my-modal-${i}`} className="cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-inherit rounded-b-lg rounded-t-none" style={{ 'fontFamily': 'sans-serif', 'width':'inherit' }} >click to show/hide it embed</label>
 
                                                             <input type="checkbox" id={`my-modal-${i}`} class="modal-toggle" />
 
@@ -191,7 +191,7 @@ function AsSeem() {
 
                 <div className='mt-16 h-[2em]' style={{ 'borderRadius': '0', "background": "linear-gradient(360deg, hsl(var(--b1)), hsl(var(--b1)), hsl(var(--b1)/.8), hsl(var(--b1) / .5), transparent)" }}></div>
                 <div className='w-full pb-[2em] bg-base-100 mb-[-1.5em]' style={{ 'borderRadius': '0' }} >
-                    <div className=' container m-auto pt-3 px-4 sm:px-0'>
+                    <div className=' container m-auto pt-3 px-4'>
 
                         {/* CTA */}
                         <div className=' m-auto my-12'>
@@ -368,7 +368,7 @@ function AsSeem() {
                         theme.urls.length === 0 ? '' :
 
 
-                            <div className="container my-4 mb-[3em] m-auto">
+                            <div className="container my-4 px-4 mb-[3em] m-auto">
                                 <div style={{ background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)' }} className="w-full text-secondary boxAs rounded-lg p-4 ">
                                     <h3 style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='italic text-2xl font-extrabold p-2 text-primary'><span style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='text-primary'>{user.name}</span>'s Links</h3>
                                     <div className="space-y-3">
@@ -432,7 +432,7 @@ function AsSeem() {
 
 
                 <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
-                    <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] pb-[2em]' >
+                    <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] px-4 pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>
                             <section className="my-4  m-auto space-y-4 flex flex-col items-center justify-center w-full">

@@ -1,0 +1,26 @@
+{
+    "home": {
+      "footer": {
+        "header": {
+          "guest": "Tạo tài khoản của bạn ngay bây giờ, miễn phí 100%!",
+          "auth": "Điều đó thật tốt, có vẻ như bạn đã đăng nhập."
+        },
+        "btn": {
+          "guest": [
+            "Đăng nhập",
+            "Đăng ký"
+          ],
+          "auth": [
+            "trang công khai của bạn",
+            "bảng điều khiển"
+          ]
+        },
+        "between": "được tạo ra cho sự tôn trọng của bạn"
+      },
+      "chart": [
+        "Con số đó ở trên trình bày số lượng hành động trong toàn bộ trang web, hành động trắng mà chúng tôi muốn nói đến số lượng tài khoản và số lượng dịch vụ được người dùng thêm vào và số lượng trang của chúng tôi đã tìm nạp... Chúng tôi thu thập dữ liệu mà không có bất kỳ thông tin nào có thể chỉ định danh tính người dùng, bạn có thể đọc",
+        "Chính sách bảo mật",
+        "để biết thêm thông tin."
+      ]
+    }
+  }

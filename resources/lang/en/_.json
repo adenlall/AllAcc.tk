@@ -1,0 +1,58 @@
+{
+    "header":{
+        "sky":"THE SKY IS THE LIMIT",
+        "header":[
+            "allacc",
+            "here where all accounts around the net meet"
+        ],
+        "sub":"Manage the access to your Facebook, Instagram, Telegram, Github Accounts and much more tools to take the right decision in next time.",
+        "btn":"LET'S START",
+        "terms":["By creating account you accept all terms and our "," Privacy policy."]
+    },
+    "content":{
+        "header":[
+            "Let us analityc",
+            "all your",
+            "accounts"
+        ],
+        "sub":[
+            "We can provide to you powerful tools to keep your followors",
+            "feel comfortable inside all your differents accounts."
+        ]
+    },
+    "feature":{
+        "header":[
+            "Enjoy",
+            "AllAcc",
+            "features and still always you can contribute in bulding more features on our open source project on"
+        ],
+        "items":[
+            {
+                "header":"Follow all trafics",
+                "sub":"Keep an eye on all traffic on your page, get the more account visited and more powerful analitycs."
+            },
+            {
+                "header":"Clean UI",
+                "sub":"Clean & Awesome UI to make the traffic between your accounts smoother, and modern."
+            },
+            {
+                "header":"Free & Open source",
+                "sub":"Enjoy all our services 100% free, open source & no ads & no tracking..., the sky is the limit."
+            }
+        ]
+    },
+    "steps":[
+        {
+            "header":"Create an account",
+            "sub":"Create an account here is much easy than you think a fiew inputs to fill and you will be inside your dashboard."
+        },
+        {
+            "header":"Add all your accounts and links",
+            "sub":"In your dashboard select all the social apps that you have in them an account, write your username and submit in each one."
+        },
+        {
+            "header":"Shair your link",
+            "sub":"Shair the link given in your dashboard in all your social media accounts."
+        }
+    ]
+}

@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
+use Inertia\Inertia;
 
 class AdminationAccess
 {
@@ -25,12 +26,12 @@ class AdminationAccess
                 // dd('fine');
                 return $next($request);
             }else{
-                return redirect('/dashboard');
+                return redirect('/about');
             }
 
         }else{
             // dd('no token');
-            return redirect('admin');
+            return Inertia('adminAuth');
 
         }
         // return $next($request);

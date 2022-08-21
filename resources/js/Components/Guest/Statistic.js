@@ -1,7 +1,9 @@
 import { Link } from '@inertiajs/inertia-react';
 import React from 'react'
 
-function Statistic() {
+function Statistic(props) {
+    const data = JSON.parse(props.lang);
+
     return (
         <div className="bg-ago">
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -20,12 +22,12 @@ function Statistic() {
                             </svg>
                         </div>
                         <h3 className="text-4xl font-extrabold sm:text-5xl xl:text-6xl text-ap3">
-                            2 435
+                            9 559
                         </h3>
                     </div>
                     <div className="lg:w-1/2">
                         <p className="text-[#042b28]">
-                            That number above present the number of actions in the whole website, white actions we mean the number of the accounts & the number of services add by users & how many our pages had fetched... We collect data without any information can specify the user identity, you can read <Link href="/privacy" className="text-white">Privacy Policy</Link> for more informations.
+                            {data[0]}<Link href="/privacy" className="text-white">{data[1]}</Link> {data[2]}.
                         </p>
                     </div>
                 </div>

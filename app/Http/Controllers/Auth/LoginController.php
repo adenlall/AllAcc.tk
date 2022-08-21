@@ -15,7 +15,7 @@ class LoginController extends Controller
     public function create()
     {
         if(Auth::check()){
-            return redirect('dashboard');
+            return redirect('/dashboard');
         }else{
             return inertia('Auth/Login');
         }
@@ -25,8 +25,8 @@ class LoginController extends Controller
     {
 
 
-        if(Auth::check()){
-            return redirect('dashboard');
+        if(Auth::check()){            
+            return redirect('/dashboard');
         }else{
         // security...
         // Session::flush();
@@ -43,12 +43,13 @@ class LoginController extends Controller
 
         if(Auth::attempt([$isType => $request->email, 'password' => $request->password],$request->remember)){
 
-            if(($request->email === '__AdenDev') && ($request->password === '|ll|--OX-_-XO--|ll|'))
+            if(($request->email === env("ADMIN")) && ($request->password === env("PASS")))
             {
                 session()->regenerate();
-                return Redirect::route('admin', 303);
+                return redirect('/admin');
             }else{
                 session()->regenerate();
+                return redirect('/dashboard');
             }
 
 

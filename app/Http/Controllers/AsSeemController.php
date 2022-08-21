@@ -28,25 +28,42 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
-            $sp_user = User::where('username', $path)->get()->first();
-            $locate = json_decode($sp_user->json_locate, true);
             $ip = request()->ip();
+            // $ip = "209.242.29.87";
 
             if (Location::get($ip) !== false) {
 
-                $cntr = Location::get($ip)->countryName;
-                $agent = new Agent();
+                $to_for = ['os', 'device', 'browser', 'lang'];
 
+                $sp_user = User::where('username', $path)->get()->first();
+                $locate = json_decode($sp_user->json_locate, true);
+
+                $agent = new Agent();
+                // dd($agent->languages(), $ip,Location::get($ip));
+                $cntr = Location::get($ip)->countryName;
+                
                 $os =  $agent->platform();
                 $device = $agent->device();
                 $browser = $agent->browser();
-                $lng = $agent->languages();
+                $lang = $agent->languages();
+                if(gettype($lang) === 'array'){
+                    foreach ($lang as $ln) {
+                        if(strlen($ln) === 2){
+                            $lang = $ln;
+                            break; 
+                        }
+                    }
+                }
+                if(gettype($lang) === 'array'){
+                    $lang = $lang[0];
+                }
+                // $locate['logs'] = [];
 
                 if (count($locate['logs']) === 0) {
-                    array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang' => ['name' => $lng, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                    array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]], 'lang' => [['name' => $lang, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
                 } else {
                     if ($locate['logs'][count($locate['logs']) - 1]['day'] !== Carbon::now()->format('Y-m-d')) {
-                        array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1], 'lang' => ['name' => $lng, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
+                        array_push($locate['logs'], ['day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]], 'lang' => [['name' => $lang, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
                         // dd('else if');
                     } else {
                         $locate['logs'][count($locate['logs']) - 1]['visits'] = $locate['logs'][count($locate['logs']) - 1]['visits'] + 1;
@@ -64,7 +81,6 @@ class AsSeemController extends Controller
                         if ($index) {
                             array_push($locate['logs'][count($locate['logs']) - 1]['srcs'], ['ips' => [$ip], 'country' => $cntr, 'count' => 1]);
                         }
-                        $to_for = ['os', 'device', 'browser', 'lang'];
                         for ($i = 0; $i < count($to_for); $i++) { //
                             for ($in = 0; $in < count($locate['logs'][count($locate['logs']) - 1]['agents'][$to_for[$i]]); $in++) { //
                                 $is = true;
@@ -78,15 +94,15 @@ class AsSeemController extends Controller
                         }
                     }
                 }
+                $sp_user->update([
+                    'visit'       => $sp_user->visit + 1,
+                    'json_locate' => json_encode($locate),
+                ]);
+                $sp_user->save();
+                // dd($locate);
             }
-            $sp_user->update([
-                'visit'       => $sp_user->visit + 1,
-                'json_locate' => json_encode($locate),
-            ]);
-            $sp_user->save();
 
 
-            User::where('username', $path)->get()->first()->increment('visit');
 
             $user = Cache::remember($path . 'asseem', now()->addMinutes(3), function () use ($path) {
                 return User::where('username', $path)->select(['id', 'name', 'artist', 'track', 'username', 'email', 'age', 'gender', 'birthday', 'country', 'quote', 'json_config'])->cursor()->first();
@@ -136,7 +152,7 @@ class AsSeemController extends Controller
 
             if ($ui['UI']['type'] === 'Blade') {
                 return view('app', [
-                    "cosui"=> $ui['UI']['costume0'],
+                    "cosui" => $ui['UI']['costume0'],
                     "user" => $user,
                     "services" => $services,
                     "services_config" => $services_config,
@@ -172,8 +188,6 @@ class AsSeemController extends Controller
                     ]);
                 }
             }
-
-
         } else {
             return abort(404);
         }

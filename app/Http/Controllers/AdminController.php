@@ -19,6 +19,7 @@ class AdminController extends Controller
             if(Admin::where('token', Crypt::decrypt($token))->exists()){
                 $data = Admin::where('token', Crypt::decrypt($token))->get()->first();
                 // dd($data ,$data->email, $data->username ,$data->token);
+                // dd("here  698686x96x57x57x0");
                 return redirect("admin/{$data->username}/dashboard");
             }else{
                 return Inertia('AdminAuth');
@@ -31,9 +32,8 @@ class AdminController extends Controller
     function verify(Request $request)
     {
 
-
         $num = session()->get('try');
-        if ($num === '=> end') {
+        if ($num >= 3) {
             $que =  "Your are blocked to try again!";
         } else {
             $que =  "incorrect records!";
@@ -55,36 +55,20 @@ class AdminController extends Controller
         ])->first();
 
         if ($record === null) {
+            
+            $ind = $num ? $num : 1;
+            $request->session()->put('try', Crypt::encrypt($ind+1));
 
-            if ('=> 0' === Crypt::decrypt($num)) {
-
-                $request->session()->put('try', Crypt::encrypt('=> 1'));
-
-            } elseif ('=> 1' === Crypt::decrypt($num)) {
-
-                $request->session()->put('try', Crypt::encrypt('=> 2'));
-
-            } elseif ('=> 2' === Crypt::decrypt($num)) {
-
-                $request->session()->put('try', Crypt::encrypt('=> 3'));
-
-            } elseif ('=> 3' === Crypt::decrypt($num)) {
-
-                $request->session()->put('try', Crypt::encrypt('=> end'));
-
-            }
             Admin::where('username', $request->username)->increment('visit');
-            return redirect('/admin')->with([
+            return redirect('admin')->with([
                 'type' => 'error',
                 'message' => $que,
             ]);
 
         } else {
-            // dd('fuck-off', $record);
             $request->session()->put('admin_token', Crypt::encrypt($request->token));
             $data = Admin::where('token', $request->token)->get()->first();
-            // dd($data,$data->username, Admin::where('token', $request->token)->get()->first());
-            return Inertia::location("https://allacc.herokuapp.com/admin/{$data->username}/dashboard");
+            return redirect("admin/{$data->username}/dashboard");
         }
 
     }
@@ -106,17 +90,11 @@ class AdminController extends Controller
                     'users' => User::paginate(15),
                 ]);
             }else{
-                // dd('hello');
-            return Inertia::location("https://allacc.herokuapp.com/admin/{$data->username}/dashboard");
-
+                return redirect("admin/{$data->username}/dashboard");
             }
 
         }else{
-
-            $token = session()->get('admin_token');
-            // dd('not here',$path, Admin::where('token', Crypt::decrypt($token))->get()->first());
             abort(404);
-
         }
     }
 

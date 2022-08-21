@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class StatisticsController extends Controller
 {
 
-    function __invoke(Request $request)
+    function __invoke()
     {
 
         $user = Cache::remember(Auth::user()->username, now()->addMinute(), function () {
@@ -20,15 +20,24 @@ class StatisticsController extends Controller
         });
         $arr = json_decode($user->json_config, true);
         $locate = json_decode($user->json_locate, true);
-        $data = Cache::remember(Auth::user()->id.'stats', now()->addHours(16), function () use($locate) {
+        // $locate['logs']=[
+        //     ["day"=>'2022-07-19',"visits"=>'7443'],
+        //     ["day"=>'2022-08-10',"visits"=>'7443'],
+        //     ["day"=>'2022-08-11',"visits"=>'7443'],
+        //     ["day"=>'2022-08-12',"visits"=>'7443'],
+        //     ["day"=>'2022-08-14',"visits"=>'7443'],
+        //     ["day"=>'2022-08-15',"visits"=>'7443'],
+        //     ["day"=>'2022-08-18',"visits"=>'7443'],
+        //     ["day"=>'2022-08-19',"visits"=>'7443'],
+        // ];
+        // dd($locate);
+        // $data = Cache::remember(Auth::user()->id.'stats', now()->hours(10), function () use($locate) {
+        $data = Cache::remember('_'.Auth::user()->username.'_stats_', now()->addMinutes(2), function () use($locate) {
             $data = ['timeline'=>[],'countries'=>[],'stats'=>['os' => [], 'device' => [], 'browser' => []]];
             $cnt_ = [];
             $conf = ['os', 'device', 'browser'];
             for ($i = 0; $i < count($locate['logs']); $i++) {
-                if (count($locate['logs']) > 7 && $i > count($locate['logs']) - 7) {
-                    array_push($data['timeline'], ["visits" => $locate['logs'][$i]['visits'], "on" => $locate['logs'][$i]['day']]);
-                }
-                if (count($locate['logs']) <= 7) {
+                if (Carbon::createFromFormat('Y-m-d', now()->subDays(7)->format('Y-m-d'))->lte(Carbon::createFromFormat('Y-m-d', $locate['logs'][$i]['day']))) {
                     array_push($data['timeline'], ["visits" => $locate['logs'][$i]['visits'], "on" => $locate['logs'][$i]['day']]);
                 }
                 for ($x = 0; $x < count($locate['logs'][$i]['srcs']); $x++) {
@@ -68,6 +77,9 @@ class StatisticsController extends Controller
             }
             return $data;
         });
+        // dd($data['timeline']);
+        // $data = ['timeline'=>[],'countries'=>[],'stats'=>['os' => [], 'device' => [], 'browser' => []]];
+
         if (!array_key_exists('statistics', $arr)) {
             $arr += ['statistics' => ['services' => []]];
         }

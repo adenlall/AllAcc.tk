@@ -25,7 +25,7 @@ class ToAdminDash
             $data = Admin::where('token', Crypt::decrypt($token))->get()->first();
             if(Admin::where('token', Crypt::decrypt($token))->exists()){
                 // dd('fine');
-                return redirect("/admin/{$data->username}/dashboard");
+                return redirect("admin/{$data->username}/dashboard");
 
             }else{
                 return $next($request);

@@ -15,7 +15,7 @@ export default function UI() {
     return (
         <div id='#head' className='w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full'>
             <div className="container-fluid p-4 w-full">
-                <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Costumise your AsSeem</h2>
+                <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Customize your AsSeem</h2>
             </div>
 
             <div className="flex items-center justify-center content-center sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
@@ -475,7 +475,7 @@ export default function UI() {
                 }
             </div>
 
-            <button onClick={() => { hundelsave() }} className="btn w-full">Save your costume skin</button>
+            <button onClick={() => { hundelsave() }} className="btn w-full">Save your customized skin</button>
 
         </div>
     );

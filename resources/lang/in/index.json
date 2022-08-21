@@ -1,0 +1,26 @@
+{
+    "home": {
+      "footer": {
+        "header": {
+          "guest": "Buat akun Anda sekarang, 100% gratis!",
+          "auth": "Itu bagus, sepertinya Anda sudah masuk."
+        },
+        "btn": {
+          "guest": [
+            "Login",
+            "Daftar"
+          ],
+          "auth": [
+            "halaman publik Anda",
+            "Dashboard"
+          ]
+        },
+        "between": "dibuat untuk rasa hormat Anda"
+      },
+      "chart": [
+        "Angka di atas menyajikan jumlah tindakan di seluruh situs web, tindakan putih yang kami maksud adalah jumlah akun & jumlah layanan yang ditambahkan oleh pengguna & berapa banyak halaman kami yang telah diambil ... Kami mengumpulkan data tanpa informasi apa pun dapat menentukan identitas pengguna, Anda dapat membaca",
+        "Kebijakan Privasi",
+        "untuk informasi lebih lanjut."
+      ]
+    }
+  }

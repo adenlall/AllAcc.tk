@@ -183,7 +183,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Victorybiz\GeoIPLocation\GeoIPLocationServiceProvider::class,
         Stevebauman\Location\LocationServiceProvider::class,
-
+        Phattarachai\LaravelMobileDetect\AgentServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -213,8 +213,8 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass:class,
         'GeoIPLocation' => Victorybiz\GeoIPLocation\Facades\GeoIPLocationFacade::class,
-
-
+        'Agent' => Phattarachai\LaravelMobileDetect\Facades\Agent::class,
+        'Client' => App\Helpers\Client::class
         ])->toArray(),
 
 ];

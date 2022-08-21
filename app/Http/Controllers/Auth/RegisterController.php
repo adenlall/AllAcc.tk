@@ -70,7 +70,7 @@ class RegisterController extends Controller
             ]);
         }
 
-        return back();
+        return redirect('/profile');
     }
 
         throw ValidationException::withMessages([

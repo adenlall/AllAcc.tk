@@ -80,6 +80,17 @@
       0 => 'Termwind\\Laravel\\TermwindServiceProvider',
     ),
   ),
+  'phattarachai/laravel-mobile-detect' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Phattarachai\\LaravelMobileDetect\\AgentServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Agent' => 'Phattarachai\\LaravelMobileDetect\\Facades\\Agent',
+    ),
+  ),
   'spatie/laravel-activitylog' => 
   array (
     'providers' => 

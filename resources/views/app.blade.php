@@ -16,7 +16,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#0b320b">
-    <title>Adenlalll - AllAcc</title>
+    <title>{{$user->username}} - AllAcc</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/button.css') }}" rel="stylesheet" /> --}}
     {{-- <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/fonts.css') }}" > --}}
