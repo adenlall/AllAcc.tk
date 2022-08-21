@@ -17,7 +17,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->username !== env("ADMIN")) {
+        if (Auth::check() && Auth::user()->username !== env("ADMIN")) {
             return $next($request);
         } else {
             // dd("hhererr");

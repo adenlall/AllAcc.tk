@@ -17,13 +17,9 @@ class Admin
      */
     public function handle(Request $request, Closure $next)
     {
-        // dd('hello');
         if(Auth::user()->username === env("ADMIN")){
-            // dd('admin : fine');
-            // dd(Auth::user()->username, "if 6855648x86875x575");
             return $next($request);
         }
-            // dd(Auth::user()->username, "im here 6855648x86875x575");
             return redirect('/');
 
     }

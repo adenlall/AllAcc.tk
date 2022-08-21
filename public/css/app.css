@@ -5025,6 +5025,9 @@ body[dir="rtl"] .checkbox:checked,
 .h-\[0\.15em\] {
   height: 0.15em;
 }
+.h-\[1\.5em\] {
+  height: 1.5em;
+}
 .max-h-\[12\.5em\] {
   max-height: 12.5em;
 }
