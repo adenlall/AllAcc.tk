@@ -13,6 +13,7 @@ class SettingController extends Controller
         $data = Cache::remember('skin', now()->addHours(72), function() {
              return DB::table('skin')->get();
         });
+        //dd(DB::table('skin')->get());
         $skin_arr = [];
         $icon_arr = [];
 
@@ -27,6 +28,7 @@ class SettingController extends Controller
         $rec = DB::table('statistic')->where('page','skinSetting');
         $rec->increment('visits');
         $rec->increment('auth_v');
+        //dd($skin_arr);
         // dd($skin_arr, $icon_arr);
         return inertia('Setting')->with([
             "skins" => $skin_arr,

@@ -4564,9 +4564,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ Outside)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -4574,7 +4574,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Outside() {
-  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
       auth = _usePage$props.auth,
       advanced = _usePage$props.advanced; // console.log(advanced);
 
@@ -4594,7 +4594,7 @@ function Outside() {
     var data = document.querySelector('#place').value;
 
     if (data === "" || data === null || data.match(" ") !== null) {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("we can't submit this!");
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("we can't submit this!");
     } else {
       if (check_if_repeated(data)) {
         _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/advanced/set?is=outside&action=add', {
@@ -4604,43 +4604,43 @@ function Outside() {
           preserveScroll: true
         });
       } else {
-        react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("source already exists!");
+        react_hot_toast__WEBPACK_IMPORTED_MODULE_1__["default"].error("source already exists!");
       }
     }
 
     ;
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "flex flex-col shadow-lg lg:flex-row items-center justify-between p-2 text-lg  rounded-lg font-bold bg-ago text-black w-full",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex flex-col space-y-3 sm:space-y-0 sm:flex-row items-center justify-center lg:w-auto w-full",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
             className: "bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 sm:w-auto w-full ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "sm:block hidden",
               children: "https://"
             }), "allacc.herokuapp.com/", auth.user.username]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
             className: "p-2 pl-[0.1em] border-dashed border-[#042b28] border-[0.2em] sm:w-auto w-full bg-ap2 rounded-lg text-black font-bold md:text-lg lg:text-xl text-lg flex items-center",
             style: {
               'boxShadow': '-4px 5px 0px 0px black'
             },
-            children: ["?from=", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+            children: ["?from=", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
               type: "text",
               name: "place",
               id: "place",
               className: "input bg-white sm:h-fit lg:h-[3em] h-[3em] text-sm w-auto max-w-[9em] md:max-w-auto ml-2 md:ml-0 sm:w-[5em] lg:w-inherit"
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "lg:pt-0 pt-3 flex items-center justify-between lg:w-auto w-full",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("span", {
             className: "lg:hidden block",
             children: ["submit : ", ' ']
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
             onClick: function onClick() {
               cll();
             },
@@ -4649,44 +4649,44 @@ function Outside() {
             children: "Add it"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         className: "text-lg font-bold my-4",
         children: "Current outsides : "
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-col items-center justify-center space-y-2",
         children: advanced.from.length !== 0 ? advanced.from.map(function (adv, i) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "flex flex-col lg:flex-row items-center rounded-lg bg-[darkslategray] w-full justify-between p-2",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               "class": "mockup-code w-[inherit] lg:w-[78%] text-[#a6adba] bg-[#191d24] rounded-lg",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pre", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("pre", {
                 className: "text-[#fbbd23]",
                 "data-prefix": ">",
                 "class": "text-[#fbbd23]",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("code", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("code", {
                   children: adv.is
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("pre", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("pre", {
                 className: "text-[#36d399]",
                 "data-prefix": ">",
                 "class": "text-[#36d399]",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
-                  children: ["the link : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
+                  children: ["the link : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
                     children: ["https://allacc.herokuapp.com/", auth.user.username, "?from=", adv.is]
                   })]
                 })
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               className: "lg:space-x-0 space-x-2 lg:space-y-2 space-y-0 flex flex-row lg:flex-col p-2 lg:items-start items-center lg:justify-center justify-between w-full lg:w-auto",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
                 className: "lg:text-lg text-xl font-extrabold",
-                children: ["Clicks : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                children: ["Clicks : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "text-ap1 font-bold text-xl",
                   children: adv.clicks
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                 className: "space-x-2 flex flex-row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                   preserveScroll: true,
                   as: "button",
                   method: "post",
@@ -4696,7 +4696,7 @@ function Outside() {
                   href: '/advanced/set?is=outside&action=setzero',
                   className: "btn w-auto",
                   children: "Set to 0"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                   preserveScroll: true,
                   as: "button",
                   method: "post",
@@ -4705,13 +4705,13 @@ function Outside() {
                   },
                   href: '/advanced/set?is=outside&action=delete',
                   className: "btn btn-square",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
                     xmlns: "http://www.w3.org/2000/svg",
                     "class": "h-6 w-6",
                     fill: "none",
                     viewBox: "0 0 24 24",
                     stroke: "currentColor",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
                       "stroke-linecap": "round",
                       "stroke-linejoin": "round",
                       "stroke-width": "2",
@@ -4722,56 +4722,56 @@ function Outside() {
               })]
             })]
           });
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "w-full rounded-lg p-4 bg-ago flex flex-col items-center justify-center spce-y-2",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
             className: "text-sm italic text-[#3c3c3c]",
             children: "Add your outside sources from the input above to see them here"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("article", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("article", {
             className: "text-[#3c3c3c] w-[inherit]",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
               className: "text-xl font-bold m-auto text-center ",
               children: "What's this ?"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
               className: "article text-lg space-y-2 w-auto",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: "When you get your Public link from your Dashboard and you past it in your accounts Instagram, Facebook, Twitter..., and someone click it he enter to your public page, and you see that your public page incement in your Statistics page."
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                children: ["But What about if you want to know how many people clicked the link in specific place let's say ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                children: ["But What about if you want to know how many people clicked the link in specific place let's say ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "text-black",
                   children: "Twitter"
                 }), " for example."]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                children: ["For that, you can add a ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                children: ["For that, you can add a ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "text-black",
                   children: "\"from\""
-                }), " parameter in your url in Twitter, and name it ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                }), " parameter in your url in Twitter, and name it ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "text-black",
                   children: "\"twitter\""
                 }), "."]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                children: ["At the end, your public page URL will be like this ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("code", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                children: ["At the end, your public page URL will be like this ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
                   className: "text-black italic break-words",
-                  children: ["https://allacc.herokuapp.com/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                  children: ["https://allacc.herokuapp.com/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                     className: "font-bold",
                     children: "?from=twitter"
                   })]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("li", {
-                children: ["And now, you can see every click on that link from ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
+                children: ["And now, you can see every click on that link from ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "text-black",
                   children: "Twitter"
                 }), " in this case."]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 children: "And you can add how much you want of \"outside sources\"."
               })]
             })]
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
         className: "text-lg font-bold my-4",
         children: "Costum HTML : "
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago",
         children: "This feature not available yet"
       })]
@@ -5484,8 +5484,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5596,7 +5596,7 @@ function Spotify() {
 
   var hundelSubmit = function hundelSubmit() {
     if (values.track === null) {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_4__["default"].error("Please slect a track before submit!");
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error("Please slect a track before submit!");
     } else {
       setData([]);
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/soung', values);
@@ -5619,66 +5619,66 @@ function Spotify() {
       });
     }
   }, [s]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
       onSubmit: search,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
         htmlFor: "default-search",
         className: "mb-2 text-sm font-medium text-gray-900 sr-only",
         children: "Search"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "relative",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
             className: "w-5 h-5 text-gray-500",
             fill: "none",
             stroke: "currentColor",
             viewBox: "0 0 24 24",
             xmlns: "http://www.w3.org/2000/svg",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
               strokeLinecap: "round",
               strokeLinejoin: "round",
               strokeWidth: "2",
               d: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
           type: "search",
           onChange: query,
           id: "search",
           className: "block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500  ",
           placeholder: "Search Track ...",
           required: ""
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           type: "submit",
           className: "text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2  ",
           children: "Search"
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
       children: [data.map(function (track) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "mt-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             onClick: function onClick() {
               selectTrack(track.url, track.name, track.artist);
             },
             id: track.url,
             className: "tracksItem flex flex-row space-x-3 p-2 mt-2 w-full rounded-lg bg-ap1 hover:bg-[#f2848269] ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: " rounded-xl w-[10em] h-[10em] bg-white p-2 ",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                 className: "rounded-xl object-contain w-full h-full ",
                 id: 'img_' + track.url,
                 src: data[0].image[2]["#text"],
                 alt: track.name
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: "flex flex-row items-start justify-between w-[67%] ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                 className: "flex flex-col space-y-3 w-full ",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
                   className: "text-xl font-bold text-white w-[78%] h-[3em] overflow-hidden max-h-[10em] ",
                   style: {
                     'display': 'Webkit-box',
@@ -5686,44 +5686,44 @@ function Spotify() {
                     'WebkitBoxOrient': 'vertical'
                   },
                   children: track.name
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
                   className: "text-lg font-bold text-drk p-1 rounded-lg",
                   children: track.artist
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: "hidden sm:flex flex-col h-full ",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "flex flex-col h-full w-full space-y-2 p-[.8em] items-center content-center justify-center rounded-lg bg-[url(https://tlgur.com/d/8BO1BzNG)]",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "flex flex-row space-x-1 w-[91%]",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
                       className: "w-[2.2em]",
                       xmlns: "http://www.w3.org/2000/svg",
                       x: "0px",
                       y: "0px",
                       viewBox: "0 0 495 495",
                       xmlSpace: "preserve",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                         fill: "#c70024",
                         d: "M247.5 0L247.5 40 455 40 455 455 247.5 455 247.5 495 495 495 495 0z"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                         fill: "#ff0c38",
                         d: "M40 455L40 40 247.5 40 247.5 0 0 0 0 495 247.5 495 247.5 455z"
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                         d: "M168.65 334.99c40.78 0 60.275-19.125 60.275-19.125L217.36 284.48s-18.77 20.94-46.915 20.94c-24.88 0-42.575-21.66-42.575-56.29 0-44.395 22.36-60.275 44.395-60.275 31.755 0 41.855 20.585 50.505 46.915l11.545 36.095c11.54 35 33.2 63.145 95.625 63.145 44.745 0 75.06-13.715 75.06-49.805 0-29.22-16.605-44.375-47.64-51.585l-23.085-5.055c-15.88-3.615-20.565-10.1-20.565-20.94 0-12.265 9.745-19.475 25.625-19.475 17.325 0 26.7 6.485 28.145 22.015l36.07-4.335c-2.89-32.48-25.25-45.82-62.07-45.82-32.46 0-64.215 12.265-64.215 51.6 0 24.53 11.915 40.04 41.855 47.265l24.53 5.76c18.4 4.34 24.53 11.915 24.53 22.365 0 13.36-12.965 18.77-37.52 18.77-36.445 0-51.6-19.12-60.25-45.47l-11.915-36.075c-15.14-46.91-39.315-64.235-87.305-64.235-53.05 0-81.19 33.575-81.19 90.565 0 54.865 28.14 84.435 78.65 84.435z",
                         fill: "#ff0c38"
                       })]
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                       className: "text-base",
                       href: "https://last.fm",
                       children: "last.fm"
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "flex flex-col space-y-1 w-full rounded-lg p-2 bg-[#ee60f65e] hover:bg-[#c73430] ",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       className: "rounded-lg text-sm italic",
                       children: "current listeners"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "font-bold text-lg text-white",
                       children: track.listeners
                     })]
@@ -5733,22 +5733,22 @@ function Spotify() {
             })]
           })
         }, track.url);
-      }), load === true && onsearch === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), load === true && onsearch === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "bg-agr rounded-lg sticky bottom-2 mt-2 p-4  w-full flex items-center justify-center",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "dots",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {})]
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {})]
         })
-      }) : load === false && onsearch === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }) : load === false && onsearch === true ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "bg-agr text-white rounded-lg sticky bottom-2 mt-2 p-4 w-full flex items-center justify-center",
-        children: ["save your chages ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        children: ["save your chages ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
           onClick: function onClick() {
             hundelSubmit();
           },
           className: "ml-1 btn btn-sm ",
           children: "Save it!"
         })]
-      }) : load === false && onsearch === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }) : load === false && onsearch === false ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "bg-agr rounded-lg sticky bottom-2 mt-2 p-4  w-full flex items-center justify-center",
         children: "sorry bu we find any track much your record!"
       }) : '']
@@ -5775,8 +5775,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-beautiful-dnd */ "./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -5866,7 +5866,7 @@ function Urls(props) {
         preserveScroll: true
       });
     } else {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_4__["default"].error('invalid group name');
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error('invalid group name');
     }
   };
 
@@ -5916,7 +5916,7 @@ function Urls(props) {
     var link = document.getElementById('link').value;
 
     if (linkv === '' || linkv.length < 2 || link === '' || link.length < 4) {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_4__["default"].error('invalid inputs');
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_3__["default"].error('invalid inputs');
     } else {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('/urls/set?to=default', {
         name: linkv,
@@ -5938,39 +5938,39 @@ function Urls(props) {
     });
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
       className: "text-xl font-bold my-3 ",
       children: "Add your links :"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.DragDropContext, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.DragDropContext, {
         onDragEnd: function onDragEnd(e) {
           var des = e.destination.index;
           var home = e.source.index;
           path.splice(des, 0, path.splice(home, 1)[0]);
           document.getElementById("submitbtn").style.display = 'block';
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "p-2 mb-2 bg-ap3 rounded-lg space-x-2 flex items-stretch justify-start content-center w-full",
           style: {
             marginTop: '2em'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "bg-ago w-[3em] p-2 flex items-center justify-center content-center rounded-lg ",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
               className: "w-auto h-[4em]",
               xmlns: "http://www.w3.org/2000/svg",
               x: "0px",
               y: "0px",
               viewBox: "0 0 42 42",
               xmlSpace: "preserve",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M37.059 16H26V4.941C26 2.224 23.718 0 21 0s-5 2.224-5 4.941V16H4.941C2.224 16 0 18.282 0 21s2.224 5 4.941 5H16v11.059C16 39.776 18.282 42 21 42s5-2.224 5-4.941V26h11.059C39.776 26 42 23.718 42 21s-2.224-5-4.941-5z"
               })
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: "flex flex-col space-y-2 p-2 items-center justify-center content-center rounded-lg bg-ago",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
               onClick: function onClick() {
                 sav();
               },
@@ -5981,20 +5981,20 @@ function Urls(props) {
               strokeWidth: "2",
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("polyline", {
                 points: "17 21 17 13 7 13 7 21"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("polyline", {
                 points: "7 3 7 8 15 8"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: "flex flex-col items-start justify-start text-black space-y-1",
             style: {
               width: 'inherit'
             },
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               className: "input bg-white text-black input-sm",
               style: {
                 width: 'inherit'
@@ -6003,7 +6003,7 @@ function Urls(props) {
               placeholder: "Link name",
               id: "linkName",
               name: "linkName"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
               className: "input bg-white text-black input-sm",
               style: {
                 width: 'inherit'
@@ -6012,48 +6012,48 @@ function Urls(props) {
               placeholder: "The link",
               id: "link",
               name: "link"
-            }), errors.link ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+            }), errors.link ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
               className: "alt alt-label text-red-700",
               children: errors.link
             }) : '']
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Droppable, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Droppable, {
           droppableId: "droppable-1",
           children: function children(provided, snapshot) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               ref: provided.innerRef,
               className: "space-y-2 flex flex-col items-stretch justify-start content-center ",
               children: [path.map(function (url, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Draggable, {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_beautiful_dnd__WEBPACK_IMPORTED_MODULE_5__.Draggable, {
                   draggableId: i + '' + url.id,
                   index: i,
                   children: function children(provided, snapshot) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", _objectSpread(_objectSpread({
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", _objectSpread(_objectSpread({
                       ref: provided.innerRef
                     }, provided.draggableProps), {}, {
                       className: "p-2 bg-ap3 rounded-lg space-x-2 flex items-stretch justify-start content-center",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", _objectSpread(_objectSpread({}, provided.dragHandleProps), {}, {
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", _objectSpread(_objectSpread({}, provided.dragHandleProps), {}, {
                         className: "bg-ago h-auto flex items-center justify-center content-center rounded-lg ",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
                           width: "48px",
                           height: "4em",
                           viewBox: "0 0 48 48",
                           fill: "none",
                           xmlns: "http://www.w3.org/2000/svg",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             fill: "#fff",
                             fillOpacity: 0.01,
                             d: "M0 0H48V48H0z"
-                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             fillRule: "evenodd",
                             clipRule: "evenodd",
                             d: "M19 10.307c0 2.38-1.79 4.308-4 4.308s-4-1.928-4-4.308C11 7.93 12.79 6 15 6s4 1.929 4 4.307zm-4 18.308c2.21 0 4-1.928 4-4.307C19 21.928 17.21 20 15 20s-4 1.928-4 4.308c0 2.378 1.79 4.307 4 4.307zm0 14c2.21 0 4-1.928 4-4.308C19 35.928 17.21 34 15 34s-4 1.928-4 4.307c0 2.38 1.79 4.308 4 4.308zM37 10.307c0 2.38-1.79 4.308-4 4.308s-4-1.928-4-4.308C29 7.93 30.79 6 33 6s4 1.929 4 4.307zm-4 18.308c2.21 0 4-1.928 4-4.307C37 21.928 35.21 20 33 20s-4 1.928-4 4.308c0 2.378 1.79 4.307 4 4.307zm0 14c2.21 0 4-1.928 4-4.308C37 35.928 35.21 34 33 34s-4 1.928-4 4.307c0 2.38 1.79 4.308 4 4.308z",
                             fill: "#000"
                           })]
                         })
-                      })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                      })), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "flex flex-col space-y-2 p-2 items-center justify-center content-center rounded-lg bg-ago",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
                           onClick: function onClick() {
                             del(url.id);
                           },
@@ -6064,22 +6064,22 @@ function Urls(props) {
                           strokeWidth: "2",
                           strokeLinecap: "round",
                           strokeLinejoin: "round",
-                          children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
+                          children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("polyline", {
                             points: "3 6 5 6 21 6"
-                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("line", {
+                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("line", {
                             x1: "10",
                             y1: "11",
                             x2: "10",
                             y2: "17"
-                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("line", {
+                          }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("line", {
                             x1: "14",
                             y1: "11",
                             x2: "14",
                             y2: "17"
                           })]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                           onClick: function onClick() {
                             edi(url.id);
                           },
@@ -6087,28 +6087,28 @@ function Urls(props) {
                           fill: "none",
                           viewBox: "0 0 24 24",
                           stroke: "currentColor",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                             strokeLinecap: "round",
                             strokeLinejoin: "round",
                             strokeWidth: "2",
                             d: "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
                           })
                         })]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "flex flex-col items-start justify-start text-black w-[50%] sm:w-[64%]",
-                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+                        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
                           id: "urlName".concat(url.id),
                           className: "text-lg font-bold w-full overflow-hidden text-ellipsis whitespace-nowrap",
                           children: url.name
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("code", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("code", {
                           id: "urlLink".concat(url.id),
                           className: "w-full overflow-scroll",
                           children: url.link
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h5", {
                           id: "urlGrp".concat(url.id),
                           className: "",
                           children: ["url group : ", url.grp === null ? 'none' : url.grp]
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                           onChange: function onChange() {
                             hundelChange(url.id, 'name', "editlinkName".concat(url.id));
                           },
@@ -6116,7 +6116,7 @@ function Urls(props) {
                           type: "text",
                           id: "editlinkName".concat(url.id),
                           name: "editlinkName".concat(url.id)
-                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+                        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
                           onChange: function onChange() {
                             hundelChange(url.id, 'link', "editlink".concat(url.id));
                           },
@@ -6124,17 +6124,17 @@ function Urls(props) {
                           type: "text",
                           id: "editlink".concat(url.id),
                           name: "editlink".concat(url.id)
-                        }), grpsNames.length === 0 || grpsNames === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
+                        }), grpsNames.length === 0 || grpsNames === null ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
                           onChange: function onChange() {
                             hundelChange(url.id, 'grp', "editlinkGrp".concat(url.id));
                           },
                           id: "editlinkGrp".concat(url.id),
                           "class": "hidden select bg-white text-black select-sm select-primary md:w-auto w-inherit ",
-                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                             value: null,
                             children: "none"
                           }), grpsNames.map(function (grpName, i) {
-                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
+                            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
                               value: grpName,
                               children: grpName
                             }, i);
@@ -6148,10 +6148,10 @@ function Urls(props) {
             });
           }
         })]
-      }), path.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
+      }), path.length === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
         className: "text-xl font-bold p-4 bg-ago text-black mt-0 text-center rounded-lg py-[5em]",
         children: "Add your links from the input above."
-      }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         id: "submitbtn",
         onClick: function onClick() {
           saveChange();
@@ -6162,14 +6162,14 @@ function Urls(props) {
         },
         type: "button",
         children: "Save your changes"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         style: {
           marginBottom: '2em'
         },
         className: " w-full space-x-2 mt-2 p-2 text-black bg-ap3 rounded-lg  flex items-stretch justify-start content-center ",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "flex flex-col space-y-2 p-2 items-center justify-center content-center rounded-lg bg-ago",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("svg", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
             onClick: function onClick() {
               grpSav();
             },
@@ -6180,19 +6180,19 @@ function Urls(props) {
             strokeWidth: "2",
             strokeLinecap: "round",
             strokeLinejoin: "round",
-            children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+            children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
               d: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
-            }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
+            }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("polyline", {
               points: "17 21 17 13 7 13 7 21"
-            }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
+            }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("polyline", {
               points: "7 3 7 8 15 8"
             })]
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "p-2 space-y-1 w-full flex flex-col items-start justify-start content-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
             children: "Groupe your links "
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             style: {
               width: 'inherit'
             },
@@ -6201,15 +6201,15 @@ function Urls(props) {
             placeholder: "groupe name",
             name: "groupName",
             id: "groupName"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            children: ["current : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: ["current : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
               className: "flex w-full flex-wrap ",
-              children: grpsNames.length === 0 || grpsNames === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              children: grpsNames.length === 0 || grpsNames === null ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 children: "none"
               }) : grpsNames.map(function (grpName, i) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   "class": "badge m-2 badge-info gap-2 text-white",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                     onClick: function onClick() {
                       grpDel(grpName);
                     },
@@ -6221,7 +6221,7 @@ function Urls(props) {
                     fill: "none",
                     viewBox: "0 0 24 24",
                     "class": "inline-block w-4 h-4 stroke-current",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                       "stroke-linecap": "round",
                       "stroke-linejoin": "round",
                       "stroke-width": "2",
@@ -7249,9 +7249,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Components/Dashboard/Navbar */ "./resources/js/Components/Dashboard/Navbar.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7262,20 +7262,20 @@ function Auth(_ref) {
   var children = _ref.children,
       title = _ref.title;
   var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_4__["default"][flash.type](flash.message);
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
+    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"][flash.type](flash.message);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "g-sidenav-show bg-[#042b28]",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "min-height-300 bg-primary position-absolute w-100"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {
       pageName: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("main", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("main", {
       className: "main-content position-relative border-radius-lg d-flex flex-column min-vh-100 ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_hot_toast__WEBPACK_IMPORTED_MODULE_4__.Toaster, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_hot_toast__WEBPACK_IMPORTED_MODULE_2__.Toaster, {
         position: "top-center",
         duration: "4000"
       }), children]
@@ -7298,11 +7298,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var _Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Dashboard/Navbar */ "./resources/js/Components/Dashboard/Navbar.js");
-/* harmony import */ var _Components_Dashboard_Sidebar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Sidebar */ "./resources/js/Components/Dashboard/Sidebar.jsx");
-/* harmony import */ var _Components_Dashboard_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Dashboard/Footer */ "./resources/js/Components/Dashboard/Footer.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var _Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Navbar */ "./resources/js/Components/Dashboard/Navbar.js");
+/* harmony import */ var _Components_Dashboard_Sidebar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Dashboard/Sidebar */ "./resources/js/Components/Dashboard/Sidebar.jsx");
+/* harmony import */ var _Components_Dashboard_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Dashboard/Footer */ "./resources/js/Components/Dashboard/Footer.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7316,25 +7316,25 @@ function Base(_ref) {
       title = _ref.title;
   var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_6__["default"][flash.type](flash.message);
+    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"][flash.type](flash.message);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "g-sidenav-show bg-[#042b28] text-[#d3d3d3]",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
       className: "min-height-300 bg-primary position-absolute w-100"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_3__["default"], {
       pageName: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("main", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("main", {
       className: "main-content position-relative border-radius-lg d-flex flex-column min-vh-100 ",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_hot_toast__WEBPACK_IMPORTED_MODULE_6__.Toaster, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_hot_toast__WEBPACK_IMPORTED_MODULE_2__.Toaster, {
         position: "top-center",
         duration: "4000"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "flex justify-evenly",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Sidebar__WEBPACK_IMPORTED_MODULE_3__["default"], {}), children]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Sidebar__WEBPACK_IMPORTED_MODULE_4__["default"], {}), children]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
     })]
   });
 }
@@ -7357,8 +7357,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Guest_Statistic__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Guest/Statistic */ "./resources/js/Components/Guest/Statistic.js");
 /* harmony import */ var _Components_Guest_Footer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Guest/Footer */ "./resources/js/Components/Guest/Footer.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -7373,13 +7373,13 @@ function Guest(_ref) {
   //resources/js/Components/Guest/Statistic.jsx
   var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.flash;
   (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
-    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_6__["default"][flash.type](flash.message);
+    flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_5__["default"][flash.type](flash.message);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "bg-ap3",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Guest_Statistic__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Guest_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Navbar__WEBPACK_IMPORTED_MODULE_1__["default"], {}), children, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Guest_Statistic__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Guest_Footer__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 
@@ -9115,13 +9115,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Components_Dashboard_item__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/item */ "./resources/js/Components/Dashboard/item.jsx");
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
-/* harmony import */ var _Components_Dashboard_Spotify__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Dashboard/Spotify */ "./resources/js/Components/Dashboard/Spotify.jsx");
-/* harmony import */ var _Components_Dashboard_Urls__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Dashboard/Urls */ "./resources/js/Components/Dashboard/Urls.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Components_Dashboard_item__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Components/Dashboard/item */ "./resources/js/Components/Dashboard/item.jsx");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Components_Dashboard_Spotify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Components/Dashboard/Spotify */ "./resources/js/Components/Dashboard/Spotify.jsx");
+/* harmony import */ var _Components_Dashboard_Urls__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Components/Dashboard/Urls */ "./resources/js/Components/Dashboard/Urls.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -9161,17 +9161,17 @@ function Dashboard() {
       errors = _usePage$props.errors;
   var path = auth.user.json_config;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)([]),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]),
       _useState2 = _slicedToArray(_useState, 2),
       elements = _useState2[0],
       setelements = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(0),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(0),
       _useState4 = _slicedToArray(_useState3, 2),
       inc = _useState4[0],
       setInc = _useState4[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
     var arr = ['twitter', 'facebook', 'instagram'];
     var servs = JSON.parse(path).services.cdn; // console.log(servs);
 
@@ -9187,10 +9187,10 @@ function Dashboard() {
   var addItem = function addItem(para, namm) {
     // console.log(para, namm);
     if (document.querySelector("#item_".concat(namm)) === null) {
-      var newElement = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      var newElement = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         id: 'item_' + namm,
         className: "flex flex-row-reverse mt-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
           onClick: function onClick() {
             removeItem(namm);
           },
@@ -9201,19 +9201,19 @@ function Dashboard() {
           strokeWidth: 2,
           strokeLinecap: "round",
           strokeLinejoin: "round",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("rect", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("rect", {
             x: 3,
             y: 3,
             width: 18,
             height: 18,
             rx: 2,
             ry: 2
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
             d: "M9 9L15 15"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
             d: "M15 9L9 15"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Dashboard_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_item__WEBPACK_IMPORTED_MODULE_4__["default"], {
           id: inc,
           user: auth.user.username,
           name: services_config[para].name,
@@ -9227,7 +9227,7 @@ function Dashboard() {
       });
       setInc(inc + 1);
     } else {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_8__["default"].error("Please we don't support more than one account in each service!");
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"].error("Please we don't support more than one account in each service!");
     }
   };
 
@@ -9266,7 +9266,7 @@ function Dashboard() {
     var service = ser;
 
     if (services[ser] === data) {
-      react_hot_toast__WEBPACK_IMPORTED_MODULE_8__["default"].error("You didn't make any change!");
+      react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"].error("You didn't make any change!");
     } else {
       _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__.Inertia.post('/setting', {
         name: service,
@@ -9278,12 +9278,12 @@ function Dashboard() {
 
   var arr = [];
   services_config.forEach(function (item, i) {
-    arr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+    arr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       id: "oneOn",
       className: "avatar btn h-full p-0 rounded-xl border-none drop-shadow-lg",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "w-24 mask rounded-xl p-0 bg-white",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
           onClick: function onClick() {
             addItem(i, item.name);
           },
@@ -9317,11 +9317,11 @@ function Dashboard() {
       var serv = item.name;
 
       if (services[serv] === null) {} else {
-        serr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        serr.push( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "flex flex-row space-x-3 p-2 rounded-lg mt-2 bg-ap1",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "flex flex-col space-y-3 p-2 items-center justify-center content-center rounded-lg bg-secondary",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
               onClick: function onClick() {
                 handelDelete(serv);
               },
@@ -9332,22 +9332,22 @@ function Dashboard() {
               strokeWidth: "2",
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("polyline", {
+              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("polyline", {
                 points: "3 6 5 6 21 6"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                 d: "M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("line", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("line", {
                 x1: "10",
                 y1: "11",
                 x2: "10",
                 y2: "17"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("line", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("line", {
                 x1: "14",
                 y1: "11",
                 x2: "14",
                 y2: "17"
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("svg", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("svg", {
               onClick: function onClick() {
                 editItem(serv + inc, serv);
               },
@@ -9355,13 +9355,13 @@ function Dashboard() {
               fill: "none",
               viewBox: "0 0 24 24",
               stroke: "currentColor",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                 strokeLinecap: "round",
                 strokeLinejoin: "round",
                 strokeWidth: "2",
                 d: "M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
               onClick: function onClick() {
                 saveEdits(serv + inc, serv);
               },
@@ -9372,52 +9372,52 @@ function Dashboard() {
               strokeWidth: "2",
               strokeLinecap: "round",
               strokeLinejoin: "round",
-              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+              children: ["  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                 d: "M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("polyline", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("polyline", {
                 points: "17 21 17 13 7 13 7 21"
-              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("polyline", {
+              }), "  ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("polyline", {
                 points: "7 3 7 8 15 8"
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "flex flex-row space-x-2 p-0 m-0 w-full ",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "w-auto sm:w-[6em] max-w-[6.5em] h-[8.5em] rounded-xl",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
                 className: "rounded-xl object-contain w-auto sm:w-[6em] h-[8.5em] bg-white p-2",
                 src: "/imgs/icons/rB/".concat(serv, ".svg"),
                 alt: serv
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "flex flex-col items-start space-y-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h4", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h4", {
                 className: "text-xl font-bold text-accent ",
                 children: [serv, " :"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("h3", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h3", {
                 id: serv + inc,
                 className: "text-lg font-bold bg-secondary text-drk p-1 rounded-lg",
                 children: ["@", services[serv]]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 id: serv + inc + serv,
                 className: "text-black w-auto hidden",
                 style: {
                   "color": "black"
                 }
-              }), errors.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }), errors.data ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "label-text-alt text-red-700",
                 children: errors.data
-              }) : "", serv === 'twitter' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              }) : "", serv === 'twitter' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 "class": "form-control w-auto m-0 p-0",
                 style: {
                   'margin': "0"
                 },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("label", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("label", {
                   "class": "label cursor-pointer m-0 p-0 flex flex-col items-start space-y-1 w-auto",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     "class": "label-text text-sm font-medium text-ap3",
                     children: "preview in public page : "
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("input", {
                     id: "cdn".concat(serv),
                     onChange: function onChange() {
                       cdn_ch(serv);
@@ -9437,120 +9437,120 @@ function Dashboard() {
 
   var copy = function copy() {
     navigator.clipboard.writeText("https://allacc.herokuapp.com/" + auth.user.username);
-    react_hot_toast__WEBPACK_IMPORTED_MODULE_8__["default"].success("URL has been copied!");
+    react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"].success("URL has been copied!");
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       id: "#head",
       className: "w-[95%] sm:w-[72%] space-y-3 h-full",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "container-fluid p-4 w-full",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("header", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("header", {
           className: "text-2xl font-extrabold text-accent",
           children: ["Welcome ", auth.user.name, " to your dashboard"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
           className: "text-xl font-bold",
           children: "Customize all your social links here!"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         onClick: function onClick() {
           copy();
         },
         className: "w-full flex flex-col cursor-pointer space-y-3 my-4",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
           className: "text-lg font-bold",
           children: "You can paste this this URL on all your social media profiles."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "p-3 bg-ap3 hover:bg-ap2 space-x-2 flex flex-row items-center justify-center content-center rounded-lg",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
             className: "text-xl font-bold text-black",
             children: "Copy your own adress"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
             className: "h-8",
             xmlns: "http://www.w3.org/2000/svg",
             x: "0px",
             y: "0px",
             viewBox: "0 0 460 460",
             xmlSpace: "preserve",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
               d: "M425.934 0H171.662c-18.122 0-32.864 14.743-32.864 32.864v77.134h149.543c34.664 0 62.865 28.201 62.865 62.865v147.139h74.728c18.121 0 32.864-14.743 32.864-32.865V32.864C458.797 14.743 444.055 0 425.934 0z"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
               d: "M288.339 139.998H34.068c-18.121 0-32.865 14.743-32.865 32.865v254.272C1.204 445.257 15.946 460 34.068 460H288.34c18.122 0 32.865-14.743 32.865-32.864V172.863c.001-18.122-14.744-32.865-32.866-32.865z"
             })]
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "w-full bg-primary rounded-lg sticky top-[1.5em] z-10",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("ul", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("ul", {
             className: "flex items-center content-center space-x-2 p-4 w-full overflow-scroll",
             children: arr
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           id: "items",
           className: "flex flex-col-reverse items-center w-full",
           children: elements
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "flex flex-col",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("header", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("header", {
           id: "current",
           className: "font-extrabold my-2 text-2xl",
           children: "Your current services :"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "flex flex-col-reverse my-[1.5em]",
-          children: serr.length !== 0 ? serr : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: serr.length !== 0 ? serr : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "bg-ap3 rounded-lg w-full h-[11em] flex flex-col items-center p-4",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("svg", {
               width: "4em",
               height: "4em",
               viewBox: "0 0 512 512",
               xmlns: "http://www.w3.org/2000/svg",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("defs", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("style", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("defs", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("style", {
                   children: ".cls-1{fill:none;stroke:#083b43;stroke-linecap:round;stroke-linejoin:round;stroke-width:20px}"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("g", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("g", {
                 "data-name": "Layer 2",
                 id: "Layer_2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   className: "cls-1",
                   d: "M128 201.59l72.76 15s103.52-.63 106.43 0 76.81-15 76.81-15"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   className: "cls-1",
                   d: "M209.07 154.19L200.76 216.56 253.97 357.81 307.19 215.23 298.88 154.19"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("path", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("path", {
                   className: "cls-1",
                   d: "M302.93 336.92L384 201.59 347.83 154.19 164.17 154.19 128 201.59 209.07 336.92 253.97 357.81 302.93 336.92z"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h1", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h1", {
               className: "text-xl font-bold text-[#042b28]",
               children: "Add your accounts now from the scroll above!"
             })]
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Dashboard_Urls__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Urls__WEBPACK_IMPORTED_MODULE_7__["default"], {
         path: path
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         id: "soung",
         className: "flex flex-col",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("header", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("header", {
           id: "current",
           className: "font-extrabold my-2 text-2xl",
           children: "Describe yourself by one spotify track :"
-        }), auth.user.track === null ? 'search and select your soung, then submit.' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("span", {
-          children: ["soung selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+        }), auth.user.track === null ? 'search and select your soung, then submit.' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("span", {
+          children: ["soung selected : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
             className: "font-bold text-lg",
             children: auth.user.track
-          }), " by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+          }), " by ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
             className: "font-bold text-lg",
             children: auth.user.artist
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "flex flex-col p-4 my-[1.5em] rounded-lg bg-ago",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Dashboard_Spotify__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Dashboard_Spotify__WEBPACK_IMPORTED_MODULE_6__["default"], {})
         })]
       })]
     })
@@ -9558,7 +9558,7 @@ function Dashboard() {
 }
 
 Dashboard.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_5__["default"], {
     children: page,
     title: "Dashboard - AllAcc"
   });
@@ -10395,11 +10395,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Setting)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
-/* harmony import */ var _Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Components/Dashboard/Skin */ "./resources/js/Components/Dashboard/Skin.jsx");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Skin */ "./resources/js/Components/Dashboard/Skin.jsx");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -10408,19 +10409,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Setting() {
-  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props,
       icons = _usePage$props.icons,
       skins = _usePage$props.skins;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     id: "#head",
     className: "w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container-fluid p-4 w-full",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
         className: "text-3xl py-2 font-bold rounded-lg w-full",
         children: "Manage your setting"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__["default"], {
       skins: JSON.stringify(skins),
       icons: JSON.stringify(icons)
     })]
@@ -10428,7 +10429,7 @@ function Setting() {
 }
 
 Setting.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_2__["default"], {
     children: page,
     title: "Setting - AllAcc"
   });
@@ -24394,7 +24395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* CSS */\n.blurbtn {\n  all: unset;\n  width: 80%;\n  height: 30px;\n  font-size: 16px;\n  background: transparent;\n  border: none;\n  position: relative;\n  color: #f0f0f0;\n  cursor: pointer;\n  z-index: 1;\n  padding: 10px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin:auto;\n  white-space: nowrap;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.blurbtn::after,\n.blurbtn::before {\n  content: '';\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  z-index: -99999;\n  transition: all .4s;\n}\n\n.blurbtn::before {\n  transform: translate(0%, 0%);\n  width: 100%;\n  height: 100%;\n  background: #28282d;\n  border-radius: 10px;\n}\n\n.blurbtn::after {\n  transform: translate(10px, 10px);\n  width: 35px;\n  height: 35px;\n  background: #ffffff15;\n  backdrop-filter: blur(5px);\n  -webkit-backdrop-filter: blur(5px);\n  border-radius: 50px;\n}\n\n.blurbtn:hover::before {\n  transform: translate(5%, 20%);\n  width: 110%;\n  height: 110%;\n}\n\n.blurbtn:hover::after {\n  border-radius: 10px;\n  transform: translate(0, 0);\n  width: 100%;\n  height: 100%;\n}\n\n.blurbtn:active::after {\n  transition: 0s;\n  transform: translate(0, 5%);\n}\n\n/* //////////////////////////////////////////////////////////////////////////////////// */\n\n\n.purplebtn {\n    align-items: center;\n    background-image: linear-gradient(144deg, hsl(var(--p)), hsl(var(--s)) 50%,hsl(var(--p)));\n    border: 0;\n    border-radius: 8px;\n    box-shadow: hsl(var(--a)/0.2) 0 15px 30px -5px;\n    box-sizing: border-box;\n    color: hsl(var(--b1));\n    display: flex;\n    font-family: Phantomsans, sans-serif;\n    font-size: 20px;\n    justify-content: center;\n    line-height: 1em;\n    max-width: 100%;\n    padding: 3px;\n    text-decoration: none;\n    -moz-user-select: none;\n         user-select: none;\n    margin: 0;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n    white-space: nowrap;\n    cursor: pointer;\n  }\n\n  .purplebtn:active,\n  .purplebtn:hover {\n    outline: 0;\n  }\n\n  .purplebtn span {\n    background-color: hsl(var(--a));\n    padding: 16px 24px;\n    border-radius: 6px;\n    width: 100%;\n    height: 100%;\n    transition: 300ms;\n  }\n\n  .purplebtn:hover span {\n    background: none;\n  }\n\n  @media (min-width: 768px) {\n    .purplebtn {\n      font-size: 24px;\n    }\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n  .rgbbtn {\n    padding: 0.6em 2em;\n    border: none;\n    outline: none;\n    color: #000;\n    background: #fff;\n    cursor: pointer;\n    position: relative;\n    z-index: 0;\n    border-radius: 10px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .rgbbtn:before {\n    content: \"\";\n    background: linear-gradient(\n      45deg,\n      #da5874,\n      #ff8581,\n      #ffaea0,\n      #e9d478,\n      #e292b4,\n      #a8d2da,\n      #f3bae7,\n      #da5874\n\n    );\n    position: absolute;\n    top: -2px;\n    left: -2px;\n    background-size: 400%;\n    z-index: -1;\n    filter: blur(5px);\n    -webkit-filter: blur(5px);\n    width: calc(100% + 4px);\n    height: calc(100% + 4px);\n    -webkit-animation: glowing-button-85 20s linear infinite;\n            animation: glowing-button-85 20s linear infinite;\n    transition: opacity 0.3s ease-in-out;\n    border-radius: 10px;\n  }\n\n  @-webkit-keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  @keyframes glowing-button-85 {\n    0% {\n      background-position: 0 0;\n    }\n    50% {\n      background-position: 400% 0;\n    }\n    100% {\n      background-position: 0 0;\n    }\n  }\n\n  .rgbbtn:after {\n    z-index: -1;\n    content: \"\";\n    position: absolute;\n    width: 100%;\n    height: 100%;\n    background: rgb(255, 241, 241);\n    left: 0;\n    top: 0;\n    border-radius: 10px;\n  }\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.roundedborderbtn {\n  background-color: #fbeee0;\n  border: 2px solid #422800;\n  border-radius: 30px;\n  box-shadow: #422800 4px 4px 0 0;\n  color: #422800;\n  cursor: pointer;\n  display: inline-block;\n  font-weight: 600;\n  font-size: 18px;\n  padding: 0 18px;\n  line-height: 50px;\n  text-align: center;\n  text-decoration: none;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.roundedborderbtn:hover {\n  background-color: #fff;\n}\n\n.roundedborderbtn:active {\n  box-shadow: #422800 2px 2px 0 0;\n  transform: translate(2px, 2px);\n}\n\n@media (min-width: 768px) {\n  .roundedborderbtn {\n    padding: 0 25px;\n  }\n}\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n.orangebtn {\n  margin: 0;\n  padding: 15px 30px;\n  text-align: center;\n  text-transform: uppercase;\n  transition: 0.5s;\n  background-size: 200% auto;\n  color: white;\n  border-radius: 10px;\n  display: block;\n  border: 0px;\n  font-weight: 700;\n  box-shadow: 0px 0px 14px -7px hsl(var(--s));\n  background-image: linear-gradient(45deg, hsl(var(--s)) 0%, hsl(var(--p))  51%, hsl(var(--a))  100%);\n  cursor: pointer;\n  -moz-user-select: none;\n       user-select: none;\n  -webkit-user-select: none;\n  touch-action: manipulation;\n}\n\n.orangebtn:hover {\n  background-position: right center;\n  /* change the direction of the change here */\n  color: #fff;\n  text-decoration: none;\n}\n\n.orangebtn:active {\n  transform: scale(0.95);\n}\n\n\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\n\n\n  .oldbtn {\n    align-self: center;\n    background-color: #fff;\n    background-image: none;\n    background-position: 0 90%;\n    background-repeat: repeat no-repeat;\n    background-size: 4px 3px;\n    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;\n    border-style: solid;\n    border-width: 2px;\n    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;\n    box-sizing: border-box;\n    color: #41403e;\n    cursor: pointer;\n    display: inline-block;\n    font-family: Neucha, sans-serif;\n    font-size: 1rem;\n    line-height: 23px;\n    outline: none;\n    padding: .75rem;\n    text-decoration: none;\n    transition: all 235ms ease-in-out;\n    border-bottom-left-radius: 15px 255px;\n    border-bottom-right-radius: 225px 15px;\n    border-top-left-radius: 255px 15px;\n    border-top-right-radius: 15px 225px;\n    -moz-user-select: none;\n         user-select: none;\n    -webkit-user-select: none;\n    touch-action: manipulation;\n  }\n\n  .oldbtn:hover {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;\n    transform: translate3d(0, 2px, 0);\n  }\n\n  .oldbtn:focus {\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;\n  }\n\n\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* CSS */\r\n.blurbtn {\r\n  all: unset;\r\n  width: 80%;\r\n  height: 30px;\r\n  font-size: 16px;\r\n  background: transparent;\r\n  border: none;\r\n  position: relative;\r\n  color: #f0f0f0;\r\n  cursor: pointer;\r\n  z-index: 1;\r\n  padding: 10px 20px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  margin:auto;\r\n  white-space: nowrap;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.blurbtn::after,\r\n.blurbtn::before {\r\n  content: '';\r\n  position: absolute;\r\n  bottom: 0;\r\n  right: 0;\r\n  z-index: -99999;\r\n  transition: all .4s;\r\n}\r\n\r\n.blurbtn::before {\r\n  transform: translate(0%, 0%);\r\n  width: 100%;\r\n  height: 100%;\r\n  background: #28282d;\r\n  border-radius: 10px;\r\n}\r\n\r\n.blurbtn::after {\r\n  transform: translate(10px, 10px);\r\n  width: 35px;\r\n  height: 35px;\r\n  background: #ffffff15;\r\n  backdrop-filter: blur(5px);\r\n  -webkit-backdrop-filter: blur(5px);\r\n  border-radius: 50px;\r\n}\r\n\r\n.blurbtn:hover::before {\r\n  transform: translate(5%, 20%);\r\n  width: 110%;\r\n  height: 110%;\r\n}\r\n\r\n.blurbtn:hover::after {\r\n  border-radius: 10px;\r\n  transform: translate(0, 0);\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.blurbtn:active::after {\r\n  transition: 0s;\r\n  transform: translate(0, 5%);\r\n}\r\n\r\n/* //////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n\r\n.purplebtn {\r\n    align-items: center;\r\n    background-image: linear-gradient(144deg, hsl(var(--p)), hsl(var(--s)) 50%,hsl(var(--p)));\r\n    border: 0;\r\n    border-radius: 8px;\r\n    box-shadow: hsl(var(--a)/0.2) 0 15px 30px -5px;\r\n    box-sizing: border-box;\r\n    color: hsl(var(--b1));\r\n    display: flex;\r\n    font-family: Phantomsans, sans-serif;\r\n    font-size: 20px;\r\n    justify-content: center;\r\n    line-height: 1em;\r\n    max-width: 100%;\r\n    padding: 3px;\r\n    text-decoration: none;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    margin: 0;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n    white-space: nowrap;\r\n    cursor: pointer;\r\n  }\r\n\r\n  .purplebtn:active,\r\n  .purplebtn:hover {\r\n    outline: 0;\r\n  }\r\n\r\n  .purplebtn span {\r\n    background-color: hsl(var(--a));\r\n    padding: 16px 24px;\r\n    border-radius: 6px;\r\n    width: 100%;\r\n    height: 100%;\r\n    transition: 300ms;\r\n  }\r\n\r\n  .purplebtn:hover span {\r\n    background: none;\r\n  }\r\n\r\n  @media (min-width: 768px) {\r\n    .purplebtn {\r\n      font-size: 24px;\r\n    }\r\n  }\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n  .rgbbtn {\r\n    padding: 0.6em 2em;\r\n    border: none;\r\n    outline: none;\r\n    color: #000;\r\n    background: #fff;\r\n    cursor: pointer;\r\n    position: relative;\r\n    z-index: 0;\r\n    border-radius: 10px;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n  }\r\n\r\n  .rgbbtn:before {\r\n    content: \"\";\r\n    background: linear-gradient(\r\n      45deg,\r\n      #da5874,\r\n      #ff8581,\r\n      #ffaea0,\r\n      #e9d478,\r\n      #e292b4,\r\n      #a8d2da,\r\n      #f3bae7,\r\n      #da5874\r\n\r\n    );\r\n    position: absolute;\r\n    top: -2px;\r\n    left: -2px;\r\n    background-size: 400%;\r\n    z-index: -1;\r\n    filter: blur(5px);\r\n    -webkit-filter: blur(5px);\r\n    width: calc(100% + 4px);\r\n    height: calc(100% + 4px);\r\n    -webkit-animation: glowing-button-85 20s linear infinite;\r\n            animation: glowing-button-85 20s linear infinite;\r\n    transition: opacity 0.3s ease-in-out;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  @-webkit-keyframes glowing-button-85 {\r\n    0% {\r\n      background-position: 0 0;\r\n    }\r\n    50% {\r\n      background-position: 400% 0;\r\n    }\r\n    100% {\r\n      background-position: 0 0;\r\n    }\r\n  }\r\n\r\n  @keyframes glowing-button-85 {\r\n    0% {\r\n      background-position: 0 0;\r\n    }\r\n    50% {\r\n      background-position: 400% 0;\r\n    }\r\n    100% {\r\n      background-position: 0 0;\r\n    }\r\n  }\r\n\r\n  .rgbbtn:after {\r\n    z-index: -1;\r\n    content: \"\";\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgb(255, 241, 241);\r\n    left: 0;\r\n    top: 0;\r\n    border-radius: 10px;\r\n  }\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n.roundedborderbtn {\r\n  background-color: #fbeee0;\r\n  border: 2px solid #422800;\r\n  border-radius: 30px;\r\n  box-shadow: #422800 4px 4px 0 0;\r\n  color: #422800;\r\n  cursor: pointer;\r\n  display: inline-block;\r\n  font-weight: 600;\r\n  font-size: 18px;\r\n  padding: 0 18px;\r\n  line-height: 50px;\r\n  text-align: center;\r\n  text-decoration: none;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.roundedborderbtn:hover {\r\n  background-color: #fff;\r\n}\r\n\r\n.roundedborderbtn:active {\r\n  box-shadow: #422800 2px 2px 0 0;\r\n  transform: translate(2px, 2px);\r\n}\r\n\r\n@media (min-width: 768px) {\r\n  .roundedborderbtn {\r\n    padding: 0 25px;\r\n  }\r\n}\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n.orangebtn {\r\n  margin: 0;\r\n  padding: 15px 30px;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  transition: 0.5s;\r\n  background-size: 200% auto;\r\n  color: white;\r\n  border-radius: 10px;\r\n  display: block;\r\n  border: 0px;\r\n  font-weight: 700;\r\n  box-shadow: 0px 0px 14px -7px hsl(var(--s));\r\n  background-image: linear-gradient(45deg, hsl(var(--s)) 0%, hsl(var(--p))  51%, hsl(var(--a))  100%);\r\n  cursor: pointer;\r\n  -moz-user-select: none;\r\n       user-select: none;\r\n  -webkit-user-select: none;\r\n  touch-action: manipulation;\r\n}\r\n\r\n.orangebtn:hover {\r\n  background-position: right center;\r\n  /* change the direction of the change here */\r\n  color: #fff;\r\n  text-decoration: none;\r\n}\r\n\r\n.orangebtn:active {\r\n  transform: scale(0.95);\r\n}\r\n\r\n\r\n  /* ///////////////////////////////////////////////////////////////////////////////////////////// */\r\n\r\n\r\n  .oldbtn {\r\n    align-self: center;\r\n    background-color: #fff;\r\n    background-image: none;\r\n    background-position: 0 90%;\r\n    background-repeat: repeat no-repeat;\r\n    background-size: 4px 3px;\r\n    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;\r\n    border-style: solid;\r\n    border-width: 2px;\r\n    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;\r\n    box-sizing: border-box;\r\n    color: #41403e;\r\n    cursor: pointer;\r\n    display: inline-block;\r\n    font-family: Neucha, sans-serif;\r\n    font-size: 1rem;\r\n    line-height: 23px;\r\n    outline: none;\r\n    padding: .75rem;\r\n    text-decoration: none;\r\n    transition: all 235ms ease-in-out;\r\n    border-bottom-left-radius: 15px 255px;\r\n    border-bottom-right-radius: 225px 15px;\r\n    border-top-left-radius: 255px 15px;\r\n    border-top-right-radius: 15px 225px;\r\n    -moz-user-select: none;\r\n         user-select: none;\r\n    -webkit-user-select: none;\r\n    touch-action: manipulation;\r\n  }\r\n\r\n  .oldbtn:hover {\r\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;\r\n    transform: translate3d(0, 2px, 0);\r\n  }\r\n\r\n  .oldbtn:focus {\r\n    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;\r\n  }\r\n\r\n\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -24418,7 +24419,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n@font-face {\n    font-family: \"BeatWord\";\n    src: url(/fonts/BeatWord.ttf);\n}\n\n@font-face {\n    font-family: \"BillyHatter\";\n    src: url(/fonts/BillyHatter.otf);\n}\n\n@font-face {\n    font-family: \"Calygraphy\";\n    src: url(/fonts/Calygraphy.ttf);\n}\n\n@font-face {\n    font-family: \"Gracheva\";\n    src: url(/fonts/Gracheva.otf);\n}\n\n@font-face {\n    font-family: \"OldGorgeous\";\n    src: url(/fonts/OldGorgeous.otf);\n}\n\n@font-face {\n    font-family: \"OldMe\";\n    src: url(/fonts/OldMe.otf);\n}\n\n@font-face {\n    font-family: \"Profont\";\n    src: url(/fonts/Profont.ttf);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n@font-face {\r\n    font-family: \"BeatWord\";\r\n    src: url(/fonts/BeatWord.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BillyHatter\";\r\n    src: url(/fonts/BillyHatter.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Calygraphy\";\r\n    src: url(/fonts/Calygraphy.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Gracheva\";\r\n    src: url(/fonts/Gracheva.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldGorgeous\";\r\n    src: url(/fonts/OldGorgeous.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldMe\";\r\n    src: url(/fonts/OldMe.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Profont\";\r\n    src: url(/fonts/Profont.ttf);\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30126,6 +30127,7 @@ var stringify = function stringify(
     object,
     prefix,
     generateArrayPrefix,
+    commaRoundTrip,
     strictNullHandling,
     skipNulls,
     encoder,
@@ -30190,7 +30192,7 @@ var stringify = function stringify(
                 for (var i = 0; i < valuesArray.length; ++i) {
                     valuesJoined += (i === 0 ? '' : ',') + formatter(encoder(valuesArray[i], defaults.encoder, charset, 'value', format));
                 }
-                return [formatter(keyValue) + '=' + valuesJoined];
+                return [formatter(keyValue) + (commaRoundTrip && isArray(obj) && valuesArray.length === 1 ? '[]' : '') + '=' + valuesJoined];
             }
             return [formatter(keyValue) + '=' + formatter(encoder(obj, defaults.encoder, charset, 'value', format))];
         }
@@ -30214,6 +30216,8 @@ var stringify = function stringify(
         objKeys = sort ? keys.sort(sort) : keys;
     }
 
+    var adjustedPrefix = commaRoundTrip && isArray(obj) && obj.length === 1 ? prefix + '[]' : prefix;
+
     for (var j = 0; j < objKeys.length; ++j) {
         var key = objKeys[j];
         var value = typeof key === 'object' && typeof key.value !== 'undefined' ? key.value : obj[key];
@@ -30223,8 +30227,8 @@ var stringify = function stringify(
         }
 
         var keyPrefix = isArray(obj)
-            ? typeof generateArrayPrefix === 'function' ? generateArrayPrefix(prefix, key) : prefix
-            : prefix + (allowDots ? '.' + key : '[' + key + ']');
+            ? typeof generateArrayPrefix === 'function' ? generateArrayPrefix(adjustedPrefix, key) : adjustedPrefix
+            : adjustedPrefix + (allowDots ? '.' + key : '[' + key + ']');
 
         sideChannel.set(object, step);
         var valueSideChannel = getSideChannel();
@@ -30233,6 +30237,7 @@ var stringify = function stringify(
             value,
             keyPrefix,
             generateArrayPrefix,
+            commaRoundTrip,
             strictNullHandling,
             skipNulls,
             encoder,
@@ -30329,6 +30334,10 @@ module.exports = function (object, opts) {
     }
 
     var generateArrayPrefix = arrayPrefixGenerators[arrayFormat];
+    if (opts && 'commaRoundTrip' in opts && typeof opts.commaRoundTrip !== 'boolean') {
+        throw new TypeError('`commaRoundTrip` must be a boolean, or absent');
+    }
+    var commaRoundTrip = generateArrayPrefix === 'comma' && opts && opts.commaRoundTrip;
 
     if (!objKeys) {
         objKeys = Object.keys(obj);
@@ -30349,6 +30358,7 @@ module.exports = function (object, opts) {
             obj[key],
             key,
             generateArrayPrefix,
+            commaRoundTrip,
             options.strictNullHandling,
             options.skipNulls,
             options.encode ? options.encoder : null,
@@ -65756,764 +65766,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-hot-toast/dist/react-hot-toast.esm.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/react-hot-toast/dist/react-hot-toast.esm.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "CheckmarkIcon": () => (/* binding */ CheckmarkIcon),
-/* harmony export */   "ErrorIcon": () => (/* binding */ ErrorIcon),
-/* harmony export */   "LoaderIcon": () => (/* binding */ LoaderIcon),
-/* harmony export */   "ToastBar": () => (/* binding */ ToastBar),
-/* harmony export */   "ToastIcon": () => (/* binding */ ToastIcon),
-/* harmony export */   "Toaster": () => (/* binding */ Toaster),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
-/* harmony export */   "resolveValue": () => (/* binding */ resolveValue),
-/* harmony export */   "toast": () => (/* binding */ toast),
-/* harmony export */   "useToaster": () => (/* binding */ useToaster),
-/* harmony export */   "useToasterStore": () => (/* binding */ useStore)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var goober__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.modern.js");
-
-
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _taggedTemplateLiteralLoose(strings, raw) {
-  if (!raw) {
-    raw = strings.slice(0);
-  }
-
-  strings.raw = raw;
-  return strings;
-}
-
-var isFunction = function isFunction(valOrFunction) {
-  return typeof valOrFunction === 'function';
-};
-
-var resolveValue = function resolveValue(valOrFunction, arg) {
-  return isFunction(valOrFunction) ? valOrFunction(arg) : valOrFunction;
-};
-
-var genId = /*#__PURE__*/function () {
-  var count = 0;
-  return function () {
-    return (++count).toString();
-  };
-}();
-var createRectRef = function createRectRef(onRect) {
-  return function (el) {
-    if (el) {
-      setTimeout(function () {
-        var boundingRect = el.getBoundingClientRect();
-        onRect(boundingRect);
-      });
-    }
-  };
-};
-var prefersReducedMotion = /*#__PURE__*/function () {
-  // Cache result
-  var shouldReduceMotion = undefined;
-  return function () {
-    if (shouldReduceMotion === undefined && typeof window !== 'undefined') {
-      var mediaQuery = matchMedia('(prefers-reduced-motion: reduce)');
-      shouldReduceMotion = !mediaQuery || mediaQuery.matches;
-    }
-
-    return shouldReduceMotion;
-  };
-}();
-
-var TOAST_LIMIT = 20;
-var ActionType;
-
-(function (ActionType) {
-  ActionType[ActionType["ADD_TOAST"] = 0] = "ADD_TOAST";
-  ActionType[ActionType["UPDATE_TOAST"] = 1] = "UPDATE_TOAST";
-  ActionType[ActionType["UPSERT_TOAST"] = 2] = "UPSERT_TOAST";
-  ActionType[ActionType["DISMISS_TOAST"] = 3] = "DISMISS_TOAST";
-  ActionType[ActionType["REMOVE_TOAST"] = 4] = "REMOVE_TOAST";
-  ActionType[ActionType["START_PAUSE"] = 5] = "START_PAUSE";
-  ActionType[ActionType["END_PAUSE"] = 6] = "END_PAUSE";
-})(ActionType || (ActionType = {}));
-
-var toastTimeouts = /*#__PURE__*/new Map();
-
-var addToRemoveQueue = function addToRemoveQueue(toastId) {
-  if (toastTimeouts.has(toastId)) {
-    return;
-  }
-
-  var timeout = setTimeout(function () {
-    toastTimeouts["delete"](toastId);
-    dispatch({
-      type: ActionType.REMOVE_TOAST,
-      toastId: toastId
-    });
-  }, 1000);
-  toastTimeouts.set(toastId, timeout);
-};
-
-var clearFromRemoveQueue = function clearFromRemoveQueue(toastId) {
-  var timeout = toastTimeouts.get(toastId);
-
-  if (timeout) {
-    clearTimeout(timeout);
-  }
-};
-
-var reducer = function reducer(state, action) {
-  switch (action.type) {
-    case ActionType.ADD_TOAST:
-      return _extends({}, state, {
-        toasts: [action.toast].concat(state.toasts).slice(0, TOAST_LIMIT)
-      });
-
-    case ActionType.UPDATE_TOAST:
-      //  ! Side effects !
-      if (action.toast.id) {
-        clearFromRemoveQueue(action.toast.id);
-      }
-
-      return _extends({}, state, {
-        toasts: state.toasts.map(function (t) {
-          return t.id === action.toast.id ? _extends({}, t, action.toast) : t;
-        })
-      });
-
-    case ActionType.UPSERT_TOAST:
-      var toast = action.toast;
-      return state.toasts.find(function (t) {
-        return t.id === toast.id;
-      }) ? reducer(state, {
-        type: ActionType.UPDATE_TOAST,
-        toast: toast
-      }) : reducer(state, {
-        type: ActionType.ADD_TOAST,
-        toast: toast
-      });
-
-    case ActionType.DISMISS_TOAST:
-      var toastId = action.toastId; // ! Side effects ! - This could be execrated into a dismissToast() action, but I'll keep it here for simplicity
-
-      if (toastId) {
-        addToRemoveQueue(toastId);
-      } else {
-        state.toasts.forEach(function (toast) {
-          addToRemoveQueue(toast.id);
-        });
-      }
-
-      return _extends({}, state, {
-        toasts: state.toasts.map(function (t) {
-          return t.id === toastId || toastId === undefined ? _extends({}, t, {
-            visible: false
-          }) : t;
-        })
-      });
-
-    case ActionType.REMOVE_TOAST:
-      if (action.toastId === undefined) {
-        return _extends({}, state, {
-          toasts: []
-        });
-      }
-
-      return _extends({}, state, {
-        toasts: state.toasts.filter(function (t) {
-          return t.id !== action.toastId;
-        })
-      });
-
-    case ActionType.START_PAUSE:
-      return _extends({}, state, {
-        pausedAt: action.time
-      });
-
-    case ActionType.END_PAUSE:
-      var diff = action.time - (state.pausedAt || 0);
-      return _extends({}, state, {
-        pausedAt: undefined,
-        toasts: state.toasts.map(function (t) {
-          return _extends({}, t, {
-            pauseDuration: t.pauseDuration + diff
-          });
-        })
-      });
-  }
-};
-var listeners = [];
-var memoryState = {
-  toasts: [],
-  pausedAt: undefined
-};
-var dispatch = function dispatch(action) {
-  memoryState = reducer(memoryState, action);
-  listeners.forEach(function (listener) {
-    listener(memoryState);
-  });
-};
-var defaultTimeouts = {
-  blank: 4000,
-  error: 4000,
-  success: 2000,
-  loading: Infinity,
-  custom: 4000
-};
-var useStore = function useStore(toastOptions) {
-  if (toastOptions === void 0) {
-    toastOptions = {};
-  }
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(memoryState),
-      state = _useState[0],
-      setState = _useState[1];
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    listeners.push(setState);
-    return function () {
-      var index = listeners.indexOf(setState);
-
-      if (index > -1) {
-        listeners.splice(index, 1);
-      }
-    };
-  }, [state]);
-  var mergedToasts = state.toasts.map(function (t) {
-    var _toastOptions$t$type, _toastOptions, _toastOptions$t$type2;
-
-    return _extends({}, toastOptions, toastOptions[t.type], t, {
-      duration: t.duration || ((_toastOptions$t$type = toastOptions[t.type]) == null ? void 0 : _toastOptions$t$type.duration) || ((_toastOptions = toastOptions) == null ? void 0 : _toastOptions.duration) || defaultTimeouts[t.type],
-      style: _extends({}, toastOptions.style, (_toastOptions$t$type2 = toastOptions[t.type]) == null ? void 0 : _toastOptions$t$type2.style, t.style)
-    });
-  });
-  return _extends({}, state, {
-    toasts: mergedToasts
-  });
-};
-
-var createToast = function createToast(message, type, opts) {
-  if (type === void 0) {
-    type = 'blank';
-  }
-
-  return _extends({
-    createdAt: Date.now(),
-    visible: true,
-    type: type,
-    ariaProps: {
-      role: 'status',
-      'aria-live': 'polite'
-    },
-    message: message,
-    pauseDuration: 0
-  }, opts, {
-    id: (opts == null ? void 0 : opts.id) || genId()
-  });
-};
-
-var createHandler = function createHandler(type) {
-  return function (message, options) {
-    var toast = createToast(message, type, options);
-    dispatch({
-      type: ActionType.UPSERT_TOAST,
-      toast: toast
-    });
-    return toast.id;
-  };
-};
-
-var toast = function toast(message, opts) {
-  return createHandler('blank')(message, opts);
-};
-
-toast.error = /*#__PURE__*/createHandler('error');
-toast.success = /*#__PURE__*/createHandler('success');
-toast.loading = /*#__PURE__*/createHandler('loading');
-toast.custom = /*#__PURE__*/createHandler('custom');
-
-toast.dismiss = function (toastId) {
-  dispatch({
-    type: ActionType.DISMISS_TOAST,
-    toastId: toastId
-  });
-};
-
-toast.remove = function (toastId) {
-  return dispatch({
-    type: ActionType.REMOVE_TOAST,
-    toastId: toastId
-  });
-};
-
-toast.promise = function (promise, msgs, opts) {
-  var id = toast.loading(msgs.loading, _extends({}, opts, opts == null ? void 0 : opts.loading));
-  promise.then(function (p) {
-    toast.success(resolveValue(msgs.success, p), _extends({
-      id: id
-    }, opts, opts == null ? void 0 : opts.success));
-    return p;
-  })["catch"](function (e) {
-    toast.error(resolveValue(msgs.error, e), _extends({
-      id: id
-    }, opts, opts == null ? void 0 : opts.error));
-  });
-  return promise;
-};
-
-var useToaster = function useToaster(toastOptions) {
-  var _useStore = useStore(toastOptions),
-      toasts = _useStore.toasts,
-      pausedAt = _useStore.pausedAt;
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (pausedAt) {
-      return;
-    }
-
-    var now = Date.now();
-    var timeouts = toasts.map(function (t) {
-      if (t.duration === Infinity) {
-        return;
-      }
-
-      var durationLeft = (t.duration || 0) + t.pauseDuration - (now - t.createdAt);
-
-      if (durationLeft < 0) {
-        if (t.visible) {
-          toast.dismiss(t.id);
-        }
-
-        return;
-      }
-
-      return setTimeout(function () {
-        return toast.dismiss(t.id);
-      }, durationLeft);
-    });
-    return function () {
-      timeouts.forEach(function (timeout) {
-        return timeout && clearTimeout(timeout);
-      });
-    };
-  }, [toasts, pausedAt]);
-  var handlers = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
-    return {
-      startPause: function startPause() {
-        dispatch({
-          type: ActionType.START_PAUSE,
-          time: Date.now()
-        });
-      },
-      endPause: function endPause() {
-        if (pausedAt) {
-          dispatch({
-            type: ActionType.END_PAUSE,
-            time: Date.now()
-          });
-        }
-      },
-      updateHeight: function updateHeight(toastId, height) {
-        return dispatch({
-          type: ActionType.UPDATE_TOAST,
-          toast: {
-            id: toastId,
-            height: height
-          }
-        });
-      },
-      calculateOffset: function calculateOffset(toast, opts) {
-        var _relevantToasts$filte;
-
-        var _ref = opts || {},
-            _ref$reverseOrder = _ref.reverseOrder,
-            reverseOrder = _ref$reverseOrder === void 0 ? false : _ref$reverseOrder,
-            _ref$gutter = _ref.gutter,
-            gutter = _ref$gutter === void 0 ? 8 : _ref$gutter,
-            defaultPosition = _ref.defaultPosition;
-
-        var relevantToasts = toasts.filter(function (t) {
-          return (t.position || defaultPosition) === (toast.position || defaultPosition) && t.height;
-        });
-        var toastIndex = relevantToasts.findIndex(function (t) {
-          return t.id === toast.id;
-        });
-        var toastsBefore = relevantToasts.filter(function (toast, i) {
-          return i < toastIndex && toast.visible;
-        }).length;
-
-        var offset = (_relevantToasts$filte = relevantToasts.filter(function (t) {
-          return t.visible;
-        })).slice.apply(_relevantToasts$filte, reverseOrder ? [toastsBefore + 1] : [0, toastsBefore]).reduce(function (acc, t) {
-          return acc + (t.height || 0) + gutter;
-        }, 0);
-
-        return offset;
-      }
-    };
-  }, [toasts, pausedAt]);
-  return {
-    toasts: toasts,
-    handlers: handlers
-  };
-};
-
-function _templateObject4() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 20px;\n  opacity: 0;\n  height: 20px;\n  border-radius: 10px;\n  background: ", ";\n  position: relative;\n  transform: rotate(45deg);\n\n  animation: ", " 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)\n    forwards;\n  animation-delay: 100ms;\n\n  &:after,\n  &:before {\n    content: '';\n    animation: ", " 0.15s ease-out forwards;\n    animation-delay: 150ms;\n    position: absolute;\n    border-radius: 3px;\n    opacity: 0;\n    background: ", ";\n    bottom: 9px;\n    left: 4px;\n    height: 2px;\n    width: 12px;\n  }\n\n  &:before {\n    animation: ", " 0.15s ease-out forwards;\n    animation-delay: 180ms;\n    transform: rotate(90deg);\n  }\n"]);
-
-  _templateObject4 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3() {
-  var data = _taggedTemplateLiteralLoose(["\nfrom {\n  transform: scale(0) rotate(90deg);\n\topacity: 0;\n}\nto {\n  transform: scale(1) rotate(90deg);\n\topacity: 1;\n}"]);
-
-  _templateObject3 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\nfrom {\n  transform: scale(0);\n  opacity: 0;\n}\nto {\n  transform: scale(1);\n  opacity: 1;\n}"]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\nfrom {\n  transform: scale(0) rotate(45deg);\n\topacity: 0;\n}\nto {\n transform: scale(1) rotate(45deg);\n  opacity: 1;\n}"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var circleAnimation = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject());
-var firstLineAnimation = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject2());
-var secondLineAnimation = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject3());
-var ErrorIcon = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject4(), function (p) {
-  return p.primary || '#ff4b4b';
-}, circleAnimation, firstLineAnimation, function (p) {
-  return p.secondary || '#fff';
-}, secondLineAnimation);
-
-function _templateObject2$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 12px;\n  height: 12px;\n  box-sizing: border-box;\n  border: 2px solid;\n  border-radius: 100%;\n  border-color: ", ";\n  border-right-color: ", ";\n  animation: ", " 1s linear infinite;\n"]);
-
-  _templateObject2$1 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"]);
-
-  _templateObject$1 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var rotate = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject$1());
-var LoaderIcon = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject2$1(), function (p) {
-  return p.secondary || '#e0e0e0';
-}, function (p) {
-  return p.primary || '#616161';
-}, rotate);
-
-function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 20px;\n  opacity: 0;\n  height: 20px;\n  border-radius: 10px;\n  background: ", ";\n  position: relative;\n  transform: rotate(45deg);\n\n  animation: ", " 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)\n    forwards;\n  animation-delay: 100ms;\n  &:after {\n    content: '';\n    box-sizing: border-box;\n    animation: ", " 0.2s ease-out forwards;\n    opacity: 0;\n    animation-delay: 200ms;\n    position: absolute;\n    border-right: 2px solid;\n    border-bottom: 2px solid;\n    border-color: ", ";\n    bottom: 6px;\n    left: 6px;\n    height: 10px;\n    width: 6px;\n  }\n"]);
-
-  _templateObject3$1 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$2() {
-  var data = _taggedTemplateLiteralLoose(["\n0% {\n\theight: 0;\n\twidth: 0;\n\topacity: 0;\n}\n40% {\n  height: 0;\n\twidth: 6px;\n\topacity: 1;\n}\n100% {\n  opacity: 1;\n  height: 10px;\n}"]);
-
-  _templateObject2$2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\nfrom {\n  transform: scale(0) rotate(45deg);\n\topacity: 0;\n}\nto {\n  transform: scale(1) rotate(45deg);\n\topacity: 1;\n}"]);
-
-  _templateObject$2 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var circleAnimation$1 = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject$2());
-var checkmarkAnimation = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject2$2());
-var CheckmarkIcon = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject3$1(), function (p) {
-  return p.primary || '#61d345';
-}, circleAnimation$1, checkmarkAnimation, function (p) {
-  return p.secondary || '#fff';
-});
-
-function _templateObject4$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  transform: scale(0.6);\n  opacity: 0.4;\n  min-width: 20px;\n  animation: ", " 0.3s 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275)\n    forwards;\n"]);
-
-  _templateObject4$1 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject3$2() {
-  var data = _taggedTemplateLiteralLoose(["\nfrom {\n  transform: scale(0.6);\n  opacity: 0.4;\n}\nto {\n  transform: scale(1);\n  opacity: 1;\n}"]);
-
-  _templateObject3$2 = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-width: 20px;\n  min-height: 20px;\n"]);
-
-  _templateObject2$3 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n"]);
-
-  _templateObject$3 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var StatusWrapper = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject$3());
-var IndicatorWrapper = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject2$3());
-var enter = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)( /*#__PURE__*/_templateObject3$2());
-var AnimatedIconWrapper = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject4$1(), enter);
-var ToastIcon = function ToastIcon(_ref) {
-  var toast = _ref.toast;
-  var icon = toast.icon,
-      type = toast.type,
-      iconTheme = toast.iconTheme;
-
-  if (icon !== undefined) {
-    if (typeof icon === 'string') {
-      return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(AnimatedIconWrapper, null, icon);
-    } else {
-      return icon;
-    }
-  }
-
-  if (type === 'blank') {
-    return null;
-  }
-
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(IndicatorWrapper, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(LoaderIcon, Object.assign({}, iconTheme)), type !== 'loading' && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(StatusWrapper, null, type === 'error' ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ErrorIcon, Object.assign({}, iconTheme)) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(CheckmarkIcon, Object.assign({}, iconTheme))));
-};
-
-function _templateObject2$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  margin: 4px 10px;\n  color: inherit;\n  flex: 1 1 auto;\n  white-space: pre-line;\n"]);
-
-  _templateObject2$4 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  background: #fff;\n  color: #363636;\n  line-height: 1.3;\n  will-change: transform;\n  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);\n  max-width: 350px;\n  pointer-events: auto;\n  padding: 8px 10px;\n  border-radius: 8px;\n"]);
-
-  _templateObject$4 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-var enterAnimation = function enterAnimation(factor) {
-  return "\n0% {transform: translate3d(0," + factor * -200 + "%,0) scale(.6); opacity:.5;}\n100% {transform: translate3d(0,0,0) scale(1); opacity:1;}\n";
-};
-
-var exitAnimation = function exitAnimation(factor) {
-  return "\n0% {transform: translate3d(0,0,-1px) scale(1); opacity:1;}\n100% {transform: translate3d(0," + factor * -150 + "%,-1px) scale(.6); opacity:0;}\n";
-};
-
-var fadeInAnimation = "0%{opacity:0;} 100%{opacity:1;}";
-var fadeOutAnimation = "0%{opacity:1;} 100%{opacity:0;}";
-var ToastBarBase = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div', react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)( /*#__PURE__*/_templateObject$4());
-var Message = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)('div')( /*#__PURE__*/_templateObject2$4());
-
-var getAnimationStyle = function getAnimationStyle(position, visible) {
-  var top = position.includes('top');
-  var factor = top ? 1 : -1;
-
-  var _ref = prefersReducedMotion() ? [fadeInAnimation, fadeOutAnimation] : [enterAnimation(factor), exitAnimation(factor)],
-      enter = _ref[0],
-      exit = _ref[1];
-
-  return {
-    animation: visible ? (0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)(enter) + " 0.35s cubic-bezier(.21,1.02,.73,1) forwards" : (0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)(exit) + " 0.4s forwards cubic-bezier(.06,.71,.55,1)"
-  };
-};
-
-var ToastBar = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.memo)(function (_ref2) {
-  var toast = _ref2.toast,
-      position = _ref2.position,
-      style = _ref2.style,
-      children = _ref2.children;
-  var animationStyle = toast != null && toast.height ? getAnimationStyle(toast.position || position || 'top-center', toast.visible) : {
-    opacity: 0
-  };
-  var icon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ToastIcon, {
-    toast: toast
-  });
-  var message = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Message, Object.assign({}, toast.ariaProps), resolveValue(toast.message, toast));
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ToastBarBase, {
-    className: toast.className,
-    style: _extends({}, animationStyle, style, toast.style)
-  }, typeof children === 'function' ? children({
-    icon: icon,
-    message: message
-  }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, icon, message));
-});
-
-function _templateObject$5() {
-  var data = _taggedTemplateLiteralLoose(["\n  z-index: 9999;\n  > * {\n    pointer-events: auto;\n  }\n"]);
-
-  _templateObject$5 = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-(0,goober__WEBPACK_IMPORTED_MODULE_1__.setup)(react__WEBPACK_IMPORTED_MODULE_0__.createElement);
-
-var getPositionStyle = function getPositionStyle(position, offset) {
-  var top = position.includes('top');
-  var verticalStyle = top ? {
-    top: 0
-  } : {
-    bottom: 0
-  };
-  var horizontalStyle = position.includes('center') ? {
-    justifyContent: 'center'
-  } : position.includes('right') ? {
-    justifyContent: 'flex-end'
-  } : {};
-  return _extends({
-    left: 0,
-    right: 0,
-    display: 'flex',
-    position: 'absolute',
-    transition: prefersReducedMotion() ? undefined : "all 230ms cubic-bezier(.21,1.02,.73,1)",
-    transform: "translateY(" + offset * (top ? 1 : -1) + "px)"
-  }, verticalStyle, horizontalStyle);
-};
-
-var activeClass = /*#__PURE__*/(0,goober__WEBPACK_IMPORTED_MODULE_1__.css)( /*#__PURE__*/_templateObject$5());
-var DEFAULT_OFFSET = 16;
-var Toaster = function Toaster(_ref) {
-  var reverseOrder = _ref.reverseOrder,
-      _ref$position = _ref.position,
-      position = _ref$position === void 0 ? 'top-center' : _ref$position,
-      toastOptions = _ref.toastOptions,
-      gutter = _ref.gutter,
-      children = _ref.children,
-      containerStyle = _ref.containerStyle,
-      containerClassName = _ref.containerClassName;
-
-  var _useToaster = useToaster(toastOptions),
-      toasts = _useToaster.toasts,
-      handlers = _useToaster.handlers;
-
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: _extends({
-      position: 'fixed',
-      zIndex: 9999,
-      top: DEFAULT_OFFSET,
-      left: DEFAULT_OFFSET,
-      right: DEFAULT_OFFSET,
-      bottom: DEFAULT_OFFSET,
-      pointerEvents: 'none'
-    }, containerStyle),
-    className: containerClassName,
-    onMouseEnter: handlers.startPause,
-    onMouseLeave: handlers.endPause
-  }, toasts.map(function (t) {
-    var toastPosition = t.position || position;
-    var offset = handlers.calculateOffset(t, {
-      reverseOrder: reverseOrder,
-      gutter: gutter,
-      defaultPosition: position
-    });
-    var positionStyle = getPositionStyle(toastPosition, offset);
-    var ref = t.height ? undefined : createRectRef(function (rect) {
-      handlers.updateHeight(t.id, rect.height);
-    });
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      ref: ref,
-      className: t.visible ? activeClass : '',
-      key: t.id,
-      style: positionStyle
-    }, t.type === 'custom' ? resolveValue(t.message, t) : children ? children(t) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ToastBar, {
-      toast: t,
-      position: toastPosition
-    }));
-  }));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (toast);
-
-//# sourceMappingURL=react-hot-toast.esm.js.map
-
-
-/***/ }),
-
 /***/ "./node_modules/react-is/cjs/react-is.development.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-is/cjs/react-is.development.js ***!
@@ -75409,6 +74661,210 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 let e={data:""},t=t=>"object"==typeof window?((t?t.querySelector("#_goober"):window._goober)||Object.assign((t||document.head).appendChild(document.createElement("style")),{innerHTML:" ",id:"_goober"})).firstChild:t||e,r=e=>{let r=t(e),l=r.data;return r.data="",l},l=/(?:([\u0080-\uFFFF\w-%@]+) *:? *([^{;]+?);|([^;}{]*?) *{)|(}\s*)/g,a=/\/\*[^]*?\*\/|  +/g,n=/\n+/g,o=(e,t)=>{let r="",l="",a="";for(let n in e){let c=e[n];"@"==n[0]?"i"==n[1]?r=n+" "+c+";":l+="f"==n[1]?o(c,n):n+"{"+o(c,"k"==n[1]?"":t)+"}":"object"==typeof c?l+=o(c,t?t.replace(/([^,])+/g,e=>n.replace(/(^:.*)|([^,])+/g,t=>/&/.test(t)?t.replace(/&/g,e):e?e+" "+t:t)):n):null!=c&&(n=/^--/.test(n)?n:n.replace(/[A-Z]/g,"-$&").toLowerCase(),a+=o.p?o.p(n,c):n+":"+c+";")}return r+(t&&a?t+"{"+a+"}":a)+l},c={},s=e=>{if("object"==typeof e){let t="";for(let r in e)t+=r+s(e[r]);return t}return e},i=(e,t,r,i,p)=>{let u=s(e),d=c[u]||(c[u]=(e=>{let t=0,r=11;for(;t<e.length;)r=101*r+e.charCodeAt(t++)>>>0;return"go"+r})(u));if(!c[d]){let t=u!==e?e:(e=>{let t,r,o=[{}];for(;t=l.exec(e.replace(a,""));)t[4]?o.shift():t[3]?(r=t[3].replace(n," ").trim(),o.unshift(o[0][r]=o[0][r]||{})):o[0][t[1]]=t[2].replace(n," ").trim();return o[0]})(e);c[d]=o(p?{["@keyframes "+d]:t}:t,r?"":"."+d)}return((e,t,r)=>{-1==t.data.indexOf(e)&&(t.data=r?e+t.data:t.data+e)})(c[d],t,i),d},p=(e,t,r)=>e.reduce((e,l,a)=>{let n=t[a];if(n&&n.call){let e=n(r),t=e&&e.props&&e.props.className||/^go/.test(e)&&e;n=t?"."+t:e&&"object"==typeof e?e.props?"":o(e,""):!1===e?"":e}return e+l+(null==n?"":n)},"");function u(e){let r=this||{},l=e.call?e(r.p):e;return i(l.unshift?l.raw?p(l,[].slice.call(arguments,1),r.p):l.reduce((e,t)=>Object.assign(e,t&&t.call?t(r.p):t),{}):l,t(r.target),r.g,r.o,r.k)}let d,f,g,b=u.bind({g:1}),h=u.bind({k:1});function m(e,t,r,l){o.p=t,d=e,f=r,g=l}function j(e,t){let r=this||{};return function(){let l=arguments;function a(n,o){let c=Object.assign({},n),s=c.className||a.className;r.p=Object.assign({theme:f&&f()},c),r.o=/ *go\d+/.test(s),c.className=u.apply(r,l)+(s?" "+s:""),t&&(c.ref=o);let i=e;return e[0]&&(i=c.as||e,delete c.as),g&&i[0]&&g(c),d(i,c)}return t?t(a):a}}
 
+
+/***/ }),
+
+/***/ "./node_modules/react-hot-toast/dist/index.mjs":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-hot-toast/dist/index.mjs ***!
+  \*****************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CheckmarkIcon": () => (/* binding */ _),
+/* harmony export */   "ErrorIcon": () => (/* binding */ k),
+/* harmony export */   "LoaderIcon": () => (/* binding */ V),
+/* harmony export */   "ToastBar": () => (/* binding */ C),
+/* harmony export */   "ToastIcon": () => (/* binding */ M),
+/* harmony export */   "Toaster": () => (/* binding */ Oe),
+/* harmony export */   "default": () => (/* binding */ Et),
+/* harmony export */   "resolveValue": () => (/* binding */ u),
+/* harmony export */   "toast": () => (/* binding */ n),
+/* harmony export */   "useToaster": () => (/* binding */ D),
+/* harmony export */   "useToasterStore": () => (/* binding */ v)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var goober__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! goober */ "./node_modules/goober/dist/goober.modern.js");
+var H=e=>typeof e=="function",u=(e,t)=>H(e)?e(t):e;var U=(()=>{let e=0;return()=>(++e).toString()})(),$=e=>t=>{t&&setTimeout(()=>{let o=t.getBoundingClientRect();e(o)})},S=(()=>{let e;return()=>{if(e===void 0&&typeof window<"u"){let t=matchMedia("(prefers-reduced-motion: reduce)");e=!t||t.matches}return e}})();var Q=20;var A=new Map,L=e=>{if(A.has(e))return;let t=setTimeout(()=>{A.delete(e),m({type:4,toastId:e})},1e3);A.set(e,t)},J=e=>{let t=A.get(e);t&&clearTimeout(t)},E=(e,t)=>{switch(t.type){case 0:return{...e,toasts:[t.toast,...e.toasts].slice(0,Q)};case 1:return t.toast.id&&J(t.toast.id),{...e,toasts:e.toasts.map(a=>a.id===t.toast.id?{...a,...t.toast}:a)};case 2:let{toast:o}=t;return e.toasts.find(a=>a.id===o.id)?E(e,{type:1,toast:o}):E(e,{type:0,toast:o});case 3:let{toastId:s}=t;return s?L(s):e.toasts.forEach(a=>{L(a.id)}),{...e,toasts:e.toasts.map(a=>a.id===s||s===void 0?{...a,visible:!1}:a)};case 4:return t.toastId===void 0?{...e,toasts:[]}:{...e,toasts:e.toasts.filter(a=>a.id!==t.toastId)};case 5:return{...e,pausedAt:t.time};case 6:let r=t.time-(e.pausedAt||0);return{...e,pausedAt:void 0,toasts:e.toasts.map(a=>({...a,pauseDuration:a.pauseDuration+r}))}}},P=[],R={toasts:[],pausedAt:void 0},m=e=>{R=E(R,e),P.forEach(t=>{t(R)})},X={blank:4e3,error:4e3,success:2e3,loading:1/0,custom:4e3},v=(e={})=>{let[t,o]=(0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(R);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>(P.push(o),()=>{let r=P.indexOf(o);r>-1&&P.splice(r,1)}),[t]);let s=t.toasts.map(r=>{var a,i;return{...e,...e[r.type],...r,duration:r.duration||((a=e[r.type])==null?void 0:a.duration)||(e==null?void 0:e.duration)||X[r.type],style:{...e.style,...(i=e[r.type])==null?void 0:i.style,...r.style}}});return{...t,toasts:s}};var q=(e,t="blank",o)=>({createdAt:Date.now(),visible:!0,type:t,ariaProps:{role:"status","aria-live":"polite"},message:e,pauseDuration:0,...o,id:(o==null?void 0:o.id)||U()}),g=e=>(t,o)=>{let s=q(t,e,o);return m({type:2,toast:s}),s.id},n=(e,t)=>g("blank")(e,t);n.error=g("error");n.success=g("success");n.loading=g("loading");n.custom=g("custom");n.dismiss=e=>{m({type:3,toastId:e})};n.remove=e=>m({type:4,toastId:e});n.promise=(e,t,o)=>{let s=n.loading(t.loading,{...o,...o==null?void 0:o.loading});return e.then(r=>(n.success(u(t.success,r),{id:s,...o,...o==null?void 0:o.success}),r)).catch(r=>{n.error(u(t.error,r),{id:s,...o,...o==null?void 0:o.error})}),e};var D=e=>{let{toasts:t,pausedAt:o}=v(e);(0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(()=>{if(o)return;let r=Date.now(),a=t.map(i=>{if(i.duration===1/0)return;let T=(i.duration||0)+i.pauseDuration-(r-i.createdAt);if(T<0){i.visible&&n.dismiss(i.id);return}return setTimeout(()=>n.dismiss(i.id),T)});return()=>{a.forEach(i=>i&&clearTimeout(i))}},[t,o]);let s=(0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(()=>({startPause:()=>{m({type:5,time:Date.now()})},endPause:()=>{o&&m({type:6,time:Date.now()})},updateHeight:(r,a)=>m({type:1,toast:{id:r,height:a}}),calculateOffset:(r,a)=>{let{reverseOrder:i=!1,gutter:T=8,defaultPosition:l}=a||{},c=t.filter(p=>(p.position||l)===(r.position||l)&&p.height),h=c.findIndex(p=>p.id===r.id),b=c.filter((p,y)=>y<h&&p.visible).length;return c.filter(p=>p.visible).slice(...i?[b+1]:[0,b]).reduce((p,y)=>p+(y.height||0)+T,0)}}),[t,o]);return{toasts:t,handlers:s}};var ee=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+from {
+  transform: scale(0) rotate(45deg);
+	opacity: 0;
+}
+to {
+ transform: scale(1) rotate(45deg);
+  opacity: 1;
+}`,te=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+from {
+  transform: scale(0);
+  opacity: 0;
+}
+to {
+  transform: scale(1);
+  opacity: 1;
+}`,oe=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+from {
+  transform: scale(0) rotate(90deg);
+	opacity: 0;
+}
+to {
+  transform: scale(1) rotate(90deg);
+	opacity: 1;
+}`,k=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  width: 20px;
+  opacity: 0;
+  height: 20px;
+  border-radius: 10px;
+  background: ${e=>e.primary||"#ff4b4b"};
+  position: relative;
+  transform: rotate(45deg);
+
+  animation: ${ee} 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+  animation-delay: 100ms;
+
+  &:after,
+  &:before {
+    content: '';
+    animation: ${te} 0.15s ease-out forwards;
+    animation-delay: 150ms;
+    position: absolute;
+    border-radius: 3px;
+    opacity: 0;
+    background: ${e=>e.secondary||"#fff"};
+    bottom: 9px;
+    left: 4px;
+    height: 2px;
+    width: 12px;
+  }
+
+  &:before {
+    animation: ${oe} 0.15s ease-out forwards;
+    animation-delay: 180ms;
+    transform: rotate(90deg);
+  }
+`;var se=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`,V=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  width: 12px;
+  height: 12px;
+  box-sizing: border-box;
+  border: 2px solid;
+  border-radius: 100%;
+  border-color: ${e=>e.secondary||"#e0e0e0"};
+  border-right-color: ${e=>e.primary||"#616161"};
+  animation: ${se} 1s linear infinite;
+`;var ne=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+from {
+  transform: scale(0) rotate(45deg);
+	opacity: 0;
+}
+to {
+  transform: scale(1) rotate(45deg);
+	opacity: 1;
+}`,ce=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+0% {
+	height: 0;
+	width: 0;
+	opacity: 0;
+}
+40% {
+  height: 0;
+	width: 6px;
+	opacity: 1;
+}
+100% {
+  opacity: 1;
+  height: 10px;
+}`,_=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  width: 20px;
+  opacity: 0;
+  height: 20px;
+  border-radius: 10px;
+  background: ${e=>e.primary||"#61d345"};
+  position: relative;
+  transform: rotate(45deg);
+
+  animation: ${ne} 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+  animation-delay: 100ms;
+  &:after {
+    content: '';
+    box-sizing: border-box;
+    animation: ${ce} 0.2s ease-out forwards;
+    opacity: 0;
+    animation-delay: 200ms;
+    position: absolute;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-color: ${e=>e.secondary||"#fff"};
+    bottom: 6px;
+    left: 6px;
+    height: 10px;
+    width: 6px;
+  }
+`;var de=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  position: absolute;
+`,me=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+`,ue=goober__WEBPACK_IMPORTED_MODULE_1__.keyframes`
+from {
+  transform: scale(0.6);
+  opacity: 0.4;
+}
+to {
+  transform: scale(1);
+  opacity: 1;
+}`,le=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  position: relative;
+  transform: scale(0.6);
+  opacity: 0.4;
+  min-width: 20px;
+  animation: ${ue} 0.3s 0.12s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    forwards;
+`,M=({toast:e})=>{let{icon:t,type:o,iconTheme:s}=e;return t!==void 0?typeof t=="string"?react__WEBPACK_IMPORTED_MODULE_0__.createElement(le,null,t):t:o==="blank"?null:react__WEBPACK_IMPORTED_MODULE_0__.createElement(me,null,react__WEBPACK_IMPORTED_MODULE_0__.createElement(V,{...s}),o!=="loading"&&react__WEBPACK_IMPORTED_MODULE_0__.createElement(de,null,o==="error"?react__WEBPACK_IMPORTED_MODULE_0__.createElement(k,{...s}):react__WEBPACK_IMPORTED_MODULE_0__.createElement(_,{...s})))};var fe=e=>`
+0% {transform: translate3d(0,${e*-200}%,0) scale(.6); opacity:.5;}
+100% {transform: translate3d(0,0,0) scale(1); opacity:1;}
+`,Te=e=>`
+0% {transform: translate3d(0,0,-1px) scale(1); opacity:1;}
+100% {transform: translate3d(0,${e*-150}%,-1px) scale(.6); opacity:0;}
+`,ye="0%{opacity:0;} 100%{opacity:1;}",ge="0%{opacity:1;} 100%{opacity:0;}",xe=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div",react__WEBPACK_IMPORTED_MODULE_0__.forwardRef)`
+  display: flex;
+  align-items: center;
+  background: #fff;
+  color: #363636;
+  line-height: 1.3;
+  will-change: transform;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.05);
+  max-width: 350px;
+  pointer-events: auto;
+  padding: 8px 10px;
+  border-radius: 8px;
+`,he=(0,goober__WEBPACK_IMPORTED_MODULE_1__.styled)("div")`
+  display: flex;
+  justify-content: center;
+  margin: 4px 10px;
+  color: inherit;
+  flex: 1 1 auto;
+  white-space: pre-line;
+`,be=(e,t)=>{let s=e.includes("top")?1:-1,[r,a]=S()?[ye,ge]:[fe(s),Te(s)];return{animation:t?`${(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)(r)} 0.35s cubic-bezier(.21,1.02,.73,1) forwards`:`${(0,goober__WEBPACK_IMPORTED_MODULE_1__.keyframes)(a)} 0.4s forwards cubic-bezier(.06,.71,.55,1)`}},C=react__WEBPACK_IMPORTED_MODULE_0__.memo(({toast:e,position:t,style:o,children:s})=>{let r=e!=null&&e.height?be(e.position||t||"top-center",e.visible):{opacity:0},a=react__WEBPACK_IMPORTED_MODULE_0__.createElement(M,{toast:e}),i=react__WEBPACK_IMPORTED_MODULE_0__.createElement(he,{...e.ariaProps},u(e.message,e));return react__WEBPACK_IMPORTED_MODULE_0__.createElement(xe,{className:e.className,style:{...r,...o,...e.style}},typeof s=="function"?s({icon:a,message:i}):react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment,null,a,i))});(0,goober__WEBPACK_IMPORTED_MODULE_1__.setup)(react__WEBPACK_IMPORTED_MODULE_0__.createElement);var Pe=(e,t)=>{let o=e.includes("top"),s=o?{top:0}:{bottom:0},r=e.includes("center")?{justifyContent:"center"}:e.includes("right")?{justifyContent:"flex-end"}:{};return{left:0,right:0,display:"flex",position:"absolute",transition:S()?void 0:"all 230ms cubic-bezier(.21,1.02,.73,1)",transform:`translateY(${t*(o?1:-1)}px)`,...s,...r}},Re=goober__WEBPACK_IMPORTED_MODULE_1__.css`
+  z-index: 9999;
+  > * {
+    pointer-events: auto;
+  }
+`,O=16,Oe=({reverseOrder:e,position:t="top-center",toastOptions:o,gutter:s,children:r,containerStyle:a,containerClassName:i})=>{let{toasts:T,handlers:l}=D(o);return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div",{style:{position:"fixed",zIndex:9999,top:O,left:O,right:O,bottom:O,pointerEvents:"none",...a},className:i,onMouseEnter:l.startPause,onMouseLeave:l.endPause},T.map(c=>{let h=c.position||t,b=l.calculateOffset(c,{reverseOrder:e,gutter:s,defaultPosition:t}),F=Pe(h,b),p=c.height?void 0:$(y=>{l.updateHeight(c.id,y.height)});return react__WEBPACK_IMPORTED_MODULE_0__.createElement("div",{ref:p,className:c.visible?Re:"",key:c.id,style:F},c.type==="custom"?u(c.message,c):r?r(c):react__WEBPACK_IMPORTED_MODULE_0__.createElement(C,{toast:c,position:h}))}))};var Et=n;
+//# sourceMappingURL=index.mjs.map
 
 /***/ }),
 
