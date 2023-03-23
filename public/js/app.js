@@ -9185,7 +9185,8 @@ function AsSeem() {
                   "for": "my-modal-".concat(i),
                   className: "cursor-pointer text-sm bg-white text-black font-bold p-1 m-0 w-inherit rounded-b-lg rounded-t-none",
                   style: {
-                    'fontFamily': 'sans-serif'
+                    'fontFamily': 'sans-serif',
+                    'width': 'inherit'
                   },
                   children: "click to show/hide it embed"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
