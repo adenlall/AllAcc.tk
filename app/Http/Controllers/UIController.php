@@ -16,10 +16,10 @@ class UIController extends Controller
         $user = User::find(Auth::user()->id);
         $path = json_decode($user->json_config, true);
         if (!array_key_exists('UI', $path)) {
-            $path += ['UI' => ['type' => 'JSX', 'costume0' => [
+            $path += ['UI' => ['type' => 'blade', 'costume0' => [
                 'bg'=> '#afd9ff',
                 'to_draw'=> [
-                    'bg'=> '#334155',
+                'bg'=> '#334155',
                     'text'=> '#ffffff',
                     'button'=> [
                         'bg'=> '#ffffff',
