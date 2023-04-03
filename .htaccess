@@ -1,0 +1,12 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteCond  %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+   <FilesMatch "\.(js|css|woff|woff2|ttf|svg|png|jpg|jpeg)$">
+     Header set Cache-Control "max-age=604800, public"
+    </FilesMatch>
+   </IfModule>
