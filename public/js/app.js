@@ -9604,9 +9604,9 @@ function AsSeem() {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
                         children: url['grp'] === urlGrp[0] ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                           className: "w-full block p-0 shadow-sm shadow-gray",
-                          href: url.link,
+                          href: url.link.includes("http") ? url.link : 'https://' + url.link,
                           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
-                            className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
+                            className: "w-full m-auto overflow-hidden ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
                             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                               style: {
                                 fontFamily: 'sans-serif'
