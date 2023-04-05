@@ -385,7 +385,7 @@ function AsSeem() {
                                                                             {
                                                                                 url['grp'] === urlGrp[0] ?
                                                                                     <a className="w-full block p-0 shadow-sm shadow-gray" href={url.link.includes("http") ? url.link : 'https://'+url.link}>
-                                                                                        <button className={`w-full m-auto overflow-hidden ${theme.theme.button ? theme.theme.button : 'orangebtn'}`}>
+                                                                                        <button className={`w-full m-auto overflow-hidden ${theme.theme.button ? theme.theme.button : 'orangebtn'}`} style ={{overflow:"hidden"}}>
                                                                                             <span style={{ fontFamily: 'sans-serif' }} class="text font-bold overflow-hidden text-ellipsis whitespace-nowrap"><span className="m-auto">{url.name}</span></span>
                                                                                         </button>
 
