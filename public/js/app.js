@@ -9966,7 +9966,7 @@ function Auth() {
       className: "h-screen w-full bg-[url(/imgs/app/Auth/register.jpg)] bg-cover bg-no-repeat ",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         id: "colorcont",
-        className: "h-screen bg-[linear-gradient(143deg,#235a47,#bff0ff3d)]",
+        className: "h-screen bg-[linear-gradient(143deg,#ffffff,#5ff8ff5e)]",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "sm:container h-full m-auto p-3 flex flex-col justify-between ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {

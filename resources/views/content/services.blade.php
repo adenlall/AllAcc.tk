@@ -13,7 +13,7 @@
                         <div class='rounded-xl'>
                             <img class='rounded-xl object-contain h-full w-[5em] min-w-auto p-2'
                                 src="/imgs/icons/{{ $user_js['theme']['icons'] }}/{{ $ser->name }}.svg"
-                                alt={{ $ser->name }} 
+                                alt={{ $ser->name }}
                                 style="background: {{$cosui['draw']['items']['img']['background']}}"
                                 />
                         </div>
@@ -21,7 +21,7 @@
                             <h4 style="color: {{$cosui['draw']['items']['main_txt']}}" class='sm:text-xl xs:text-lg text-sm font-bold pl-2 text-info text-start'>
                                 {{ $ser->name }} :</h4>
                             <h3
-                                style="background: {{$cosui['draw']['items']['username']['bg']}}; color: {{$cosui['draw']['items']['username']['txt']}}" 
+                                style="background: {{$cosui['draw']['items']['username']['bg']}}; color: {{$cosui['draw']['items']['username']['txt']}}"
                                 class='sm:text-2xl xs:text-xl text-lg font-bold bg-info p-1 px-2 rounded-lg whitespace-nowrap overflow-hidden text-ellipsis'>
                                 {{ '@' . $services[$ser->name] }}</h3>
                         </div>
@@ -35,7 +35,7 @@
             <x-carbon-carbon-accounting class="w-[6em] h-[6em]" style="fill: {{$cosui['draw']['items']['bg']}}bf" />
             <h2 class="text-2xl font-bold text-center" style="color: {{$cosui['draw']['items']['bg']}}bf">No oxygene here!</h2>
             <div class="text-xl font-bold text-center">
-                there nothing, add now your social accounts from your <a href="/dashboard">dashboard</a>
+                nothing here yet! add now your accounts and your links from your <a href="/dashboard">dashboard</a>
             </div>
         </div>
     @endif

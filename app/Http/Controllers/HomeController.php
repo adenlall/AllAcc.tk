@@ -6,6 +6,7 @@ use App\Helpers\Client;
 use App\Helpers\DBhelper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
 class HomeController extends Controller
 {
@@ -17,7 +18,6 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-
         DBhelper::tableInc("home");
         return inertia('Home');
     }
