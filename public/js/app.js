@@ -9635,6 +9635,9 @@ function AsSeem() {
                       href: url.link,
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
                         className: "w-full m-auto ".concat(theme.theme.button ? theme.theme.button : 'orangebtn'),
+                        style: {
+                          overflow: "hidden"
+                        },
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                           style: {
                             fontFamily: 'sans-serif'
