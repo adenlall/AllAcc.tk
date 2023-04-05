@@ -177,7 +177,7 @@ export default function Auth() {
             <Toaster position='top-center' duration='4000' />
             <Head title={"Register - AllAcc"} />
             <div className="h-screen w-full bg-[url(/imgs/app/Auth/register.jpg)] bg-cover bg-no-repeat " >
-                <div id={"colorcont"} className="h-screen bg-[linear-gradient(143deg,white,#ffffff21)]" >
+                <div id={"colorcont"} className="h-screen bg-[linear-gradient(143deg,#235a47,#bff0ff3d)]" >
 
 
                     <div className="sm:container h-full m-auto p-3 flex flex-col justify-between " >

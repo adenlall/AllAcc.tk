@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DBhelper;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -25,9 +26,8 @@ class SettingController extends Controller
         }
 
         $rec = DB::table('statistic')->where('page','skinSetting');
-        $rec->increment('visits');
-        $rec->increment('auth_v');
-        // dd($skin_arr, $icon_arr);
+        DBhelper::tableInc("skinSetting");
+
         return inertia('Setting')->with([
             "skins" => $skin_arr,
             "icons" => $icon_arr,

@@ -13,18 +13,8 @@ class AdvancedController extends Controller
     //
     function __invoke()
     {
-
-
         $user = User::find(Auth::user()->id);
         $path = json_decode($user->json_config, true);
-
-        if(!array_key_exists("advanced", $path)){
-            $path += ["advanced"=>["from"=>[]]];
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        };
-
         return Inertia::render('Advanced')->with([
             "advanced" => $path["advanced"],
         ]);

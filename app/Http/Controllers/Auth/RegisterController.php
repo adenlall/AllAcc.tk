@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\Setup;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\User;
@@ -43,33 +44,8 @@ class RegisterController extends Controller
             ]);
 
 
-        $user = User::find(Auth::user()->id);
-        $path = json_decode($user->json_config, true);
-
-        if(!array_key_exists('services', $path)){
-            $path += ['services' => ['cdn' => []]];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
-        if(!array_key_exists('urls', $path)){
-            $path += ['urls' => []];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
-        if(!array_key_exists('config', $path)){
-            $path += ['config' => ['urlsGrps' => []]];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
+        $call = new Setup(Auth::user());
+        $call->ini();
         return redirect('/profile');
     }
 

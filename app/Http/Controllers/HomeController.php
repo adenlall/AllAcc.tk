@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Client;
+use App\Helpers\DBhelper;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,13 +18,7 @@ class HomeController extends Controller
     public function __invoke()
     {
 
-        $rec = DB::table('statistic')->where('page','home');
-        $rec->increment('visits');
-        if(Auth::check()){
-            $rec->increment('auth_v');
-        }else{
-            $rec->increment('guest_v');
-        }
+        DBhelper::tableInc("home");
         return inertia('Home');
     }
 }

@@ -6,7 +6,7 @@ function Team() {
                     Team
                 </p>
                 <p className="text-base text-gray-700 md:text-lg">
-                    By developers to everyone, remember that you can participate in this project on <a href="https://github.com/adenlall/AllAcc" className="text-ago">Github</a> and make it better.
+                    By developers to everyone, remember that you can participate in this project on <a href="https://github.com/adenlall/AllAcc.tk" className="text-ago">Github</a> and make it better.
                 </p>
             </div>
             <div className="w-full flex items-center justify-center">
@@ -14,42 +14,15 @@ function Team() {
                     <div className="relative pb-56 mb-4 rounded shadow lg:pb-64">
                         <img
                             className="absolute object-cover w-[14em] h-[14em] rounded"
-                            src="https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
+                            src="https://avatars.githubusercontent.com/u/91727676?v=4"
                             alt="Person"
                         />
                     </div>
                     <div className="flex flex-col text-center">
                         <p className="text-lg font-bold text-black">Adenlall</p>
                         <p className="mb-5 text-xs text-gray-800">All in All</p>
-                        <div className="flex items-center justify-center w-full space-x-3 sm:justify-center">
-                            <a
-                                href="https://www.linkedin.com/in/bilal-janah-a96006226/"
-                                className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                            >
-                                <img
-                                    className="w-[2em] fill-ap1"
-                                    src="https://nice-direct-links.herokuapp.com/128f1/linkedin-with-circle-svgrepo-com.svg"
-                                />
-                            </a>
-                            <a
-                                href="https://twitter.com/adenlall"
-                                className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                            >
-                                <img
-                                    className="w-[2em] fill-ap1"
-                                    src="https://nice-direct-links.herokuapp.com/128ea/twitter-social-media-social-network-logo-svgrepo-com.svg"
-                                />
-                            </a>
-                            <a
-                                href="http://github.com/adenlall"
-                                className="text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400"
-                            >
-                               <img
-                                    className="w-[2em] fill-ap1"
-                                    src="https://nice-direct-links.herokuapp.com/128ef/github-with-circle-svgrepo-com.svg"
-                                />
-                            </a>
-                        </div>
+
+
                     </div>
                 </div>
             </div>

@@ -59,7 +59,6 @@ function Footer(props) {
                         <span class="footer-title">Web app</span>
                         <Link href="/" class="link link-hover">Home</Link>
                         <Link href="/about" class="link link-hover">About</Link>
-                        <Link href="/privacy" class="link link-hover">Privacy</Link>
                         {
                             auth.user ?
                                 ''
@@ -97,7 +96,7 @@ function Footer(props) {
                             </>
                             :
                             <>
-                            <Link href="/privacy" class="link link-hover">Privacy policy</Link>
+                            <Link href="/privacy" class="link link-hover">Privacy</Link>
                             <Link href="/about" class="link link-hover">About</Link>
                             <a href="https://github.com/adenlall/AllAcc" class="link link-hover">Github</a>
                             </>
@@ -109,9 +108,9 @@ function Footer(props) {
                 {/* ///////////////////////////////// */}
                 <hr className="my-10 border-ap3" />
                 <div className="flex flex-col items-center sm:flex-row sm:justify-between">
-                    <p className="text-sm text-ap3">© Copyright 2021. All Rights Reserved.</p>
+                    <p className="text-sm text-ap3">© Copyright 2021-2023. All Rights Reserved.</p>
                     <div className="flex mt-3 -mx-2 sm:mt-0">
-                        <Link href="/labs" className="mx-2 text-sm text-ap3" aria-label="Reddit"> Labs </Link>
+                        <a href="https://github.com/adenlall/AllAcc.tk" className="mx-2 text-sm text-ap3" aria-label="Reddit"> Labs </a>
                         <Link href="/privacy" className="mx-2 text-sm text-ap3" aria-label="Reddit"> Privacy </Link>
                         <Link href="/about" className="mx-2 text-sm text-ap3" aria-label="Reddit"> About </Link>
                     </div>

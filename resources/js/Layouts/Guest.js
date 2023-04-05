@@ -11,6 +11,7 @@ export default function Guest({ children, title }) {//resources/js/Components/Gu
     useEffect(() => {
         flash.type && toast[flash.type](flash.message)
     })
+    console.log(ibd);
 
     return (
         <div className='bg-ap3'>

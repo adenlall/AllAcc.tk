@@ -57,7 +57,7 @@ export default function Outside() {
                                     <div className="flex flex-col lg:flex-row items-center rounded-lg bg-[darkslategray] w-full justify-between p-2">
                                         <div class="mockup-code w-[inherit] lg:w-[78%] text-[#a6adba] bg-[#191d24] rounded-lg">
                                             <pre className="text-[#fbbd23]" data-prefix=">" class="text-[#fbbd23]"><code>{adv.is}</code></pre>
-                                            <pre className="text-[#36d399]" data-prefix=">" class="text-[#36d399]"><code>the link : <code>https://allacc.herokuapp.com/{auth.user.username}?from={adv.is}</code></code></pre>
+                                            <pre className="text-[#36d399]" data-prefix=">" class="text-[#36d399]"><code>the link : <code>https://www.allacc.tk/{auth.user.username}?from={adv.is}</code></code></pre>
                                         </div>
                                         <div className='lg:space-x-0 space-x-2 lg:space-y-2 space-y-0 flex flex-row lg:flex-col p-2 lg:items-start items-center lg:justify-center justify-between w-full lg:w-auto'>
                                             <code className="lg:text-lg text-xl font-extrabold">Clicks : <span className="text-ap1 font-bold text-xl">{adv.clicks}</span></code>
@@ -79,7 +79,7 @@ export default function Outside() {
                                                 <li>When you get your Public link from your Dashboard and you past it in your accounts Instagram, Facebook, Twitter..., and someone click it he enter to your public page, and you see that your public page incement in your Statistics page.</li>
                                                 <li>But What about if you want to know how many people clicked the link in specific place let's say <span className="text-black">Twitter</span> for example.</li>
                                                 <li>For that, you can add a <span className="text-black">"from"</span> parameter in your url in Twitter, and name it <span className="text-black">"twitter"</span>.</li>
-                                                <li>At the end, your public page URL will be like this <code className="text-black italic break-words">https://allacc.herokuapp.com/{auth.user.username}/<span className="font-bold">?from=twitter</span></code></li>
+                                                <li>At the end, your public page URL will be like this <code className="text-black italic break-words">https://www.allacc.tk/{auth.user.username}/<span className="font-bold">?from=twitter</span></code></li>
                                                 <li>And now, you can see every click on that link from <span className="text-black">Twitter</span> in this case.</li>
                                                 <li>And you can add how much you want of "outside sources".</li>
                                             </p>

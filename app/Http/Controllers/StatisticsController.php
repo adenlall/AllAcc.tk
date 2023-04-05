@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DBhelper;
 use App\Models\Service;
 use App\Models\User;
 use Carbon\Carbon;
@@ -77,12 +78,7 @@ class StatisticsController extends Controller
             }
             return $data;
         });
-        // dd($data['timeline']);
-        // $data = ['timeline'=>[],'countries'=>[],'stats'=>['os' => [], 'device' => [], 'browser' => []]];
 
-        if (!array_key_exists('statistics', $arr)) {
-            $arr += ['statistics' => ['services' => []]];
-        }
         $services_c = Cache::remember('config', now()->addHours(48), function () {
             return DB::table('config')->get();
         });
@@ -90,10 +86,7 @@ class StatisticsController extends Controller
             return Service::where('username', Auth::user()->username)->get()->first();
         });
 
-        $rec = DB::table('statistic')->where('page', 'statistics');
-        $rec->increment('visits');
-        $rec->increment('auth_v');
-
+        DBhelper::tableInc("statistics");
         return Inertia('Statistics')->with([
             "services_statistics" => $arr['statistics'],
             "services" => $services,

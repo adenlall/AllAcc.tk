@@ -98,15 +98,19 @@ if(path !== undefined || path !== null ){
         }
     }
     const fastCheck = (link) => {
-        var url;
-        try {
-            url = new URL(link);
-          }
-          catch (err) {
-            return false;
-          }
-          return true;
-        }
+
+    var pattern = '^(https?:\\/\\/)?' + // protocol
+        '((([a-zA-Z\\d]([a-zA-Z\\d-]{0,61}[a-zA-Z\\d])*\\.)+' + // sub-domain + domain name
+                '[a-zA-Z]{2,13})' + // extension
+                        '|((\\d{1,3}\\.){3}\\d{1,3})' + // OR ip (v4) address
+                                '|localhost)' + // OR localhost
+                                        '(\\:\\d{1,5})?' + // port
+                                                '(\\/[a-zA-Z\\&\\d%_.~+-:@]*)*' + // path
+                                                        '(\\?[a-zA-Z\\&\\d%_.,~+-:@=;&]*)?' + // query string
+                                                                '(\\#[-a-zA-Z&\\d_]*)?$';
+                                    var regex = new RegExp(pattern);
+                                    return regex.test(link);
+    }
     const sav = () => {
         let linkv = removeSpaceEnd(document.getElementById('linkName').value);
         let link = removeSpaceEnd(document.getElementById('link').value);

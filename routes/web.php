@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\DBhelper;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminPagesController;
@@ -16,6 +17,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Keys\RepairController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\PrivacyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfileUpdateController;
 use App\Http\Controllers\SetSkinsController;
@@ -42,16 +44,7 @@ Route::post('set/lang', LangController::class);
 
 Route::get('about', AboutController::class)->name('about');
 
-Route::get('privacy', function () {
-    $rec = DB::table('statistic')->where('page', 'privacy');
-    $rec->increment('visits');
-    if (Auth::check()) {
-        $rec->increment('auth_v');
-    } else {
-        $rec->increment('guest_v');
-    }
-    return Inertia('Privacy');
-});
+Route::get('privacy', PrivacyController::class)->name('privacy');
 
 
 Route::get('login', [LoginController::class, 'create'])->name('login');

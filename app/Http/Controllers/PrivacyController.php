@@ -4,11 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Helpers\DBhelper;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 
-// use Inertia\Inertia;
-
-class ProfileController extends Controller
+class PrivacyController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -18,8 +16,9 @@ class ProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
+        //
+        DBhelper::tableInc("privacy");
+        return inertia('Privacy');
 
-        DBhelper::tableInc("profile");
-        return inertia('Profile');
     }
 }

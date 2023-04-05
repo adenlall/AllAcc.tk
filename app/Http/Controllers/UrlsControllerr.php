@@ -25,7 +25,7 @@ class UrlsControllerr extends Controller
                 }
             }
         }
-        if ($request->to === 'grp' && count($path['config']['urlsGrps'])<= 8) {
+        if ($request->to === 'grp' && count($path['config']['urlsGrps']) <= 8) {
             $path['config']['urlsGrps'][] = [$request->data];
         }
         if ($request->to === 'delgrp') {
@@ -45,10 +45,12 @@ class UrlsControllerr extends Controller
         if ($request->to === "default" && count($path['urls']) <= 15) {
             $val = $request->validate([
                 'name' => ['required'],
-                'link' => ['required', 'url'],
+                'link' => ['required'],
             ]);
+            $url = $request->link;
+            $url = strpos($url, 'http') !== 0 ? "http://$url" : $url;
 
-            if ($val) {
+            if (filter_var($url, FILTER_VALIDATE_URL) && $val) {
                 if (count($path['urls']) === 0) {
                     $num = -1;
                 } else {
@@ -81,6 +83,5 @@ class UrlsControllerr extends Controller
             'type' => 'success',
             'message' => "done!"
         ]);
-
     }
 }

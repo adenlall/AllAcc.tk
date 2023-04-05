@@ -7,7 +7,7 @@ function Feature(props) {
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
                 <p className="text-base text-gray-700 md:text-lg">
-                    {data.header[0]} <span className="font-bold text-ap1">AllAcc</span> {data.header[2]} <a target={'_blank'} href="https://github.com/adenlall/AllAcc" className="text-ago">Github</a>
+                    {data.header[0]} <span className="font-bold text-ap1">AllAcc</span> {data.header[2]} <a target={'_blank'} href="https://github.com/adenlall/AllAcc.tk" className="text-ago">Github</a>
                 </p>
             </div>
             <div className="grid gap-8 row-gap-8 lg:grid-cols-3">

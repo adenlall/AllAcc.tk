@@ -252,7 +252,7 @@ export default function Profile() {
                                     </h2>
                                     <div className="max-w-sm flex flex-col space-y-2 mx-auto md:w-2/3">
                                         <div className="form-control w-full">
-                                            <textarea onChange={onChange} value={data.quote} className="textarea textarea-accent bg-white text-black w-full" id="quote" placeholder="Let's Others know what do you think!"></textarea>
+                                            <textarea onChange={onChange} value={data.quote ? data.quote : ''} className="textarea textarea-accent bg-white text-black w-full" id="quote" placeholder="Let's Others know what do you think!"></textarea>
                                             <label className="label">
                                                 <span className="label-text-alt text-light">{errors.quote}</span>
                                             </label>

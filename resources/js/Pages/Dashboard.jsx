@@ -121,7 +121,7 @@ export default function Dashboard() {
         item.disabled = true;
         let val = item.checked;
         console.log(val, e);
-        
+
         Inertia.post('/setting?is=cdn', {data: val, service: e}, { preserveScroll: true });
         setTimeout(() => {
             item.disabled = false;
@@ -179,7 +179,7 @@ export default function Dashboard() {
         })
     }
     const copy = () => {
-        navigator.clipboard.writeText("https://allacc.herokuapp.com/" + auth.user.username);
+        navigator.clipboard.writeText("https://www.allacc.tk/" + auth.user.username);
         toast['success']("URL has been copied!");
     }
 

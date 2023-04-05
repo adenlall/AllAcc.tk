@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DBhelper;
+use App\Helpers\Setup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -12,13 +14,7 @@ class AboutController extends Controller
 
     public function __invoke()
     {
-        $rec = DB::table('statistic')->where('page','about');
-        $rec->increment('visits');
-        if(Auth::check()){
-            $rec->increment('auth_v');
-        }else{
-            $rec->increment('guest_v');
-        }
+        DBhelper::tableInc("about");
         return inertia('About');
     }
 }

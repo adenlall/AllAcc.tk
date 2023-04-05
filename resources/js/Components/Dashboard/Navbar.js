@@ -84,9 +84,9 @@ export default function Navbar({ props, pageName }) {
                         </ul>
                     </div>
                     <div class="dropdown dropdown-hover">
-                        <label tabindex="0" class="btn m-1 flex grap-2">
+                        <label tabindex="0" class="btn md:m-1 m-0 flex grap-2 p-[2px] w-auto">
                             <svg
-                                className="w-[2.3em] h-auto mr-2"
+                                className="w-auto md:mr-2 mr-0 h-[-webkit-fill-available]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 x="0px"
                                 y="0px"
@@ -98,7 +98,9 @@ export default function Navbar({ props, pageName }) {
                                 <path d="M973.166 818.5H818.833c-12.591 0-22.833 10.243-22.833 22.833v109.333c0 12.59 10.243 22.833 22.833 22.833h154.333c12.59 0 22.834-10.243 22.834-22.833V841.333c0-12.59-10.244-22.833-22.834-22.833zM896 961.5h-77.167c-5.973 0-10.833-4.859-10.833-10.833V841.333c0-5.974 4.86-10.833 10.833-10.833H896v131zm82.58-89.371c-.547 9.145-5.668 27.261-20.869 39.845 4.615 1.022 9.629 1.573 14.92 1.573v12c-10.551 0-20.238-1.919-28.469-5.325-7.689 3.301-16.969 5.325-28.125 5.325v-12c5.132 0 9.924-.501 14.366-1.498-8.412-7.016-13.382-16.311-13.382-26.78h11.999c0 8.857 5.66 16.517 14.884 21.623 4.641-2.66 8.702-6.112 12.164-10.351 5.628-6.886 8.502-14.521 9.754-20.042h-49.785v-12h22.297v-11.986h12V864.5h21.055c1.986 0 3.902.831 5.258 2.28a7.213 7.213 0 011.933 5.349z" />
                                 <path d="M839.035 914.262l-4.45 11.258h-15.971l26.355-61.09h15.971l25.746 61.09h-16.583l-4.363-11.258h-26.705zm13.44-34.386l-8.902 22.604h17.629l-8.727-22.604z" />
                             </svg>
-                            {__lang__}
+                            <p className='hidden md:block'>
+                                {__lang__[0]+__lang__[1]}
+                            </p>
                         </label>
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link as="button" disabled={__lang__ === 'de' ? true : false} method='post' data={{ lang: 'de' }} href="set/lang" className='flex grap-2 '>

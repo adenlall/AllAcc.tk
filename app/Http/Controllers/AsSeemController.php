@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DBhelper;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -28,19 +29,21 @@ class AsSeemController extends Controller
 
         if (User::where('username', $path)->exists()) {
 
+
+
+            // log data for analytics
             $ip = request()->ip();
-            // $ip = "209.242.29.87";
             $geoip = new GeoIPLocation();
+            $sp_user = User::where('username', $path)->get()->first();
 
             if ($geoip->getCountry() !== false) {
 
+                // things to log
                 $to_for = ['os', 'device', 'browser', 'lang'];
 
-                $sp_user = User::where('username', $path)->get()->first();
                 $locate = json_decode($sp_user->json_locate, true);
 
                 $agent = new Agent();
-                // dd($agent->languages(), $ip,Location::get($ip));
                 $cntr = $geoip->getCountry();
 
                 $os =  $agent->platform();
@@ -58,7 +61,7 @@ class AsSeemController extends Controller
                 if(gettype($lang) === 'array'){
                     $lang = $lang[0];
                 }
-                // $locate['logs'] = [];
+
 
                 if (count($locate['logs']) === 0) {
                     array_push($locate['logs'], ['agents' => ['os' => [['name' => $os, 'count' => 1]], 'device' => [['name' => $device, 'count' => 1]], 'lang' => [['name' => $lang, 'count' => 1]],  'browser' => [['name' => $browser, 'count' => 1]]], 'day' => Carbon::now()->format('Y-m-d'), 'visits' => 1, 'srcs' => [['ips' => [$ip], 'country' => $cntr, 'count' => 1]]]);
@@ -99,95 +102,68 @@ class AsSeemController extends Controller
                     'visit'       => $sp_user->visit + 1,
                     'json_locate' => json_encode($locate),
                 ]);
-                $sp_user->save();
-                // dd($locate);
             }
 
 
 
+
+            //  increment AsSeem visits
+            DBhelper::tableInc("AsSeem");
+
+            //increment user public page visits
+            $conf = json_decode($sp_user->json_config, true);
+            if ($request->from !== null) {
+                    for ($i = 0; $i < count($conf["advanced"]["from"]); $i++) {
+                        if ($conf["advanced"]["from"][$i]["is"] === $request->from) {
+                            $conf["advanced"]["from"][$i]["clicks"] += 1;
+                            break;
+                        }
+                        $user->update([
+                            'json_config' => json_encode($conf)
+                        ]);
+
+                }
+            }
+
+
+            // data
+            $services = Cache::remember($path . "_services_", now()->addMinutes(4), function () use ($path) {
+                return Service::where('username', $path)->cursor()->first();
+            });
+            $services_config = Cache::remember('config', now()->addHours(72), function () {
+                return DB::table('config')->get();
+            });
             $user = Cache::remember($path . 'asseem', now()->addMinutes(3), function () use ($path) {
                 return User::where('username', $path)->select(['id', 'name', 'artist', 'track', 'username', 'email', 'age', 'gender', 'birthday', 'country', 'quote', 'json_config'])->cursor()->first();
             });
 
-            $rec = DB::table('statistic')->where('page', 'AsSeem');
-            $rec->increment('visits');
-            if (Auth::check()) {
-                $rec->increment('auth_v');
-            } else {
-                $rec->increment('guest_v');
-            }
 
-            // dd(Service::where('username', $path)->first()->cursor(), count(Service::where('username', $path)->first()->cursor()));
-            $services = Cache::remember($path . "_services_", now()->addMinutes(4), function () use ($path) {
-                return Service::where('username', $path)->cursor()->first();
-            });
-
-            $services_config = Cache::remember('config', now()->addHours(72), function () {
-                return DB::table('config')->get();
-            });
-
-
-
-
-            if ($request->from !== null) {
-                $advance = json_decode($user->json_config, true);
-                if (array_key_exists("advanced", $advance)) {
-                    for ($i = 0; $i < count($advance["advanced"]["from"]); $i++) {
-                        if ($advance["advanced"]["from"][$i]["is"] === $request->from) {
-                            $advance["advanced"]["from"][$i]["clicks"] = $advance["advanced"]["from"][$i]["clicks"] + 1;
-                            $user->update([
-                                'json_config' => json_encode($advance)
-                            ]);
-                            break;
-                        }
-                    }
-                }
-            }
-
-
-            $ui = json_decode($user->json_config, true);
-
-            if (!array_key_exists('UI', $ui)) {
-                $ui += ['UI' => ['type' => "JSX"]];
-            }
-
-            if ($ui['UI']['type'] === 'Blade') {
+            // return
+            if ($conf['UI']['type'] === 'Blade') {
                 return view('app', [
-                    "cosui" => $ui['UI']['costume0'],
+                    "cosui" => $conf['UI']['costume0'],
                     "user" => $user,
                     "services" => $services,
                     "services_config" => $services_config,
                 ]);
-            } else {
+            } else {    // JSX
 
+                $sng = null;
                 if ($user->artist !== null) {
                     $deezURL = "https://api.deezer.com/search?q=artist:'{$user->artist}'track:'{$user->track}'";
                     try {
-                        $resop = Cache::remember($user->username . "_soung", now()->addMinutes(2), function () use ($deezURL) {
+                        $resop = Cache::remember($path . "_soung", now()->addMinutes(2), function () use ($deezURL) {
                             return Http::retry(2)->get($deezURL)->json();
                         });
-                        return Inertia::render('AsSeem', [
-                            "soung" => $resop["data"][0],
-                            "user" => $user,
-                            "services" => $services,
-                            "services_config" => $services_config,
-                        ]);
-                    } catch (Exception $ex) {
-                        return Inertia::render('AsSeem', [
-                            "soung" => null,
-                            "user" => $user,
-                            "services" => $services,
-                            "services_config" => $services_config,
-                        ]);
-                    }
-                } else {
-                    return Inertia::render('AsSeem', [
-                        "soung" => null,
-                        "user" => $user,
-                        "services" => $services,
-                        "services_config" => $services_config,
-                    ]);
+                            $sng = $resop["data"][0];
+                    } catch (Exception $ex) {}
                 }
+                return Inertia::render('AsSeem',[
+                    "soung" => $sng,
+                    "user" => $user,
+                    "services" => $services,
+                    "services_config" => $services_config,
+                ]);
             }
         } else {
             return abort(404);

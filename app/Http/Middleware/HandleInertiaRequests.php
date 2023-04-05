@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Helpers\Routhelper;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -89,7 +90,7 @@ class HandleInertiaRequests extends Middleware
                     )
                 )
                 : 'not supported translated route - Lang::en',
-            'ibd' => fn () => ($request->path() === '/' OR $request->path() === 'about' )? (
+            'ibd' => fn () => (Routhelper::IsGuest($request))? (
                     $request->cookie('lang') !== null ?
                     (
                         File::exists(resource_path("lang/{$request->cookie('lang')}/index.json"))
@@ -97,19 +98,19 @@ class HandleInertiaRequests extends Middleware
                         (
                             json_decode(File::get(resource_path("lang/{$request->cookie('lang')}/index.json")), true)
                         )
-                        : 
+                        :
                         (
                             json_decode(File::get(resource_path("lang/en/index.json")), true)
                         )
                     )
-                    : 
+                    :
                     (
                         File::exists(resource_path("lang/" . Agent::languages()[0] . "/index.json"))
                         ?
                         (
                             json_decode(File::get(resource_path("lang/" . Agent::languages()[0] . "/index.json")), true)
                         )
-                        : 
+                        :
                         (
                             File::exists(resource_path("lang/" . Agent::languages()[1] . "/index.json"))
                             ?

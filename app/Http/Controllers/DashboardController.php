@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\DBhelper;
 use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,41 +24,8 @@ class DashboardController extends Controller
         $services_config = Cache::remember('config', now()->addHours(72), function() {
             return DB::table('config')->get();
         });
-
-        $rec = DB::table('statistic')->where('page','dashboard');
-        $rec->increment('visits');
-        $rec->increment('auth_v');
         $services = Service::where('username', Auth::user()->username)->get()->first();
-
-        $user = User::find(Auth::user()->id);
-        $path = json_decode($user->json_config, true);
-
-        if(!array_key_exists('services', $path)){
-            $path += ['services' => ['cdn' => []]];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
-        if(!array_key_exists('urls', $path)){
-            $path += ['urls' => []];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
-        if(!array_key_exists('config', $path)){
-            $path += ['config' => ['urlsGrps' => []]];
-
-            $user->update([
-                'json_config' => json_encode($path),
-            ]);
-        }
-
-
-
+        DBhelper::tableInc("dashboard");
         return inertia('Dashboard', [
             'services_config' => $services_config,
             'services'        => $services,

@@ -4733,9 +4733,9 @@ function Navbar(_ref) {
           "class": "dropdown dropdown-hover",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("label", {
             tabindex: "0",
-            "class": "btn m-1 flex grap-2",
+            "class": "btn md:m-1 m-0 flex grap-2 p-[2px] w-auto",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
-              className: "w-[2.3em] h-auto mr-2",
+              className: "w-auto md:mr-2 mr-0 h-[-webkit-fill-available]",
               xmlns: "http://www.w3.org/2000/svg",
               x: "0px",
               y: "0px",
@@ -4748,7 +4748,10 @@ function Navbar(_ref) {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
                 d: "M839.035 914.262l-4.45 11.258h-15.971l26.355-61.09h15.971l25.746 61.09h-16.583l-4.363-11.258h-26.705zm13.44-34.386l-8.902 22.604h17.629l-8.727-22.604z"
               })]
-            }), __lang__]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "hidden md:block",
+              children: __lang__[0] + __lang__[1]
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
             tabindex: "0",
             "class": "dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52",
@@ -5112,7 +5115,7 @@ function Outside() {
                 "class": "text-[#36d399]",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
                   children: ["the link : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
-                    children: ["https://allacc.herokuapp.com/", auth.user.username, "?from=", adv.is]
+                    children: ["https://www.allacc.tk/", auth.user.username, "?from=", adv.is]
                   })]
                 })
               })]
@@ -5192,7 +5195,7 @@ function Outside() {
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("li", {
                 children: ["At the end, your public page URL will be like this ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("code", {
                   className: "text-black italic break-words",
-                  children: ["https://allacc.herokuapp.com/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                  children: ["https://www.allacc.tk/", auth.user.username, "/", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                     className: "font-bold",
                     children: "?from=twitter"
                   })]
@@ -6606,15 +6609,17 @@ function Urls(props) {
   };
 
   var fastCheck = function fastCheck(link) {
-    var url;
-
-    try {
-      url = new URL(link);
-    } catch (err) {
-      return false;
-    }
-
-    return true;
+    var pattern = '^(https?:\\/\\/)?' + // protocol
+    '((([a-zA-Z\\d]([a-zA-Z\\d-]{0,61}[a-zA-Z\\d])*\\.)+' + // sub-domain + domain name
+    '[a-zA-Z]{2,13})' + // extension
+    '|((\\d{1,3}\\.){3}\\d{1,3})' + // OR ip (v4) address
+    '|localhost)' + // OR localhost
+    '(\\:\\d{1,5})?' + // port
+    '(\\/[a-zA-Z\\&\\d%_.~+-:@]*)*' + // path
+    '(\\?[a-zA-Z\\&\\d%_.,~+-:@=;&]*)?' + // query string
+    '(\\#[-a-zA-Z&\\d_]*)?$';
+    var regex = new RegExp(pattern);
+    return regex.test(link);
   };
 
   var sav = function sav() {
@@ -7427,7 +7432,7 @@ function Feature(props) {
           children: "AllAcc"
         }), " ", data.header[2], " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
           target: '_blank',
-          href: "https://github.com/adenlall/AllAcc",
+          href: "https://github.com/adenlall/AllAcc.tk",
           className: "text-ago",
           children: "Github"
         })]
@@ -7618,10 +7623,6 @@ function Footer(props) {
             href: "/about",
             "class": "link link-hover",
             children: "About"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-            href: "/privacy",
-            "class": "link link-hover",
-            children: "Privacy"
           }), auth.user ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               href: "/login",
@@ -7690,7 +7691,7 @@ function Footer(props) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               href: "/privacy",
               "class": "link link-hover",
-              children: "Privacy policy"
+              children: "Privacy"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
               href: "/about",
               "class": "link link-hover",
@@ -7708,11 +7709,11 @@ function Footer(props) {
         className: "flex flex-col items-center sm:flex-row sm:justify-between",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
           className: "text-sm text-ap3",
-          children: "\xA9 Copyright 2021. All Rights Reserved."
+          children: "\xA9 Copyright 2021-2023. All Rights Reserved."
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "flex mt-3 -mx-2 sm:mt-0",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-            href: "/labs",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+            href: "https://github.com/adenlall/AllAcc.tk",
             className: "mx-2 text-sm text-ap3",
             "aria-label": "Reddit",
             children: " Labs "
@@ -8089,7 +8090,7 @@ function Team() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("p", {
         className: "text-base text-gray-700 md:text-lg",
         children: ["By developers to everyone, remember that you can participate in this project on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-          href: "https://github.com/adenlall/AllAcc",
+          href: "https://github.com/adenlall/AllAcc.tk",
           className: "text-ago",
           children: "Github"
         }), " and make it better."]
@@ -8102,7 +8103,7 @@ function Team() {
           className: "relative pb-56 mb-4 rounded shadow lg:pb-64",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
             className: "absolute object-cover w-[14em] h-[14em] rounded",
-            src: "https://images.pexels.com/photos/3931603/pexels-photo-3931603.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+            src: "https://avatars.githubusercontent.com/u/91727676?v=4",
             alt: "Person"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -8113,30 +8114,6 @@ function Team() {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
             className: "mb-5 text-xs text-gray-800",
             children: "All in All"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-            className: "flex items-center justify-center w-full space-x-3 sm:justify-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-              href: "https://www.linkedin.com/in/bilal-janah-a96006226/",
-              className: "text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-                className: "w-[2em] fill-ap1",
-                src: "https://nice-direct-links.herokuapp.com/128f1/linkedin-with-circle-svgrepo-com.svg"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-              href: "https://twitter.com/adenlall",
-              className: "text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-                className: "w-[2em] fill-ap1",
-                src: "https://nice-direct-links.herokuapp.com/128ea/twitter-social-media-social-network-logo-svgrepo-com.svg"
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("a", {
-              href: "http://github.com/adenlall",
-              className: "text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("img", {
-                className: "w-[2em] fill-ap1",
-                src: "https://nice-direct-links.herokuapp.com/128ef/github-with-circle-svgrepo-com.svg"
-              })
-            })]
           })]
         })]
       })
@@ -8302,6 +8279,7 @@ function Guest(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_4__.useEffect)(function () {
     flash.type && react_hot_toast__WEBPACK_IMPORTED_MODULE_5__["default"][flash.type](flash.message);
   });
+  console.log(ibd);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "bg-ap3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
@@ -9988,7 +9966,7 @@ function Auth() {
       className: "h-screen w-full bg-[url(/imgs/app/Auth/register.jpg)] bg-cover bg-no-repeat ",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         id: "colorcont",
-        className: "h-screen bg-[linear-gradient(143deg,white,#ffffff21)]",
+        className: "h-screen bg-[linear-gradient(143deg,#235a47,#bff0ff3d)]",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "sm:container h-full m-auto p-3 flex flex-col justify-between ",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
@@ -11115,7 +11093,7 @@ function Dashboard() {
   }
 
   var copy = function copy() {
-    navigator.clipboard.writeText("https://allacc.herokuapp.com/" + auth.user.username);
+    navigator.clipboard.writeText("https://www.allacc.tk/" + auth.user.username);
     react_hot_toast__WEBPACK_IMPORTED_MODULE_2__["default"].success("URL has been copied!");
   };
 
@@ -11372,34 +11350,43 @@ function Privacy() {
     className: "m-auto w-[95%] my-8 container text-drk space-y-2",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
       className: "font-bold text-2xl space-y-6",
-      children: "Privacy Policy for AdenDev"
+      children: "Privacy Policy for AdenDev services"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-      children: ["At AllAcc, accessible from ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-        href: "https://allacc.herokuapp.com",
-        children: "https://allacc.herokuapp.com"
+      className: "w-full pl-6 m-0",
+      children: ["At AllAcc, accessible from", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: "text-green-700",
+        href: "https://www.allacc.tk",
+        children: "allacc.tk"
       }), ", one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by AllAcc and how we use it."]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us."
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
-      children: ["This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in AllAcc. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-        href: "https://www.termsfeed.com/privacy-policy-generator/",
-        children: "TermsFeed Free Privacy Policy Generator"
-      }), "."]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in AllAcc. This policy is not applicable to any information collected offline or via channels other than this website. ."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Consent"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "By using our website, you hereby consent to our Privacy Policy and agree to its terms."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Information we collect"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "When you register for an Account, we may ask for your contact information, including items such as name, company name, address, email address, and telephone number."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "How we use your information"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "We use the information we collect in various ways, including to:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
@@ -11418,63 +11405,148 @@ function Privacy() {
         children: "Find and prevent fraud"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Log Files"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "AllAcc follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Cookies and Web Beacons"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Like any other website, AllAcc uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Advertising Partners Privacy Policies"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "You may consult this list to find the Privacy Policy for each of the advertising partners of AllAcc."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on AllAcc, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Note that AllAcc has no access to or control over these cookies that are used by third-party advertisers."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Third Party Privacy Policies"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+      className: "w-full pl-6 m-0",
+      children: ["AllAcc's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.", " "]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "AllAcc's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options. "
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "You can choose to disable cookies through your individual browser options. To know more detailed information about cookie management with specific web browsers, it can be found at the browsers' respective websites."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "CCPA Privacy Rights (Do Not Sell My Personal Information)"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Under the CCPA, among other rights, California consumers have the right to:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Request that a business delete any personal data about the consumer that a business has collected."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Request that a business that sells a consumer's personal data, not sell the consumer's personal data."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "GDPR Data Protection Rights"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to access \u2013 You have the right to request copies of your personal data. We may charge you a small fee for this service."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to rectification \u2013 You have the right to request that we correct any information you believe is inaccurate. You also have the right to request that we complete the information you believe is incomplete."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to erasure \u2013 You have the right to request that we erase your personal data, under certain conditions."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to restrict processing \u2013 You have the right to request that we restrict the processing of your personal data, under certain conditions."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to object to processing \u2013 You have the right to object to our processing of your personal data, under certain conditions."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "The right to data portability \u2013 You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "If you make a request, we have one month to respond to you. If you would like to exercise any of these rights, please contact us."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
       children: "Children's Information"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity."
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
       children: "AllAcc does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
+      children: "Clarifications"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "What Information We Collect"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "When you use our website, we may collect personal information, including your name, email address, your social media accounts and your links, and other contact information that you voluntarily provide to us."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We may also collect non-personal information, such as your IP address, browser type, and other technical information about your use of our website."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "How We Use Your Information"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We use the information we collect to provide our services to you, including displaying your social media account links on our website. We may also use your information to communicate with you about our website or to send you promotional materials or newsletters."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We do not sell, rent, or lease your personal information to third parties for their marketing purposes."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "Third-Party Services"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We may use third-party services to assist us in operating our website, such as hosting or analytics services. These third-party service providers may have access to your personal information, but only to the extent necessary to perform their services for us."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We may also provide links to third-party websites or services on our website. These websites or services may have their own privacy policies, which you should review before using them."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "Cookies"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We use cookies to improve the functionality of our website and to provide a better user experience. Cookies are small text files that are stored on your device when you visit our website. You can disable cookies in your browser settings if you do not want us to collect this information."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "Security"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We take reasonable measures to protect the security of your personal information. However, no transmission of data over the internet or any other public network can be guaranteed to be 100% secure. Therefore, we cannot guarantee the security of any information you transmit to us and you do so at your own risk."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "Updates to Our Privacy Policy"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "w-full pl-6 m-0",
+      children: "We reserve the right to update or modify this Privacy Policy at any time. Any changes we make will be posted on this page, and the date of the latest revision will be indicated at the top of the page."
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+      className: "text-lg font-bold",
+      children: "Contact Us"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+      className: "w-full pl-6 m-0",
+      children: ["If you have any questions or concerns about our Privacy Policy, please contact us from our ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        className: "text-green-700",
+        children: "contact service"
+      }), "."]
     })]
   });
 }
@@ -11793,7 +11865,7 @@ function Profile() {
                     className: "form-control w-full",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
                       onChange: onChange,
-                      value: data.quote,
+                      value: data.quote ? data.quote : '',
                       className: "textarea textarea-accent bg-white text-black w-full",
                       id: "quote",
                       placeholder: "Let's Others know what do you think!"
