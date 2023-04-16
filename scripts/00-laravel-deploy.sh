@@ -16,9 +16,9 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate --force
 php artisan db:seed
-php artisan db:seed Class=AdminSeeder
-php artisan db:seed Class=AdminationSeeder
-php artisan db:seed Class=DatabaseSeeder
-php artisan db:seed Class=ConfigSeeder
-php artisan db:seed Class=SkinsSeeder
-php artisan db:seed Class=statisticSeeder
+php artisan db:seed --Class=AdminSeeder
+php artisan db:seed --Class=AdminationSeeder
+php artisan db:seed --Class=DatabaseSeeder
+php artisan db:seed --Class=ConfigSeeder
+php artisan db:seed --Class=SkinsSeeder
+php artisan db:seed --Class=statisticSeeder
