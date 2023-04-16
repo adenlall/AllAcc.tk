@@ -3,6 +3,8 @@ echo "Running composer"
 composer global require hirak/prestissimo
 composer install --working-dir=/var/www/html
 
+php artisan make:auth
+
 echo ".....npm....."
 npm i
 npm run development
