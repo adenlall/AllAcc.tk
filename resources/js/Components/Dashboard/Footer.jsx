@@ -4,7 +4,8 @@ import { Link } from '@inertiajs/inertia-react';
 export default function Footer() {
     return (
         <>
-            <footer className="text-white bg-gradient-to-r bg-[#0a1e1c]">
+        {/* linear-gradient(45deg,black,29%,black,29%,red,50%,red,50%,blue,72%,blue,72%,pink,86%,pink,86%,yellow) */}
+            <footer className="text-white bg-[linear-gradient(45deg,black,red,blue,pink)]">
                 <div className="max-w-screen-xl p-12 mx-auto sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto text-center">
                         <p className="text-4xl font-extrabold sm:text-6xl">

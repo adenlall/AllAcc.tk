@@ -2,358 +2,388 @@ import Base from "../../Layouts/Base";
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { usePage } from "@inertiajs/inertia-react";
+import CosUI from "../../Components/Dashboard/theme/cosUI";
 
 export default function UI() {
-    const { cosUI, skins } = usePage().props;
-    const [color, setColor] = useState(cosUI);
+    const { cosUI1, cosUI2, skins, active } = usePage().props;
+    const [color, setColor] = useState(()=>{
+        if(active === "custome1"){
+            return cosUI1;
+        }
+        if(active === "custome2"){
+            return cosUI2;
+        }else{
+            return cosUI1;
+        }
+    });
 
     const hundelsave = () => {
         // console.log(color);
-        Inertia.post('/setting/set?is=cosui', { ui: color });
+        Inertia.post('/setting/set?is=ui', { data: color });
     }
 
     return (
         <div id='#head' className='w-[95%] sm:w-[72%] pb-[1.3em] space-y-3 h-full'>
             <div className="container-fluid p-4 w-full">
-                <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Customize your AsSeem</h2>
+                <h2 className='text-3xl py-2 font-bold rounded-lg w-full'>Customize your public page</h2>
+                <h3 className='text-xl py-1 font-bold rounded-lg w-full'>current THEME : {active}</h3>
             </div>
 
-            <div className="flex items-center justify-center content-center sm:flex-row flex-col space-y-2 sm:space-y-0 sm:space-x-2 space-x-0">
+            <div className="flex space-x-2">
+                <div>
+                    <label htmlFor="modal-cos" className="btn">TOGGLE YOUR ACTIVE THEME</label>
+                </div>
+                <div>
+                    <label htmlFor="modal-edi" className="btn">CHOOSE FROM EDITOR THEMES</label>
+                </div>
+            </div>
+
+
+            <div className="flex items-center justify-center content-center md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-2 space-x-0">
                 {/* ////////////////////////////////////////////////////////////////////// */}
-                {/* ////////////////////////////////////////////////////////////////////// */}
-                <div className="bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]">
+                {
+                    active === "custome1" || active === "custome2" ?
+                    (
+                        <>
+                        <h3 className='text-xl py-1 font-bold rounded-lg w-full'>You are modifying the active THEME : {active}</h3>
+                         <div className="bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]">
 
-                    <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
-                        <h1 className="text-lg font-bold pl-2">Page :</h1>
-                        <div className="flex flex-col space-y-2 p-1">
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
+                            <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
+                                <h1 className="text-lg font-bold pl-2">Page :</h1>
+                                <div className="flex flex-col space-y-2 p-1">
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
 
-                                    onChange={(e) => {
-                                        console.log(e.target.value)
-                                        setColor((color) => ({
-                                            ...color,
-                                            ['bg']: e.target.value
-                                        }))
-                                    }}
-                                    value={color.bg}
-                                    name="furniture" id="age"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">page backgroumd</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
-                        <h1 className="text-lg font-bold pl-2">Accounts Drawer :</h1>
-                        <div className="flex flex-col space-y-2 p-1">
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            to_draw: {
-                                                ...color.to_draw,
-                                                ['bg']: e.target.value
-                                            }
-                                        }))
-                                    }}
-                                    value={color.to_draw.bg}
-                                    name="throat" id="pie"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            to_draw: {
-                                                ...color.to_draw,
-                                                ['text']: e.target.value
-                                            }
-                                        }))
-                                    }}
-                                    value={color.to_draw.text}
-                                    name="native" id="aloud"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">text</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            to_draw: {
-                                                ...color.to_draw,
-                                                button: {
-                                                    ...color.to_draw.button,
+                                            onChange={(e) => {
+                                                console.log(e.target.value)
+                                                setColor((color) => ({
+                                                    ...color,
                                                     ['bg']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.to_draw.button.bg}
-                                    name="feet" id="straw"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">button</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
-                        <h1 className="text-lg font-bold pl-2">Profile :</h1>
-                        <div className="flex flex-col space-y-2 p-1">
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            profile: {
-                                                ...color.profile,
-                                                img: {
-                                                    ...color.profile.img,
-                                                    ['bg']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.profile.img.bg}
-                                    name="struggle" id="coat"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">image background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            profile: {
-                                                ...color.profile,
-                                                ['txt']: e.target.value
-                                            }
-                                        }))
-                                    }}
-                                    value={color.profile.txt}
-                                    name="task" id="everywhere"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">name color</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
-                        <h1 className="text-lg font-bold pl-2">Links :</h1>
-                        <div className="flex flex-col space-y-2 p-1">
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            links: {
-                                                ...color.links,
-                                                ['bg']: e.target.value
-                                            }
-                                        }))
-                                    }}
-                                    value={color.links.bg}
-                                    name="cheese" id="twelve"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            links: {
-                                                ...color.links,
-                                                grp: {
-                                                    ...color.links.grp,
-                                                    ['bg']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.links.grp.bg}
-                                    name="snake" id="include"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">groupe background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            links: {
-                                                ...color.links,
-                                                grp: {
-                                                    ...color.links.grp,
-                                                    ['txt']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.links.grp.txt}
-                                    name="habit" id="remember"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">group name color</span>
+                                                }))
+                                            }}
+                                            value={color.bg}
+                                            name="furniture" id="age"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">page backgroumd</span>
+                                    </div>
+                                </div>
                             </div>
 
+                            <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
+                                <h1 className="text-lg font-bold pl-2">Accounts Drawer :</h1>
+                                <div className="flex flex-col space-y-2 p-1">
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
 
-                        </div>
-                    </div>
-
-                    <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
-                        <h1 className="text-lg font-bold pl-2">Draw :</h1>
-                        <div className="flex flex-col space-y-2 p-1">
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                ['bg']: e.target.value
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.bg}
-                                    name="laugh" id="middle"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                items: {
-                                                    ...color.draw.items,
-                                                    ['bg']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.items.bg}
-                                    name="beneath" id="snake"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">items background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                items: {
-                                                    ...color.draw.items,
-                                                    img: {
-                                                        ...color.draw.items.img,
-                                                        ['background']: e.target.value
-                                                    }
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.items.img.background}
-                                    name="acres" id="run"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">items images background</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                items: {
-                                                    ...color.draw.items,
-                                                    ['main_txt']: e.target.value
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.items.main_txt}
-                                    name="eye" id="lesson"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">items service name color</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                items: {
-                                                    ...color.draw.items,
-                                                    username: {
-                                                        ...color.draw.items.username,
-                                                        ['txt']: e.target.value
-                                                    }
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.items.username.txt}
-                                    name="room" id="possibly"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">items username color</span>
-                            </div>
-                            <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
-                                <input type="color"
-                                    onChange={(e) => {
-                                        setColor((color) => ({
-                                            ...color,
-                                            draw: {
-                                                ...color.draw,
-                                                items: {
-                                                    ...color.draw.items,
-                                                    username: {
-                                                        ...color.draw.items.username,
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    to_draw: {
+                                                        ...color.to_draw,
                                                         ['bg']: e.target.value
                                                     }
-                                                }
-                                            }
-                                        }))
-                                    }}
-                                    value={color.draw.items.username.bg}
-                                    name="means" id="pan"
-                                    className="bg-transparent w-8 h-8"
-                                />
-                                <span className="text-lg font-bold">items username background</span>
-                            </div>
-                        </div>
-                    </div>
+                                                }))
+                                            }}
+                                            value={color.to_draw.bg}
+                                            name="throat" id="pie"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    to_draw: {
+                                                        ...color.to_draw,
+                                                        ['text']: e.target.value
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.to_draw.text}
+                                            name="native" id="aloud"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">text</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
 
-                </div>
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    to_draw: {
+                                                        ...color.to_draw,
+                                                        button: {
+                                                            ...color.to_draw.button,
+                                                            ['bg']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.to_draw.button.bg}
+                                            name="feet" id="straw"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">button</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
+                                <h1 className="text-lg font-bold pl-2">Profile :</h1>
+                                <div className="flex flex-col space-y-2 p-1">
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    profile: {
+                                                        ...color.profile,
+                                                        img: {
+                                                            ...color.profile.img,
+                                                            ['bg']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.profile.img.bg}
+                                            name="struggle" id="coat"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">image background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    profile: {
+                                                        ...color.profile,
+                                                        ['txt']: e.target.value
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.profile.txt}
+                                            name="task" id="everywhere"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">name color</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
+                                <h1 className="text-lg font-bold pl-2">Links :</h1>
+                                <div className="flex flex-col space-y-2 p-1">
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    links: {
+                                                        ...color.links,
+                                                        ['bg']: e.target.value
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.links.bg}
+                                            name="cheese" id="twelve"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    links: {
+                                                        ...color.links,
+                                                        grp: {
+                                                            ...color.links.grp,
+                                                            ['bg']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.links.grp.bg}
+                                            name="snake" id="include"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">groupe background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    links: {
+                                                        ...color.links,
+                                                        grp: {
+                                                            ...color.links.grp,
+                                                            ['txt']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.links.grp.txt}
+                                            name="habit" id="remember"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">group name color</span>
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div className="bg-[#00000054] space-y-3 rounded-lg p-2">
+                                <h1 className="text-lg font-bold pl-2">Draw :</h1>
+                                <div className="flex flex-col space-y-2 p-1">
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        ['bg']: e.target.value
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.bg}
+                                            name="laugh" id="middle"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        items: {
+                                                            ...color.draw.items,
+                                                            ['bg']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.items.bg}
+                                            name="beneath" id="snake"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">items background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        items: {
+                                                            ...color.draw.items,
+                                                            img: {
+                                                                ...color.draw.items.img,
+                                                                ['background']: e.target.value
+                                                            }
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.items.img.background}
+                                            name="acres" id="run"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">items images background</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        items: {
+                                                            ...color.draw.items,
+                                                            ['main_txt']: e.target.value
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.items.main_txt}
+                                            name="eye" id="lesson"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">items service name color</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        items: {
+                                                            ...color.draw.items,
+                                                            username: {
+                                                                ...color.draw.items.username,
+                                                                ['txt']: e.target.value
+                                                            }
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.items.username.txt}
+                                            name="room" id="possibly"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">items username color</span>
+                                    </div>
+                                    <div className="flex bg-[#00000054] rounded-lg p-1 space-x-2">
+                                        <input type="color"
+                                            onChange={(e) => {
+                                                setColor((color) => ({
+                                                    ...color,
+                                                    draw: {
+                                                        ...color.draw,
+                                                        items: {
+                                                            ...color.draw.items,
+                                                            username: {
+                                                                ...color.draw.items.username,
+                                                                ['bg']: e.target.value
+                                                            }
+                                                        }
+                                                    }
+                                                }))
+                                            }}
+                                            value={color.draw.items.username.bg}
+                                            name="means" id="pan"
+                                            className="bg-transparent w-8 h-8"
+                                        />
+                                        <span className="text-lg font-bold">items username background</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        </>
+                    )
+                    :''
+                }
+               
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 {/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
@@ -437,48 +467,58 @@ export default function UI() {
                 </div>
             </div>
 
-            <div className="flex space-x-2 overflow-auto p-2 bg-ap2 rounded-lg">
-                {
-                    skins.map((skn) => (
-                        <>
-                            <div onClick={() => {
-                                setColor((color) => ({
-                                    ...color,
-                                    ['img']: `/imgs/config/${skn.name}/Header/0.jpg`,
-                                }))
-                            }}
-                                style={{ background: `url(/imgs/config/${skn.name}/Header/0.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
-                                <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
-                            </div>
+            {
+                active === "custome1" || active === "custome2" ?
+                (
+                    <div className="flex space-x-2 overflow-auto p-2 bg-ap2 rounded-lg">
+                        {
+                            skins.map((skn) => (
+                                <>
+                                    <div onClick={() => {
+                                        setColor((color) => ({
+                                            ...color,
+                                            ['img']: `/imgs/config/${skn.name}/Header/0.jpg`,
+                                        }))
+                                    }}
+                                        style={{ background: `url(/imgs/config/${skn.name}/Header/0.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
+                                        <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
+                                    </div>
 
-                            <div onClick={() => {
-                                setColor((color) => ({
-                                    ...color,
-                                    ['img']: `/imgs/config/${skn.name}/Header/1.jpg`,
-                                }))
-                            }}
-                                style={{ background: `url(/imgs/config/${skn.name}/Header/1.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
-                                <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
-                            </div>
+                                    <div onClick={() => {
+                                        setColor((color) => ({
+                                            ...color,
+                                            ['img']: `/imgs/config/${skn.name}/Header/1.jpg`,
+                                        }))
+                                    }}
+                                        style={{ background: `url(/imgs/config/${skn.name}/Header/1.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
+                                        <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
+                                    </div>
 
-                            <div onClick={() => {
-                                setColor((color) => ({
-                                    ...color,
-                                    ['img']: `/imgs/config/${skn.name}/Header/footer-0.jpg`,
-                                }))
-                            }}
-                                style={{ background: `url(/imgs/config/${skn.name}/Header/footer-0.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
-                                <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
-                            </div>
-                        </>
-                    ))
-                }
-            </div>
-
+                                    <div onClick={() => {
+                                        setColor((color) => ({
+                                            ...color,
+                                            ['img']: `/imgs/config/${skn.name}/Header/footer-0.jpg`,
+                                        }))
+                                    }}
+                                        style={{ background: `url(/imgs/config/${skn.name}/Header/footer-0.jpg)`, backgroundSize: 'cover', backgroundPosition: 'center' }} className='bg-ago rounded-lg'>
+                                        <div className="rounded-lg" style={{ width: '8em', height: '13em' }}></div>
+                                    </div>
+                                </>
+                            ))
+                        }
+</div>
+                )
+                :''
+            }
+            
             <button onClick={() => { hundelsave() }} className="btn w-full">Save your customized skin</button>
+
+            <CosUI key="cos" label="custome" header="SELECT YOUR ACTIVE THEME"   modal="modal-cos" cos1={JSON.stringify(cosUI1)} cos2={JSON.stringify(cosUI2)} />
+            <CosUI key="edi" label="editor" header="EDITOR PRESET THEME" modal="modal-edi" cos1={JSON.stringify(cosUI1)} cos2={JSON.stringify(cosUI2)} />
+           
 
         </div>
     );
 }
 
-UI.layout = (page) => <Base children={page} title={"Costumise - AllAcc"} />
+UI.layout = (page) => <Base children={page} title={"Costumise UI - AllAcc"} />

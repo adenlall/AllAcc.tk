@@ -26,6 +26,9 @@ class DashboardController extends Controller
         });
         $services = Service::where('username', Auth::user()->username)->get()->first();
         DBhelper::tableInc("dashboard");
+
+        //dd($services);
+        //dd($services_config);
         return inertia('Dashboard', [
             'services_config' => $services_config,
             'services'        => $services,

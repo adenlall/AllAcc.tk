@@ -16,11 +16,8 @@ class SetSkinsController extends Controller
         $call = new Setup(Auth::user());
 
 
-        if ($request->is === 'cosui') {
-            $call->setUI("costume0", $request->ui);
-        }
-        if ($request->is === 'type') {
-                $call->setUI("type", $request->type);
+        if ($request->is === 'ui') {
+            $call->setUI($request->data);
         } else {
 
             $validated = $request->validate([

@@ -28,7 +28,7 @@
                 class=" p-2 my-2 rounded-lg text-xl font-bold flex sm:flex-row flex-col justify-between items-start sm:items-center">
                 <div class="flex w-full">
                     <x-carbon-star class="w-5 h-6 mr-2" style="fill: {{$cosui['bg']}}" /> <code
-                        class="overflow-auto" style="color: {{$cosui['bg']}}">{{ $user->email }}</code>
+                        class="overflow-auto" style="color: {{$cosui['to_draw']['bg']}}">{{ $user->email }}</code>
                 </div>
                 <button type="button" onclick='emailIt("{{ $user->email }}")' style="background: {{$cosui['to_draw']['bg']}}; color: {{$cosui['to_draw']['text']}}" class="btn border-none btn-sm sm:m-0 m-2">send email</button>
             </div>
@@ -55,7 +55,7 @@
                 @isset($user->country)
                     <div style="background: {{$cosui['profile']['txt']}}" class=" p-2 rounded-lg text-xl font-bold flex items-center">
                         <x-carbon-star class="w-5 h-6 mr-2 " style="fill: {{$cosui['bg']}}" /> <code
-                            class="overflow-auto" style="color: {{$cosui['bg']}}">{{ $user->country }}</code>
+                            class="overflow-auto" style="color: {{$cosui['to_draw']['bg']}}">{{ $user->country }}</code>
                     </div>
                 @endisset
                 @isset($user_js['moreinfo']['locations'])

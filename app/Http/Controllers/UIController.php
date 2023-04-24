@@ -12,14 +12,15 @@ class UIController extends Controller
     //
     function __invoke(Request $request)
     {
-
         $user = User::find(Auth::user()->id);
         $path = json_decode($user->json_config, true);
         $skins = DB::table('skin')->select('name')->get();
 
         return Inertia('interface/UI')->with([
-            "cosUI"=> $path['UI']['costume0'],
-            "skins"=> $skins
+            "cosUI1"=> $path['UI']['costume0'],
+            "cosUI2"=> $path['UI']['costume1'],
+            "skins" => $skins,
+            "active"=> $path['UI']['active']
         ]);
     }
 }

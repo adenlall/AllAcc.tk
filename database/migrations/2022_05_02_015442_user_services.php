@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('github')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('vk')->nullable();
-            $table->string('website')->nullable();
 
             // to add in seeders and refresh
             $table->string('lastfm')->nullable();
