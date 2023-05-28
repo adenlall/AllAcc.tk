@@ -3,6 +3,7 @@
 namespace App\Helpers\helperJSON;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class JSONpath
 {
@@ -96,8 +97,8 @@ class JSONpath
         } else {
             if ($update) {
                 # @TODO: add private methode to check every key in json data
-                if(method_exists($this, 'check')){
-                    $this->check(all:true);
+                if(method_exists(__CLASS__, 'check')){
+                    self::checkfeilds();
                 }
             }
             return false;
@@ -124,4 +125,13 @@ class JSONpath
         }
         
     }
+    
+    static public function checkfeilds(bool $all = true): mixed
+    {
+        
+    }
+
+    
 }
+
+
