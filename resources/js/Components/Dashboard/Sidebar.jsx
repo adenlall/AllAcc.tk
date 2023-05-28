@@ -52,12 +52,12 @@ export default function Sidebar() {
                                         ''
                                     }
                                 </ul>
-                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/setting`} >Skin Settings</Link></h4>
+                                <ul className=''> <h4 className='p-2 bg-agr text-white rounded-lg mt-2'><Link href={`/setting`} >Skins Settings</Link></h4>
                                 {
                                     component === 'Setting'
                                         ? (
                                             <>
-                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#skin'>Skin</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#skins'>Skins</a></li>
                                                 <li className='pl-2'><a className='text-sm text-drk-l' href='#icons'>Icons</a></li>
                                             </>
                                         )
@@ -84,7 +84,7 @@ export default function Sidebar() {
                                         ? (
                                             <>
                                                 <li className='pl-2'><a className='text-sm text-drk-l' href='#head'>Outside clicks</a></li>
-                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#c_html'>Costum HTML</a></li>
+                                                <li className='pl-2'><a className='text-sm text-drk-l' href='#c_html'>Custom HTML</a></li>
                                             </>
                                         )
                                         :

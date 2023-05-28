@@ -51,6 +51,6 @@ class Username implements Rule
      */
     public function message()
     {
-        return 'Unsupported username.';
+        return 'non valid username.';
     }
 }

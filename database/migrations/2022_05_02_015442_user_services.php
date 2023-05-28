@@ -36,8 +36,8 @@ return new class extends Migration
             $table->string('dribbble')->nullable();
             $table->string('flickr')->nullable();
 
-            // json for costumation
-            $table->string('costum')->nullable();
+            // json for customation
+            $table->string('custom')->nullable();
 
 
             $table->timestamps();

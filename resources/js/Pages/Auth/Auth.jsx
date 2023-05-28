@@ -81,18 +81,23 @@ export default function Auth() {
                 return "Invalid username!";
             }
         } if (index === 4) {
-            if (/(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/.test(data.password)) {
-                if (data.password === document.getElementById('repassword').value) {
-                    return true;
-                } else {
-                    return "Passwords doesn't match!";
+                if (!/(?=^.{6,}$)/.test(data.password)) {
+                    return "Password sould be more than 6 characters!";
+                } if (/(?=.*[0-9])/.test(data.password)) {
+                    return "Passwords should containes a number [0-9]!";
+                } if (/(?=.*[a-z])/.test(data.password)) {
+                    return "Passwords should containes a characters!";
+                } if (/(?=.*[^A-Za-z0-9]).*/.test(data.password)) {
+                    return "Passwords should containes a special characters!";
+                } if (data.password !== document.getElementById('repassword').value) {
+                    return "Passwords doesn't  match!";
                 }
-            } else {
-                return "Weak password!";
-            }
+                return true;
         }
 
     }
+
+    
 
     const setDiv = (e) => {
         let chh = check(e);

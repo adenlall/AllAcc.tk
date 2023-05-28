@@ -13,7 +13,7 @@ function UIType() {
     }
     const isType = (e) =>
     {
-        Inertia.post('setting/set?is=type',{type:e});
+        Inertia.post('setting/set?is=ui',{data:e});
     }
 
     return (

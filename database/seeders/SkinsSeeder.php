@@ -26,7 +26,7 @@ class SkinsSeeder extends Seeder
 
         for ($i = 0; $i < count($skins); $i++) {
 
-            DB::table('skin')->insert([
+            DB::table('skins')->insert([
                 'name' => $skins[$i][0],
                 'c_name' => $skins[$i][1],
                 'icons' => $skins[$i][2],
@@ -36,6 +36,21 @@ class SkinsSeeder extends Seeder
                 'clr2' => $skins[$i][6],
                 'header'=> $skins[$i][8],
                 'json_config' => json_encode($skins[$i][7]),
+            ]);
+            DB::table('app_metadata')->insert([
+                'skins' => json_encode([
+                    'name'    => $skins[$i][1],
+                    'c_name'  => $skins[$i][0],
+                    'colors' => [
+                        'clr0' => $skins[$i][4],
+                        'clr1' => $skins[$i][5],
+                        'clr2' => $skins[$i][6],
+                    ]
+                ]),
+                'icons' => json_encode([
+                    'icons'    => $skins[$i][3],
+                    'c_icons'  => $skins[$i][2],
+                ]),
             ]);
         }
     }

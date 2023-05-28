@@ -45,7 +45,8 @@ class RegisterController extends Controller
 
 
         $call = new Setup(Auth::user());
-        $call->ini([true,true,true,true]);
+        $call->ini(all: true);
+        
         return redirect('/profile');
     }
 

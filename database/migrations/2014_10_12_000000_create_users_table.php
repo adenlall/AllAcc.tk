@@ -36,8 +36,8 @@ return new class extends Migration
 
             $table->string('version')->nullable();
 
-            $table->json('json_config');
-            $table->json('json_locate');
+            $table->json('json_config')->nullable();
+            $table->json('json_locate')->nullable();
             
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

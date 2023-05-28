@@ -4653,7 +4653,7 @@ function Navbar(_ref) {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
                     className: component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk',
                     href: "/setting",
-                    children: "Skin Settings"
+                    children: "Skins Settings"
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
@@ -4735,7 +4735,7 @@ function Navbar(_ref) {
             tabindex: "0",
             "class": "btn md:m-1 m-0 flex grap-2 p-[2px] w-auto",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
-              className: "w-auto md:mr-2 mr-0 h-[-webkit-fill-available]",
+              className: "w-auto md:mr-2 mr-0 h-[inherit]",
               xmlns: "http://www.w3.org/2000/svg",
               x: "0px",
               y: "0px",
@@ -5465,15 +5465,15 @@ function Sidebar() {
               className: "p-2 bg-agr text-white rounded-lg mt-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
                 href: "/setting",
-                children: "Skin Settings"
+                children: "Skins Settings"
               })
             }), component === 'Setting' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 className: "pl-2",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   className: "text-sm text-drk-l",
-                  href: "#skin",
-                  children: "Skin"
+                  href: "#skins",
+                  children: "Skins"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
                 className: "pl-2",
@@ -5530,7 +5530,7 @@ function Sidebar() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
                   className: "text-sm text-drk-l",
                   href: "#c_html",
-                  children: "Costum HTML"
+                  children: "Custom HTML"
                 })
               })]
             }) : '']
@@ -5588,16 +5588,16 @@ function Sidebar() {
 
 /***/ }),
 
-/***/ "./resources/js/Components/Dashboard/Skin.jsx":
-/*!****************************************************!*\
-  !*** ./resources/js/Components/Dashboard/Skin.jsx ***!
-  \****************************************************/
+/***/ "./resources/js/Components/Dashboard/Skins.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/Components/Dashboard/Skins.jsx ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Skin)
+/* harmony export */   "default": () => (/* binding */ Skins)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
@@ -5615,13 +5615,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-function Skin(props) {
+function Skins(props) {
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var parsed = JSON.parse(auth.user.json_config);
   var theskin = parsed.theme;
 
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-    skin: theskin.skin,
+    skins: theskin.skins,
     icons: theskin.icons,
     button: theskin.button,
     font: theskin.font
@@ -5629,14 +5629,15 @@ function Skin(props) {
       data = _useForm.data,
       setData = _useForm.setData;
 
-  var skk = data.skin;
+  var skk = data.skins;
   var icc = data.icons;
   var fnt = data.font;
   var button = data.button;
-  var buttons = ['orangebtn', 'oldbtn', 'roundedborderbtn', 'rgbbtn', 'purplebtn', 'blurbtn'];
-  var fonts = ['BeatWord', 'Calygraphy', 'Gracheva', 'OldGorgeous', 'OldMe', 'Profont'];
-  var skins = ['NnP', 'Vnt', 'RPG', 'BnW', 'Ind'];
-  var icons = ['rB', 'Vx', 'C4', 'Dr', 'oB'];
+  console.log(props.buttons, props.fonts, props.icons, props.skins);
+
+  var _buttons = JSON.parse(props.buttons);
+
+  var _fonts = JSON.parse(props.fonts);
 
   var _icons = JSON.parse(props.icons);
 
@@ -5652,7 +5653,7 @@ function Skin(props) {
     document.getElementById(skinn).style.border = 'solid';
     element.style.background = "".concat(clr, "80"); // setSkk(skinn);
 
-    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, 'skin', skinn)));
+    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, 'skins', skinn)));
   };
 
   var over = function over(e) {
@@ -5662,7 +5663,7 @@ function Skin(props) {
 
   var leave = function leave(e) {
     var selector = 'set' + e;
-    document.getElementById(selector).firstChild.firstChild.innerHTML = icons[e];
+    document.getElementById(selector).firstChild.firstChild.innerHTML = _icons[e]['c_name'];
   };
 
   var ov = function ov(e) {
@@ -5695,7 +5696,7 @@ function Skin(props) {
 
   var click = function click(e) {
     // setIcc(icons[e]);
-    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, 'icons', icons[e]))); // uncheck others
+    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, 'icons', _icons[e]['c_name']))); // uncheck others
 
     for (var i = 0; i < document.querySelector('.ultcont').children.length; i++) {
       var allinall = document.querySelector('.ultcont').children[i].children[0];
@@ -5707,7 +5708,7 @@ function Skin(props) {
     ele.style.borderWidth = "0.5em";
     document.getElementById(selector).firstChild.firstChild.firstChild.innerHTML = '(.❛ ᴗ ❛.)';
     setTimeout(function () {
-      document.getElementById(selector).firstChild.firstChild.firstChild.innerHTML = icons[e];
+      document.getElementById(selector).firstChild.firstChild.firstChild.innerHTML = _icons[e]['c_name'];
     }, 500);
   };
 
@@ -5768,16 +5769,16 @@ function Skin(props) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex flex-col space-y-1",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h3", {
-            id: "skin",
+            id: "skins",
             className: "font-bold text-lg",
-            children: "Chose your skin:"
+            children: "Chose your skins:"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
             className: "text-sm italic",
             children: ["current: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "text-lg font-bold no-italic",
-              children: theskin.skin
+              children: theskin.skins
             }), "."]
-          }), skk !== theskin.skin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
+          }), skk !== theskin.skins ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h5", {
             style: {
               'lineHeight': '0.5em'
             },
@@ -5800,46 +5801,46 @@ function Skin(props) {
           className: "w-full",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "overflow-hidden w-full flex flex-col sm:flex-row items-stretch content-center justify-center space-x-0 sm:space-x-2 space-y-2 sm:space-y-0",
-            children: _skins.map(function (skin) {
+            children: _skins.map(function (skins) {
               return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                id: skin.name,
+                id: skins.name,
                 onClick: function onClick() {
-                  setSkin("".concat(skin.name), "".concat(skin.combo.colors[2]));
+                  setSkin("".concat(skins.name), "".concat(skins.combo.colors[2]));
                 },
                 className: "forBorder cursor-pointer flex flex-col space-y-2 w-full items-center content-center justify-center p-2 rounded-lg",
                 style: {
-                  'background': "".concat(skin.combo.colors[0], "59")
+                  'background': "".concat(skins.combo.colors[0], "59")
                 },
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "flex w-full flex-row space-x-2 items-center content-center justify-center",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                     className: "rounded-lg h-8 sm:h-12 w-1/3",
                     style: {
-                      'background': skin.combo.colors[0]
+                      'background': skins.combo.colors[0]
                     }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                     className: "rounded-lg h-8 sm:h-12 w-1/3",
                     style: {
-                      'background': skin.combo.colors[1]
+                      'background': skins.combo.colors[1]
                     }
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                     className: "rounded-lg h-8 sm:h-12 w-1/3",
                     style: {
-                      'background': skin.combo.colors[2]
+                      'background': skins.combo.colors[2]
                     }
                   })]
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   className: "w-full h-16 sm:h-32 rounded-lg",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "w-full h-full object-cover rounded-lg",
-                    alt: skin.name,
-                    src: "/imgs/config/".concat(skin.name, "/Soung/0.jpg")
+                    alt: skins.name,
+                    src: "/imgs/config/".concat(skins.name, "/Soung/0.jpg")
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
                   className: "text-purple-200 font-bold text-xl",
-                  children: skin.name
+                  children: skins.name
                 })]
-              }, skin.name);
+              }, skins.name);
             })
           })
         })]
@@ -5904,20 +5905,20 @@ function Skin(props) {
                 className: "p-3 h-full w-full rounded-lg flex flex-row items-center content-center justify-between md:justify-center bg-[#c1dbc55a]",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
                   className: "texttt text-lg md:text-2xl text-white font-bold",
-                  children: icon.icons
+                  children: icon['name']
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
                   className: "flex md:hidden flex-row space-x-2 items-center content-center justify-center",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "hidden xs:block w-10 h-10 rounded-lg",
-                    src: "/imgs/icons/".concat(icon.icons, "/dribbble.svg"),
+                    src: "/imgs/icons/".concat(icon['c_name'], "/dribbble.svg"),
                     alt: "dribbble"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "w-10 h-10 rounded-lg",
-                    src: "/imgs/icons/".concat(icon.icons, "/linkedin.svg"),
+                    src: "/imgs/icons/".concat(icon['c_name'], "/linkedin.svg"),
                     alt: "linkedin"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                     className: "w-10 h-10 rounded-lg",
-                    src: "/imgs/icons/".concat(icon.icons, "/twitter.svg"),
+                    src: "/imgs/icons/".concat(icon['c_name'], "/twitter.svg"),
                     alt: "twitter"
                   })]
                 })]
@@ -5942,19 +5943,19 @@ function Skin(props) {
                 className: "hidden flex-row space-x-2 items-center content-center justify-center",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "w-10 md:w-20 h-10 md:h-20 rounded-lg",
-                  src: "/imgs/icons/".concat(icon.icons, "/dribbble.svg"),
+                  src: "/imgs/icons/".concat(icon['c_name'], "/dribbble.svg"),
                   alt: "dribbble"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "w-10 md:w-20 h-10 md:h-20 rounded-lg",
-                  src: "/imgs/icons/".concat(icon.icons, "/linkedin.svg"),
+                  src: "/imgs/icons/".concat(icon['c_name'], "/linkedin.svg"),
                   alt: "linkedin"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "hidden sm:block w-10 md:w-20 h-10 md:h-20 rounded-lg",
-                  src: "/imgs/icons/".concat(icon.icons, "/telegram.svg"),
+                  src: "/imgs/icons/".concat(icon['c_name'], "/telegram.svg"),
                   alt: "telegram"
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                   className: "hidden sm:block w-10 md:w-20 h-10 md:h-20 rounded-lg",
-                  src: "/imgs/icons/".concat(icon.icons, "/twitter.svg"),
+                  src: "/imgs/icons/".concat(icon['c_name'], "/twitter.svg"),
                   alt: "twitter"
                 })]
               })]
@@ -5978,7 +5979,7 @@ function Skin(props) {
         className: "font-meduim text-sm"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: "flex flex-wrap items-center w-auto m-auto justify-center",
-        children: buttons.map(function (button) {
+        children: _buttons.map(function (button) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             id: button,
             onClick: function onClick() {
@@ -6004,8 +6005,8 @@ function Skin(props) {
         className: "font-bold text-lg",
         children: "Chose your font:"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "fonts flex flex-wrap items-center w-full justify-start",
-        children: fonts.map(function (font) {
+        className: "font flex flex-wrap items-center w-full justify-start",
+        children: _fonts.map(function (font) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             onClick: function onClick() {
               setFont(font);
@@ -6033,7 +6034,7 @@ function Skin(props) {
           cll();
         },
         type: "button",
-        className: "btn ".concat(theskin.icons === icc && theskin.button === button && theskin.skin === skk && theskin.font === fnt ? ' btn-disabled' : ''),
+        className: "btn ".concat(theskin.icons === icc && theskin.button === button && theskin.skins === skk && theskin.font === fnt ? ' btn-disabled' : ''),
         children: "Save yourSkin"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
         onClick: cll,
@@ -6374,8 +6375,8 @@ function UIType() {
   };
 
   var isType = function isType(e) {
-    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('setting/set?is=type', {
-      type: e
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post('setting/set?is=ui', {
+      data: e
     });
   };
 
@@ -7175,9 +7176,9 @@ function Map(props) {
 
 /***/ }),
 
-/***/ "./resources/js/Components/Dashboard/theme/cosUI.jsx":
+/***/ "./resources/js/Components/Dashboard/theme/CosUI.jsx":
 /*!***********************************************************!*\
-  !*** ./resources/js/Components/Dashboard/theme/cosUI.jsx ***!
+  !*** ./resources/js/Components/Dashboard/theme/CosUI.jsx ***!
   \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -7223,7 +7224,7 @@ function CosUI(props) {
     try {
       var nump = "".concat(props.label, "1");
       type == nump ? nump = "".concat(props.label, "2") : "";
-      document.getElementById("select-".concat(type).concat(props.modal.split("-")[1])).style.border = "dashed black 3px";
+      document.getElementById("select-".concat(type).concat(props.modal.split("-")[1])).style.border = "2px solid #ffca00";
       document.getElementById("select-".concat(nump).concat(props.modal.split("-")[1])).style.border = "none";
 
       if (type == cos) {
@@ -7231,16 +7232,12 @@ function CosUI(props) {
       } else {
         document.getElementById("save-blade-num".concat(props.modal.split("-")[1])).disabled = false;
       }
-
-      console.log(type, cos);
     } catch (error) {
       console.log(error);
     }
   }, [type]);
 
   var hundelsave = function hundelsave() {
-    console.log("hundel save");
-    console.log(type, cos);
     _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post("/setting/set?is=ui", {
       data: type
     });
@@ -7280,7 +7277,7 @@ function CosUI(props) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "bg-yellow-400 p-4"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {
-                className: "text-xl font-bold",
+                className: "text-xl font-bold text-dark",
                 children: [props.label, "-1"]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -7295,7 +7292,7 @@ function CosUI(props) {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                 className: "bg-yellow-400 p-4"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h4", {
-                className: "text-xl font-bold",
+                className: "text-xl font-bold text-dark",
                 children: [props.label, "-2"]
               })]
             })]
@@ -8478,10 +8475,10 @@ About.layout = function (page) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/Admin.jsx":
-/*!**************************************!*\
-  !*** ./resources/js/Pages/Admin.jsx ***!
-  \**************************************/
+/***/ "./resources/js/Pages/Admin/Admin.jsx":
+/*!********************************************!*\
+  !*** ./resources/js/Pages/Admin/Admin.jsx ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8492,7 +8489,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -8606,10 +8603,10 @@ Admin.layout = function (page) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/AdminActivities.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/Pages/AdminActivities.jsx ***!
-  \************************************************/
+/***/ "./resources/js/Pages/Admin/AdminActivities.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/Pages/Admin/AdminActivities.jsx ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8618,7 +8615,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ AdminActivities)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -8839,10 +8836,10 @@ AdminActivities.layout = function (page) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/AdminAuth.jsx":
-/*!******************************************!*\
-  !*** ./resources/js/Pages/AdminAuth.jsx ***!
-  \******************************************/
+/***/ "./resources/js/Pages/Admin/AdminAuth.jsx":
+/*!************************************************!*\
+  !*** ./resources/js/Pages/Admin/AdminAuth.jsx ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -8850,7 +8847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ AdminAuth)
 /* harmony export */ });
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -9005,10 +9002,89 @@ AdminAuth.layout = function (page) {
 
 /***/ }),
 
-/***/ "./resources/js/Pages/AdminStatistic.jsx":
-/*!***********************************************!*\
-  !*** ./resources/js/Pages/AdminStatistic.jsx ***!
-  \***********************************************/
+/***/ "./resources/js/Pages/Admin/AdminConfig.jsx":
+/*!**************************************************!*\
+  !*** ./resources/js/Pages/Admin/AdminConfig.jsx ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ AdminAuth)
+/* harmony export */ });
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+
+
+function AdminAuth() {
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props,
+      auth = _usePage$props.auth,
+      errors = _usePage$props.errors;
+
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+    username: null,
+    nickname: null,
+    token: null,
+    secret: null
+  }),
+      data = _useForm.data,
+      setData = _useForm.setData;
+
+  console.log(errors);
+
+  var changeHandler = function changeHandler(e) {
+    setData(_objectSpread(_objectSpread({}, data), {}, _defineProperty({}, e.target.id, e.target.value)));
+  };
+
+  var submit = function submit(e) {
+    e.preventDefault();
+    _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__.Inertia.get('/admin/verify', data);
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      id: "#head",
+      className: "w-[95%] sm:w-[72%] space-y-3 h-full flex flex-col",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "p-4 w-full",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          className: "text-2xl font-extrabold text-accent",
+          children: "Mr. SuperUser Config Dashboard"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h4", {
+          className: "text-xl font-bold",
+          children: "Config user's dashboard"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {})]
+    })
+  });
+}
+
+AdminAuth.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: page,
+    title: "AdminAuth"
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Admin/AdminStatistic.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/Pages/Admin/AdminStatistic.jsx ***!
+  \*****************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -9017,7 +9093,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* binding */ AdminStatistic)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
+/* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layouts/Base */ "./resources/js/Layouts/Base.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -9127,7 +9203,7 @@ function Advanced() {
       children: "Advanded setup"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Components_Dashboard_Outside__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
       className: "text-lg font-bold my-4",
-      children: "Costum HTML : "
+      children: "Custom HTML : "
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago",
       children: "This feature not available now for some security issues"
@@ -9390,10 +9466,10 @@ function AsSeem() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: user.name + " - AllAcc"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      "data-theme": theme.theme.skin,
+      "data-theme": theme.theme.skins,
       style: {
         'fontFamily': "".concat(font === null || font === undefined ? 'Gracheva' : font),
-        'backgroundImage': "url(\"/imgs/config/".concat(theme.theme.skin, "/Header/").concat(e, ".jpg\")"),
+        'backgroundImage': "url(\"/imgs/config/".concat(theme.theme.skins, "/Header/").concat(e, ".jpg\")"),
         'backgroundSize': 'contain',
         'backgroundRepeat': 'no-repeat',
         'backgroundColor': ' hsl(var(--b1))',
@@ -9472,7 +9548,7 @@ function AsSeem() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                   className: "w-full h-full p-4 rounded-lg bg-secondary boxAs",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h3", {
-                    className: "text-lg ".concat(theme.theme.skin === 'RPG' ? 'text-black' : theme.theme.skin === 'BnW' ? 'white' : 'text-base-100', " font-semibold"),
+                    className: "text-lg ".concat(theme.theme.skins === 'RPG' ? 'text-black' : theme.theme.skins === 'BnW' ? 'white' : 'text-base-100', " font-semibold"),
                     children: user.quote
                   })
                 })]
@@ -9579,7 +9655,7 @@ function AsSeem() {
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover",
                   style: {
-                    'backgroundImage': "url(\"/imgs/config/".concat(theme.theme.skin, "/Soung/").concat(e, ".jpg\")"),
+                    'backgroundImage': "url(\"/imgs/config/".concat(theme.theme.skins, "/Soung/").concat(e, ".jpg\")"),
                     'backgroundSize': 'cover'
                   },
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -9600,7 +9676,7 @@ function AsSeem() {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                         className: "p-2 flex flex-col space-y-2",
                         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                          className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis trackUser"),
+                          className: "font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ".concat(theme.theme.skins !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis trackUser"),
                           style: {
                             'display': 'Webkit-box',
                             'WebkitLineClamp': '2',
@@ -9608,7 +9684,7 @@ function AsSeem() {
                           },
                           children: user.track
                         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
-                          className: "font-bold text-lg ".concat(theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis artistUser"),
+                          className: "font-bold text-lg ".concat(theme.theme.skins !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black', " overflow-hidden text-ellipsis artistUser"),
                           style: {
                             'display': 'Webkit-box',
                             'WebkitLineClamp': '2',
@@ -9716,12 +9792,12 @@ function AsSeem() {
             className: "w-full text-secondary boxAs rounded-lg p-4 ",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h3", {
               style: {
-                color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
+                color: "".concat(theme.theme.skins === 'BnW' ? 'white' : 'auto')
               },
               className: "italic text-2xl font-extrabold p-2 text-primary",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                 style: {
-                  color: "".concat(theme.theme.skin === 'BnW' ? 'white' : 'auto')
+                  color: "".concat(theme.theme.skins === 'BnW' ? 'white' : 'auto')
                 },
                 className: "text-primary",
                 children: user.name
@@ -9799,7 +9875,7 @@ function AsSeem() {
         style: {
           'borderBottomLeftRadius': '0',
           'borderBottomRightRadius': '0',
-          'background': "url(\"/imgs/config/".concat(theme.theme.skin, "/Header/footer-0.jpg\")"),
+          'background': "url(\"/imgs/config/".concat(theme.theme.skins, "/Header/footer-0.jpg\")"),
           'backgroundSize': 'cover'
         },
         className: "w-full bg-center bg-cover m-0",
@@ -10003,15 +10079,27 @@ function Auth() {
     }
 
     if (index === 4) {
-      if (/(?=^.{6,}$)(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[^A-Za-z0-9]).*/.test(data.password)) {
-        if (data.password === document.getElementById('repassword').value) {
-          return true;
-        } else {
-          return "Passwords doesn't match!";
-        }
-      } else {
-        return "Weak password!";
+      if (!/(?=^.{6,}$)/.test(data.password)) {
+        return "Password sould be more than 6 characters!";
       }
+
+      if (/(?=.*[0-9])/.test(data.password)) {
+        return "Passwords should containes a number [0-9]!";
+      }
+
+      if (/(?=.*[a-z])/.test(data.password)) {
+        return "Passwords should containes a characters!";
+      }
+
+      if (/(?=.*[^A-Za-z0-9]).*/.test(data.password)) {
+        return "Passwords should containes a special characters!";
+      }
+
+      if (data.password !== document.getElementById('repassword').value) {
+        return "Passwords doesn't  match!";
+      }
+
+      return true;
     }
   };
 
@@ -11543,7 +11631,7 @@ function Privacy() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: "Develop new products, services, features, and functionality"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
-        children: "Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
+        children: "Communicate with you, either directly or through one of our partners, including for customr service, to provide you with updates and other information relating to the website, and for marketing and promotional purposes"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
         children: "Send you emails"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
@@ -12305,7 +12393,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_hot_toast__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-hot-toast */ "./node_modules/react-hot-toast/dist/index.mjs");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layouts_Base__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Layouts/Base */ "./resources/js/Layouts/Base.js");
-/* harmony import */ var _Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Skin */ "./resources/js/Components/Dashboard/Skin.jsx");
+/* harmony import */ var _Components_Dashboard_Skins__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Components/Dashboard/Skins */ "./resources/js/Components/Dashboard/Skins.jsx");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Components_Dashboard_UIType__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Components/Dashboard/UIType */ "./resources/js/Components/Dashboard/UIType.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -12332,7 +12420,9 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function Setting() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props,
       icons = _usePage$props.icons,
-      skins = _usePage$props.skins;
+      skins = _usePage$props.skins,
+      buttons = _usePage$props.buttons,
+      fonts = _usePage$props.fonts;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
       _useState2 = _slicedToArray(_useState, 2),
@@ -12365,8 +12455,10 @@ function Setting() {
         "class": "tab ".concat(ind === 1 ? 'tab-active' : ''),
         children: "Settings"
       })]
-    }), ind === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Skin__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    }), ind === 1 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_Skins__WEBPACK_IMPORTED_MODULE_3__["default"], {
       skins: JSON.stringify(skins),
+      buttons: JSON.stringify(buttons),
+      fonts: JSON.stringify(fonts),
       icons: JSON.stringify(icons)
     }) : ind === 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Components_Dashboard_UIType__WEBPACK_IMPORTED_MODULE_5__["default"], {}) : '']
   });
@@ -12661,7 +12753,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var _Components_Dashboard_theme_cosUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Dashboard/theme/cosUI */ "./resources/js/Components/Dashboard/theme/cosUI.jsx");
+/* harmony import */ var _Components_Dashboard_theme_CosUI__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Components/Dashboard/theme/CosUI */ "./resources/js/Components/Dashboard/theme/CosUI.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
@@ -12693,18 +12785,26 @@ function UI() {
   var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props,
       cosUI1 = _usePage$props.cosUI1,
       cosUI2 = _usePage$props.cosUI2,
+      ediUI1 = _usePage$props.ediUI1,
+      ediUI2 = _usePage$props.ediUI2,
       skins = _usePage$props.skins,
       active = _usePage$props.active;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(function () {
-    if (active === "custome1") {
+    if (active === "custom1") {
       return cosUI1;
     }
 
-    if (active === "custome2") {
+    if (active === "custom2") {
       return cosUI2;
-    } else {
-      return cosUI1;
+    }
+
+    if (active === "editor1") {
+      return ediUI1;
+    }
+
+    if (active === "editor2") {
+      return ediUI2;
     }
   }),
       _useState2 = _slicedToArray(_useState, 2),
@@ -12733,25 +12833,41 @@ function UI() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "flex space-x-2",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "w-full",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
           htmlFor: "modal-cos",
-          className: "btn",
-          children: "TOGGLE YOUR ACTIVE THEME"
+          className: "btn w-full h-[12em]",
+          style: {
+            background: "repeating-linear-gradient(45deg, #f0f8ff, #f28482 62px)"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "font-extrabold",
+            children: "TOGGLE YOUR ACTIVE THEME"
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
           htmlFor: "modal-edi",
-          className: "btn",
-          children: "CHOOSE FROM EDITOR THEMES"
+          className: "btn w-full h-[12em] ",
+          style: {
+            background: "repeating-linear-gradient(45deg, #f6bc60, #84a59d 62px)"
+          },
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+            className: "font-extrabold",
+            children: "CHOOSE FROM EDITOR THEMES"
+          })
         })
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
+      className: "text-sm py-1 pt-4 font-bold rounded-lg w-full",
+      children: ["active theme : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+        className: "text-accent",
+        children: active
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "flex items-center justify-center content-center md:flex-row flex-col space-y-2 md:space-y-0 md:space-x-2 space-x-0",
-      children: [active === "custome1" || active === "custome2" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
-          className: "text-xl py-1 font-bold rounded-lg w-full",
-          children: ["You are modifying the active THEME : ", active]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [active === "custom1" || active === "custom2" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "bg-agr shadow-lg space-y-2 rounded-lg overflow-auto p-2 w-full h-[60vh]",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "bg-[#00000054] space-y-3 rounded-lg p-2",
@@ -13107,19 +13223,19 @@ function UI() {
               })]
             })]
           })]
-        })]
+        })
       }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "flex space-x-2 w-fit m-auto",
+        className: "flex space-x-2 m-auto ".concat(active === "custom1" || active === "custom2" ? "w-fit" : "w-full"),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           style: {
             background: "url(".concat(color.img, ") center center / cover")
           },
-          className: "rounded-lg",
+          className: "rounded-lg ".concat(active === "custom1" || active === "custom2" ? "" : "w-full"),
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             style: {
               background: color.bg + '9c'
             },
-            className: "rounded-lg flex p-2 flex-col items-center justify-start content-center space-y-4 w-[12em] h-[60vh] overflow-auto",
+            className: "rounded-lg flex p-2 flex-col items-center justify-start content-center space-y-45deg ".concat(active === "custom1" || active === "custom2" ? "w-[12em]" : "w-full", " h-[60vh] overflow-auto"),
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               "class": "tooltip w-full tooltip-bottom z-10",
               "data-tip": "accounts drawer",
@@ -13145,7 +13261,7 @@ function UI() {
                 })]
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "flex flex-col items-center justify-start content-center",
+              className: "flex flex-col items-center justify-start content-center m-[10px]",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 "class": "tooltip tooltip-bottom z-[9]",
                 "data-tip": "user profile image",
@@ -13231,7 +13347,7 @@ function UI() {
           style: {
             background: color.draw.bg
           },
-          className: "rounded-lg bg-[#307070] flex p-2 flex-col items-center justify-start content-center space-y-2 w-[9em] h-[60vh] overflow-auto",
+          className: "rounded-lg bg-[#307070] flex p-2 flex-col items-center justify-start content-center space-y-2 ".concat(active === "custom1" || active === "custom2" ? "w-[9em]" : "w-[90%]", " h-[60vh] overflow-auto"),
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             style: {
               background: color.draw.items.bg
@@ -13325,7 +13441,7 @@ function UI() {
           })]
         })]
       })]
-    }), active === "custome1" || active === "custome2" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+    }), active === "custom1" || active === "custom2" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "flex space-x-2 overflow-auto p-2 bg-ap2 rounded-lg",
       children: skins.map(function (skn) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
@@ -13389,19 +13505,19 @@ function UI() {
           })]
         });
       })
-    }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+    }) : '', active === "custom1" || active === "custom2" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
       onClick: function onClick() {
         hundelsave();
       },
-      className: "btn w-full",
-      children: "Save your customized skin"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_theme_cosUI__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      label: "custome",
+      className: "btn w-full sticky bottom-[8px] z-index-[99]",
+      children: "Save your customized skins"
+    }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_theme_CosUI__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      label: "custom",
       header: "SELECT YOUR ACTIVE THEME",
       modal: "modal-cos",
       cos1: JSON.stringify(cosUI1),
       cos2: JSON.stringify(cosUI2)
-    }, "cos"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_theme_cosUI__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    }, "cos"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_Dashboard_theme_CosUI__WEBPACK_IMPORTED_MODULE_4__["default"], {
       label: "editor",
       header: "EDITOR PRESET THEME",
       modal: "modal-edi",
@@ -13414,7 +13530,7 @@ function UI() {
 UI.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_Base__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
-    title: "Costumise UI - AllAcc"
+    title: "Customise UI - AllAcc"
   });
 };
 
@@ -13745,7 +13861,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.noMoreBreak{\r\n    display: -webkit-inline-box;\r\n    width: 100%;\r\n    width: -moz-available;\r\n    width: -webkit-fill-available;\r\n    width: fill-available;\r\n    display: flex;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BeatWord\";\r\n    src: url(/fonts/BeatWord.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BillyHatter\";\r\n    src: url(/fonts/BillyHatter.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Calygraphy\";\r\n    src: url(/fonts/Calygraphy.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Gracheva\";\r\n    src: url(/fonts/Gracheva.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldGorgeous\";\r\n    src: url(/fonts/OldGorgeous.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldMe\";\r\n    src: url(/fonts/OldMe.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Profont\";\r\n    src: url(/fonts/Profont.ttf);\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\r\n\r\n.noMoreBreak{\r\n    display: -webkit-inline-box;\r\n    width: 100%;\r\n    width: -moz-available;\r\n    width: -webkit-fill-available;\r\n    width: fill-available;\r\n    display: flex;\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BeatWord\";\r\n    src: url(/font/BeatWord.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"BillyHatter\";\r\n    src: url(/font/BillyHatter.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Calygraphy\";\r\n    src: url(/font/Calygraphy.ttf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Gracheva\";\r\n    src: url(/font/Gracheva.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldGorgeous\";\r\n    src: url(/font/OldGorgeous.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"OldMe\";\r\n    src: url(/font/OldMe.otf);\r\n}\r\n\r\n@font-face {\r\n    font-family: \"Profont\";\r\n    src: url(/font/Profont.ttf);\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -86187,14 +86303,16 @@ var useCallback = useCallbackOne;
 var map = {
 	"./About": "./resources/js/Pages/About.jsx",
 	"./About.jsx": "./resources/js/Pages/About.jsx",
-	"./Admin": "./resources/js/Pages/Admin.jsx",
-	"./Admin.jsx": "./resources/js/Pages/Admin.jsx",
-	"./AdminActivities": "./resources/js/Pages/AdminActivities.jsx",
-	"./AdminActivities.jsx": "./resources/js/Pages/AdminActivities.jsx",
-	"./AdminAuth": "./resources/js/Pages/AdminAuth.jsx",
-	"./AdminAuth.jsx": "./resources/js/Pages/AdminAuth.jsx",
-	"./AdminStatistic": "./resources/js/Pages/AdminStatistic.jsx",
-	"./AdminStatistic.jsx": "./resources/js/Pages/AdminStatistic.jsx",
+	"./Admin/Admin": "./resources/js/Pages/Admin/Admin.jsx",
+	"./Admin/Admin.jsx": "./resources/js/Pages/Admin/Admin.jsx",
+	"./Admin/AdminActivities": "./resources/js/Pages/Admin/AdminActivities.jsx",
+	"./Admin/AdminActivities.jsx": "./resources/js/Pages/Admin/AdminActivities.jsx",
+	"./Admin/AdminAuth": "./resources/js/Pages/Admin/AdminAuth.jsx",
+	"./Admin/AdminAuth.jsx": "./resources/js/Pages/Admin/AdminAuth.jsx",
+	"./Admin/AdminConfig": "./resources/js/Pages/Admin/AdminConfig.jsx",
+	"./Admin/AdminConfig.jsx": "./resources/js/Pages/Admin/AdminConfig.jsx",
+	"./Admin/AdminStatistic": "./resources/js/Pages/Admin/AdminStatistic.jsx",
+	"./Admin/AdminStatistic.jsx": "./resources/js/Pages/Admin/AdminStatistic.jsx",
 	"./Advanced": "./resources/js/Pages/Advanced.jsx",
 	"./Advanced.jsx": "./resources/js/Pages/Advanced.jsx",
 	"./AsSeem": "./resources/js/Pages/AsSeem.jsx",
@@ -100257,7 +100375,7 @@ to {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\wamp\\\\www\\\\allacc"]],"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/@inertiajs/inertia/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\wamp\\\\www\\\\allacc","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","/home/al/Musique/AllAcc.tk"]],"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/@inertiajs/inertia/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["/@inertiajs/inertia"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"/home/al/Musique/AllAcc.tk","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 

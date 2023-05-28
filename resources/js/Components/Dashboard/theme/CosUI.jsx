@@ -15,22 +15,19 @@ export default function CosUI(props) {
         try {
             let nump = `${props.label}1`;
             type == nump ? (nump = `${props.label}2`) : "";
-            document.getElementById(`select-${type}${props.modal.split("-")[1]}`).style.border = "dashed black 3px";
+            document.getElementById(`select-${type}${props.modal.split("-")[1]}`).style.border = "2px solid #ffca00";
             document.getElementById(`select-${nump}${props.modal.split("-")[1]}`).style.border = "none";
                 if (type == cos) {
                     document.getElementById(`save-blade-num${props.modal.split("-")[1]}`).disabled = true;
                 } else {
                     document.getElementById(`save-blade-num${props.modal.split("-")[1]}`).disabled = false;
                 }
-            console.log(type, cos);
         } catch (error) {
             console.log(error);
         }
     }, [type]);
 
     const hundelsave = () => {
-        console.log("hundel save");
-        console.log(type, cos);
         Inertia.post("/setting/set?is=ui", { data: type });
     };
 
@@ -53,7 +50,7 @@ export default function CosUI(props) {
                                 }}
                             >
                                 <div className="bg-yellow-400 p-4"></div>
-                                <h4 className="text-xl font-bold">{props.label}-1</h4>
+                                <h4 className="text-xl font-bold text-dark">{props.label}-1</h4>
                             </div>
 
                             <div
@@ -65,7 +62,7 @@ export default function CosUI(props) {
                                 }}
                             >
                                 <div className="bg-yellow-400 p-4"></div>
-                                <h4 className="text-xl font-bold">{props.label}-2</h4>
+                                <h4 className="text-xl font-bold text-dark">{props.label}-2</h4>
                             </div>
                         </div>
                         <button

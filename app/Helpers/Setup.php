@@ -4,30 +4,68 @@ namespace App\Helpers;
 
 use App\Models\User;
 use App\Helpers\Validate;
+use Illuminate\Support\Facades\Auth;
+
 
 class Setup
 {
 
      public $user;
      private $path;
-     
+     protected $config;
+     protected $services;
+     protected $advanced;
+     protected $theme;
+     protected $cos_ui;
+     protected $ui;
+     protected $urls = [];
+     protected $visible;
+     protected $adv;
+     protected $statistics;
+
     
     function __construct(User $user) {
         $this->user = $user;
         $this->path =  json_decode($this->user->json_config, true);
+        
+        $this->cos_ui = ['bg'=> '#afd9ff','to_draw'=> ['bg'=> '#334155','text'=> '#ffffff','button'=> ['bg'=> '#ffffff',]],'draw'=> ['bg'=> '#307070','items'=> ['bg'=> '#1e293b','rounded'=> 'lg','main_txt'=> '#ffffff','username'=> ['txt'=> '#ffffff','bg'=> '#93c5fd'],'img'=> ['background'=> '#ffffff','rounded'=> 'lg']]],'profile'=> ['img'=> ['bg'=> '#ffffff','rounded'=> 'lg'],'txt'=> '#000000'],'links'=> ['grp'=> ['bg'=> '#5fb6cf','txt'=> '#374151'],'bg'=> '#80acbc'],"img" => "/imgs/config/RPG/Header/0.jpg"];
+    
+        $this->config = ["urlsGrps"=>[]];
+        $this->services = ["cdn"=>[],"emails"=>[],"phones"=>[],"locations"=>[]];
+        $this->advanced = ["from"=>[]];
+        $this->theme = ["skins"=>"RPG","icons"=>"rB","font"=>"Gracheva","hex"=>"","button"=>"roundedborderbtn","pure"=>true];
+        $this->ui = ["type"=>"JSX","active"=>"custom1","custom1"=>$this->cos_ui,"custom2"=>$this->cos_ui];
+    
+        $this->visible = ["type"=>"public","secret"=>[["active"=>false,"key"=>0000,"expiration"=>"forever","members"=>0,"for"=>["services"=>[],"urls"=>[]]]]];
+        $this->adv = ["from"=>[],"html"=>[]];
+
+        $this->statistics = ['services' => [], 'links' => []];
+
     }
 
-    public function ini(array $section){
-        if ($section[0]) {
+
+    /**
+     * 
+     * @param bool $all        = false
+     * @param bool $dashboard  = false
+     * @param bool $skins      = false
+     * @param bool $advanced   = false
+     * @param bool $statistics = false
+     * 
+     * @return void
+     * 
+     */
+    public function ini(bool $all = false, bool $dashboard = false, bool $skins = false, bool $advanced = false, bool $statistics = false){
+        if ($dashboard OR $all) {
             $this->iniDashboard();
         }
-        if ($section[1]) {
+        if ($skins OR $all) {
             $this->iniSkins();
         }
-        if ($section[2]) {
+        if ($advanced OR $all) {
             $this->iniAdvanced();
         }
-        if ($section[3]) {
+        if ($statistics OR $all) {
             $this->iniStatistics();
         }
         $this->save();
@@ -43,8 +81,19 @@ class Setup
     private function updateVersion()
     {
         $this->user->update([
-            'version' => env("APP_VERSION")
+            'version' => env("APP_VERSION"),‏
         ]);
+    }
+    static public function checkVersion(bool $update)
+    {
+        if(Auth::user()->version == env("APP_VERSION")){
+            return true;
+        }else{
+            if ($update) {
+                # @TODO: add private methode to check every key in json data
+            }            
+            return false;
+        }
     }
 
     /**
@@ -52,7 +101,6 @@ class Setup
      * set funcs
      * 
      */
-
     public function setTheme($val){
         try {
 
@@ -63,21 +111,28 @@ class Setup
         }
     }
     public function setUI($val){
+        if(gettype($val) == "string"){
+
             if(Validate::UItype($val)){
                 $this->path["UI"]["type"] = $val;
+                $this->save();
+                return;
             }
-            if(Validate::CustomeNum($val)){
+            if(Validate::CustomNum($val)){
                 $this->path["UI"]["active"] = $val;
+                $this->save();
+                return;
             }
-            else{
-                if($this->path["UI"]["active"] == "custome1" || $this->path["UI"]["active"] == "custome2"){
+        } if(gettype($val) == "array"){
+            if(count($val, 1)==count($this->cos_ui, 1)){
+                if($this->path["UI"]["active"] == "custom1" || $this->path["UI"]["active"] == "custom2"){
                     $this->path["UI"][$this->path["UI"]["active"]] = $val;
+                    $this->save();
+                    return;
                 }
             }
-            $this->save();
+        }
     }
-
-
 
 
     /**
@@ -85,172 +140,27 @@ class Setup
      * init funcs
      * 
      */
-
-     
     private function iniDashboard(){
-        $this->path['config'] = ["urlsGrps"=>[]];
-        $this->path['services'] = [
-            "cdn"=>[],
-            "emails"=>[],
-            "phones"=>[],
-            "locations"=>[]
-        ];
-        $this->path['urls'] = [];
-        $this->path['advanced'] = ["from"=>[]];
+        $this->path['config'] = $this->config;
+        $this->path['services'] = $this->services;
+        $this->path['urls'] = $this->urls;
+        $this->path['advanced'] = $this->advanced;
     }
     private function iniSkins(){
-        $arrr =  [
-            'bg'=> '#afd9ff',
-            'to_draw'=> [
-            'bg'=> '#334155',
-                'text'=> '#ffffff',
-                'button'=> [
-                    'bg'=> '#ffffff',
-                ]
-            ],
-            'draw'=> [
-                'bg'=> '#307070',
-                'items'=> [
-                    'bg'=> '#1e293b',
-                    'rounded'=> 'lg',
-                    'main_txt'=> '#ffffff',
-                    'username'=> [
-                        'txt'=> '#ffffff',
-                        'bg'=> '#93c5fd'
-                    ],
-                    'img'=> [
-                        'background'=> '#ffffff',
-                        'rounded'=> 'lg'
-                    ]
-                ]
-            ],
-            'profile'=> [
-                'img'=> [
-                    'bg'=> '#ffffff',
-                    'rounded'=> 'lg'
-                ],
-                'txt'=> '#000000'
-            ],
-            'links'=> [
-                'grp'=> [
-                    'bg'=> '#5fb6cf',
-                    'txt'=> '#374151'
-                ],
-                'bg'=> '#80acbc'
-            ]
-        ];
-    
-        $this->path['theme'] = [
-            "skin"=>"RPG",
-            "icons"=>"rB",
-            "font"=>"Gracheva",
-            "hex"=>"",
-            "button"=>"roundedborderbtn",
-            "pure"=>true
-        ];
-        $this->path['UI'] = [
-            "type"=>"JSX",
-            "active"=>"costume1",
-            "costume1"=>$arrr,
-            "costume2"=>$arrr
-        ];
+        $this->path['theme'] = $this->theme;
+        $this->path['UI'] = $this->ui;
     }
     private function iniAdvanced(){
-        $this->path['visible'] = [
-                "type"=>"public",
-                "secret"=>[
-                    [
-                        "active"=>false,
-                        "key"=>0000,
-                        "expiration"=>"forever",
-                        "members"=>0,
-                        "for"=>[
-                            "services"=>[],
-                            "urls"=>[]
-                        ]
-                    ]
-                ]
-            ];
-        $this->path['advanced'] = [
-            "from"=>[],
-            "html"=>[],
-        ];
+        $this->path['visible'] = $this->visible;
+        $this->path['advanced'] = $this->adv;
     }
     private function iniStatistics(){
-        $this->path['statistics'] = ['services' => [], 'links' => []];
+        $this->path['statistics'] = $this->statistics;
         $this->user->update([
             'json_locate' => json_encode(['logs' => []])
         ]);
     }
 
-    
-    
-    /**
-     * @function Check Dashboard Config
-     * return true if there was no data losing
-     * return false if there was data losing
-     */
-    private function checkDashboardConfig() : bool {
-        if(array_key_exists("config", $this->path)){
-            if(array_key_exists("urlsGrps", $this->path["config"])){
-                if(count($this->path["config"]["urlsGrps"] !== 0)){
-                    for($i=0; $i<count($this->path["config"]["urlsGrps"]); $i++){
-                        if(!count($this->path["config"]["urlsGrps"][$i]) == 1){
-                            unset($this->path["config"]["urlsGrps"][$i]);
-                        }
-                    }
-                    $this->path["config"]["urlsGrps"] = array_values($this->path["config"]["urlsGrps"]);
-                    return true;
-                }
-            }
-        }
-        $this->path['config'] = ["urlsGrps"=>[]];
-        return false;
-    }
-    
-    /**
-     * @function Check Dashboard Urls
-     * return true if there was no data losing
-     * return false if there was data losing
-     */
-    private function checkDashboardUrls() : bool {
-        if(count($this->path['urls'] !== 0)){
-            for($i=0; $i<count($this->path['urls']); $i++){
-                if(array_key_exists("name", $this->path['urls'][$i])){
-                    if(!gettype($this->path['urls'][$i]) == "string"){
-                        unset($this->path['urls'][$i]);
-                        continue;
-                    }
-                }
-                if(array_key_exists("link", $this->path['urls'][$i])){
-                    if(!gettype($this->path['urls'][$i]) == "string"){
-                        unset($this->path['urls'][$i]);
-                        continue;
-                    }
-                }
-                if(array_key_exists("grp", $this->path['urls'][$i])){
-                    if(!gettype($this->path['urls'][$i]) == "string" AND !gettype($this->path['urls'][$i]) == "NULL"){
-                        unset($this->path['urls'][$i]);
-                        continue;
-                    }
-                }
-                if(array_key_exists("id", $this->path['urls'][$i])){
-                    if(!gettype($this->path['urls'][$i]) == "integer"){
-                        unset($this->path['urls'][$i]);
-                        continue;
-                    }
-                }
-            }
-            
-            
-            $this->path['urls'] = array_values($this->path['urls']);
-            return true;
-        }
-        $this->path['urls'] = [];
-        return false;
-    }
-    
-    
-    
+
     
 }
