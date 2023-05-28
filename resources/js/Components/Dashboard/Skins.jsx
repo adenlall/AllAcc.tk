@@ -179,7 +179,7 @@ export default function Skins(props) {
                             <div id={`cont${i}`} className='w-full flex flex-col md:flex-row p-2 space-x-2'>
                                 <div id={`set${i}`} onClick={() => { click(i) }} onMouseOver={() => { over(i) }} onMouseLeave={() => { leave(i) }} className='cursor-pointer elemy w-full h-20 md:min-w-[10em] md:max-w-[10em] md:h-40 md:w-40 rounded-lg' style={{ 'background': `url('/imgs/config/BnW/Soung/1.jpg')`, 'backgroundSize': 'cover', 'backgroundRepeat': 'no-repeat' }}>
                                     <div className='p-3 h-full w-full rounded-lg flex flex-row items-center content-center justify-between md:justify-center bg-[#c1dbc55a]'>
-                                        <h5 className='texttt text-lg md:text-2xl text-white font-bold' >{icon['name']}</h5>
+                                        <h5 className='texttt text-lg md:text-2xl text-white font-bold' >{icon['c_name']}</h5>
                                         <div className='flex md:hidden flex-row space-x-2 items-center content-center justify-center'>
                                             <img className='hidden xs:block w-10 h-10 rounded-lg' src={`/imgs/icons/${icon['c_name']}/dribbble.svg`} alt="dribbble" />
                                             <img className='w-10 h-10 rounded-lg' src={`/imgs/icons/${icon['c_name']}/linkedin.svg`} alt="linkedin" />

@@ -6,12 +6,12 @@ use App\Http\Controllers\Controller;
 
 
 use App\Helpers\Setup;
+use App\Helpers\Validators\ConfigValues as ValidatorsConfigValues;
 use App\Models\User;
 use App\Rules\Skins;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use ConfigValues;
 
 class SetSkinsController extends Controller
 {
@@ -36,7 +36,7 @@ class SetSkinsController extends Controller
                 'button'=> $request->button,
                 'icons'=>$request->icons
             ];
-            if ($validated && ConfigValues::checkSkins($arr)) {
+            if ($validated && ValidatorsConfigValues::checkSkins($arr)) {
                 $call->setTheme($arr);
             }
         }

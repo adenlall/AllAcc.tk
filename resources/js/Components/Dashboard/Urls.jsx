@@ -99,15 +99,15 @@ if(path !== undefined || path !== null ){
     }
     const fastCheck = (link) => {
 
-    var pattern = '^(https?:\\/\\/)?' + // protocol
-        '((([a-zA-Z\\d]([a-zA-Z\\d-]{0,61}[a-zA-Z\\d])*\\.)+' + // sub-domain + domain name
-                '[a-zA-Z]{2,13})' + // extension
-                        '|((\\d{1,3}\\.){3}\\d{1,3})' + // OR ip (v4) address
-                                '|localhost)' + // OR localhost
-                                        '(\\:\\d{1,5})?' + // port
-                                                '(\\/[a-zA-Z\\&\\d%_.~+-:@]*)*' + // path
-                                                        '(\\?[a-zA-Z\\&\\d%_.,~+-:@=;&]*)?' + // query string
-                                                                '(\\#[-a-zA-Z&\\d_]*)?$';
+        var pattern = '^(https?:\\/\\/)?' + // protocol
+            '((([a-zA-Z\\d]([a-zA-Z\\d-]{0,61}[a-zA-Z\\d])*\\.)+' + // sub-domain + domain name
+                    '[a-zA-Z]{2,13})' + // extension
+                            '|((\\d{1,3}\\.){3}\\d{1,3})' + // OR ip (v4) address
+                                    '|localhost)' + // OR localhost
+                                            '(\\:\\d{1,5})?' + // port
+                                                    '(\\/[a-zA-Z\\&\\d%_.~+-:@]*)*' + // path
+                                                            '(\\?[a-zA-Z\\&\\d%_.,~+-:@=;&]*)?' + // query string
+                                                                    '(\\#[-a-zA-Z&\\d_]*)?$';
                                     var regex = new RegExp(pattern);
                                     return regex.test(link);
     }
@@ -121,7 +121,7 @@ if(path !== undefined || path !== null ){
                 if(path.length <= 15){
                     Inertia.post('/urls/set?to=default', { name: linkv, link: link }, { preserveScroll: true })
                 }else{
-                    toast['error']('15 link is the max!');
+                    toast['error']('15 links is the max!');
                 }
             }else{
                 toast['error']('not a valid link');

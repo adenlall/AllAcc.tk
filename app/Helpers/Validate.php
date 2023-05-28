@@ -2,18 +2,21 @@
 
 namespace App\Helpers;
 
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
+
 class Validate
 {
 
     static public function UItype(string $val): bool
     {
         $arr = ['Blade', 'JSX'];
-        return checkexist($val, $arr);
+        return self::checkexist($val, $arr);
     }
     static public function CustomNum(string $val): bool
     {
         $arr = ['custom1', 'custom2', 'editor1', 'editor2'];
-        return checkexist($val, $arr);
+        return self::checkexist($val, $arr);
     }
 
 
@@ -32,8 +35,8 @@ class Validate
         if ($return_fixed) {
         // @TODO: add verification for other values from app_metadata table
             $new_arr = [];
-            $new_arr['skins']   = checkexist($arr['skins'], $c_data[0]) ? $arr['skins'] : $c_data[0][0];   
-            $new_arr['icons']  = checkexist($arr['icons'], $c_data[1]) ? $arr['icons'] : $c_data[1][0];
+            $new_arr['skins']   = self::checkexist($arr['skins'], $c_data[0]) ? $arr['skins'] : $c_data[0][0];   
+            $new_arr['icons']  = self::checkexist($arr['icons'], $c_data[1]) ? $arr['icons'] : $c_data[1][0];
             $new_arr['hex']    = $arr['hex'];
             $new_arr['font']   = $arr['font'];
             $new_arr['button'] = $arr['button'];
@@ -43,14 +46,14 @@ class Validate
         }
 
         // @TODO: add verification for other values from app_metadata table
-        return [checkexist($arr['skins'], $c_data[0]), checkexist($arr['icons'], $c_data[1]), true, true, true];
+        return [self::checkexist($arr['skins'], $c_data[0]), self::checkexist($arr['icons'], $c_data[1]), true, true, true];
     }
 
 
     /**
      * Check the existence of a value on an array given
      */
-    private function checkexist(string $val, array $arr): bool
+    private static function checkexist(string $val, array $arr): bool
     {
         try {
             //code...

@@ -34,7 +34,7 @@ class Theme
             for ($i=0; $i < count($data); $i++) {
                 $temp = ["combo"=> array_merge(["data" => json_decode($data[$i]->json_config)], ["colors"=>[$data[$i]->clr0, $data[$i]->clr1,$data[$i]->clr2]],["header"=>$data[$i]->header])];
                 $temp = array_merge($temp ,["name" => $data[$i]->name],["c_name" => $data[$i]->c_name]);
-                array_push($icon_arr, array_merge(["c_name"=>$data[$i]->c_icons], ["name"=>$data[$i]->icons]));
+                array_push($icon_arr, array_merge(["name"=>$data[$i]->c_icons], ["c_name"=>$data[$i]->icons]));
             }
             return $icon_arr;
         });
