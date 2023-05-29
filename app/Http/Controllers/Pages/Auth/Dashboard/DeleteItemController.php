@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 
 class DeleteItemController extends Controller
 {
-    //
 
     public function __invoke(Request $request)
     {
@@ -30,4 +29,5 @@ class DeleteItemController extends Controller
             'message' => "{$request['name']} record has been deleted!"
         ]);
     }
+
 }
