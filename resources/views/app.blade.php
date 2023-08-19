@@ -19,44 +19,44 @@
     <title>{{$user->username}} - AllAcc</title>
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     {{-- <link href="{{ asset('/css/button.css') }}" rel="stylesheet" /> --}}
-    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/fonts.css') }}" > --}}
+    {{-- <link rel="stylesheet" type="text/css" href="{{ asset('resources/css/font.css') }}" > --}}
     <style>
 
 
 
 @font-face {
     font-family: "BeatWord";
-    src: url(/fonts/BeatWord.ttf);
+    src: url(/font/BeatWord.ttf);
 }
 
 @font-face {
     font-family: "BillyHatter";
-    src: url(/fonts/BillyHatter.otf);
+    src: url(/font/BillyHatter.otf);
 }
 
 @font-face {
     font-family: "Calygraphy";
-    src: url(/fonts/Calygraphy.ttf);
+    src: url(/font/Calygraphy.ttf);
 }
 
 @font-face {
     font-family: "Gracheva";
-    src: url(/fonts/Gracheva.otf);
+    src: url(/font/Gracheva.otf);
 }
 
 @font-face {
     font-family: "OldGorgeous";
-    src: url(/fonts/OldGorgeous.otf);
+    src: url(/font/OldGorgeous.otf);
 }
 
 @font-face {
     font-family: "OldMe";
-    src: url(/fonts/OldMe.otf);
+    src: url(/font/OldMe.otf);
 }
 
 @font-face {
     font-family: "Profont";
-    src: url(/fonts/Profont.ttf);
+    src: url(/font/Profont.ttf);
 }
 
 

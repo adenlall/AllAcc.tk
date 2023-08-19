@@ -41,10 +41,10 @@
                 <div class="">
                     <h2 class="text-2xl font-bold">Pages able to Repair :</h2>
                     <div class=" max-h-[20em] w-auto md:container m-auto overflow-auto p-2 flex flex-col space-y-2 ">
-                        <div class="form-control rounded-lg w-auto bg-[#272700] p-2">
+                        <div class="form-control rounded-lg w-auto bg-slate-900 dark:bg-slate-200 p-2 py-0">
                             <label class="label cursor-pointer">
-                                <span class="label-text text-black">All</span>
-                                <input onclick="checkAll()" type="checkbox" name="all" id="check_all" class="checkbox" />
+                                <span class="label-text dark:text-black text-white">All</span>
+                                <input onclick="checkAll()" type="checkbox" name="all" id="check_all" class="checkbox checkbox-info" />
                             </label>
                         </div>
                         <div class="form-control rounded-lg w-auto bg-[#f5f5dc] p-2">
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <span class="text-lg">By repairing your account you will lost all your data related to the pages selected</span>
-                <button type="submit" class="btn m-auto w-full sm:container mt-[1em]">Repair</button>
+                <button type="submit" class="btn m-auto w-full sm:w-auto sm:container mt-[1em]">Repair</button>
             </form>
             <div
                 class="m-auto flex flex-col items-center justify-center content-center space-y-4 p-[2em] rounded-lg bg-white">

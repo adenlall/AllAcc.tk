@@ -43,6 +43,7 @@ class HandleInertiaRequests extends Middleware
     {
 
         return array_merge(parent::share($request), [
+            'domain' => request()->getHost(),
             'auth' => [
                 'user' => $request->user(),
             ],

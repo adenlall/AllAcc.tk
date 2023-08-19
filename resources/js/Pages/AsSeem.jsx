@@ -163,7 +163,7 @@ function AsSeem() {
         <>
 
             <Head title={user.name + " - AllAcc"} />
-            <div data-theme={theme.theme.skin} style={{ 'fontFamily': `${(font === null || font === undefined) ? 'Gracheva' : font}`, 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Header/${e}.jpg")`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
+            <div data-theme={theme.theme.skins} style={{ 'fontFamily': `${(font === null || font === undefined) ? 'Gracheva' : font}`, 'backgroundImage': `url("/imgs/config/${theme.theme.skins}/Header/${e}.jpg")`, 'backgroundSize': 'contain', 'backgroundRepeat': 'no-repeat', 'backgroundColor': ' hsl(var(--b1))', 'borderRadius': '0' }} className=''>
 
                 {/* NAV BAR */}
                 <section className="container m-auto p-4 ">
@@ -215,7 +215,7 @@ function AsSeem() {
                                                 <section className="space-y-3 md:w-1/2 w-full ">
                                                     <h3 className='italic text-xl font-extrabold'>THE QUOTE :</h3>
                                                     <div className="w-full h-full p-4 rounded-lg bg-secondary boxAs">
-                                                        <h3 className={`text-lg ${theme.theme.skin === 'RPG' ? 'text-black' : theme.theme.skin === 'BnW' ? 'white' : 'text-base-100'} font-semibold`}>{user.quote}</h3>
+                                                        <h3 className={`text-lg ${theme.theme.skins === 'RPG' ? 'text-black' : theme.theme.skins === 'BnW' ? 'white' : 'text-base-100'} font-semibold`}>{user.quote}</h3>
                                                     </div>
 
                                                 </section>
@@ -306,15 +306,15 @@ function AsSeem() {
 
                                             <section className='sm:space-y-3 space-y-5 w-full mt-[3em]'>
                                                 <h3 className='italic text-xl font-extrabold'>FEEL <span className="italic text-success">{user.name}</span> BY HIS FAVORITE SOUNG :</h3>
-                                                <div className='boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url("/imgs/config/${theme.theme.skin}/Soung/${e}.jpg")`, 'backgroundSize': 'cover' }}>
+                                                <div className='boxAs flex flex-col justify-between sm:flex-row sm:space-x-2 space-x-0 rounded-lg  bg-cover' style={{ 'backgroundImage': `url("/imgs/config/${theme.theme.skins}/Soung/${e}.jpg")`, 'backgroundSize': 'cover' }}>
                                                     <div className='w-full flex flex-col sm:flex-row sm:space-x-2 space-x-0 rounded-lg bg-transparent '>
                                                         <div className="ss:w-[17em] ss:h-[17em] w-[11em] h-[11em] sm:m-0 mt-8 m-auto z-[1]" >
                                                             <img onError={event => { event.target.src = "https://nice-direct-links.herokuapp.com/12deb/file.jpg"; event.onerror = null }} className='object-cover w-full h-full rounded-lg' src={soung.album.cover_big} alt="" />
                                                         </div>
                                                         <div className='p-2 flex flex-row justify-between space-y-2 sm:w-[60%] w-full mt-[-4em] pt-[4em] sm:mt-0 sm:pt-2 bg-accent sm:bg-transparent rounded-lg '>
                                                             <div className='p-2 flex flex-col space-y-2'>
-                                                                <h2 className={`font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ${theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
-                                                                <h2 className={`font-bold text-lg ${theme.theme.skin !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis artistUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
+                                                                <h2 className={`font-extrabold xs:text-[3em] text-[2em] leading-2 mt-[.3em] ${theme.theme.skins !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis trackUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.track}</h2>
+                                                                <h2 className={`font-bold text-lg ${theme.theme.skins !== 'BnW' ? 'sm:text-black text-black' : 'sm:text-white text-black'} overflow-hidden text-ellipsis artistUser`} style={{ 'display': 'Webkit-box', 'WebkitLineClamp': '2', 'WebkitBoxOrient': 'vertical' }}>{user.artist}</h2>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -370,7 +370,7 @@ function AsSeem() {
 
                             <div className="container my-4 px-4 mb-[3em] m-auto">
                                 <div style={{ background: 'linear-gradient(182deg, hsl(var(--p)/0.4), transparent)' }} className="w-full text-secondary boxAs rounded-lg p-4 ">
-                                    <h3 style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='italic text-2xl font-extrabold p-2 text-primary'><span style={{ color: `${theme.theme.skin === 'BnW' ? 'white' : 'auto'}` }} className='text-primary'>{user.name}</span>'s Links</h3>
+                                    <h3 style={{ color: `${theme.theme.skins === 'BnW' ? 'white' : 'auto'}` }} className='italic text-2xl font-extrabold p-2 text-primary'><span style={{ color: `${theme.theme.skins === 'BnW' ? 'white' : 'auto'}` }} className='text-primary'>{user.name}</span>'s Links</h3>
                                     <div className="space-y-3">
                                         {
                                             theme.config.urlsGrps.map((urlGrp) => (
@@ -384,8 +384,8 @@ function AsSeem() {
                                                                         <>
                                                                             {
                                                                                 url['grp'] === urlGrp[0] ?
-                                                                                    <a className="w-full block p-0 shadow-sm shadow-gray" href={url.link}>
-                                                                                        <button className={`w-full m-auto ${theme.theme.button ? theme.theme.button : 'orangebtn'}`}>
+                                                                                    <a className="w-full block p-0 shadow-sm shadow-gray" href={url.link.includes("http") ? url.link : 'https://'+url.link}>
+                                                                                        <button className={`w-full m-auto overflow-hidden ${theme.theme.button ? theme.theme.button : 'orangebtn'}`} style ={{overflow:"hidden"}}>
                                                                                             <span style={{ fontFamily: 'sans-serif' }} class="text font-bold overflow-hidden text-ellipsis whitespace-nowrap"><span className="m-auto">{url.name}</span></span>
                                                                                         </button>
 
@@ -408,8 +408,8 @@ function AsSeem() {
                                                     <>
                                                         {
                                                             ((url['grp'] === null) || (url['grp'] === 'none')) ?
-                                                                <a className="w-[95%]  m-auto block p-0 shadow-sm shadow-gray" href={url.link}>
-                                                                    <button className={`w-full m-auto ${theme.theme.button ? theme.theme.button : 'orangebtn'}`}>
+                                                                <a className="w-[95%]  m-auto block p-0 shadow-sm shadow-gray" href={url.link.includes("http") ? url.link : 'https://'+url.link}>
+                                                                    <button className={`w-full m-auto ${theme.theme.button ? theme.theme.button : 'orangebtn'}`} style={{overflow:"hidden"}}>
                                                                         <span style={{ fontFamily: 'sans-serif' }} class="noMoreBreak text font-bold overflow-hidden text-ellipsis whitespace-nowrap"><span className="m-auto">{url.name}</span></span>
                                                                     </button>
                                                                 </a>
@@ -431,7 +431,7 @@ function AsSeem() {
 
 
 
-                <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skin}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
+                <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': `url("/imgs/config/${theme.theme.skins}/Header/footer-0.jpg")`, 'backgroundSize': 'cover' }} className='w-full bg-center bg-cover m-0'>
                     <div style={{ 'borderBottomLeftRadius': '0', 'borderBottomRightRadius': '0', 'background': 'hsl(var(--p) / .4)' }} className='w-full pt-[2em] px-4 pb-[2em]' >
                         <div className=' container m-auto pt-3 px-4 sm:px-0'>
                             <h3 className='italic text-xl font-extrabold text-white'>WHERE CAN YOU FIND <span className='text-white'>{user.name}</span> :</h3>

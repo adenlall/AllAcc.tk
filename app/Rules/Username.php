@@ -3,6 +3,7 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use Illuminate\Support\Facades\Route;
 
 class Username implements Rule
 {
@@ -25,10 +26,17 @@ class Username implements Rule
      */
     public function passes($attribute, $value)
     {
-        $data = ['privacy','adenlall', 'home', 'login', 'allacc', 'dashboard', 'register','faq', 'logout', 'profile', 'about', 'advanced', 'settings','setting','skin','skins', 'dd','logout','admin','boss'];
 
-        for($i=0; $i < count($data); $i++) {
-            if($data[$i] === strtolower($value)){
+        $data = [];
+
+        foreach (Route::getRoutes()->getRoutes() as $route) {
+            $action = $route->getAction();
+            if (array_key_exists('as', $action)) {
+                $data[] = $action['as'];
+            }
+        }
+        for ($i = 0; $i < count($data); $i++) {
+            if ($data[$i] === strtolower($value)) {
                 return false;
                 break;
             };
@@ -43,6 +51,6 @@ class Username implements Rule
      */
     public function message()
     {
-        return 'Unsupported username.';
+        return 'non valid username.';
     }
 }

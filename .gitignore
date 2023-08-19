@@ -16,10 +16,10 @@ public_html/storage
 public_html/hot
 
 storage/*.key
-.env
+#.env
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-database\seeders\AdminationSeeder.php
-database\seeders\AdminSeeder.php
+#database/seeders/AdminationSeeder.php
+#database/seeders/AdminSeeder.php

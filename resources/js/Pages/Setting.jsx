@@ -2,13 +2,13 @@
 import toast from 'react-hot-toast';
 import React, { useState } from 'react';
 import Base from '../Layouts/Base';
-import Skin from '../Components/Dashboard/Skin';
+import Skins from '../Components/Dashboard/Skins';
 import { usePage } from '@inertiajs/inertia-react';
 import UIType from '../Components/Dashboard/UIType';
 
 
 export default function Setting() {
-    const { icons, skins } = usePage().props;
+    const { icons, skins, buttons, fonts } = usePage().props;
     const [ ind, setInd ]  = useState(0);
 
     return (
@@ -23,7 +23,7 @@ export default function Setting() {
             </div>
             {
                 ind === 1 ?
-                <Skin skins={JSON.stringify(skins)} icons={JSON.stringify(icons)} />
+                <Skins skins={JSON.stringify(skins)} buttons={JSON.stringify(buttons)} fonts={JSON.stringify(fonts)} icons={JSON.stringify(icons)} />
                 : ind === 0 ?
                 <UIType/>
                 :''

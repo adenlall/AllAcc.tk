@@ -73,7 +73,7 @@ export default function Privacy() {
                 </li>
                 <li>
                     Communicate with you, either directly or through one of our
-                    partners, including for customer service, to provide you
+                    partners, including for customr service, to provide you
                     with updates and other information relating to the website,
                     and for marketing and promotional purposes
                 </li>

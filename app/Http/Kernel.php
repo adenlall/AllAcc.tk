@@ -39,6 +39,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\HandleInertiaRequests::class,
+            \App\Http\Middleware\App\IsAppUpdated::class,
             // \Fruitcake\Cors\HandleCors::class,
         ],
 
@@ -57,24 +58,28 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
-        'adminPath' => \App\Http\Middleware\AdminPath::class,
-        'toAdminDash' => \App\Http\Middleware\ToAdminDash::class,
-        'adminAccess' => \App\Http\Middleware\AdminationAccess::class,
-        'adminRequ' => \App\Http\Middleware\AdminMaxTries::class,
-        'is_admin' => \App\Http\Middleware\Admin\isAdmin::class,
-        'admin' => \App\Http\Middleware\Admin::class,
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
-        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'auth'             => \App\Http\Middleware\Authenticate::class,
+        'auth.basic'       => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'auth.session'     => \Illuminate\Session\Middleware\AuthenticateSession::class,
+        'cache.headers'    => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can'              => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest'            => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'translated' => \App\Http\Middleware\Translated::class,
+        'signed'           => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle'         => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified'         => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         // 'cors' => \Fruitcake\Cors\HandleCors::class,
+        
+        //app
+        'translated'      => \App\Http\Middleware\App\Translated::class,
+        
+        //admin
+        'toAdminDash'     => \App\Http\Middleware\Admin\ToAdminDash::class,
+        'is_admin'        => \App\Http\Middleware\Admin\isAdmin::class,
+        'adminPath'       => \App\Http\Middleware\Admin\AdminPath::class,
+        'admin'           => \App\Http\Middleware\Admin\Admin::class,
+        'adminAccess'     => \App\Http\Middleware\Admin\AdminationAccess::class,
+        'admin_max_tries' => \App\Http\Middleware\Admin\AdminMaxTries::class,
 
     ];
 }

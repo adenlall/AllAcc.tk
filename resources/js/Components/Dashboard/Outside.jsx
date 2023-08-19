@@ -4,7 +4,7 @@ import { usePage, Link } from '@inertiajs/inertia-react';
 
 
 export default function Outside() {
-    const { auth, advanced } = usePage().props;
+    const { auth, advanced , domain } = usePage().props;
     // console.log(advanced);
 
     function check_if_repeated(e){
@@ -41,7 +41,7 @@ export default function Outside() {
             <div>
                 <div className="flex flex-col shadow-lg lg:flex-row items-center justify-between p-2 text-lg  rounded-lg font-bold bg-ago text-black w-full">
                     <div className="flex flex-col space-y-3 sm:space-y-0 sm:flex-row items-center justify-center lg:w-auto w-full">
-                        <p className="bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 sm:w-auto w-full "><span className="sm:block hidden">https://</span>allacc.herokuapp.com/{auth.user.username}</p>
+                        <p className="bg-ap2 text-sm lg:text-lg flex rounded-lg mr-0 lg:mr-[-0.2em] p-2 sm:w-auto w-full "><span className="sm:block hidden">https://</span>{domain+'/'+auth.user.username}</p>
                         <span className="p-2 pl-[0.1em] border-dashed border-[#042b28] border-[0.2em] sm:w-auto w-full bg-ap2 rounded-lg text-black font-bold md:text-lg lg:text-xl text-lg flex items-center" style={{ 'boxShadow': '-4px 5px 0px 0px black' }}>?from=<input type="text" name="place" id="place" className="input bg-white sm:h-fit lg:h-[3em] h-[3em] text-sm w-auto max-w-[9em] md:max-w-auto ml-2 md:ml-0 sm:w-[5em] lg:w-inherit" /></span>
                     </div>
                     <div className="lg:pt-0 pt-3 flex items-center justify-between lg:w-auto w-full">
@@ -57,7 +57,7 @@ export default function Outside() {
                                     <div className="flex flex-col lg:flex-row items-center rounded-lg bg-[darkslategray] w-full justify-between p-2">
                                         <div class="mockup-code w-[inherit] lg:w-[78%] text-[#a6adba] bg-[#191d24] rounded-lg">
                                             <pre className="text-[#fbbd23]" data-prefix=">" class="text-[#fbbd23]"><code>{adv.is}</code></pre>
-                                            <pre className="text-[#36d399]" data-prefix=">" class="text-[#36d399]"><code>the link : <code>https://www.allacc.tk/{auth.user.username}?from={adv.is}</code></code></pre>
+                                            <pre className="text-[#36d399]" data-prefix=">" class="text-[#36d399]"><code>the link : <code>https://{domain+'/'+auth.user.username}?from={adv.is}</code></code></pre>
                                         </div>
                                         <div className='lg:space-x-0 space-x-2 lg:space-y-2 space-y-0 flex flex-row lg:flex-col p-2 lg:items-start items-center lg:justify-center justify-between w-full lg:w-auto'>
                                             <code className="lg:text-lg text-xl font-extrabold">Clicks : <span className="text-ap1 font-bold text-xl">{adv.clicks}</span></code>
@@ -79,7 +79,7 @@ export default function Outside() {
                                                 <li>When you get your Public link from your Dashboard and you past it in your accounts Instagram, Facebook, Twitter..., and someone click it he enter to your public page, and you see that your public page incement in your Statistics page.</li>
                                                 <li>But What about if you want to know how many people clicked the link in specific place let's say <span className="text-black">Twitter</span> for example.</li>
                                                 <li>For that, you can add a <span className="text-black">"from"</span> parameter in your url in Twitter, and name it <span className="text-black">"twitter"</span>.</li>
-                                                <li>At the end, your public page URL will be like this <code className="text-black italic break-words">https://www.allacc.tk/{auth.user.username}/<span className="font-bold">?from=twitter</span></code></li>
+                                                <li>At the end, your public page URL will be like this <code className="text-black italic break-words">https://{domain+'/'+auth.user.username}/<span className="font-bold">?from=twitter</span></code></li>
                                                 <li>And now, you can see every click on that link from <span className="text-black">Twitter</span> in this case.</li>
                                                 <li>And you can add how much you want of "outside sources".</li>
                                             </p>
