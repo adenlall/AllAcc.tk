@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('github')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('vk')->nullable();
-            $table->string('website')->nullable();
 
             // to add in seeders and refresh
             $table->string('lastfm')->nullable();
@@ -37,8 +36,8 @@ return new class extends Migration
             $table->string('dribbble')->nullable();
             $table->string('flickr')->nullable();
 
-            // json for costumation
-            $table->string('costum')->nullable();
+            // json for customation
+            $table->string('custom')->nullable();
 
 
             $table->timestamps();

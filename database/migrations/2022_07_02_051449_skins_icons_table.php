@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create('skin', function(Blueprint $table){
+        Schema::create('skins', function(Blueprint $table){
 
             $table->id();
             $table->string('name');
@@ -40,6 +40,6 @@ return new class extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('skin');
+        Schema::dropIfExists('skins');
     }
 };

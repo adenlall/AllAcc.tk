@@ -15,7 +15,7 @@
         "autoprefixer": "^10.4.7",
         "axios": "^0.25",
         "babel-loader": "^8.2.5",
-        "browser-sync": "^2.27.10",
+        "browser-sync": "^2.29.1",
         "browser-sync-webpack-plugin": "^2.3.0",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",

@@ -35,7 +35,7 @@ export default function Navbar({ props, pageName }) {
                                                 <>
                                                     <li><Link className={component === 'Dashboard' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/dashboard" >Dashboard</Link></li>
                                                     <li><Link className={component === 'Profile' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/profile" >Profile</Link></li>
-                                                    <li><Link className={component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/setting" >Skin Settings</Link></li>
+                                                    <li><Link className={component === 'Setting' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/setting" >Skins Settings</Link></li>
                                                     <li><Link className={component === 'Statistics' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/statistics" >Statistics</Link></li>
                                                     <li><Link className={component === 'Advanced' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href="/advanced" >Advanced</Link></li>
                                                     <li><Link className={component === 'AsSeem' ? 'font-bold text-lg bg-accent rounded-xl text-black' : 'text-drk'} href={"/" + auth.user.username} >Public Page</Link></li>
@@ -86,7 +86,7 @@ export default function Navbar({ props, pageName }) {
                     <div class="dropdown dropdown-hover">
                         <label tabindex="0" class="btn md:m-1 m-0 flex grap-2 p-[2px] w-auto">
                             <svg
-                                className="w-auto md:mr-2 mr-0 h-[-webkit-fill-available]"
+                                className="w-auto md:mr-2 mr-0 h-[inherit]"
                                 xmlns="http://www.w3.org/2000/svg"
                                 x="0px"
                                 y="0px"

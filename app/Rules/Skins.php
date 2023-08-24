@@ -25,10 +25,13 @@ class Skins implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        // @TODO: move from here to db
 
-        $data = ['rB', 'Vx', 'C4', 'Dr', 'oB', 'NnP', 'Vnt', 'RPG', 'BnW', 'Ind'];
-        // foreach ($data as $key) {
+        $data = [
+            'icons' => ['rB', 'Vx', 'C4', 'Dr', 'oB'],
+            'skins' => ['NnP', 'Vnt', 'RPG', 'BnW', 'Ind']
+        ];
+        
         for($i=0; $i < count($data); $i++) {
             if($value === $data[$i]){
                 return true;

@@ -11,7 +11,7 @@ export default function Advanced() {
 
             <Outside/>
 
-            <h2 className="text-lg font-bold my-4">Costum HTML : </h2>
+            <h2 className="text-lg font-bold my-4">Custom HTML : </h2>
                 <div className="flex flex-col items-center text-black justify-center p-4 py-[4em] rounded-lg bg-ago">
                     This feature not available now for some security issues
                 </div>

@@ -30,13 +30,15 @@ return new class extends Migration
             $table->string('quote')->nullable();
             $table->string('track')->nullable();
             $table->string('artist')->nullable();
-
+            
             $table->integer('visit')->default(0);
-
             $table->boolean('disable')->default(false);
 
-            $table->json('json_config')->default('{"theme":{"skin":"RPG", "icons":"rB", "besthex":null},"visible":1, "pure":true}');
+            $table->string('version')->nullable();
 
+            $table->json('json_config')->nullable();
+            $table->json('json_locate')->nullable();
+            
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
 
