@@ -1,3 +1,7 @@
+
+<img src="https://raw.githubusercontent.com/adenlall/AllAcc.tk/master/public/AllAcc-02.png" width="300" height="300"/>
+
+
 # AllAcc - Linktree-alternative
 Customizable Linktree-like Web Application with Advanced Analytics
 
